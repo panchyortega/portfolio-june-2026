@@ -216,11 +216,19 @@
 .project-sidebar-left {
   border-right: 1px solid var(--color-border-subtle);
   padding: var(--space-32);
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  align-self: start;
 }
 
 .project-sidebar-right {
   border-left: 1px solid var(--color-border-subtle);
   padding: var(--space-32);
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  align-self: start;
 }
 
 /* ── Sidebar nav — shared styles for DS and sobre-mi ── */
