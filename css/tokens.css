@@ -104,8 +104,8 @@
 
   /* ── Layout ── */
   --nav-height:        52px;
-  --sidebar-left-w:    220px;
-  --sidebar-right-w:   200px;
+  --sidebar-left-w:    240px;
+  --sidebar-right-w:   240px;
   --content-max:       680px;
   --site-max:          1280px;
 }

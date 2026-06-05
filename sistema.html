@@ -253,11 +253,14 @@
         <p class="ds-section-desc">El sitio usa tres layouts distintos según el contexto: home, caso de estudio y sistema. En mobile todo colapsa a una columna con navegación inferior.</p>
 
         <p style="font-size: 0.8125rem; font-weight: var(--weight-semibold); color: var(--color-text-muted); margin-bottom: var(--space-12);">Caso de estudio — 3 columnas</p>
-        <div style="display: grid; grid-template-columns: 200px 1fr 180px; gap: 4px; margin-bottom: var(--space-24);">
-          <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--p-600); text-align: center;">Meta<br>200px</div>
-          <div style="background: var(--n-100); border: 1px solid var(--n-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--n-600); text-align: center;">Contenido<br>flex 1 · max 680px</div>
-          <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--p-600); text-align: center;">TOC<br>180px</div>
+        <div style="display: grid; grid-template-columns: 240px 16px 1fr 16px 240px; align-items: stretch; margin-bottom: var(--space-8);">
+          <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--p-600); text-align: center;">Meta · 240px<br><span style="font-size:9px;opacity:.7">padding 32px</span></div>
+          <div style="display:flex;align-items:center;justify-content:center;"><div style="width:1px;height:100%;background:var(--n-200);"></div></div>
+          <div style="background: var(--n-100); border: 1px solid var(--n-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--n-600); text-align: center;">Contenido · flex 1 · max 680px<br><span style="font-size:9px;opacity:.7">padding 56px</span></div>
+          <div style="display:flex;align-items:center;justify-content:center;"><div style="width:1px;height:100%;background:var(--n-200);"></div></div>
+          <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--p-600); text-align: center;">TOC · 240px<br><span style="font-size:9px;opacity:.7">padding 32px</span></div>
         </div>
+        <p style="font-size:9px;color:var(--color-text-subtle);margin-bottom:var(--space-24);font-family:monospace;">↑ bordes laterales actúan como separadores · sin column-gap explícito</p>
 
         <p style="font-size: 0.8125rem; font-weight: var(--weight-semibold); color: var(--color-text-muted); margin-bottom: var(--space-12);">Home — cards</p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: var(--space-24);">
