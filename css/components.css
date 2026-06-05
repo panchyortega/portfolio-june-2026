@@ -195,7 +195,6 @@
 /* ── TOC sidebar (desktop) ── */
 .toc {
   position: sticky;
-  top: calc(var(--nav-height) + var(--space-32));
 }
 .toc-title {
   font-size: var(--text-small);
@@ -297,7 +296,6 @@
 /* ── Sidebar left (desktop — meta info) ── */
 .sidebar-meta {
   position: sticky;
-  top: calc(var(--nav-height) + var(--space-32));
 }
 .sidebar-meta .sidebar-section {
   margin-bottom: var(--space-24);
