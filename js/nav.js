@@ -115,10 +115,9 @@
   `;
 
   // ── Montar en el DOM ──
-  // Insertar desktop nav al inicio del body
+  // Desktop nav: al inicio del body
   document.body.insertBefore(desktopNav, document.body.firstChild);
-  // Insertar mobile nav antes del primer <script>
-  const firstScript = document.body.querySelector('script');
-  document.body.insertBefore(mobileNav, firstScript);
+  // Mobile nav: al final del body (antes del cierre)
+  document.body.appendChild(mobileNav);
 
 })();
