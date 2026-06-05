@@ -78,11 +78,8 @@
           Proyectos <i class="ti ti-chevron-down chevron"></i>
         </button>
         <div class="nav-dropdown" id="dd-proyectos">
-          <p class="nav-dropdown-label">Profesionales</p>
           <a href="proyectos/ucap.html">Ucap: Dashboard</a>
           <a href="proyectos/ulern.html">Ulern: Study Session</a>
-          <div class="nav-dropdown-divider"></div>
-          <p class="nav-dropdown-label">Académicos</p>
           <a href="proyectos/aurora.html">Aurora Design System</a>
           <a href="proyectos/glukko.html">Glukko App</a>
           <a href="proyectos/otros.html">Otros proyectos</a>
@@ -595,11 +592,14 @@
           <div>
             <p class="comp-label">TABLA DE CONTENIDOS</p>
             <ul class="toc-list" id="sistema-toc">
-              <li><a class="toc-item" href="#grilla" onclick="setTocActive(this)">Grilla</a></li>
-              <li><a class="toc-item" href="#tipografia" onclick="setTocActive(this)">Tipografía</a></li>
-              <li><a class="toc-item sub" href="#tipografia" onclick="setTocActive(this)">Display / H1 / H2</a></li>
-              <li><a class="toc-item sub" href="#colores" onclick="setTocActive(this)">H3 / H4 / Body</a></li>
-              <li><a class="toc-item" href="#colores" onclick="setTocActive(this)">Colores</a></li>
+              <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">Contexto del proyecto</a></li>
+              <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">El problema</a></li>
+              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Usuarios afectados</a></li>
+              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Métricas de impacto</a></li>
+              <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">Solución propuesta</a></li>
+              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Wireframes</a></li>
+              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Iteraciones</a></li>
+              <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">Resultados</a></li>
             </ul>
           </div>
           <div class="type-specs">
@@ -658,12 +658,22 @@
         <div class="comp-row">
           <div>
             <p class="comp-label">NAVEGACIÓN GLOBAL</p>
-            <div style="background:var(--color-bg);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:0 var(--space-32);height:52px;display:flex;align-items:center;justify-content:space-between;">
-              <a href="index.html" style="font-size:var(--text-body);font-weight:500;color:var(--color-text);text-decoration:none;">Fran Ortega</a>
-              <div style="display:flex;gap:var(--space-32);">
-                <a href="index.html" class="nav-link">Inicio</a>
-                <a href="index.html" class="nav-link active">Proyectos</a>
-                <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
+            <div style="background:var(--color-bg);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:0 var(--space-32);height:52px;display:flex;align-items:center;justify-content:space-between;position:relative;">
+              <span style="font-size:var(--text-body);font-weight:500;color:var(--color-text);">Fran Ortega</span>
+              <div style="display:flex;gap:var(--space-4);align-items:center;">
+                <div class="nav-dropdown-wrap">
+                  <button class="nav-btn active" onclick="toggleDropdown('dd-demo',this)" aria-expanded="false">Proyectos <i class="ti ti-chevron-down chevron"></i></button>
+                  <div class="nav-dropdown" id="dd-demo">
+                    <a href="#" onclick="return false;">Ucap: Dashboard</a>
+                    <a href="#" onclick="return false;">Ulern: Study Session</a>
+                    <a href="#" onclick="return false;">Aurora Design System</a>
+                    <a href="#" onclick="return false;">Glukko App</a>
+                    <a href="#" onclick="return false;">Otros proyectos</a>
+                  </div>
+                </div>
+                <a href="#" onclick="return false;" class="nav-btn">Sobre mí</a>
+                <button class="nav-btn nav-btn-icon" onclick="return false;" title="Idioma"><i class="ti ti-language" style="font-size:1rem;"></i></button>
+                <button class="nav-btn nav-btn-icon" onclick="return false;" title="Tema"><i class="ti ti-moon"></i></button>
               </div>
             </div>
           </div>
@@ -698,6 +708,7 @@
     <div class="footer-bottom">© 2026 Francisca Ortega · Construido con HTML, CSS y JS</div>
   </footer>
 
+  <script src="js/main.js"></script>
   <script>
     // Sidebar nav active on scroll
     const sections = document.querySelectorAll('.ds-section');
