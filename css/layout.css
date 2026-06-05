@@ -39,6 +39,10 @@
   gap: var(--space-4);
 }
 
+.nav-dropdown-wrap {
+  position: relative;
+}
+
 /* Nav button base */
 .nav-btn {
   display: flex;
