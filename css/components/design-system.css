@@ -19,16 +19,23 @@
 .type-row {
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
+  gap: var(--space-24);
   padding: var(--space-24) 0;
   border-bottom: 1px solid var(--color-border-subtle);
 }
 .type-row:first-of-type { border-top: 1px solid var(--color-border-subtle); }
-.type-sample { padding-top: var(--space-4); }
+.type-row-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.type-sample { }
 .type-specs {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4) var(--space-24);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border-subtle);
 }
 .spec-row {
   display: flex;
@@ -51,7 +58,7 @@
 .comp-row {
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
+  gap: var(--space-24);
   padding: var(--space-32) 0;
   border-bottom: 1px solid var(--color-border-subtle);
 }
