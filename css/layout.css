@@ -82,13 +82,19 @@
 }
 
 .project-content h2 {
-  margin-top: var(--space-48);
+  margin-top: var(--space-56);
   margin-bottom: var(--space-16);
 }
 .project-content h2:first-child { margin-top: 0; }
 
+.project-content h3 {
+  margin-top: var(--space-32);
+  margin-bottom: var(--space-12);
+}
+
 .project-content p + p { margin-top: var(--space-12); }
-.project-content p + h2 { margin-top: var(--space-48); }
+.project-content p + h2 { margin-top: var(--space-56); }
+.project-content p + h3 { margin-top: var(--space-32); }
 
 .project-sidebar-right {
   padding: var(--space-40) var(--space-20);
