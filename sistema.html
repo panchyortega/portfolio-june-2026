@@ -11,13 +11,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
     /* usa page-layout del CSS global */
-    .ds-nav { padding: var(--space-40) var(--sidebar-pad); position: sticky; top: var(--nav-height); height: calc(100vh - var(--nav-height)); overflow-y: auto; }
+    .ds-nav { height: calc(100vh - var(--nav-height)); overflow-y: auto; }
     .ds-nav-section { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-subtle); letter-spacing: 0.1em; margin-bottom: var(--space-8); margin-top: var(--space-24); }
     .ds-nav-section:first-child { margin-top: 0; }
     .ds-nav-link { display: block; font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: none; padding: var(--space-4) 0; transition: color var(--transition-fast); }
     .ds-nav-link:hover { color: var(--color-text); }
     .ds-nav-link.active { color: var(--color-accent); font-weight: 500; }
-    .ds-main { padding: var(--space-56) var(--content-pad); }
+    .ds-main { padding-top: var(--space-56); }
     .ds-section { margin-bottom: var(--space-96); scroll-margin-top: calc(var(--nav-height) + var(--space-24)); }
     .ds-section-title { font-size: var(--text-h2); font-weight: 400; color: var(--color-text); margin-bottom: var(--space-8); padding-bottom: var(--space-16); border-bottom: 1px solid var(--color-border-subtle); }
     .ds-section-desc { font-size: var(--text-body); color: var(--color-text-muted); margin-bottom: var(--space-48); line-height: var(--lh-normal); }
@@ -104,7 +104,7 @@
   </nav>
 
   <div class="page-layout">
-    <aside class="ds-nav page-sidebar-left" style="border-right:1px solid var(--color-border-subtle);">
+    <aside class="ds-nav page-sidebar-left">
       <p class="ds-nav-section">Fundación</p>
       <a href="#grilla" class="ds-nav-link">Grilla</a>
       <a href="#tipografia" class="ds-nav-link">Tipografía</a>
