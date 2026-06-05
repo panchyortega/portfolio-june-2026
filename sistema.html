@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de diseño — Fran Ortega</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    /* ── Estilos propios del sistema ── */
+    .ds-layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      min-height: calc(100vh - var(--nav-height));
+      max-width: var(--site-max);
+      margin: 0 auto;
+    }
+    .ds-nav {
+      border-right: 1px solid var(--color-border-subtle);
+      padding: var(--space-40) var(--space-24);
+      position: sticky;
+      top: var(--nav-height);
+      height: calc(100vh - var(--nav-height));
+      overflow-y: auto;
+    }
+    .ds-nav-section {
+      font-size: 0.6875rem;
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-subtle);
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-8);
+      margin-top: var(--space-24);
+    }
+    .ds-nav-section:first-child { margin-top: 0; }
+    .ds-nav-link {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: var(--space-4) 0;
+      transition: color var(--transition-fast);
+    }
+    .ds-nav-link:hover { color: var(--color-text); text-decoration: none; }
+    .ds-nav-link.active { color: var(--color-accent); font-weight: var(--weight-medium); }
+
+    .ds-main {
+      padding: var(--space-56) var(--space-64);
+      max-width: 800px;
+    }
+
+    /* Secciones */
+    .ds-section {
+      margin-bottom: var(--space-96);
+      scroll-margin-top: calc(var(--nav-height) + var(--space-24));
+    }
+    .ds-section-title {
+      font-size: var(--text-h2);
+      font-weight: var(--weight-regular);
+      color: var(--color-text);
+      margin-bottom: var(--space-8);
+      padding-bottom: var(--space-16);
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .ds-section-desc {
+      font-size: var(--text-body);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-48);
+      line-height: var(--lh-normal);
+    }
+
+    /* Filas de muestra tipográfica */
+    .type-row {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: var(--space-32);
+      align-items: start;
+      padding: var(--space-24) 0;
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .type-row:first-of-type { border-top: 1px solid var(--color-border-subtle); }
+
+    .type-sample { padding-top: var(--space-4); }
+
+    .type-specs {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      padding-top: var(--space-6);
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-8);
+    }
+    .spec-key {
+      font-size: 0.6875rem;
+      color: var(--color-text-subtle);
+      white-space: nowrap;
+    }
+    .spec-val {
+      font-size: 0.6875rem;
+      font-family: 'Courier New', monospace;
+      color: var(--color-text-muted);
+      text-align: right;
+    }
+    .spec-divider {
+      height: 1px;
+      background: var(--color-border-subtle);
+      margin: var(--space-6) 0;
+    }
+
+    /* Muestra de inline styles */
+    .inline-demo {
+      padding: var(--space-24) 0;
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .inline-demo-label {
+      font-size: 0.6875rem;
+      color: var(--color-text-subtle);
+      margin-bottom: var(--space-12);
+      letter-spacing: 0.08em;
+    }
+    .inline-demo p {
+      font-size: var(--text-body);
+      line-height: var(--lh-normal);
+      color: var(--color-text);
+    }
+
+    /* Paleta de colores */
+    .color-group { margin-bottom: var(--space-40); }
+    .color-group-title {
+      font-size: 0.8125rem;
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-12);
+    }
+    .color-scale {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: var(--space-4);
+    }
+    .color-swatch {
+      aspect-ratio: 1;
+      border-radius: var(--radius-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-4);
+    }
+    .swatch-label {
+      font-size: 9px;
+      font-family: 'Courier New', monospace;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .swatch-hex {
+      font-size: 8px;
+      font-family: 'Courier New', monospace;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+
+    /* Espaciado */
+    .space-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: var(--space-16);
+    }
+    .space-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-6);
+    }
+    .space-bar {
+      background: var(--n-300);
+      border-radius: 2px;
+      width: 24px;
+    }
+    .space-val {
+      font-size: 9px;
+      font-family: 'Courier New', monospace;
+      color: var(--color-text-subtle);
+    }
+
+    /* Componentes */
+    .component-row {
+      padding: var(--space-32) 0;
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .component-row:first-of-type { border-top: 1px solid var(--color-border-subtle); }
+    .component-label {
+      font-size: 0.6875rem;
+      color: var(--color-text-subtle);
+      margin-bottom: var(--space-16);
+      letter-spacing: 0.08em;
+    }
+    .component-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .ds-layout { grid-template-columns: 1fr; }
+      .ds-nav { display: none; }
+      .ds-main { padding: var(--space-32) var(--space-24); }
+      .type-row { grid-template-columns: 1fr; }
+      .color-scale { grid-template-columns: repeat(5, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Fran Ortega</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Inicio</a></li>
+      <li><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
+    </ul>
+  </nav>
+
+  <div class="ds-layout">
+
+    <!-- Sidebar izquierda -->
+    <aside class="ds-nav">
+      <p class="ds-nav-section">Fundación</p>
+      <a href="#grilla" class="ds-nav-link">Grilla</a>
+      <a href="#tipografia" class="ds-nav-link">Tipografía</a>
+      <a href="#colores" class="ds-nav-link">Colores</a>
+      <a href="#espaciado" class="ds-nav-link">Espaciado</a>
+      <p class="ds-nav-section">Componentes</p>
+      <a href="#atomos" class="ds-nav-link">Átomos</a>
+      <a href="#moleculas" class="ds-nav-link">Moléculas</a>
+      <a href="#organismos" class="ds-nav-link">Organismos</a>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="ds-main">
+
+      <h1 style="font-size: var(--text-h1); font-weight: var(--weight-regular); margin-bottom: var(--space-8);">Sistema de diseño</h1>
+      <p class="body-lg" style="color: var(--color-text-muted); margin-bottom: var(--space-64);">Tokens, estilos y componentes que conforman este portfolio. Construido sobre Sentient, una escala neutral verde-frío y rojo terracota como color primario.</p>
+
+      <!-- ── GRILLA ── -->
+      <section class="ds-section" id="grilla">
+        <h2 class="ds-section-title">Grilla</h2>
+        <p class="ds-section-desc">El sitio usa tres layouts distintos según el contexto: home, caso de estudio y sistema. En mobile todo colapsa a una columna con navegación inferior.</p>
+
+        <p style="font-size: 0.8125rem; font-weight: var(--weight-semibold); color: var(--color-text-muted); margin-bottom: var(--space-12);">Caso de estudio — 3 columnas</p>
+        <div style="display: grid; grid-template-columns: 200px 1fr 180px; gap: 4px; margin-bottom: var(--space-24);">
+          <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--p-600); text-align: center;">Meta<br>200px</div>
+          <div style="background: var(--n-100); border: 1px solid var(--n-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--n-600); text-align: center;">Contenido<br>flex 1 · max 680px</div>
+          <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--p-600); text-align: center;">TOC<br>180px</div>
+        </div>
+
+        <p style="font-size: 0.8125rem; font-weight: var(--weight-semibold); color: var(--color-text-muted); margin-bottom: var(--space-12);">Home — cards</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: var(--space-24);">
+          <div style="background: var(--n-100); border: 1px solid var(--n-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--n-600); text-align: center;">Card</div>
+          <div style="background: var(--n-100); border: 1px solid var(--n-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--n-600); text-align: center;">Card</div>
+          <div style="background: var(--n-100); border: 1px solid var(--n-200); border-radius: var(--radius-sm); padding: var(--space-12); font-size: 0.6875rem; color: var(--n-600); text-align: center;">Card</div>
+        </div>
+
+        <p style="font-size: 0.8125rem; font-weight: var(--weight-semibold); color: var(--color-text-muted); margin-bottom: var(--space-12);">Mobile — breakpoint ≤600px</p>
+        <div style="display: flex; gap: var(--space-8); align-items: stretch;">
+          <div style="background: var(--n-100); border: 1px solid var(--n-200); border-radius: var(--radius-sm); padding: var(--space-12) var(--space-16); font-size: 0.6875rem; color: var(--n-600); flex: 1; text-align: center;">1 columna · padding 20px</div>
+          <div style="background: var(--p-50); border: 1px solid var(--p-200); border-radius: var(--radius-sm); padding: var(--space-12) var(--space-16); font-size: 0.6875rem; color: var(--p-600); text-align: center;">Nav<br>bottom<br>54px</div>
+        </div>
+      </section>
+
+      <!-- ── TIPOGRAFÍA ── -->
+      <section class="ds-section" id="tipografia">
+        <h2 class="ds-section-title">Tipografía</h2>
+        <p class="ds-section-desc">Todo el sitio usa <strong>Sentient</strong> — una serif variable con suficiente rango de pesos para prescindir de una sans. Google Fonts, cargada con <code style="font-size: 0.8125rem; background: var(--n-100); padding: 2px 5px; border-radius: 3px;">display=swap</code>.</p>
+
+        <!-- Display -->
+        <div class="type-row">
+          <div class="type-sample">
+            <div style="font-size: var(--text-display); font-weight: var(--weight-light); line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); color: var(--color-text);">Display</div>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">Display / Hero</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">52px · 3.25rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">300 Light</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.1 · ~57px</span></div>
+            <div class="spec-row"><span class="spec-key">Tracking</span><span class="spec-val">−0.02em</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-800</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Hero de home</span></div>
+          </div>
+        </div>
+
+        <!-- H1 -->
+        <div class="type-row">
+          <div class="type-sample">
+            <h1 style="font-size: var(--text-h1); font-weight: var(--weight-regular); line-height: var(--lh-tight); letter-spacing: var(--tracking-snug);">Título de página</h1>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">H1</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">40px · 2.5rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">400 Regular</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.15 · ~46px</span></div>
+            <div class="spec-row"><span class="spec-key">Tracking</span><span class="spec-val">−0.01em</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-800</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Nombre del proyecto</span></div>
+          </div>
+        </div>
+
+        <!-- H2 -->
+        <div class="type-row">
+          <div class="type-sample">
+            <h2 style="font-size: var(--text-h2); font-weight: var(--weight-regular); line-height: var(--lh-snug);">Sección principal</h2>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">H2</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">28px · 1.75rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">400 Regular</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.35 · ~38px</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-800</span></div>
+            <div class="spec-row"><span class="spec-key">Margin top</span><span class="spec-val">56px</span></div>
+            <div class="spec-row"><span class="spec-key">Margin bottom</span><span class="spec-val">16px</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Secciones del caso</span></div>
+          </div>
+        </div>
+
+        <!-- H3 -->
+        <div class="type-row">
+          <div class="type-sample">
+            <h3 style="font-size: var(--text-h3); font-weight: var(--weight-medium); line-height: var(--lh-snug);">Subsección</h3>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">H3</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">20px · 1.25rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">500 Medium</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.35 · ~27px</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-800</span></div>
+            <div class="spec-row"><span class="spec-key">Margin top</span><span class="spec-val">32px</span></div>
+            <div class="spec-row"><span class="spec-key">Margin bottom</span><span class="spec-val">12px</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Subsecciones del caso</span></div>
+          </div>
+        </div>
+
+        <!-- H4 -->
+        <div class="type-row">
+          <div class="type-sample">
+            <h4 style="font-size: var(--text-h4); font-weight: var(--weight-semibold); line-height: var(--lh-snug); letter-spacing: var(--tracking-wide);">Etiqueta o label</h4>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">H4 / Label</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">15px · 0.9375rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">600 Semibold</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.35 · ~20px</span></div>
+            <div class="spec-row"><span class="spec-key">Tracking</span><span class="spec-val">+0.01em</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-800 / n-500</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Meta labels, sidebar</span></div>
+          </div>
+        </div>
+
+        <!-- Body large -->
+        <div class="type-row">
+          <div class="type-sample">
+            <p class="body-lg">Texto introductorio o bajada de página con un poco más de presencia.</p>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">Body large</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">18px · 1.125rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">400 Regular</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.7 · ~31px</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-500 (muted)</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Subtítulo del proyecto</span></div>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="type-row">
+          <div class="type-sample">
+            <p>Texto de párrafo normal. Legible, espaciado, sin esfuerzo. El tamaño base del que derivan todas las demás medidas del sistema.</p>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">Body</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">16px · 1rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">400 Regular</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.7 · ~27px</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-800</span></div>
+            <div class="spec-row"><span class="spec-key">p + p gap</span><span class="spec-val">12px</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Contenido del caso</span></div>
+          </div>
+        </div>
+
+        <!-- Small -->
+        <div class="type-row">
+          <div class="type-sample">
+            <span class="small">Pie de imagen · Metadatos · 7–8 minutos de lectura · 2025</span>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">Small</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">12px · 0.75rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">400 Regular</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.5 · ~18px</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-400 (subtle)</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Uso</span><span class="spec-val">Caption, meta, tiempo</span></div>
+          </div>
+        </div>
+
+        <!-- Link -->
+        <div class="type-row">
+          <div class="type-sample">
+            <a href="#">Ver proyecto completo</a>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">Hipervínculo</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">hereda del padre</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">p-500 terracota</span></div>
+            <div class="spec-row"><span class="spec-key">Decoración</span><span class="spec-val">underline · 3px offset</span></div>
+            <div class="spec-row"><span class="spec-key">Color línea</span><span class="spec-val">p-300 (claro)</span></div>
+            <div class="spec-row"><span class="spec-key">Hover color</span><span class="spec-val">p-600</span></div>
+            <div class="spec-row"><span class="spec-key">Hover línea</span><span class="spec-val">p-500</span></div>
+          </div>
+        </div>
+
+        <!-- Cita -->
+        <div class="type-row">
+          <div class="type-sample">
+            <blockquote>"El desafío más difícil no fue diseñar los gráficos — fue definir qué preguntas debía responder cada uno."</blockquote>
+          </div>
+          <div class="type-specs">
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">Blockquote</span></div>
+            <div class="spec-divider"></div>
+            <div class="spec-row"><span class="spec-key">Tamaño</span><span class="spec-val">20px · 1.25rem</span></div>
+            <div class="spec-row"><span class="spec-key">Peso</span><span class="spec-val">300 Light</span></div>
+            <div class="spec-row"><span class="spec-key">Estilo</span><span class="spec-val">italic</span></div>
+            <div class="spec-row"><span class="spec-key">Interlineado</span><span class="spec-val">1.6 · ~32px</span></div>
+            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-500 (muted)</span></div>
+            <div class="spec-row"><span class="spec-key">Border left</span><span class="spec-val">2px · p-400</span></div>
+            <div class="spec-row"><span class="spec-key">Padding left</span><span class="spec-val">20px</span></div>
+            <div class="spec-row"><span class="spec-key">Margin</span><span class="spec-val">24px arriba y abajo</span></div>
+          </div>
+        </div>
+
+        <!-- Inline styles -->
+        <div class="inline-demo">
+          <p class="inline-demo-label">ESTILOS INLINE — sobre body 16px</p>
+          <p>Texto normal con <strong>énfasis en negrita (600)</strong>, en <em>itálica para matices</em>, <u>subrayado</u>, <s>tachado para correcciones</s>, y <mark>resaltado para llamadas de atención</mark>.</p>
+        </div>
+      </section>
+
+      <!-- ── COLORES ── -->
+      <section class="ds-section" id="colores">
+        <h2 class="ds-section-title">Colores</h2>
+        <p class="ds-section-desc">Dos escalas de 10 pasos. <strong>Neutral</strong> — verde muy desaturado y frío, base de todo el sistema. <strong>Primary</strong> — rojo terracota, usado para énfasis, links y estados activos.</p>
+
+        <div class="color-group">
+          <p class="color-group-title">Neutral — verde desaturado frío</p>
+          <div class="color-scale">
+            <div class="color-swatch" style="background:#F4F5F2; border: 1px solid #C8CEC1;"><span class="swatch-label" style="color:#637060">50</span><span class="swatch-hex" style="color:#869180">#F4F5F2</span></div>
+            <div class="color-swatch" style="background:#E3E6DF;"><span class="swatch-label" style="color:#4A5546">100</span><span class="swatch-hex" style="color:#637060">#E3E6DF</span></div>
+            <div class="color-swatch" style="background:#C8CEC1;"><span class="swatch-label" style="color:#343D31">200</span><span class="swatch-hex" style="color:#4A5546">#C8CEC1</span></div>
+            <div class="color-swatch" style="background:#A8B09E;"><span class="swatch-label" style="color:#1F261D">300</span><span class="swatch-hex" style="color:#343D31">#A8B09E</span></div>
+            <div class="color-swatch" style="background:#869180;"><span class="swatch-label" style="color:#1F261D">400</span><span class="swatch-hex" style="color:#343D31">#869180</span></div>
+            <div class="color-swatch" style="background:#637060;"><span class="swatch-label" style="color:#E3E6DF">500</span><span class="swatch-hex" style="color:#C8CEC1">#637060</span></div>
+            <div class="color-swatch" style="background:#4A5546;"><span class="swatch-label" style="color:#C8CEC1">600</span><span class="swatch-hex" style="color:#A8B09E">#4A5546</span></div>
+            <div class="color-swatch" style="background:#343D31;"><span class="swatch-label" style="color:#A8B09E">700</span><span class="swatch-hex" style="color:#869180">#343D31</span></div>
+            <div class="color-swatch" style="background:#1F261D;"><span class="swatch-label" style="color:#869180">800</span><span class="swatch-hex" style="color:#637060">#1F261D</span></div>
+            <div class="color-swatch" style="background:#111710;"><span class="swatch-label" style="color:#637060">900</span><span class="swatch-hex" style="color:#4A5546">#111710</span></div>
+          </div>
+          <div style="display: flex; gap: var(--space-32); margin-top: var(--space-16); flex-wrap: wrap;">
+            <span class="small">texto → 800 · muted → 500 · subtle → 400</span>
+            <span class="small">borde → 200 · borde sutil → 100 · fondo → 50</span>
+          </div>
+        </div>
+
+        <div class="color-group">
+          <p class="color-group-title">Primary — rojo terracota</p>
+          <div class="color-scale">
+            <div class="color-swatch" style="background:#F7EDE8; border: 1px solid #DFA897;"><span class="swatch-label" style="color:#923D2A">50</span><span class="swatch-hex" style="color:#CB7A62">#F7EDE8</span></div>
+            <div class="color-swatch" style="background:#EFD3C6;"><span class="swatch-label" style="color:#712E1E">100</span><span class="swatch-hex" style="color:#923D2A">#EFD3C6</span></div>
+            <div class="color-swatch" style="background:#DFA897;"><span class="swatch-label" style="color:#4F1F13">200</span><span class="swatch-hex" style="color:#712E1E">#DFA897</span></div>
+            <div class="color-swatch" style="background:#CB7A62;"><span class="swatch-label" style="color:#30120B">300</span><span class="swatch-hex" style="color:#4F1F13">#CB7A62</span></div>
+            <div class="color-swatch" style="background:#B25540;"><span class="swatch-label" style="color:#F7EDE8">400</span><span class="swatch-hex" style="color:#EFD3C6">#B25540</span></div>
+            <div class="color-swatch" style="background:#923D2A;"><span class="swatch-label" style="color:#EFD3C6">500</span><span class="swatch-hex" style="color:#DFA897">#923D2A</span></div>
+            <div class="color-swatch" style="background:#712E1E;"><span class="swatch-label" style="color:#DFA897">600</span><span class="swatch-hex" style="color:#CB7A62">#712E1E</span></div>
+            <div class="color-swatch" style="background:#4F1F13;"><span class="swatch-label" style="color:#CB7A62">700</span><span class="swatch-hex" style="color:#B25540">#4F1F13</span></div>
+            <div class="color-swatch" style="background:#30120B;"><span class="swatch-label" style="color:#B25540">800</span><span class="swatch-hex" style="color:#923D2A">#30120B</span></div>
+            <div class="color-swatch" style="background:#170804;"><span class="swatch-label" style="color:#923D2A">900</span><span class="swatch-hex" style="color:#712E1E">#170804</span></div>
+          </div>
+          <div style="display: flex; gap: var(--space-32); margin-top: var(--space-16); flex-wrap: wrap;">
+            <span class="small">links → 500 · hover → 600 · borde activo → 400</span>
+            <span class="small">tint → 50 · tag bg → 50 · tag texto → 600</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ESPACIADO ── -->
+      <section class="ds-section" id="espaciado">
+        <h2 class="ds-section-title">Espaciado</h2>
+        <p class="ds-section-desc">Escala de espaciado con pasos pequeños hasta 24px y múltiplos de 8 desde ahí. Todos disponibles como variables CSS <code style="font-size: 0.8125rem; background: var(--n-100); padding: 2px 5px; border-radius: 3px;">--space-N</code>.</p>
+
+        <div class="space-grid">
+          <div class="space-item"><div class="space-bar" style="height:0;border:1px solid var(--n-300);"></div><span class="space-val">0</span></div>
+          <div class="space-item"><div class="space-bar" style="height:1px;"></div><span class="space-val">1</span></div>
+          <div class="space-item"><div class="space-bar" style="height:2px;"></div><span class="space-val">2</span></div>
+          <div class="space-item"><div class="space-bar" style="height:4px;"></div><span class="space-val">4</span></div>
+          <div class="space-item"><div class="space-bar" style="height:6px;"></div><span class="space-val">6</span></div>
+          <div class="space-item"><div class="space-bar" style="height:8px;"></div><span class="space-val">8</span></div>
+          <div class="space-item"><div class="space-bar" style="height:12px;"></div><span class="space-val">12</span></div>
+          <div class="space-item"><div class="space-bar" style="height:16px;"></div><span class="space-val">16</span></div>
+          <div class="space-item"><div class="space-bar" style="height:20px;"></div><span class="space-val">20</span></div>
+          <div class="space-item"><div class="space-bar" style="height:24px;"></div><span class="space-val">24</span></div>
+          <div class="space-item"><div class="space-bar" style="height:32px;"></div><span class="space-val">32</span></div>
+          <div class="space-item"><div class="space-bar" style="height:40px;"></div><span class="space-val">40</span></div>
+          <div class="space-item"><div class="space-bar" style="height:48px;"></div><span class="space-val">48</span></div>
+          <div class="space-item"><div class="space-bar" style="height:56px;"></div><span class="space-val">56</span></div>
+          <div class="space-item"><div class="space-bar" style="height:64px;"></div><span class="space-val">64</span></div>
+          <div class="space-item"><div class="space-bar" style="height:72px;"></div><span class="space-val">72</span></div>
+          <div class="space-item"><div class="space-bar" style="height:80px;"></div><span class="space-val">80</span></div>
+          <div class="space-item"><div class="space-bar" style="height:96px;"></div><span class="space-val">96</span></div>
+          <div class="space-item"><div class="space-bar" style="height:112px;"></div><span class="space-val">112</span></div>
+          <div class="space-item"><div class="space-bar" style="height:128px;"></div><span class="space-val">128</span></div>
+        </div>
+      </section>
+
+      <!-- ── ÁTOMOS ── -->
+      <section class="ds-section" id="atomos">
+        <h2 class="ds-section-title">Átomos</h2>
+        <p class="ds-section-desc">Los elementos más pequeños e indivisibles del sistema.</p>
+
+        <!-- Botones -->
+        <div class="component-row">
+          <p class="component-label">BOTONES</p>
+          <div class="component-demo">
+            <a href="#" class="btn btn-primary">Primary</a>
+            <a href="#" class="btn btn-ghost">Ghost</a>
+            <a href="#" class="btn btn-link">Link <i class="ti ti-arrow-right" style="font-size: 0.875rem;"></i></a>
+          </div>
+        </div>
+
+        <!-- Tags -->
+        <div class="component-row">
+          <p class="component-label">TAGS</p>
+          <div class="component-demo">
+            <span class="tag tag-primary">Profesional</span>
+            <span class="tag tag-primary">MVP lanzado</span>
+            <span class="tag tag-neutral">UX/UI</span>
+            <span class="tag tag-neutral">2025</span>
+            <span class="tag tag-neutral">Académico</span>
+          </div>
+        </div>
+
+        <!-- Callout -->
+        <div class="component-row">
+          <p class="component-label">CALLOUT / CITA</p>
+          <blockquote>"El desafío más difícil no fue diseñar los gráficos — fue definir qué preguntas debía responder cada uno."</blockquote>
+        </div>
+
+        <!-- Caption -->
+        <div class="component-row">
+          <p class="component-label">CAPTION DE IMAGEN</p>
+          <div style="background: var(--n-100); border-radius: var(--radius-md); height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-8);"><span class="small">imagen</span></div>
+          <span class="caption">Vista general del Company Dashboard, mostrando participación por área.</span>
+        </div>
+      </section>
+
+      <!-- ── MOLÉCULAS ── -->
+      <section class="ds-section" id="moleculas">
+        <h2 class="ds-section-title">Moléculas</h2>
+        <p class="ds-section-desc">Combinaciones de átomos que forman unidades funcionales.</p>
+
+        <!-- Meta card -->
+        <div class="component-row">
+          <p class="component-label">META CARD — info del proyecto</p>
+          <div style="max-width: 280px;">
+            <div class="meta-item">
+              <p class="meta-label">Empresa</p>
+              <p class="meta-value">Ulern / Edtech startup</p>
+            </div>
+            <div class="meta-item">
+              <p class="meta-label">Tipo</p>
+              <div class="meta-tags">
+                <span class="tag tag-primary">Profesional</span>
+                <span class="tag tag-neutral">UX/UI</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <p class="meta-label">Estado</p>
+              <div class="meta-tags"><span class="tag tag-primary">MVP lanzado</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOC item -->
+        <div class="component-row">
+          <p class="component-label">TOC — tabla de contenidos</p>
+          <ul class="toc-list" style="pointer-events: none;">
+            <li><a class="toc-item" href="#">Introducción</a></li>
+            <li><a class="toc-item active" href="#">El problema</a></li>
+            <li><a class="toc-item sub" href="#">Preguntas clave</a></li>
+            <li><a class="toc-item sub" href="#">Contexto</a></li>
+            <li><a class="toc-item" href="#">Mi rol</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── ORGANISMOS ── -->
+      <section class="ds-section" id="organismos">
+        <h2 class="ds-section-title">Organismos</h2>
+        <p class="ds-section-desc">Estructuras completas compuestas de moléculas y átomos.</p>
+
+        <!-- Project card -->
+        <div class="component-row">
+          <p class="component-label">PROJECT CARD</p>
+          <div style="max-width: 320px;">
+            <a href="#" class="project-card" onclick="return false;">
+              <div class="project-card-thumb img-placeholder" style="height: 160px;">thumbnail</div>
+              <div class="project-card-body">
+                <div class="project-card-meta">
+                  <span class="tag tag-primary">Profesional</span>
+                  <span class="tag tag-neutral">2025</span>
+                </div>
+                <p class="project-card-title">Ucap: Dashboard</p>
+                <p class="project-card-desc">Diseño end-to-end de una plataforma B2B de aprendizaje corporativo con IA.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <div class="component-row">
+          <p class="component-label">NAVEGACIÓN GLOBAL</p>
+          <div style="background: var(--color-bg); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); padding: 0 var(--space-32); height: 52px; display: flex; align-items: center; justify-content: space-between; pointer-events: none;">
+            <span style="font-size: var(--text-body); font-weight: var(--weight-medium); color: var(--color-text);">Fran Ortega</span>
+            <div style="display: flex; gap: var(--space-32);">
+              <span class="nav-link">Inicio</span>
+              <span class="nav-link active">Proyectos</span>
+              <span class="nav-link">Sobre mí</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Fran Ortega</p>
+        <p class="footer-tagline">UX/UI Designer · Santiago, Chile</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:francisca.ortega.pa@gmail.com" class="footer-link">francisca.ortega.pa@gmail.com</a>
+        <a href="https://linkedin.com/in/franciscaortegaparedes" class="footer-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/panchyortega" class="footer-link" target="_blank">GitHub</a>
+        <a href="sistema.html" class="footer-link system">Sistema de diseño ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Francisca Ortega · Construido con HTML, CSS y JS</div>
+  </footer>
+
+  <script>
+    // Highlight nav link activo en scroll
+    const sections = document.querySelectorAll('.ds-section');
+    const navLinks = document.querySelectorAll('.ds-nav-link');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 80) current = s.id;
+      });
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+      });
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
