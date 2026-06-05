@@ -36,12 +36,13 @@
   gap: var(--space-6);
 }
 .spec-key {
-  font-size: 0.6875rem;
-  color: var(--color-text-subtle);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-muted);
   white-space: nowrap;
 }
 .spec-val {
-  font-size: 0.6875rem;
+  font-size: var(--text-small);
   font-family: 'Courier New', monospace;
   color: var(--color-text-muted);
 }
@@ -58,10 +59,7 @@
 .comp-row .type-specs { padding-top: 0; }
 .comp-row:first-of-type { border-top: 1px solid var(--color-border-subtle); }
 .comp-label {
-  font-size: 0.6875rem;
-  color: var(--color-text-subtle);
   margin-bottom: var(--space-16);
-  letter-spacing: 0.08em;
   margin-top: var(--space-4);
 }
 .comp-demo {
