@@ -54,10 +54,9 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: var(--text-h4);
-  font-weight: var(--weight-semibold);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-medium);
   line-height: var(--lh-snug);
-  letter-spacing: var(--tracking-wide);
 }
 
 p {
@@ -92,19 +91,17 @@ mark {
 /* Links */
 a {
   color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--p-300);
-  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+  text-decoration: none;
+  transition: color var(--transition-fast);
 }
 a:hover {
   color: var(--color-accent-hover);
-  text-decoration-color: var(--p-500);
+  text-decoration: none;
 }
 
 /* Blockquote / cita */
 blockquote {
-  font-size: var(--text-h3);
+  font-size: var(--text-body-lg);
   font-weight: var(--weight-light);
   font-style: italic;
   line-height: 1.6;
