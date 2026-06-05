@@ -311,10 +311,10 @@
   margin-bottom: var(--space-20);
 }
 .sidebar-meta .meta-label {
-  font-size: var(--text-small); /* 12px */
-  color: var(--color-text-subtle);
-  margin-bottom: var(--space-4);
+  font-size: var(--text-body);
   font-weight: var(--weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
 }
 .sidebar-meta .meta-value {
   font-size: var(--text-small); /* 12px */
