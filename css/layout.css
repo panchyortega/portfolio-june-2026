@@ -215,7 +215,7 @@
 
 .project-sidebar-left {
   border-right: 1px solid var(--color-border-subtle);
-  padding: var(--space-40) var(--sidebar-pad);
+  padding: var(--space-32) var(--sidebar-pad);
   position: sticky;
   top: var(--nav-height);
   height: calc(100vh - var(--nav-height));
@@ -224,11 +224,11 @@
 
 .project-sidebar-right {
   border-left: 1px solid var(--color-border-subtle);
-  padding: var(--space-40) var(--sidebar-pad);
+  padding: var(--space-32) var(--sidebar-pad);
 }
 
 .project-main {
-  padding: var(--space-40) var(--content-pad);
+  padding: var(--space-32) var(--content-pad);
   min-width: 0;
 }
 
