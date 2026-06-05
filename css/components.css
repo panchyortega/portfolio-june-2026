@@ -204,27 +204,8 @@
   margin-bottom: var(--space-4);
 }
 
-.toc-title {
-  /* sidebar-label */
-  font-size: var(--text-small);
-  font-weight: var(--weight-medium);
-  color: var(--color-text);
-  margin-bottom: var(--space-12);
-}
-.toc-progress {
-  height: 2px;
-  background: var(--n-100);
-  border-radius: var(--radius-full);
-  margin-bottom: var(--space-16);
-  overflow: hidden;
-}
-.toc-progress-bar {
-  height: 100%;
-  background: var(--p-400);
-  border-radius: var(--radius-full);
-  width: 0%;
-  transition: width var(--transition-fast);
-}
+
+
 .toc-list {
   border-left: 1.5px solid var(--n-100);
   list-style: none;
