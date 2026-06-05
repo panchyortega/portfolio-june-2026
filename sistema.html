@@ -458,8 +458,8 @@
         <!-- Botón ghost -->
         <div class="comp-row">
           <div>
-            <p class="comp-label">BOTÓN GHOST</p>
-            <div class="comp-demo"><a href="#" class="btn btn-ghost" onclick="return false;">Ghost</a></div>
+            <p class="comp-label">BOTÓN SECONDARY</p>
+            <div class="comp-demo"><a href="#" class="btn btn-ghost" onclick="return false;">Secondary</a></div>
           </div>
           <div class="type-specs">
             <div class="spec-row"><span class="spec-key">Background</span><span class="spec-val">transparent</span></div>
@@ -486,7 +486,7 @@
             <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">12px · 0</span></div>
             <div class="spec-row"><span class="spec-key">Font</span><span class="spec-val">16px · 500</span></div>
             <div class="spec-div"></div>
-            <div class="spec-row"><span class="spec-key">Hover color</span><span class="spec-val">p-700</span></div>
+            <div class="spec-row"><span class="spec-key">Hover color</span><span class="spec-val">p-800</span></div>
           </div>
         </div>
 
@@ -566,12 +566,12 @@
         <div class="comp-row">
           <div>
             <p class="comp-label">TABLA DE CONTENIDOS</p>
-            <ul class="toc-list" style="pointer-events:none;">
-              <li><a class="toc-item" href="#">Introducción</a></li>
-              <li><a class="toc-item active" href="#">El problema</a></li>
-              <li><a class="toc-item sub" href="#">Preguntas clave</a></li>
-              <li><a class="toc-item sub" href="#">Contexto</a></li>
-              <li><a class="toc-item" href="#">Mi rol</a></li>
+            <ul class="toc-list" id="sistema-toc">
+              <li><a class="toc-item" href="#grilla" onclick="setTocActive(this)">Grilla</a></li>
+              <li><a class="toc-item" href="#tipografia" onclick="setTocActive(this)">Tipografía</a></li>
+              <li><a class="toc-item sub" href="#tipografia" onclick="setTocActive(this)">Display / H1 / H2</a></li>
+              <li><a class="toc-item sub" href="#colores" onclick="setTocActive(this)">H3 / H4 / Body</a></li>
+              <li><a class="toc-item" href="#colores" onclick="setTocActive(this)">Colores</a></li>
             </ul>
           </div>
           <div class="type-specs">
@@ -630,12 +630,12 @@
         <div class="comp-row">
           <div>
             <p class="comp-label">NAVEGACIÓN GLOBAL</p>
-            <div style="background:var(--color-bg);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:0 var(--space-32);height:52px;display:flex;align-items:center;justify-content:space-between;pointer-events:none;">
-              <span style="font-size:var(--text-body);font-weight:500;color:var(--color-text);">Fran Ortega</span>
+            <div style="background:var(--color-bg);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:0 var(--space-32);height:52px;display:flex;align-items:center;justify-content:space-between;">
+              <a href="index.html" style="font-size:var(--text-body);font-weight:500;color:var(--color-text);text-decoration:none;">Fran Ortega</a>
               <div style="display:flex;gap:var(--space-32);">
-                <span class="nav-link">Inicio</span>
-                <span class="nav-link active">Proyectos</span>
-                <span class="nav-link">Sobre mí</span>
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="index.html" class="nav-link active">Proyectos</a>
+                <a href="sobre-mi.html" class="nav-link">Sobre mí</a>
               </div>
             </div>
           </div>
@@ -671,6 +671,7 @@
   </footer>
 
   <script>
+    // Sidebar nav active on scroll
     const sections = document.querySelectorAll('.ds-section');
     const navLinks = document.querySelectorAll('.ds-nav-link');
     window.addEventListener('scroll', () => {
@@ -678,6 +679,12 @@
       sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
       navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
     }, { passive: true });
+
+    // TOC demo interactivity
+    window.setTocActive = (el) => {
+      document.querySelectorAll('#sistema-toc .toc-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    };
   </script>
 </body>
 </html>
