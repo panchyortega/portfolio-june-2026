@@ -198,7 +198,7 @@
   top: calc(var(--nav-height) + var(--space-32));
 }
 .toc-title {
-  font-size: var(--text-h4);
+  font-size: var(--text-small);
   font-weight: var(--weight-medium);
   color: var(--color-text);
   margin-bottom: var(--space-12);
@@ -223,7 +223,7 @@
 }
 .toc-item {
   display: block;
-  font-size: 0.8125rem; /* 13px */
+  font-size: var(--text-small); /* 12px */
   color: var(--color-text-muted);
   padding: var(--space-4) var(--space-12);
   border-left: 2px solid transparent;

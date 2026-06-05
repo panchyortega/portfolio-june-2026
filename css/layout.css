@@ -263,6 +263,7 @@
 
 .project-content {
   max-width: var(--content-max);
+  margin: 0 auto;
 }
 
 .project-content h2 {
