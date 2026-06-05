@@ -1,0 +1,16 @@
+/* ─────────────────────────────────────────────
+   COMPONENT: Image Placeholder
+   Clases: .img-placeholder
+   ───────────────────────────────────────────── */
+
+.img-placeholder {
+  background: var(--n-100);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-small);
+  color: var(--color-text-subtle);
+  letter-spacing: 0.04em;
+  width: 100%;
+}

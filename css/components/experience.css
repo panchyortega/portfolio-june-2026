@@ -1,0 +1,166 @@
+/* ─────────────────────────────────────────────
+   COMPONENT: Experience Card (sobre-mi)
+   Clases: .sm-hero, .sm-name, .sm-bio,
+           .sm-section, .sm-section-title,
+           .exp-card, .exp-header, .exp-empresa,
+           .exp-rol, .exp-fecha, .exp-tags,
+           .dims, .dim, .dim-label, .dim-content,
+           .edu-item, .edu-titulo, .edu-inst,
+           .edu-fecha, .skills-grid,
+           .skill-group-title, .skill-tags
+   ───────────────────────────────────────────── */
+
+/* Hero */
+.sm-hero {
+  margin-bottom: var(--space-64);
+  padding-bottom: var(--space-48);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.sm-name {
+  font-size: var(--text-h1);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-snug);
+  margin-bottom: var(--space-16);
+}
+.sm-bio {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-light);
+  line-height: var(--lh-normal);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-20);
+}
+
+/* Sección */
+.sm-section {
+  margin-bottom: var(--space-72);
+  scroll-margin-top: calc(var(--nav-height) + var(--space-24));
+}
+.sm-section-title {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-regular);
+  color: var(--color-text);
+  margin-bottom: var(--space-32);
+  padding-bottom: var(--space-16);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* Experiencia card */
+.exp-card {
+  padding-bottom: var(--space-48);
+  margin-bottom: var(--space-48);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.exp-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.exp-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-16);
+  align-items: start;
+  margin-bottom: var(--space-12);
+}
+.exp-empresa {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+.exp-rol {
+  font-size: var(--text-body);
+  color: var(--color-text-muted);
+}
+.exp-fecha {
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
+  color: var(--color-accent);
+  white-space: nowrap;
+  padding-top: var(--space-6);
+}
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-24);
+}
+
+/* Tres dimensiones */
+.dims {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+.dim {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+.dim-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text-subtle);
+  padding-top: var(--space-4);
+  text-transform: uppercase;
+}
+.dim-content {
+  font-size: var(--text-body);
+  line-height: var(--lh-normal);
+  color: var(--color-text);
+}
+.dim-content em {
+  font-style: italic;
+  color: var(--color-text);
+}
+
+/* Educación */
+.edu-item {
+  padding-bottom: var(--space-24);
+  margin-bottom: var(--space-24);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.edu-item:last-child { border-bottom: none; }
+.edu-titulo {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+.edu-inst {
+  font-size: var(--text-body);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+.edu-fecha {
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
+  color: var(--color-text-subtle);
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-32);
+}
+.skill-group-title {
+  font-size: var(--text-h4);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-12);
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+@media (max-width: 860px) {
+  .dim { grid-template-columns: 1fr; gap: var(--space-8); }
+  .exp-header { grid-template-columns: 1fr; }
+  .exp-fecha { padding-top: 0; }
+  .skills-grid { grid-template-columns: 1fr; }
+}

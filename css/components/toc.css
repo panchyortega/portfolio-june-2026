@@ -1,0 +1,84 @@
+/* ─────────────────────────────────────────────
+   COMPONENT: Table of Contents
+   Desktop: .toc, .toc-list, .toc-item
+   Mobile:  .toc-fab, .toc-panel
+   ───────────────────────────────────────────── */
+
+/* ── Desktop ── */
+.toc {
+  padding-top: 0;
+}
+.toc-list {
+  border-left: 1.5px solid var(--n-100);
+  list-style: none;
+}
+.toc-item {
+  display: block;
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
+  padding: var(--space-4) var(--space-12);
+  border-left: 2px solid transparent;
+  margin-left: -1.5px;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.toc-item:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+.toc-item.active {
+  color: var(--color-accent);
+  border-left-color: var(--p-400);
+}
+.toc-item.sub {
+  padding-left: var(--space-24);
+}
+
+/* ── Mobile FAB + panel ── */
+.toc-fab {
+  position: fixed;
+  bottom: calc(54px + var(--space-16));
+  right: var(--space-16);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--n-700);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.toc-fab.open { background: var(--p-500); }
+.toc-fab:active { transform: scale(0.94); }
+
+.toc-panel {
+  position: fixed;
+  bottom: calc(54px + var(--space-16) + 40px + var(--space-8));
+  right: var(--space-16);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+  width: 220px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  z-index: 99;
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+.toc-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toc-panel .toc-title {
+  margin-bottom: var(--space-8);
+}

@@ -1,0 +1,23 @@
+/* ─────────────────────────────────────────────
+   COMPONENT: Tag / Chip
+   Clases: .tag, .tag-primary, .tag-neutral
+   ───────────────────────────────────────────── */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  white-space: nowrap;
+}
+.tag-primary {
+  background: var(--p-100);
+  color: var(--p-600);
+}
+.tag-neutral {
+  background: var(--n-100);
+  color: var(--color-text-muted);
+}
