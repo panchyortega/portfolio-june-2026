@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Otros proyectos — Fran Ortega</title>
-  <meta name="description" content="Una colección de piezas gráficas, campañas de email, presentaciones, diseño editorial y más, desarrollados entre 2023 y 2025">
+  <meta name="description" content="Colección de piezas gráficas, campañas de email, diseño editorial y más.">
   <link rel="stylesheet" href="../css/tokens.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
@@ -22,53 +22,168 @@
           Proyectos <i class="ti ti-chevron-down chevron"></i>
         </button>
         <div class="nav-dropdown" id="dd-proyectos">
-          <a href="glukko.html">Ucap: Dashboard</a>
+          <a href="ucap.html">Ucap: Dashboard</a>
           <a href="ulern.html">Ulern: Study Session</a>
           <a href="aurora.html">Aurora Design System</a>
           <a href="glukko.html">Glukko App</a>
           <a href="otros.html">Otros proyectos</a>
         </div>
-      
-        <h2>Sobre esta colección</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+      </div>
+      <a href="../sobre-mi.html" class="nav-btn">Sobre mí</a>
+      <a href="../sistema.html" class="nav-btn">DS</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-lang" aria-expanded="false" onclick="toggleDropdown('dd-lang', this)">
+          <i class="ti ti-language" style="font-size:1rem;"></i> <span id="lang-label">ES</span> <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-lang" style="right:0;left:auto;min-width:140px;">
+          <button onclick="setLang('es')">🇨🇱 Español</button>
+          <button onclick="setLang('en')">🇺🇸 English</button>
+        </div>
+      </div>
+      <button class="nav-btn nav-btn-icon" onclick="toggleTheme()" title="Cambiar tema">
+        <i class="ti ti-moon" id="theme-icon"></i>
+      </button>
+    </div>
+  </nav>
 
-        <h2>Diseño gráfico y branding</h2>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.</p> <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-        <div class="img-placeholder" style="height:300px;margin:var(--space-32) 0;">imagen — identidad visual — selección de proyectos 2022–2024</div>
-        <span class="caption">Identidad visual — selección de proyectos 2022–2024.</span>
-        <div class="img-grid-2"><div class="img-placeholder" style="height:220px;">piezas para redes sociales</div><div class="img-placeholder" style="height:220px;">materiales de marketing impreso</div></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  <!-- Layout 3 columnas -->
+  <div class="project-layout">
 
-        <h2>Email marketing</h2>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p> <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
-        <div class="img-placeholder" style="height:300px;margin:var(--space-32) 0;">imagen — campañas de email — diseño responsivo para distintas marcas</div>
-        <span class="caption">Campañas de email — diseño responsivo para distintas marcas.</span>
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
+    <!-- Sidebar izquierda — meta info -->
+    <aside class="project-sidebar-left">
+      <div class="sidebar-meta">
+      <!-- Meta card (mobile: inline en contenido) -->
+      <div class="meta-card" id="meta-card-desktop">
+          <div class="meta-item">
+            <p class="sidebar-label">Empresa</p>
+            <p class="meta-value">Ulern / Edtech startup</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Año</p>
+            <p class="meta-value">2025</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Tipo</p>
+            <div class="meta-tags">
+              <span class="tag tag-primary">Profesional</span>
+              <span class="tag tag-neutral">UX/UI</span>
+            </div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Mi rol</p>
+            <p class="meta-value">Diseñadora end-to-end</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Estado</p>
+            <div class="meta-tags">
+              <span class="tag tag-primary">MVP lanzado</span>
+            </div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Herramientas</p>
+            <p class="meta-value">Figma · Notion · Whimsical</p>
+          </div>
+      </div>
+      </div>
+    </aside>
 
-        <h2>Diseño web</h2>
-        <h3>Landing pages</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-        <div class="img-placeholder" style="height:300px;margin:var(--space-32) 0;">imagen — landing page — proyecto destacado</div>
-        <span class="caption">Landing page — proyecto destacado.</span>
+    <!-- Contenido principal -->
+    <main class="project-main">
+      <div class="project-content">
+<div class="project-header">
+          <h1 class="project-title">Otros proyectos</h1>
+          <p class="project-subtitle">Colección de piezas gráficas, campañas de email, diseño editorial y más.</p>
+          <p class="small" style="margin-top: var(--space-12);">7–8 minutos de lectura</p>
+        </div>
 
-        <h3>Portafolios y sitios</h3>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.</p> <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-        <div class="img-grid-2"><div class="img-placeholder" style="height:220px;">sitio web — industria servicios</div><div class="img-placeholder" style="height:220px;">sitio web — industria educación</div></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <!-- Meta card mobile (solo visible en mobile, se oculta en desktop) -->
+        <div class="meta-card" id="meta-card-mobile" style="margin-bottom: var(--space-40); display: none;">
+          <div class="meta-item">
+            <p class="meta-label">Empresa</p>
+            <p class="meta-value">Ulern / Edtech startup</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Año</p>
+            <p class="meta-value">2025</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Tipo</p>
+            <div class="meta-tags">
+              <span class="tag tag-primary">Profesional</span>
+              <span class="tag tag-neutral">UX/UI</span>
+            </div>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Mi rol</p>
+            <p class="meta-value">Diseñadora end-to-end</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Herramientas</p>
+            <p class="meta-value">Figma · Notion · Whimsical</p>
+          </div>
+        </div>
 
-        <h2>Diseño editorial</h2>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p> <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
-        <div class="img-placeholder" style="height:300px;margin:var(--space-32) 0;">imagen — material editorial — presentaciones institucionales y merchandising</div>
-        <span class="caption">Material editorial — presentaciones institucionales y merchandising.</span>
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
+        <!-- Contenido del caso -->
+        <h2>Introducción</h2>
+        <p>UCAP es un producto B2B de aprendizaje corporativo que usa IA para reforzar y medir resultados de aprendizaje. Lideré el diseño UX/UI end-to-end, trabajando en flows complejos y dashboards en colaboración con perfiles técnicos y de datos.</p>
+        <p>El desafío central: mostrar información útil a equipos de RRHH sin convertir la plataforma en una herramienta de control. Cada decisión de visualización implicaba una tensión entre transparencia y privacidad.</p>
 
-        <h2>Otros trabajos</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
-        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
-        
+        <div class="img-placeholder" style="height: 360px; margin: var(--space-32) 0;">imagen — overview del dashboard</div>
+        <span class="caption">Vista general del Company Dashboard, mostrando participación por área y resultados de contenidos.</span>
+
+        <h2>El problema</h2>
+        <p>En muchas empresas ocurre lo mismo: los programas de capacitación se ejecutan, pero es difícil responder preguntas clave como ¿quién participó?, ¿qué tan bien se entendió el contenido? o ¿dónde están las brechas de conocimiento?</p>
+
+        <h3>Preguntas que guiaron el diseño</h3>
+        <p>Antes de diseñar cualquier gráfico, era esencial entender qué necesitaba responder el dashboard. Trabajamos con el equipo de datos para identificar los patrones más relevantes para RRHH.</p>
+
+        <blockquote>"El desafío más difícil no fue diseñar los gráficos — fue definir qué preguntas debía responder cada uno."</blockquote>
+
+        <h3>Contexto de negocio</h3>
+        <p>UCAP opera a través de programas de capacitación creados con materiales internos de cada empresa. La IA genera ejercicios cortos que se liberan progresivamente, mientras la empresa accede a datos e insights sobre participación, rendimiento y brechas de conocimiento.</p>
+
+        <div class="img-grid-2">
+          <div class="img-placeholder" style="height: 200px;">wireframe — jerarquía</div>
+          <div class="img-placeholder" style="height: 200px;">flujo — navegación</div>
+        </div>
+        <span class="caption">Izquierda: wireframe de jerarquía de datos. Derecha: diagrama de flujo de navegación.</span>
+
+        <h2>Mi rol</h2>
+        <p>Fui la única diseñadora UX/UI dedicada en UCAP, con apoyo ocasional de una diseñadora senior. Estuve involucrada en todo el proceso: definición de producto, research, arquitectura de información, flujos, diseño visual y documentación para handoff.</p>
+
+        <h2>Proceso de diseño</h2>
+        <p>El trabajo se organizó en tres etapas: comprensión del problema, definición de la arquitectura de información, y diseño visual iterativo con el equipo de datos.</p>
+
+        <h3>Wireframes y arquitectura</h3>
+        <p>Los wireframes ayudaron a definir jerarquía, niveles de lectura y priorización de datos antes de tomar decisiones visuales o de interacción.</p>
+
+        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — proceso completo</div>
+        <span class="caption">Línea de tiempo del proceso desde research hasta handoff.</span>
+
+        <h3>Gráficos, estados y comportamiento</h3>
+        <p>El foco estuvo en diseñar interacciones claras — hover, selección y filtros — asegurando que los datos siguieran siendo comprensibles incluso para usuarios sin experiencia previa con dashboards.</p>
+
+        <div class="img-placeholder" style="height: 240px; margin: var(--space-32) 0;">imagen — estados de gráficos</div>
+        <span class="caption">Estados de los gráficos: cargando, vacío, con datos y con filtro activo.</span>
+
+        <h2>Documentación y handoff</h2>
+        <p>Documenté tipos de gráficos, estados e interacciones para facilitar la implementación, considerando que el equipo de desarrollo no estaba aún completamente formado. El producto fue construido sobre PrimeVue y Tailwind, lo que requirió diseñar con las restricciones reales de implementación en mente.</p>
+
+        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — documentación en Figma</div>
+        <span class="caption">Documentación de componentes y estados en Figma para el equipo de desarrollo.</span>
+
+        <h2>Lo que quedó fuera del MVP</h2>
+        <p>Algunas funciones del dashboard fueron dejadas deliberadamente fuera — como comparaciones avanzadas por área o agrupaciones más complejas — porque requerían una estructura de datos que aún no había sido validada. Decidimos postergarlas para una segunda versión.</p>
+
+        <h2>Aprendizajes</h2>
+        <p>UCAP fue mi primer proyecto profesional. El mayor desafío fue aprender a ponerme en los zapatos de profesionales de RRHH — un rol completamente ajeno para mí. Tuve que apoyarme mucho en el equipo, mi manager y entrevistas con usuarios potenciales.</p>
+        <p>Si pudiera hacerlo de nuevo, pondría más énfasis desde el inicio en el copy, la nomenclatura y el testing temprano. Hubo momentos donde conceptos clave no estaban alineados, lo que generó confusión interna e iteraciones innecesarias.</p>
+
 
         <div style="display:flex;justify-content:flex-end;gap:var(--space-12);margin-top:var(--space-64);padding-top:var(--space-32);border-top:1px solid var(--color-border-subtle);">
-          <a href="otros.html" class="btn btn-ghost">← Proyecto anterior</a>
+          <a href="glukko.html" class="btn btn-ghost">← Proyecto anterior</a>
           <a href="ucap.html" class="btn btn-primary">Siguiente proyecto →</a>
         </div>
       </div>
