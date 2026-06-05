@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
-    .sm-layout { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - var(--nav-height)); max-width: var(--site-max); margin: 0 auto; }
+    .sm-layout { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - var(--nav-height)); max-width: var(--site-max); margin: 0 auto; width: 100%; }
+    .sm-main { max-width: 100%; }
 
     .sm-nav { border-right: 1px solid var(--color-border-subtle); padding: var(--space-40) var(--space-24); position: sticky; top: var(--nav-height); height: calc(100vh - var(--nav-height)); overflow-y: auto; }
     .sm-nav-section { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-subtle); letter-spacing: 0.1em; margin-bottom: var(--space-12); margin-top: var(--space-28); }
@@ -20,16 +21,16 @@
     .sm-nav-link:hover { color: var(--color-text); }
     .sm-nav-link.active { color: var(--color-accent); }
 
-    .sm-main { padding: var(--space-56) var(--space-64); max-width: 720px; }
+    .sm-main { padding: var(--space-56) var(--space-64); }
 
     /* Hero */
-    .sm-hero { margin-bottom: var(--space-64); padding-bottom: var(--space-48); border-bottom: 1px solid var(--color-border-subtle); }
+    .sm-hero { margin-bottom: var(--space-64); padding-bottom: var(--space-48); border-bottom: 1px solid var(--color-border-subtle); max-width: 640px; }
     .sm-name { font-size: var(--text-h1); font-weight: var(--weight-regular); letter-spacing: var(--tracking-snug); margin-bottom: var(--space-16); }
     .sm-bio { font-size: var(--text-body-lg); font-weight: var(--weight-light); line-height: var(--lh-normal); color: var(--color-text-muted); margin-bottom: var(--space-20); }
     .sm-tags { display: flex; flex-wrap: wrap; gap: var(--space-8); }
 
     /* Sección */
-    .sm-section { margin-bottom: var(--space-72); scroll-margin-top: calc(var(--nav-height) + var(--space-24)); }
+    .sm-section { margin-bottom: var(--space-72); scroll-margin-top: calc(var(--nav-height) + var(--space-24)); max-width: 640px; }
     .sm-section-title { font-size: var(--text-h2); font-weight: var(--weight-regular); color: var(--color-text); margin-bottom: var(--space-32); padding-bottom: var(--space-16); border-bottom: 1px solid var(--color-border-subtle); }
 
     /* Experiencia card */
