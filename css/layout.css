@@ -225,6 +225,10 @@
 .project-sidebar-right {
   border-left: 1px solid var(--color-border-subtle);
   padding: var(--space-32) var(--sidebar-pad);
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
 }
 
 /* ── Sidebar nav — shared styles for DS and sobre-mi ── */
