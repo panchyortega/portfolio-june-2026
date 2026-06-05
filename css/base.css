@@ -20,7 +20,7 @@ html {
 
 body {
   font-family: var(--font);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
   font-size: var(--text-body);
   font-weight: var(--weight-regular);
   line-height: var(--lh-normal);
@@ -35,6 +35,7 @@ body {
 .display {
   font-family: var(--font-display);
   font-size: var(--text-display);
+  font-weight: 700;
   letter-spacing: -0.03em;
   font-weight: var(--weight-light);
   line-height: var(--lh-tight);
@@ -44,7 +45,8 @@ body {
 h1, .h1 {
   font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: var(--weight-semibold);
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-snug);
@@ -53,15 +55,17 @@ h1, .h1 {
 h2, .h2 {
   font-family: var(--font-display);
   font-size: var(--text-h2);
-  font-weight: var(--weight-medium);
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
   line-height: var(--lh-snug);
 }
 
 h3, .h3 {
   font-family: var(--font-display);
   font-size: var(--text-h3);
-  font-weight: var(--weight-semibold);
+  font-weight: 600;
+  line-height: 1.4;
   letter-spacing: -0.01em;
   line-height: var(--lh-snug);
 }
