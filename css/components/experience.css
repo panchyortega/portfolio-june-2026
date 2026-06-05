@@ -17,9 +17,6 @@
   border-bottom: 1px solid var(--color-border-subtle);
 }
 .sm-name {
-  font-size: var(--text-h1);
-  font-weight: var(--weight-regular);
-  letter-spacing: var(--tracking-snug);
   margin-bottom: var(--space-16);
 }
 .sm-bio {
@@ -36,8 +33,6 @@
   scroll-margin-top: calc(var(--nav-height) + var(--space-24));
 }
 .sm-section-title {
-  font-size: var(--text-h2);
-  font-weight: var(--weight-regular);
   color: var(--color-text);
   margin-bottom: var(--space-32);
   padding-bottom: var(--space-16);
@@ -124,8 +119,6 @@
 }
 .edu-item:last-child { border-bottom: none; }
 .edu-titulo {
-  font-size: var(--text-h3);
-  font-weight: var(--weight-medium);
   color: var(--color-text);
   margin-bottom: var(--space-4);
 }
@@ -147,8 +140,6 @@
   gap: var(--space-32);
 }
 .skill-group-title {
-  font-size: var(--text-h4);
-  font-weight: var(--weight-medium);
   color: var(--color-text);
   margin-bottom: var(--space-12);
 }

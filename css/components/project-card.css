@@ -44,11 +44,8 @@
   margin-bottom: var(--space-8);
 }
 .project-card-title {
-  font-size: var(--text-h3);
-  font-weight: var(--weight-medium);
   color: var(--color-text);
   margin-bottom: var(--space-6);
-  line-height: var(--lh-snug);
 }
 .project-card-desc {
   font-size: var(--text-small);
