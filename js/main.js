@@ -126,7 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Cursor sutil (desktop) ──
-  if (window.matchMedia('(pointer: fine)').matches) {
+  // (eliminado)
+
+});
 
 // ── Dropdown nav ──
 const closeAllDropdowns = () => {
