@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí — Fran Ortega</title>
+  <meta name="description" content="Diseñadora UX/UI especializada en producto, sistemas de diseño e IA aplicada a experiencia de usuario.">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    .sm-layout { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - var(--nav-height)); max-width: var(--site-max); margin: 0 auto; }
+
+    .sm-nav { border-right: 1px solid var(--color-border-subtle); padding: var(--space-40) var(--space-24); position: sticky; top: var(--nav-height); height: calc(100vh - var(--nav-height)); overflow-y: auto; }
+    .sm-nav-section { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-subtle); letter-spacing: 0.1em; margin-bottom: var(--space-12); margin-top: var(--space-28); }
+    .sm-nav-section:first-child { margin-top: 0; }
+    .sm-nav-link { display: block; font-size: 0.9375rem; color: var(--color-text-muted); text-decoration: none; padding: var(--space-4) 0; transition: color var(--transition-fast); cursor: pointer; }
+    .sm-nav-link:hover { color: var(--color-text); }
+    .sm-nav-link.active { color: var(--color-accent); }
+
+    .sm-main { padding: var(--space-56) var(--space-64); max-width: 720px; }
+
+    /* Hero */
+    .sm-hero { margin-bottom: var(--space-64); padding-bottom: var(--space-48); border-bottom: 1px solid var(--color-border-subtle); }
+    .sm-name { font-size: var(--text-h1); font-weight: var(--weight-regular); letter-spacing: var(--tracking-snug); margin-bottom: var(--space-16); }
+    .sm-bio { font-size: var(--text-body-lg); font-weight: var(--weight-light); line-height: var(--lh-normal); color: var(--color-text-muted); margin-bottom: var(--space-20); }
+    .sm-tags { display: flex; flex-wrap: wrap; gap: var(--space-8); }
+
+    /* Sección */
+    .sm-section { margin-bottom: var(--space-72); scroll-margin-top: calc(var(--nav-height) + var(--space-24)); }
+    .sm-section-title { font-size: var(--text-h2); font-weight: var(--weight-regular); color: var(--color-text); margin-bottom: var(--space-32); padding-bottom: var(--space-16); border-bottom: 1px solid var(--color-border-subtle); }
+
+    /* Experiencia card */
+    .exp-card { padding-bottom: var(--space-48); margin-bottom: var(--space-48); border-bottom: 1px solid var(--color-border-subtle); }
+    .exp-card:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+    .exp-header { display: grid; grid-template-columns: 1fr auto; gap: var(--space-16); align-items: start; margin-bottom: var(--space-12); }
+    .exp-empresa { font-size: var(--text-h3); font-weight: var(--weight-medium); color: var(--color-text); margin-bottom: var(--space-4); }
+    .exp-rol { font-size: var(--text-body); color: var(--color-text-muted); }
+    .exp-fecha { font-size: 0.75rem; font-family: 'Courier New', monospace; color: var(--color-accent); white-space: nowrap; padding-top: var(--space-6); }
+
+    .exp-tags { display: flex; flex-wrap: wrap; gap: var(--space-6); margin-bottom: var(--space-24); }
+
+    /* 3 dimensiones */
+    .dims { display: flex; flex-direction: column; gap: var(--space-20); }
+    .dim { display: grid; grid-template-columns: 110px 1fr; gap: var(--space-16); align-items: start; }
+    .dim-label { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; color: var(--color-text-subtle); padding-top: var(--space-4); text-transform: uppercase; }
+    .dim-content { font-size: var(--text-body); line-height: var(--lh-normal); color: var(--color-text-muted); }
+    .dim-content em { font-style: italic; color: var(--color-text); }
+
+    /* Educación */
+    .edu-item { padding-bottom: var(--space-24); margin-bottom: var(--space-24); border-bottom: 1px solid var(--color-border-subtle); }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-titulo { font-size: var(--text-h3); font-weight: var(--weight-medium); color: var(--color-text); margin-bottom: var(--space-4); }
+    .edu-inst { font-size: var(--text-body); color: var(--color-text-muted); margin-bottom: var(--space-8); }
+    .edu-fecha { font-size: 0.75rem; font-family: 'Courier New', monospace; color: var(--color-text-subtle); }
+
+    /* Skills grid */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-32); }
+    .skill-group-title { font-size: var(--text-h4); font-weight: var(--weight-medium); color: var(--color-text); margin-bottom: var(--space-12); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+
+    @media (max-width: 860px) {
+      .sm-layout { grid-template-columns: 1fr; }
+      .sm-nav { display: none; }
+      .sm-main { padding: var(--space-32) var(--space-24); }
+      .dim { grid-template-columns: 1fr; gap: var(--space-8); }
+      .exp-header { grid-template-columns: 1fr; }
+      .exp-fecha { padding-top: 0; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Fran Ortega</a>
+    <div class="nav-left">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-proyectos" aria-expanded="false" onclick="toggleDropdown('dd-proyectos', this)">
+          Proyectos <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-proyectos">
+          <a href="proyectos/ucap.html">Ucap: Dashboard</a>
+          <a href="proyectos/ulern.html">Ulern: Study Session</a>
+          <a href="proyectos/aurora.html">Aurora Design System</a>
+          <a href="proyectos/glukko.html">Glukko App</a>
+          <a href="proyectos/otros.html">Otros proyectos</a>
+        </div>
+      </div>
+      <a href="sobre-mi.html" class="nav-btn active">Sobre mí</a>
+      <a href="sistema.html" class="nav-btn">DS</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-lang" aria-expanded="false" onclick="toggleDropdown('dd-lang', this)">
+          <i class="ti ti-language" style="font-size:1rem;"></i> <span id="lang-label">ES</span> <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-lang" style="right:0;left:auto;min-width:140px;">
+          <button onclick="setLang('es')">🇨🇱 Español</button>
+          <button onclick="setLang('en')">🇺🇸 English</button>
+        </div>
+      </div>
+      <button class="nav-btn nav-btn-icon" onclick="toggleTheme()" title="Cambiar tema">
+        <i class="ti ti-moon" id="theme-icon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="sm-layout">
+
+    <!-- Sidebar -->
+    <aside class="sm-nav">
+      <p class="sm-nav-section">Sobre mí</p>
+      <a class="sm-nav-link" onclick="scrollTo('intro')">Intro</a>
+
+      <p class="sm-nav-section">Experiencia</p>
+      <a class="sm-nav-link" onclick="scrollTo('racional')">Racional</a>
+      <a class="sm-nav-link" onclick="scrollTo('ulern')">Ulern</a>
+      <a class="sm-nav-link" onclick="scrollTo('freelance')">Freelance</a>
+      <a class="sm-nav-link" onclick="scrollTo('cortexia')">Cortexia</a>
+
+      <p class="sm-nav-section">Formación</p>
+      <a class="sm-nav-link" onclick="scrollTo('educacion')">Educación</a>
+      <a class="sm-nav-link" onclick="scrollTo('skills')">Habilidades</a>
+    </aside>
+
+    <!-- Main -->
+    <main class="sm-main">
+
+      <!-- Intro -->
+      <div class="sm-section" id="intro">
+        <div class="sm-hero">
+          <h1 class="sm-name">Francisca Ortega</h1>
+          <p class="sm-bio">Diseñadora UX/UI titulada en Diseño con especialización en Interacción de la PUCV. Trabajo en el espacio entre visual design, sistemas de diseño e IA aplicada a experiencia de usuario. Me interesa hacer productos que tengan sentido — para quien los usa y para el negocio que los sostiene.</p>
+          <div class="sm-tags">
+            <span class="tag tag-primary">Product Design</span>
+            <span class="tag tag-primary">Design Systems</span>
+            <span class="tag tag-neutral">Figma</span>
+            <span class="tag tag-neutral">Santiago, Chile</span>
+            <span class="tag tag-neutral">Español · English · Italiano</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experiencia -->
+      <div class="sm-section" id="experiencia">
+        <h2 class="sm-section-title">Experiencia</h2>
+
+        <!-- Racional -->
+        <div class="exp-card" id="racional">
+          <div class="exp-header">
+            <div>
+              <p class="exp-empresa">Racional</p>
+              <p class="exp-rol">Product Designer</p>
+            </div>
+            <span class="exp-fecha">02/2026 — presente</span>
+          </div>
+          <div class="exp-tags">
+            <span class="tag tag-primary">Fintech</span>
+            <span class="tag tag-neutral">Startup</span>
+            <span class="tag tag-neutral">Mobile</span>
+            <span class="tag tag-neutral">Inversiones</span>
+            <span class="tag tag-neutral">Figma</span>
+            <span class="tag tag-neutral">Agile</span>
+          </div>
+          <div class="dims">
+            <div class="dim">
+              <span class="dim-label">Cómo trabajé</span>
+              <p class="dim-content">Equipo pequeño e interfuncional — diseño, producto y tecnología comparten la misma mesa. Sprints cortos, feedback constante y mucha autonomía. Todo en híbrido, con ritmos rápidos y decisiones que se toman con pocos pero buenos datos.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué se logró</span>
+              <p class="dim-content">Diseño de flows de inversión, distribución de aportes y onboarding. Construcción del sistema de componentes y tokens en Figma, hoy en uso por el equipo. Colaboración en la definición de producto junto a CEO y Growth.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué aprendí</span>
+              <p class="dim-content"><em>Que en una fintech, la confianza del usuario es el producto.</em> Cada decisión de diseño tiene peso legal, emocional y de negocio al mismo tiempo — y eso lo cambia todo. También aprendí que "simple" es el objetivo más difícil de alcanzar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ulern -->
+        <div class="exp-card" id="ulern">
+          <div class="exp-header">
+            <div>
+              <p class="exp-empresa">Ulern</p>
+              <p class="exp-rol">UX/UI Designer</p>
+            </div>
+            <span class="exp-fecha">02/2025 — 02/2026</span>
+          </div>
+          <div class="exp-tags">
+            <span class="tag tag-primary">Edtech</span>
+            <span class="tag tag-neutral">Startup</span>
+            <span class="tag tag-neutral">Mobile & Web</span>
+            <span class="tag tag-neutral">IA</span>
+            <span class="tag tag-neutral">Tailwind</span>
+            <span class="tag tag-neutral">PrimeVue</span>
+          </div>
+          <div class="dims">
+            <div class="dim">
+              <span class="dim-label">Cómo trabajé</span>
+              <p class="dim-content">Única diseñadora dedicada con apoyo ocasional de un senior. Ritmos ágiles, handoff directo con dev y mucha coordinación con perfiles técnicos y de datos. Tres productos en paralelo, cada uno con su propio contexto.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué se logró</span>
+              <p class="dim-content">Diseño end-to-end de dos de los tres productos de la empresa — incluyendo dashboards de datos complejos y flows de aprendizaje adaptativo generados por IA. Desarrollo y mantención del design system en coordinación con el stack técnico.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué aprendí</span>
+              <p class="dim-content"><em>Que diseñar dashboards sin entender los datos es como decorar una casa sin saber quién va a vivir en ella.</em> Aprendí a hacer las preguntas incómodas antes de abrir Figma — y a que el mejor wireframe a veces es una conversación.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freelance -->
+        <div class="exp-card" id="freelance">
+          <div class="exp-header">
+            <div>
+              <p class="exp-empresa">Freelance</p>
+              <p class="exp-rol">Graphic & Web Designer</p>
+            </div>
+            <span class="exp-fecha">2022 — 2024</span>
+          </div>
+          <div class="exp-tags">
+            <span class="tag tag-neutral">Web Design</span>
+            <span class="tag tag-neutral">Gráfica</span>
+            <span class="tag tag-neutral">Clientes directos</span>
+          </div>
+          <div class="dims">
+            <div class="dim">
+              <span class="dim-label">Cómo trabajé</span>
+              <p class="dim-content">Empecé a freelancear mientras estudiaba porque la universidad no me daba suficiente y quería ir más lejos. Clientes directos, gestión propia, proyectos simultáneos y aprender haciendo.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué se logró</span>
+              <p class="dim-content">Diseño de landing pages, sitios web, portafolios y piezas gráficas para clientes de distintas industrias. Proyectos de principio a fin: briefing, propuesta, ejecución y entrega.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué aprendí</span>
+              <p class="dim-content"><em>Que el cliente siempre tiene razón... hasta que no la tiene.</em> Aprendí a defender las decisiones de diseño con argumentos reales, y a saber cuándo ceder y cuándo no.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cortexia -->
+        <div class="exp-card" id="cortexia">
+          <div class="exp-header">
+            <div>
+              <p class="exp-empresa">Cortexia</p>
+              <p class="exp-rol">UX/UI Design Intern</p>
+            </div>
+            <span class="exp-fecha">12/2023 — 01/2024</span>
+          </div>
+          <div class="exp-tags">
+            <span class="tag tag-neutral">SaaS B2B</span>
+            <span class="tag tag-neutral">Web</span>
+            <span class="tag tag-neutral">Pasantía</span>
+          </div>
+          <div class="dims">
+            <div class="dim">
+              <span class="dim-label">Cómo trabajé</span>
+              <p class="dim-content">Primera experiencia en un equipo de producto real. Dos meses cortos pero intensos, trabajando junto a diseñadores y desarrolladores senior en un entorno B2B.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué se logró</span>
+              <p class="dim-content">Mejoras de navegación y UX en productos digitales. Wireframes, prototipos, testing de usabilidad y apoyo en la construcción del design system y dashboard.</p>
+            </div>
+            <div class="dim">
+              <span class="dim-label">Qué aprendí</span>
+              <p class="dim-content"><em>Que un buen proceso de diseño se nota en el producto, pero también en cómo trabaja el equipo.</em> Mi primera vez viendo un design system en acción — y fue lo que más me enganchó.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Educación -->
+      <div class="sm-section" id="educacion">
+        <h2 class="sm-section-title">Educación</h2>
+
+        <div class="edu-item">
+          <p class="edu-titulo">Diseño con especialización en Interacción</p>
+          <p class="edu-inst">Pontificia Universidad Católica de Valparaíso</p>
+          <span class="edu-fecha">2020 — 2024</span>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-titulo">Minor en Innovación y Emprendimiento</p>
+          <p class="edu-inst">Pontificia Universidad Católica de Valparaíso</p>
+          <span class="edu-fecha">2021 — 2024</span>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="sm-section" id="skills">
+        <h2 class="sm-section-title">Habilidades</h2>
+        <div class="skills-grid">
+          <div>
+            <p class="skill-group-title">UX / Producto</p>
+            <div class="skill-tags">
+              <span class="tag tag-neutral">User flows</span>
+              <span class="tag tag-neutral">Wireframing</span>
+              <span class="tag tag-neutral">Prototipado</span>
+              <span class="tag tag-neutral">Usability testing</span>
+              <span class="tag tag-neutral">Handoff</span>
+            </div>
+          </div>
+          <div>
+            <p class="skill-group-title">UI / Visual</p>
+            <div class="skill-tags">
+              <span class="tag tag-neutral">Interface design</span>
+              <span class="tag tag-neutral">Design systems</span>
+              <span class="tag tag-neutral">Tokens</span>
+              <span class="tag tag-neutral">Componentes</span>
+            </div>
+          </div>
+          <div>
+            <p class="skill-group-title">Herramientas</p>
+            <div class="skill-tags">
+              <span class="tag tag-neutral">Figma</span>
+              <span class="tag tag-neutral">Adobe CC</span>
+              <span class="tag tag-neutral">Notion</span>
+              <span class="tag tag-neutral">HTML/CSS</span>
+            </div>
+          </div>
+          <div>
+            <p class="skill-group-title">Metodologías</p>
+            <div class="skill-tags">
+              <span class="tag tag-neutral">Agile / Scrum</span>
+              <span class="tag tag-neutral">Kanban</span>
+              <span class="tag tag-neutral">Design thinking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Fran Ortega</p>
+        <p class="footer-tagline">UX/UI Designer · Santiago, Chile</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:francisca.ortega.pa@gmail.com" class="footer-link">francisca.ortega.pa@gmail.com</a>
+        <a href="https://linkedin.com/in/franciscaortegaparedes" class="footer-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/panchyortega" class="footer-link" target="_blank">GitHub</a>
+        <a href="sistema.html" class="footer-link system">Sistema de diseño ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Francisca Ortega · Construido con HTML, CSS y JS</div>
+  </footer>
+
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav-item"><i class="ti ti-home"></i><span>Inicio</span></a>
+    <a href="sobre-mi.html" class="mobile-nav-item active"><i class="ti ti-user"></i><span>Sobre mí</span></a>
+  </nav>
+
+  <script src="js/main.js"></script>
+  <script>
+    const NAV_H = 68;
+    const sections = ['intro','racional','ulern','freelance','cortexia','educacion','skills'];
+    const navLinks = document.querySelectorAll('.sm-nav-link');
+
+    window.scrollTo = (id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - NAV_H;
+      window.scroll({ top, behavior: 'smooth' });
+    };
+
+    window.addEventListener('scroll', () => {
+      let current = sections[0];
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= NAV_H + 4) current = id;
+      }
+      navLinks.forEach(l => {
+        const target = l.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+        l.classList.toggle('active', target === current);
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
