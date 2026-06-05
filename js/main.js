@@ -149,3 +149,64 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+// ── Dropdown nav ──
+window.toggleDropdown = (id, btn) => {
+  const dd = document.getElementById(id);
+  const isOpen = dd.classList.contains('open');
+
+  // Close all dropdowns first
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.nav-btn[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+  if (!isOpen) {
+    dd.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+};
+
+// Close dropdowns on outside click
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-left') && !e.target.closest('.nav-right')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.nav-btn[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  }
+});
+
+// ── Dark mode ──
+window.toggleTheme = () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  const icon = document.getElementById('theme-icon');
+  if (icon) icon.className = next === 'dark' ? 'ti ti-sun' : 'ti ti-moon';
+};
+
+// Apply saved theme on load
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  document.addEventListener('DOMContentLoaded', () => {
+    const icon = document.getElementById('theme-icon');
+    if (icon) icon.className = 'ti ti-sun';
+  });
+}
+
+// ── Idioma ──
+window.setLang = (lang) => {
+  localStorage.setItem('lang', lang);
+  const label = document.getElementById('lang-label');
+  if (label) label.textContent = lang.toUpperCase();
+  // Close dropdown
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.nav-btn[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  // Placeholder: en el futuro swapea contenido con data-es / data-en
+};
+
+// Apply saved lang on load
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('lang') || 'es';
+  const label = document.getElementById('lang-label');
+  if (label) label.textContent = savedLang.toUpperCase();
+});

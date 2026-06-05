@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--space-32);
+  gap: var(--space-24);
 }
 .nav-logo {
   font-size: var(--text-body);
@@ -21,14 +22,146 @@
   color: var(--color-text);
   text-decoration: none;
   letter-spacing: var(--tracking-snug);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.nav-logo:hover { color: var(--color-text); text-decoration: none; }
+.nav-logo:hover { color: var(--color-accent); text-decoration: none; }
 
-.nav-links {
+.nav-left {
   display: flex;
-  gap: var(--space-32);
-  list-style: none;
+  align-items: center;
+  gap: var(--space-4);
 }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Nav button base */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  font-family: var(--font);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+.nav-btn:hover {
+  background: var(--n-100);
+  color: var(--color-text);
+}
+.nav-btn.active {
+  color: var(--color-text);
+}
+.nav-btn i { font-size: 0.75rem; transition: transform var(--transition-fast); }
+.nav-btn[aria-expanded="true"] { background: var(--n-100); color: var(--color-text); }
+.nav-btn[aria-expanded="true"] i.chevron { transform: rotate(180deg); }
+
+/* Icon-only nav buttons */
+.nav-btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+.nav-btn-icon i { font-size: 1.1rem; }
+
+/* Dropdown */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) 0;
+  min-width: 200px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+.nav-dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.nav-dropdown a,
+.nav-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  width: 100%;
+  padding: var(--space-8) var(--space-16);
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.nav-dropdown a:hover,
+.nav-dropdown button:hover {
+  background: var(--n-50);
+  color: var(--color-text);
+}
+.nav-dropdown a.active {
+  color: var(--color-accent);
+  font-weight: var(--weight-medium);
+}
+.nav-dropdown-divider {
+  height: 1px;
+  background: var(--color-border-subtle);
+  margin: var(--space-6) 0;
+}
+.nav-dropdown-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  letter-spacing: 0.08em;
+  padding: var(--space-8) var(--space-16) var(--space-4);
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --n-50:  #111710;
+  --n-100: #1F261D;
+  --n-200: #343D31;
+  --n-300: #4A5546;
+  --n-400: #637060;
+  --n-500: #869180;
+  --n-600: #A8B09E;
+  --n-700: #C8CEC1;
+  --n-800: #E3E6DF;
+  --n-900: #F4F5F2;
+  --color-text:        #E3E6DF;
+  --color-text-muted:  #A8B09E;
+  --color-text-subtle: #637060;
+  --color-bg:          #111710;
+  --color-surface:     #1F261D;
+  --color-border:      #343D31;
+  --color-border-subtle: #1F261D;
+}
+
+/* Nav link (kept for backward compat in some pages) */
 .nav-link {
   font-size: var(--text-body);
   font-weight: var(--weight-regular);
@@ -47,14 +180,9 @@
   background: var(--color-accent);
   transition: width var(--transition-normal);
 }
-.nav-link:hover {
-  color: var(--color-text);
-  text-decoration: none;
-}
+.nav-link:hover { color: var(--color-text); text-decoration: none; }
 .nav-link:hover::after { width: 100%; }
-.nav-link.active {
-  color: var(--color-text);
-}
+.nav-link.active { color: var(--color-text); }
 .nav-link.active::after { width: 100%; }
 
 /* ── Layout: proyecto (3 columnas) ── */

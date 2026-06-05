@@ -72,10 +72,38 @@
 <body>
   <nav class="nav">
     <a href="index.html" class="nav-logo">Fran Ortega</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-link">Inicio</a></li>
-      <li><a href="sobre-mi.html" class="nav-link">Sobre mí</a></li>
-    </ul>
+    <div class="nav-left">
+      <div style="position:relative;">
+        <button class="nav-btn" id="btn-proyectos" aria-expanded="false" onclick="toggleDropdown('dd-proyectos', this)">
+          Proyectos <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-proyectos">
+          <p class="nav-dropdown-label">Profesionales</p>
+          <a href="proyectos/ucap.html">Ucap: Dashboard</a>
+          <a href="proyectos/ulern.html">Ulern: Study Session</a>
+          <div class="nav-dropdown-divider"></div>
+          <p class="nav-dropdown-label">Académicos</p>
+          <a href="proyectos/aurora.html">Aurora Design System</a>
+          <a href="proyectos/glukko.html">Glukko App</a>
+          <a href="proyectos/otros.html">Otros proyectos</a>
+        </div>
+      </div>
+      <a href="sobre-mi.html" class="nav-btn">Sobre mí</a>
+    </div>
+    <div class="nav-right">
+      <div style="position:relative;">
+        <button class="nav-btn" id="btn-lang" aria-expanded="false" onclick="toggleDropdown('dd-lang', this)">
+          <i class="ti ti-language" style="font-size:1rem;"></i> <span id="lang-label">ES</span> <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-lang" style="right:0;left:auto;min-width:140px;">
+          <button onclick="setLang('es')">🇨🇱 Español</button>
+          <button onclick="setLang('en')">🇺🇸 English</button>
+        </div>
+      </div>
+      <button class="nav-btn nav-btn-icon" onclick="toggleTheme()" title="Cambiar tema">
+        <i class="ti ti-moon" id="theme-icon"></i>
+      </button>
+    </div>
   </nav>
 
   <div class="ds-layout">
