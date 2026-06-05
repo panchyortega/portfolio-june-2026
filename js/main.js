@@ -151,26 +151,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Dropdown nav ──
+const closeAllDropdowns = () => {
+  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  document.querySelectorAll('.nav-btn[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
+};
+
 window.toggleDropdown = (id, btn) => {
   const dd = document.getElementById(id);
   const isOpen = dd.classList.contains('open');
-
-  // Close all dropdowns first
-  document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-  document.querySelectorAll('.nav-btn[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
-
+  closeAllDropdowns();
   if (!isOpen) {
     dd.classList.add('open');
     btn.setAttribute('aria-expanded', 'true');
   }
 };
 
-// Close dropdowns on outside click
+// Close on outside click
 document.addEventListener('click', e => {
-  if (!e.target.closest('.nav-left') && !e.target.closest('.nav-right')) {
-    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-    document.querySelectorAll('.nav-btn[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
-  }
+  if (!e.target.closest('.nav-dropdown-wrap')) closeAllDropdowns();
+});
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAllDropdowns();
 });
 
 // ── Dark mode ──
