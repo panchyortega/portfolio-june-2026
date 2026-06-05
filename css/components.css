@@ -196,6 +196,14 @@
 .toc {
   padding-top: 0;
 }
+/* ── Sidebar label — shared style for meta labels and toc title ── */
+.sidebar-label {
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
 .toc-title {
   font-size: var(--text-small);
   font-weight: var(--weight-medium);
@@ -315,7 +323,7 @@
   font-weight: var(--weight-medium);
   color: var(--color-text);
   margin-bottom: var(--space-4);
-}
+} /* uses sidebar-label pattern */
 .sidebar-meta .meta-value {
   font-size: var(--text-small); /* 12px */
   color: var(--color-text-muted);
