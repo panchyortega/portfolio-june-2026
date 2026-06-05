@@ -75,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setActive(id);
       closeTocPanel();
 
-      const top = target.getBoundingClientRect().top + window.scrollY - NAV_H + 4;
-      window.scrollTo({ top, behavior: 'smooth' });
+      // offsetTop absoluto desde el top del documento
+      let offsetTop = 0;
+      let el = target;
+      while (el) { offsetTop += el.offsetTop; el = el.offsetParent; }
+      window.scrollTo({ top: offsetTop - NAV_H, behavior: 'smooth' });
 
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => { manualScroll = false; }, 900);
@@ -133,9 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.style.opacity = '1';
     });
     document.addEventListener('mouseleave', () => dot.style.opacity = '0');
-    document.querySelectorAll('a, button, .project-card').forEach(el => {
+    // Solo en cards y botones, NO en links de texto ni TOC
+    document.querySelectorAll('.project-card, .btn').forEach(el => {
       el.addEventListener('mouseenter', () => { dot.style.transform = 'translate(-50%,-50%) scale(2.5)'; dot.style.opacity = '0.5'; });
       el.addEventListener('mouseleave', () => { dot.style.transform = 'translate(-50%,-50%) scale(1)'; dot.style.opacity = '1'; });
+    });
+    // Ocultar cursor en zonas de texto
+    document.querySelectorAll('a, .toc-item, .toc-list, .nav-link').forEach(el => {
+      el.addEventListener('mouseenter', () => { dot.style.opacity = '0'; });
+      el.addEventListener('mouseleave', () => { dot.style.opacity = '1'; });
     });
   }
 
