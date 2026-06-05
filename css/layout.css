@@ -165,6 +165,18 @@
   --color-surface:     #1F261D;
   --color-border:      #343D31;
   --color-border-subtle: #1F261D;
+  /* Primary — terracota aclarado en dark */
+  --p-50:  #2A1009;
+  --p-100: #3D1810;
+  --p-200: #5C2518;
+  --p-300: #7E3422;
+  --p-400: #CB7A62;
+  --p-500: #DFA897;
+  --p-600: #EFD3C6;
+  --p-700: #F7EDE8;
+  --color-accent:       #DFA897;
+  --color-accent-hover: #EFD3C6;
+  --color-accent-tint:  #2A1009;
 }
 
 /* Nav link (kept for backward compat in some pages) */
