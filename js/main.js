@@ -127,28 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Cursor sutil (desktop) ──
   if (window.matchMedia('(pointer: fine)').matches) {
-    const dot = document.createElement('div');
-    dot.style.cssText = 'position:fixed;pointer-events:none;z-index:9999;width:6px;height:6px;border-radius:50%;background:var(--p-400);opacity:0;transform:translate(-50%,-50%);transition:opacity 200ms,transform 200ms;';
-    document.body.appendChild(dot);
-    document.addEventListener('mousemove', e => {
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
-      dot.style.opacity = '1';
-    });
-    document.addEventListener('mouseleave', () => dot.style.opacity = '0');
-    // Solo en cards y botones, NO en links de texto ni TOC
-    document.querySelectorAll('.project-card, .btn').forEach(el => {
-      el.addEventListener('mouseenter', () => { dot.style.transform = 'translate(-50%,-50%) scale(2.5)'; dot.style.opacity = '0.5'; });
-      el.addEventListener('mouseleave', () => { dot.style.transform = 'translate(-50%,-50%) scale(1)'; dot.style.opacity = '1'; });
-    });
-    // Ocultar cursor en zonas de texto
-    document.querySelectorAll('a, .toc-item, .toc-list, .nav-link').forEach(el => {
-      el.addEventListener('mouseenter', () => { dot.style.opacity = '0'; });
-      el.addEventListener('mouseleave', () => { dot.style.opacity = '1'; });
-    });
-  }
-
-});
 
 // ── Dropdown nav ──
 const closeAllDropdowns = () => {
