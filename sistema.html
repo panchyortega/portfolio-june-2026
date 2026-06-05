@@ -19,7 +19,7 @@
 
       <!-- GRILLA -->
       <section class="ds-section" id="grilla">
-        <h2 class="ds-section-title">Grilla</h2>
+        <h2 >Grilla</h2>
         <p class="ds-section-desc">El sitio usa dos layouts principales: el caso de estudio en 3 columnas y el home con grid de cards. Ambos tienen un ancho máximo de 1280px centrado con margin auto.</p>
 
         <!-- Diagrama caso de estudio -->
@@ -226,7 +226,7 @@
 
       <!-- COLORES -->
       <section class="ds-section" id="colores">
-        <h2 class="ds-section-title">Colores</h2>
+        <h2 >Colores</h2>
         <p class="ds-section-desc">Dos escalas de 10 pasos. <strong>Neutral</strong> — verde muy desaturado y frío, base de todo el sistema. <strong>Primary</strong> — rojo terracota para énfasis, links y estados activos.</p>
         <div class="color-group">
           <p class="color-group-title">Neutral</p>
@@ -270,7 +270,7 @@
 
       <!-- ESPACIADO -->
       <section class="ds-section" id="espaciado">
-        <h2 class="ds-section-title">Espaciado</h2>
+        <h2 >Espaciado</h2>
         <p class="ds-section-desc">Escala con pasos finos hasta 24px y múltiplos de 8 desde ahí. Variables CSS <code style="font-size:0.8125rem;background:var(--n-100);padding:2px 5px;border-radius:3px;">--space-N</code>.</p>
         <div class="space-list">
           <div class="space-item-v"><span class="space-token">--space-0</span><div class="space-bar-h" style="width:0px;border:1px solid var(--n-300);height:8px;"></div><span class="space-px">0px</span></div>
@@ -298,218 +298,109 @@
 
       <!-- ÁTOMOS -->
       <section class="ds-section" id="atomos">
-        <h2 class="ds-section-title">Átomos</h2>
+        <h2>Átomos</h2>
         <p class="ds-section-desc">Los elementos más pequeños e indivisibles del sistema — no se pueden descomponer sin perder su función.</p>
 
-        <!-- Botón primary -->
         <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Botón primary</p>
-            <div class="comp-demo"><a href="#" class="btn btn-primary" onclick="return false;">Primary</a></div>
-          </div>
-            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">#fff</span></div>
-            <div class="spec-row"><span class="spec-key">Border</span><span class="spec-val">1.5px · p-500</span></div>
-            <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">12px · 24px</span></div>
-            <div class="spec-row"><span class="spec-key">Border radius</span><span class="spec-val">full · 9999px</span></div>
-            <div class="spec-row"><span class="spec-key">Font</span><span class="spec-val">16px · 500</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Hover bg</span><span class="spec-val">p-600</span></div>
-            <div class="spec-row"><span class="spec-key">Active</span><span class="spec-val">scale(0.98)</span></div>
+          <p class="sidebar-label comp-label">Botón primary</p>
+          <div class="comp-demo"><a href="#" class="btn btn-primary" onclick="return false;">Primary</a></div>
+        </div>
+
+        <div class="comp-row">
+          <p class="sidebar-label comp-label">Botón secondary</p>
+          <div class="comp-demo"><a href="#" class="btn btn-ghost" onclick="return false;">Secondary</a></div>
+        </div>
+
+        <div class="comp-row">
+          <p class="sidebar-label comp-label">Botón link</p>
+          <div class="comp-demo"><a href="#" class="btn btn-link" onclick="return false;">Ver más <i class="ti ti-arrow-right"></i></a></div>
+        </div>
+
+        <div class="comp-row">
+          <p class="sidebar-label comp-label">Tags</p>
+          <div class="comp-demo" style="flex-wrap:wrap;gap:var(--space-8);">
+            <span class="tag tag-primary">Profesional</span>
+            <span class="tag tag-primary">MVP lanzado</span>
+            <span class="tag tag-neutral">UX/UI</span>
+            <span class="tag tag-neutral">2025</span>
+            <span class="tag tag-neutral">Académico</span>
           </div>
         </div>
 
-        <!-- Botón ghost -->
-        <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Botón secondary</p>
-            <div class="comp-demo"><a href="#" class="btn btn-ghost" onclick="return false;">Secondary</a></div>
-          </div>
-            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">n-800</span></div>
-            <div class="spec-row"><span class="spec-key">Border</span><span class="spec-val">1.5px · n-200</span></div>
-            <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">12px · 24px</span></div>
-            <div class="spec-row"><span class="spec-key">Border radius</span><span class="spec-val">full · 9999px</span></div>
-            <div class="spec-row"><span class="spec-key">Font</span><span class="spec-val">16px · 500</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Hover bg</span><span class="spec-val">n-100</span></div>
-          </div>
-        </div>
-
-        <!-- Botón link -->
-        <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Botón link</p>
-            <div class="comp-demo"><a href="#" class="btn btn-link" onclick="return false;">Ver más <i class="ti ti-arrow-right" style="font-size:0.875rem;"></i></a></div>
-          </div>
-            <div class="spec-row"><span class="spec-key">Color</span><span class="spec-val">p-500</span></div>
-            <div class="spec-row"><span class="spec-key">Border</span><span class="spec-val">none</span></div>
-            <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">12px · 0</span></div>
-            <div class="spec-row"><span class="spec-key">Font</span><span class="spec-val">16px · 500</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Hover color</span><span class="spec-val">p-800</span></div>
-          </div>
-        </div>
-
-        <!-- Tags -->
-        <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Tags</p>
-            <div class="comp-demo" style="margin-bottom:var(--space-12);">
-              <span class="tag tag-primary">Profesional</span>
-              <span class="tag tag-primary">MVP lanzado</span>
-            </div>
-            <div class="comp-demo">
-              <span class="tag tag-neutral">UX/UI</span>
-              <span class="tag tag-neutral">2025</span>
-              <span class="tag tag-neutral">Académico</span>
-            </div>
-          </div>
-            <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">4px · 8px</span></div>
-            <div class="spec-row"><span class="spec-key">Border radius</span><span class="spec-val">4px</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Primary bg</span><span class="spec-val">p-100</span></div>
-            <div class="spec-row"><span class="spec-key">Primary color</span><span class="spec-val">p-600</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Neutral bg</span><span class="spec-val">n-100</span></div>
-            <div class="spec-row"><span class="spec-key">Neutral color</span><span class="spec-val">n-600</span></div>
-          </div>
-        </div>
       </section>
 
       <!-- MOLÉCULAS -->
       <section class="ds-section" id="moleculas">
-        <h2 class="ds-section-title">Moléculas</h2>
+        <h2>Moléculas</h2>
         <p class="ds-section-desc">Combinaciones de átomos que forman unidades funcionales con un propósito específico.</p>
 
-        <!-- Imagen + caption -->
         <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Imagen + caption</p>
-            <div style="background:var(--n-100);border-radius:var(--radius-md);height:100px;display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-8);"><span class="small">imagen</span></div>
-            <span class="caption">Vista general del Company Dashboard, mostrando participación por área.</span>
-          </div>
-            <div class="spec-row"><span class="spec-key">Margin bottom</span><span class="spec-val">24px</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Caption font</span><span class="spec-val">12px · 400</span></div>
-            <div class="spec-row"><span class="spec-key">Caption color</span><span class="spec-val">n-400</span></div>
-            <div class="spec-row"><span class="spec-key">Caption estilo</span><span class="spec-val">italic</span></div>
+          <p class="sidebar-label comp-label">Imagen + caption</p>
+          <div style="background:var(--n-100);border-radius:var(--radius-md);height:100px;display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-8);"><span class="small">imagen</span></div>
+          <span class="caption">Vista general del Company Dashboard, mostrando participación por área.</span>
+        </div>
+
+        <div class="comp-row">
+          <p class="sidebar-label comp-label">Meta card</p>
+          <div style="max-width:260px;">
+            <div class="meta-item"><p class="sidebar-label">Empresa</p><p class="meta-value">Ulern / Edtech startup</p></div>
+            <div class="meta-item"><p class="sidebar-label">Tipo</p><div class="meta-tags"><span class="tag tag-primary">Profesional</span><span class="tag tag-neutral">UX/UI</span></div></div>
+            <div class="meta-item"><p class="sidebar-label">Estado</p><div class="meta-tags"><span class="tag tag-primary">MVP lanzado</span></div></div>
           </div>
         </div>
 
-        <!-- Meta card -->
         <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Meta card</p>
-            <div style="max-width:260px;">
-              <div class="meta-item"><p class="meta-label">Empresa</p><p class="meta-value">Ulern / Edtech startup</p></div>
-              <div class="meta-item"><p class="meta-label">Tipo</p><div class="meta-tags"><span class="tag tag-primary">Profesional</span><span class="tag tag-neutral">UX/UI</span></div></div>
-              <div class="meta-item"><p class="meta-label">Estado</p><div class="meta-tags"><span class="tag tag-primary">MVP lanzado</span></div></div>
-            </div>
-          </div>
-            <div class="spec-row"><span class="spec-key">Border mobile</span><span class="spec-val">1px · n-100</span></div>
-            <div class="spec-row"><span class="spec-key">Radius mobile</span><span class="spec-val">12px</span></div>
-            <div class="spec-row"><span class="spec-key">Padding mobile</span><span class="spec-val">20px</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Label font</span><span class="spec-val">18px · 500</span></div>
-            <div class="spec-row"><span class="spec-key">Value color</span><span class="spec-val">n-500</span></div>
-            <div class="spec-row"><span class="spec-key">Item gap</span><span class="spec-val">20px</span></div>
-          </div>
+          <p class="sidebar-label comp-label">Tabla de contenidos</p>
+          <ul class="toc-list" id="sistema-toc">
+            <li><a class="toc-item active" href="#" onclick="setTocActive(this);return false;">Contexto del proyecto</a></li>
+            <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">El problema</a></li>
+            <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Usuarios afectados</a></li>
+            <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Métricas de impacto</a></li>
+            <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">Solución propuesta</a></li>
+            <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">Resultados</a></li>
+          </ul>
         </div>
 
-        <!-- TOC -->
-        <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Tabla de contenidos</p>
-            <ul class="toc-list" id="sistema-toc">
-              <li><a class="toc-item active" href="#" onclick="setTocActive(this);return false;">Contexto del proyecto</a></li>
-              <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">El problema</a></li>
-              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Usuarios afectados</a></li>
-              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Métricas de impacto</a></li>
-              <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">Solución propuesta</a></li>
-              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Wireframes</a></li>
-              <li><a class="toc-item sub" href="#" onclick="setTocActive(this);return false;">Iteraciones</a></li>
-              <li><a class="toc-item" href="#" onclick="setTocActive(this);return false;">Resultados</a></li>
-            </ul>
-          </div>
-            <div class="spec-row"><span class="spec-key">Item font</span><span class="spec-val">13px · 400</span></div>
-            <div class="spec-row"><span class="spec-key">Item color</span><span class="spec-val">n-500</span></div>
-            <div class="spec-row"><span class="spec-key">Item padding</span><span class="spec-val">4px · 0 · 4px · 10px</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Active color</span><span class="spec-val">p-500</span></div>
-            <div class="spec-row"><span class="spec-key">Active border</span><span class="spec-val">2px · p-400</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Sub indent</span><span class="spec-val">padding-left 20px</span></div>
-            <div class="spec-row"><span class="spec-key">Sub font</span><span class="spec-val">13px (igual)</span></div>
-          </div>
-        </div>
       </section>
 
       <!-- ORGANISMOS -->
       <section class="ds-section" id="organismos">
-        <h2 class="ds-section-title">Organismos</h2>
+        <h2>Organismos</h2>
         <p class="ds-section-desc">Estructuras completas formadas por moléculas y átomos que conforman secciones reconocibles de la interfaz.</p>
 
-        <!-- Project card -->
         <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Project card</p>
-            <div style="max-width:300px;">
-              <a href="#" class="project-card" onclick="return false;">
-                <div class="project-card-thumb img-placeholder" style="height:140px;">thumbnail</div>
-                <div class="project-card-body">
-                  <div class="project-card-meta"><span class="tag tag-primary">Profesional</span><span class="tag tag-neutral">2025</span></div>
-                  <p class="project-card-title">Ucap: Dashboard</p>
-                  <p class="project-card-desc">Diseño end-to-end de una plataforma B2B de aprendizaje corporativo con IA.</p>
-                </div>
-              </a>
-            </div>
-          </div>
-            <div class="spec-row"><span class="spec-key">Border radius</span><span class="spec-val">12px</span></div>
-            <div class="spec-row"><span class="spec-key">Background</span><span class="spec-val">#fff</span></div>
-            <div class="spec-row"><span class="spec-key">Thumb ratio</span><span class="spec-val">16/9</span></div>
-            <div class="spec-row"><span class="spec-key">Body padding</span><span class="spec-val">20px</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Title font</span><span class="spec-val">20px · 500</span></div>
-            <div class="spec-row"><span class="spec-key">Desc font</span><span class="spec-val">12px · n-500</span></div>
-            <div class="spec-row"><span class="spec-key">Meta gap</span><span class="spec-val">8px abajo</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Hover border</span><span class="spec-val">n-200</span></div>
-            <div class="spec-row"><span class="spec-key">Hover translate</span><span class="spec-val">translateY(-2px)</span></div>
-            <div class="spec-row"><span class="spec-key">Hover img</span><span class="spec-val">scale(1.03)</span></div>
+          <p class="sidebar-label comp-label">Project card</p>
+          <div style="max-width:300px;">
+            <a href="#" class="project-card" onclick="return false;">
+              <div class="project-card-thumb img-placeholder" style="height:140px;">thumbnail</div>
+              <div class="project-card-body">
+                <div class="project-card-meta"><span class="tag tag-primary">Profesional</span><span class="tag tag-neutral">2025</span></div>
+                <p class="project-card-title">Ucap: Dashboard</p>
+                <p class="project-card-desc">Diseño end-to-end de una plataforma B2B de aprendizaje corporativo con IA.</p>
+              </div>
+            </a>
           </div>
         </div>
 
-        <!-- Nav -->
         <div class="comp-row">
-          <div>
-            <p class="sidebar-label comp-label">Navegación global</p>
-            <div style="background:var(--color-bg);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:0 var(--space-16);height:52px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden;">
-              <span style="font-size:var(--text-body);font-weight:500;color:var(--color-text);">Fran Ortega</span>
-              <div style="display:flex;gap:var(--space-4);align-items:center;">
-                <div class="nav-dropdown-wrap">
-                  <button class="nav-btn active" onclick="toggleDropdown('dd-demo',this)" aria-expanded="false">Proyectos <i class="ti ti-chevron-down chevron"></i></button>
-                  <div class="nav-dropdown" id="dd-demo">
-                    <a href="#" onclick="return false;">Ucap: Dashboard</a>
-                    <a href="#" onclick="return false;">Ulern: Study Session</a>
-                    <a href="#" onclick="return false;">Aurora Design System</a>
-                    <a href="#" onclick="return false;">Glukko App</a>
-                    <a href="#" onclick="return false;">Otros proyectos</a>
-                  </div>
+          <p class="sidebar-label comp-label">Navegación global</p>
+          <div style="background:var(--color-bg);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md);padding:0 var(--space-16);height:52px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;">
+            <span style="font-size:var(--text-body);font-weight:500;color:var(--color-text);">Fran Ortega</span>
+            <div style="display:flex;gap:var(--space-4);align-items:center;">
+              <div class="nav-dropdown-wrap">
+                <button class="nav-btn active" onclick="toggleDropdown('dd-demo',this)" aria-expanded="false">Proyectos <i class="ti ti-chevron-down chevron"></i></button>
+                <div class="nav-dropdown" id="dd-demo">
+                  <a href="#" onclick="return false;">Ucap: Dashboard</a>
+                  <a href="#" onclick="return false;">Ulern: Study Session</a>
+                  <a href="#" onclick="return false;">Aurora Design System</a>
+                  <a href="#" onclick="return false;">Glukko App</a>
+                  <a href="#" onclick="return false;">Otros proyectos</a>
                 </div>
-                <a href="#" onclick="return false;" class="nav-btn">Sobre mí</a>
-                <button class="nav-btn nav-btn-icon" onclick="return false;" title="Idioma"><i class="ti ti-language" style="font-size:1rem;"></i></button>
-                <button class="nav-btn nav-btn-icon" onclick="return false;" title="Tema"><i class="ti ti-moon"></i></button>
               </div>
+              <a href="#" onclick="return false;" class="nav-btn">Sobre mí</a>
+              <button class="nav-btn nav-btn-icon" onclick="return false;" title="Idioma"><i class="ti ti-language" style="font-size:1rem;"></i></button>
+              <button class="nav-btn nav-btn-icon" onclick="return false;" title="Tema"><i class="ti ti-moon"></i></button>
             </div>
-          </div>
-            <div class="spec-row"><span class="spec-key">Background</span><span class="spec-val">n-50 (color-bg)</span></div>
-            <div class="spec-row"><span class="spec-key">Border bottom</span><span class="spec-val">1px · n-100</span></div>
-            <div class="spec-row"><span class="spec-key">Position</span><span class="spec-val">sticky · top 0</span></div>
-            <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">0 · 32px</span></div>
-            
-            <div class="spec-row"><span class="spec-key">Link font</span><span class="spec-val">16px · 400</span></div>
-            <div class="spec-row"><span class="spec-key">Link color</span><span class="spec-val">n-500</span></div>
-            <div class="spec-row"><span class="spec-key">Active color</span><span class="spec-val">n-800</span></div>
-            <div class="spec-row"><span class="spec-key">Hover line</span><span class="spec-val">1.5px · p-500 · grow</span></div>
           </div>
         </div>
 
