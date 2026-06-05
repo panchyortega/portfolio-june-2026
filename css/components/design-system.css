@@ -29,7 +29,12 @@
   flex-direction: column;
   gap: var(--space-8);
 }
-.type-sample { }
+.type-sample h1, .type-sample h2, .type-sample h3,
+.type-sample h4, .type-sample p, .type-sample blockquote,
+.type-sample div, .type-sample span {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 .type-specs {
   display: flex;
   flex-wrap: wrap;
