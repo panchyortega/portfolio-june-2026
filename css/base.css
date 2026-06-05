@@ -32,6 +32,7 @@ body {
 /* ── Tipografía ── */
 
 .display {
+  font-family: var(--font-display);
   font-size: var(--text-display);
   font-weight: var(--weight-light);
   line-height: var(--lh-tight);
@@ -39,6 +40,7 @@ body {
 }
 
 h1, .h1 {
+  font-family: var(--font-display);
   font-size: var(--text-h1);
   font-weight: var(--weight-regular);
   line-height: var(--lh-tight);
@@ -46,12 +48,14 @@ h1, .h1 {
 }
 
 h2, .h2 {
+  font-family: var(--font-display);
   font-size: var(--text-h2);
   font-weight: var(--weight-regular);
   line-height: var(--lh-snug);
 }
 
 h3, .h3 {
+  font-family: var(--font-display);
   font-size: var(--text-h3);
   font-weight: var(--weight-medium);
   line-height: var(--lh-snug);
