@@ -88,7 +88,7 @@
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  background: var(--n-100);
+  background: var(--n-50);
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   padding: var(--space-8) 0;
