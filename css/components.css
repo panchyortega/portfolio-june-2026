@@ -68,7 +68,7 @@
   white-space: nowrap;
 }
 .tag-primary {
-  background: var(--p-50);
+  background: var(--p-100);
   color: var(--p-600);
 }
 .tag-neutral {

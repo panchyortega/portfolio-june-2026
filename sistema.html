@@ -30,13 +30,13 @@
     .spec-row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-8); }
     .spec-key { font-size: 0.6875rem; color: var(--color-text-subtle); white-space: nowrap; }
     .spec-val { font-size: 0.6875rem; font-family: 'Courier New', monospace; color: var(--color-text-muted); text-align: right; }
-    .spec-div { height: 1px; background: var(--color-border-subtle); margin: var(--space-6) 0; }
+    .spec-div { height: 1px; background: var(--color-border-subtle); margin: var(--space-12) 0; }
 
     /* Componentes */
-    .comp-row { display: grid; grid-template-columns: 1fr 220px; gap: var(--space-32); align-items: start; padding: var(--space-28) 0; border-bottom: 1px solid var(--color-border-subtle); }
+    .comp-row { display: grid; grid-template-columns: 1fr 220px; gap: var(--space-32); align-items: start; padding: var(--space-32) 0; border-bottom: 1px solid var(--color-border-subtle); }
     .comp-row .type-specs { padding-top: var(--space-20); }
     .comp-row:first-of-type { border-top: 1px solid var(--color-border-subtle); }
-    .comp-label { font-size: 0.6875rem; color: var(--color-text-subtle); margin-bottom: var(--space-16); letter-spacing: 0.08em; }
+    .comp-label { font-size: 0.6875rem; color: var(--color-text-subtle); margin-bottom: var(--space-16); letter-spacing: 0.08em; margin-top: var(--space-4); }
     .comp-demo { display: flex; flex-wrap: wrap; gap: var(--space-12); align-items: center; }
 
     /* Colores */
@@ -98,6 +98,7 @@
       <!-- GRILLA -->
       <section class="ds-section" id="grilla">
         <h2 class="ds-section-title">Grilla</h2>
+        <p class="ds-section-desc">El sitio usa dos layouts principales: el caso de estudio en 3 columnas y el home con grid de cards. Ambos tienen un ancho máximo de 1280px centrado con margin auto.</p>
 
         <!-- Diagrama caso de estudio -->
         <div class="grid-diagram">
@@ -485,7 +486,7 @@
             <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">12px · 0</span></div>
             <div class="spec-row"><span class="spec-key">Font</span><span class="spec-val">16px · 500</span></div>
             <div class="spec-div"></div>
-            <div class="spec-row"><span class="spec-key">Hover color</span><span class="spec-val">p-600</span></div>
+            <div class="spec-row"><span class="spec-key">Hover color</span><span class="spec-val">p-700</span></div>
           </div>
         </div>
 
@@ -508,7 +509,7 @@
             <div class="spec-row"><span class="spec-key">Padding</span><span class="spec-val">4px · 8px</span></div>
             <div class="spec-row"><span class="spec-key">Border radius</span><span class="spec-val">4px</span></div>
             <div class="spec-div"></div>
-            <div class="spec-row"><span class="spec-key">Primary bg</span><span class="spec-val">p-50</span></div>
+            <div class="spec-row"><span class="spec-key">Primary bg</span><span class="spec-val">p-100</span></div>
             <div class="spec-row"><span class="spec-key">Primary color</span><span class="spec-val">p-600</span></div>
             <div class="spec-div"></div>
             <div class="spec-row"><span class="spec-key">Neutral bg</span><span class="spec-val">n-100</span></div>
