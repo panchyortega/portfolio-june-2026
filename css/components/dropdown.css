@@ -1,7 +1,9 @@
 /* ─────────────────────────────────────────────
    COMPONENT: Dropdown
    Clases: .nav-dropdown-wrap, .nav-dropdown,
+           .nav-dropdown--up (modificador mobile),
            .nav-dropdown-divider, .nav-dropdown-label
+   Estados: default, hover, .selected
    Usado por: nav.css, mobile-nav.css
    ───────────────────────────────────────────── */
 
@@ -9,6 +11,7 @@
   position: relative;
 }
 
+/* Base — se abre hacia abajo */
 .nav-dropdown {
   position: absolute;
   top: calc(100% + 6px);
@@ -19,7 +22,7 @@
   padding: var(--space-8) 0;
   min-width: 200px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  z-index: 100;
+  z-index: 200;
   display: none;
   opacity: 0;
   transform: translateY(-4px);
@@ -33,6 +36,17 @@
   pointer-events: all;
 }
 
+/* Modificador — se abre hacia arriba (mobile) */
+.nav-dropdown--up {
+  top: auto;
+  bottom: calc(100% + 6px);
+  transform: translateY(4px);
+}
+.nav-dropdown--up.open {
+  transform: translateY(0);
+}
+
+/* Items */
 .nav-dropdown a,
 .nav-dropdown button {
   display: flex;
@@ -50,21 +64,30 @@
   text-align: left;
   transition: background var(--transition-fast), color var(--transition-fast);
 }
+
+/* Estado hover */
 .nav-dropdown a:hover,
 .nav-dropdown button:hover {
-  background: var(--n-200);
+  background: var(--n-100);
   color: var(--color-text);
 }
-.nav-dropdown a.active {
+
+/* Estado selected — página actual o preferencia activa */
+.nav-dropdown a.selected,
+.nav-dropdown button.selected {
   color: var(--color-accent);
   font-weight: var(--weight-medium);
+  background: var(--p-50);
 }
 
+/* Separador */
 .nav-dropdown-divider {
   height: 1px;
   background: var(--color-border-subtle);
   margin: var(--space-6) 0;
 }
+
+/* Label de grupo */
 .nav-dropdown-label {
   font-size: 0.6875rem;
   font-weight: 600;

@@ -1,15 +1,74 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Active nav link ──
+  // ── Active nav — desktop + mobile ──
   const currentPath = window.location.pathname;
-  document.querySelectorAll('.nav-link, .mobile-nav-item').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && currentPath.includes(href) && href !== '/') {
-      link.classList.add('active');
-    } else if (href === '/' && (currentPath === '/' || currentPath.endsWith('index.html'))) {
-      link.classList.add('active');
+  const currentFile = currentPath.split('/').pop() || 'index.html';
+  const inProyectos = currentPath.includes('/proyectos/');
+
+  // Desktop nav-btn
+  document.querySelectorAll('.nav-btn[href]').forEach(btn => {
+    const href = btn.getAttribute('href');
+    const file = href.split('/').pop();
+    if (file === currentFile || (currentFile === '' && file === 'index.html')) {
+      btn.classList.add('active');
     }
   });
+  // Desktop proyectos dropdown — marcar si estamos en un proyecto
+  if (inProyectos) {
+    const proyBtn = document.getElementById('btn-proyectos');
+    if (proyBtn) proyBtn.classList.add('active');
+    // Marcar proyecto actual en dropdown
+    document.querySelectorAll('#dd-proyectos a').forEach(a => {
+      if (a.getAttribute('href').includes(currentFile)) a.classList.add('selected');
+    });
+  }
+  // Desktop dropdown items — marcar selected en proyectos dropdown
+  document.querySelectorAll('#dd-proyectos a').forEach(a => {
+    const file = a.getAttribute('href').split('/').pop();
+    if (file === currentFile) a.classList.add('selected');
+  });
+
+  // Mobile nav items
+  document.querySelectorAll('.mobile-nav-item[data-page]').forEach(item => {
+    const page = item.getAttribute('data-page');
+    if (page === 'home' && (currentFile === 'index.html' || currentFile === '')) {
+      item.classList.add('active');
+    } else if (page === 'sobre-mi' && currentFile === 'sobre-mi.html') {
+      item.classList.add('active');
+    } else if (page === 'ds' && currentFile === 'sistema.html') {
+      item.classList.add('active');
+    } else if (page === 'proyectos' && inProyectos) {
+      item.classList.add('active');
+      // Marcar proyecto actual en dropdown mobile
+      document.querySelectorAll('#mob-dd-proyectos a').forEach(a => {
+        if (a.getAttribute('href').includes(currentFile)) a.classList.add('selected');
+      });
+    }
+  });
+
+  // Idioma y tema — marcar selected
+  window.applySelectedStates = () => {
+    const lang = localStorage.getItem('lang') || 'es';
+    const theme = document.documentElement.getAttribute('data-theme') || 'light';
+
+    ['lang-es', 'lang-en', 'mob-lang-es', 'mob-lang-en'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle('selected', id.endsWith(lang));
+    });
+    ['mob-theme-light', 'mob-theme-dark'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle('selected',
+        (id === 'mob-theme-dark' && theme === 'dark') ||
+        (id === 'mob-theme-light' && theme === 'light')
+      );
+    });
+    // theme icon
+    const icon = document.getElementById('theme-icon');
+    if (icon) icon.className = theme === 'dark' ? 'ti ti-sun' : 'ti ti-moon';
+  };
+  applySelectedStates();
 
   // ── TOC ──
   const headings = Array.from(document.querySelectorAll('.project-content h2, .project-content h3'));
@@ -162,8 +221,7 @@ window.toggleTheme = () => {
   const next = isDark ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
-  const icon = document.getElementById('theme-icon');
-  if (icon) icon.className = next === 'dark' ? 'ti ti-sun' : 'ti ti-moon';
+  if (window.applySelectedStates) applySelectedStates();
 };
 
 // Apply saved theme on load
@@ -181,10 +239,9 @@ window.setLang = (lang) => {
   localStorage.setItem('lang', lang);
   const label = document.getElementById('lang-label');
   if (label) label.textContent = lang.toUpperCase();
-  // Close dropdown
   document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
   document.querySelectorAll('.nav-btn[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
-  // Placeholder: en el futuro swapea contenido con data-es / data-en
+  if (window.applySelectedStates) applySelectedStates();
 };
 
 // Apply saved lang on load
