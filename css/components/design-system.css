@@ -34,8 +34,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4) var(--space-24);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--space-24);
 }
 .spec-row {
   display: flex;
