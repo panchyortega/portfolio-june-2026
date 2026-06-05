@@ -121,60 +121,69 @@
         </div>
 
         <!-- Contenido del caso -->
-        <h2>Introducción</h2>
-        <p>UCAP es un producto B2B de aprendizaje corporativo que usa IA para reforzar y medir resultados de aprendizaje. Lideré el diseño UX/UI end-to-end, trabajando en flows complejos y dashboards en colaboración con perfiles técnicos y de datos.</p>
-        <p>El desafío central: mostrar información útil a equipos de RRHH sin convertir la plataforma en una herramienta de control. Cada decisión de visualización implicaba una tensión entre transparencia y privacidad.</p>
+        <h2>Entendiendo el proyecto</h2>
+        <p>Ulern es una startup chilena que desarrolla una app de estudio con IA para estudiantes escolares, universitarios y autodidactas. Uno de los pilares centrales del producto son las sesiones de estudio: un formato estructurado de aproximadamente 45 minutos diseñado para ayudar a los estudiantes a comprender en profundidad un tema específico.</p>
+        <p>Cada sesión sigue una metodología pedagógica clara: primero se definen objetivos de aprendizaje, luego se evalúa el conocimiento inicial mediante un diagnóstico, y los usuarios avanzan por práctica guiada e independiente, con dificultad creciente. Todo el proceso está diseñado para introducir contenido progresivamente, siempre respaldado por explicaciones.</p>
 
-        <div class="img-placeholder" style="height: 360px; margin: var(--space-32) 0;">imagen — overview del dashboard</div>
-        <span class="caption">Vista general del Company Dashboard, mostrando participación por área y resultados de contenidos.</span>
+        <div class="img-placeholder" style="height: 360px; margin: var(--space-32) 0;">imagen — visión general del producto Ulern</div>
+        <span class="caption">Vista general del flujo de una sesión de estudio en Ulern.</span>
 
-        <h2>El problema</h2>
-        <p>En muchas empresas ocurre lo mismo: los programas de capacitación se ejecutan, pero es difícil responder preguntas clave como ¿quién participó?, ¿qué tan bien se entendió el contenido? o ¿dónde están las brechas de conocimiento?</p>
+        <h2>El problema a resolver</h2>
+        <p>Aunque la sesión de estudio estaba cuidadosamente diseñada, identificamos un quiebre significativo en la experiencia: cuando la sesión terminaba, no pasaba nada.</p>
+        <p>Los estudiantes no recibían un cierre claro ni orientación sobre qué hacer a continuación. Podían revisar contenido o repetir preguntas, pero no había un fin explícito de la sesión, ni sensación de logro, ni una llamada a la acción para continuar estudiando.</p>
 
-        <h3>Preguntas que guiaron el diseño</h3>
-        <p>Antes de diseñar cualquier gráfico, era esencial entender qué necesitaba responder el dashboard. Trabajamos con el equipo de datos para identificar los patrones más relevantes para RRHH.</p>
+        <blockquote>"Esto generaba incertidumbre en los usuarios y, desde el negocio, significaba que muchas sesiones no se completaban del todo — a pesar del alto costo de generar contenido impulsado por IA."</blockquote>
 
-        <blockquote>"El desafío más difícil no fue diseñar los gráficos — fue definir qué preguntas debía responder cada uno."</blockquote>
-
-        <h3>Contexto de negocio</h3>
-        <p>UCAP opera a través de programas de capacitación creados con materiales internos de cada empresa. La IA genera ejercicios cortos que se liberan progresivamente, mientras la empresa accede a datos e insights sobre participación, rendimiento y brechas de conocimiento.</p>
-
-        <div class="img-grid-2">
-          <div class="img-placeholder" style="height: 200px;">wireframe — jerarquía</div>
-          <div class="img-placeholder" style="height: 200px;">flujo — navegación</div>
-        </div>
-        <span class="caption">Izquierda: wireframe de jerarquía de datos. Derecha: diagrama de flujo de navegación.</span>
+        <h3>El objetivo del proyecto</h3>
+        <p>El desafío era diseñar una pantalla de cierre de sesión de estudio que lograra múltiples metas al mismo tiempo: proveer un cierre claro y satisfactorio, motivar a los estudiantes a continuar aprendiendo, ofrecer rutas personalizadas según su rendimiento, fomentar la revisión activa, reforzar el valor percibido de la plataforma y aumentar la tasa de completación de sesiones.</p>
 
         <h2>Mi rol</h2>
-        <p>Fui la única diseñadora UX/UI dedicada en UCAP, con apoyo ocasional de una diseñadora senior. Estuve involucrada en todo el proceso: definición de producto, research, arquitectura de información, flujos, diseño visual y documentación para handoff.</p>
+        <p>Trabajé como UX/UI designer en Ulern y, dentro de un marco ágil Scrum, fui asignada como responsable de este proyecto. Esto implicó definir el alcance del MVP, proponer las funcionalidades mínimas necesarias, diseñar los flujos de usuario, coordinar decisiones con el equipo de investigación y diseño, y documentar todo el proceso en Notion.</p>
+        <p>Trabajé de cerca con la investigadora del equipo para validar decisiones desde una perspectiva pedagógica, y con una diseñadora senior especializada en animación para el diseño de gráficos animados.</p>
 
-        <h2>Proceso de diseño</h2>
-        <p>El trabajo se organizó en tres etapas: comprensión del problema, definición de la arquitectura de información, y diseño visual iterativo con el equipo de datos.</p>
+        <h2>Flujos y wireframes</h2>
 
-        <h3>Wireframes y arquitectura</h3>
-        <p>Los wireframes ayudaron a definir jerarquía, niveles de lectura y priorización de datos antes de tomar decisiones visuales o de interacción.</p>
+        <h3>Enfoque pedagógico</h3>
+        <p>Desde la investigación, se definió que cualquier información mostrada a los estudiantes debía cumplir al menos uno de estos propósitos: continuar fortaleciendo el conocimiento, fomentar la metacognición (reflexión consciente sobre cómo aprenden), o reflexionar sobre sus métodos de estudio.</p>
+        <p>Inspirada en productos como Duolingo, propuse que la pantalla final no solo mostrara resultados tipo "dopamina", sino que también brindara insights personalizados — explicando qué objetivos de aprendizaje resultaron más desafiantes y sugiriendo acciones concretas para mejorar.</p>
 
-        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — proceso completo</div>
-        <span class="caption">Línea de tiempo del proceso desde research hasta handoff.</span>
+        <h3>Definición del flujo</h3>
+        <p>Uno de los principales desafíos fue la complejidad de los posibles caminos al finalizar una sesión. Desde una sola pantalla, los usuarios necesitaban poder repetir preguntas incorrectas, crear una nueva sesión enfocada en objetivos más débiles, crear una sesión solo con preguntas de repaso, y exportar resultados o contenido.</p>
 
-        <h3>Gráficos, estados y comportamiento</h3>
-        <p>El foco estuvo en diseñar interacciones claras — hover, selección y filtros — asegurando que los datos siguieran siendo comprensibles incluso para usuarios sin experiencia previa con dashboards.</p>
+        <div class="img-placeholder" style="height: 320px; margin: var(--space-32) 0;">imagen — brainstorming de flujos</div>
+        <span class="caption">Brainstorming inicial de flujos y posibles rutas desde la pantalla de cierre.</span>
 
-        <div class="img-placeholder" style="height: 240px; margin: var(--space-32) 0;">imagen — estados de gráficos</div>
-        <span class="caption">Estados de los gráficos: cargando, vacío, con datos y con filtro activo.</span>
+        <div class="img-grid-2">
+          <div class="img-placeholder" style="height: 200px;">flujo — primera propuesta</div>
+          <div class="img-placeholder" style="height: 200px;">wireframes — iteraciones</div>
+        </div>
+        <span class="caption">Izquierda: primera propuesta de flujo. Derecha: iteraciones de wireframes.</span>
 
-        <h2>Documentación y handoff</h2>
-        <p>Documenté tipos de gráficos, estados e interacciones para facilitar la implementación, considerando que el equipo de desarrollo no estaba aún completamente formado. El producto fue construido sobre PrimeVue y Tailwind, lo que requirió diseñar con las restricciones reales de implementación en mente.</p>
+        <h2>Iteraciones de diseño</h2>
+        <p>El proceso de diseño incluyó múltiples rondas de revisión con el equipo pedagógico y de producto. Cada iteración buscaba equilibrar claridad visual, motivación del usuario y viabilidad técnica.</p>
 
-        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — documentación en Figma</div>
-        <span class="caption">Documentación de componentes y estados en Figma para el equipo de desarrollo.</span>
+        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — iteraciones de diseño visual</div>
+        <span class="caption">Evolución del diseño visual de la pantalla de cierre a lo largo de las iteraciones.</span>
 
-        <h2>Lo que quedó fuera del MVP</h2>
-        <p>Algunas funciones del dashboard fueron dejadas deliberadamente fuera — como comparaciones avanzadas por área o agrupaciones más complejas — porque requerían una estructura de datos que aún no había sido validada. Decidimos postergarlas para una segunda versión.</p>
+        <h2>Exportación de sesiones</h2>
+        <p>También diseñé el flujo de exportación, que fue personalmente una de las partes más entretenidas del proyecto. Se definieron tres tipos de exportación: resultados de sesión para compartir en redes sociales, sesión en formato presentación 16:9, y sesión en formato imprimible A4.</p>
+        <p>Para esto investigué patrones de exportación en otras aplicaciones y las guías de sistemas operativos, y diseñé cómo debía verse cada archivo exportado.</p>
+
+        <div class="img-grid-2">
+          <div class="img-placeholder" style="height: 200px;">exportación — pantalla de pregunta</div>
+          <div class="img-placeholder" style="height: 200px;">exportación — formato presentación</div>
+        </div>
+        <span class="caption">Diseño de exportaciones: de una sesión de estudio interactiva a un documento expositivo.</span>
+
+        <h2>Pantallas finales</h2>
+        <p>El resultado fue una pantalla de cierre que transformó el final de una sesión de estudio en un momento significativo: los estudiantes entienden claramente que la sesión terminó, pueden visualizar su progreso de forma motivadora, reciben recomendaciones concretas y personalizadas, y pueden decidir fácilmente cómo continuar estudiando.</p>
+        <p>La experiencia pasó de ser un "callejón sin salida" a convertirse en un punto de impulso, alineando pedagogía, UX y objetivos de negocio.</p>
+
+        <div class="img-placeholder" style="height: 360px; margin: var(--space-32) 0;">imagen — pantallas finales del cierre de sesión</div>
+        <span class="caption">Pantallas finales del flujo de cierre de sesión de estudio.</span>
 
         <h2>Aprendizajes</h2>
-        <p>UCAP fue mi primer proyecto profesional. El mayor desafío fue aprender a ponerme en los zapatos de profesionales de RRHH — un rol completamente ajeno para mí. Tuve que apoyarme mucho en el equipo, mi manager y entrevistas con usuarios potenciales.</p>
-        <p>Si pudiera hacerlo de nuevo, pondría más énfasis desde el inicio en el copy, la nomenclatura y el testing temprano. Hubo momentos donde conceptos clave no estaban alineados, lo que generó confusión interna e iteraciones innecesarias.</p>
+        <p>Este proyecto me permitió liderar un diseño end-to-end dentro de un equipo ágil, tomar decisiones de UX fundamentadas en pedagogía y necesidades de negocio, diseñar flows complejos sin perder claridad, y profundizar mis habilidades en diseño de exportación y sistemas visuales.</p>
 
 
         <div style="display:flex;justify-content:flex-end;gap:var(--space-12);margin-top:var(--space-64);padding-top:var(--space-32);border-top:1px solid var(--color-border-subtle);">
