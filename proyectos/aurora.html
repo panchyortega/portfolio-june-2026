@@ -121,61 +121,54 @@
         </div>
 
         <!-- Contenido del caso -->
-        <h2>Introducción</h2>
-        <p>UCAP es un producto B2B de aprendizaje corporativo que usa IA para reforzar y medir resultados de aprendizaje. Lideré el diseño UX/UI end-to-end, trabajando en flows complejos y dashboards en colaboración con perfiles técnicos y de datos.</p>
-        <p>El desafío central: mostrar información útil a equipos de RRHH sin convertir la plataforma en una herramienta de control. Cada decisión de visualización implicaba una tensión entre transparencia y privacidad.</p>
+        <h2>Contexto</h2>
+        <p>Este proyecto corresponde a mi tesis de pregrado, desarrollada entre marzo y diciembre de 2024. Junto a dos compañeros y con la guía de nuestra profesora, trabajamos en el rediseño de la plataforma Wiki Casiopea.</p>
+        <p>Mi foco personal fue crear una nueva skin visual que modernizara la apariencia de la plataforma y mejorara significativamente la experiencia de usuario. Durante el primer semestre realizamos investigación con usuarios y propusimos una dirección de diseño inicial. Desde ahí, tomé la responsabilidad de diseñar un sistema de diseño completo en Figma, para luego implementarlo en código.</p>
 
-        <div class="img-placeholder" style="height: 360px; margin: var(--space-32) 0;">imagen — overview del dashboard</div>
-        <span class="caption">Vista general del Company Dashboard, mostrando participación por área y resultados de contenidos.</span>
+        <div class="img-placeholder" style="height: 360px; margin: var(--space-32) 0;">imagen — Wiki Casiopea estado actual</div>
+        <span class="caption">Frecuencia de problemas mencionados por usuarios en las entrevistas y encuestas.</span>
 
         <h2>El problema</h2>
-        <p>En muchas empresas ocurre lo mismo: los programas de capacitación se ejecutan, pero es difícil responder preguntas clave como ¿quién participó?, ¿qué tan bien se entendió el contenido? o ¿dónde están las brechas de conocimiento?</p>
+        <p>Wiki Casiopea es la wiki académica más grande de Chile. Estudiantes y profesores de la Escuela de Arquitectura y Diseño de la PUCV la usan para documentar cursos, proyectos y eventos. Sin embargo, la investigación reveló que la interfaz compleja y poco intuitiva era la principal barrera para su uso efectivo.</p>
 
-        <h3>Preguntas que guiaron el diseño</h3>
-        <p>Antes de diseñar cualquier gráfico, era esencial entender qué necesitaba responder el dashboard. Trabajamos con el equipo de datos para identificar los patrones más relevantes para RRHH.</p>
+        <h3>Hallazgos de investigación</h3>
+        <p>Realizamos encuestas con 60 participantes y entrevistas con 12 usuarios — profesores y estudiantes de Diseño y Arquitectura. Los hallazgos fueron consistentes: la plataforma requería conocimiento técnico para editar contenido, la curva de aprendizaje era demasiado empinada, y los estudiantes de Arquitectura la percibían como inaccesible y desorganizada.</p>
 
-        <blockquote>"El desafío más difícil no fue diseñar los gráficos — fue definir qué preguntas debía responder cada uno."</blockquote>
+        <blockquote>"La complejidad de la interfaz y la falta de intuitividad son las principales barreras para la adopción efectiva de Wiki Casiopea."</blockquote>
 
-        <h3>Contexto de negocio</h3>
-        <p>UCAP opera a través de programas de capacitación creados con materiales internos de cada empresa. La IA genera ejercicios cortos que se liberan progresivamente, mientras la empresa accede a datos e insights sobre participación, rendimiento y brechas de conocimiento.</p>
+        <h2>Propuesta</h2>
+        <p>El proyecto apuntaba a mejorar la usabilidad y accesibilidad de Wiki Casiopea rediseñando su interfaz para hacerla más moderna, intuitiva y amigable, mientras se reforzaba su filosofía abierta y colaborativa.</p>
+        <p>La propuesta incluía: una sidebar fija para navegación interna en una misma página, modificaciones al menú para encontrar información más fácilmente, un diseño limpio y accesible compatible con dispositivos móviles, y un sistema de diseño modular con documentación clara.</p>
+
+        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — bocetos iniciales de la grilla</div>
+        <span class="caption">Bocetos iniciales de la propuesta de grilla y layout.</span>
+
+        <h2>Sistema de diseño en Figma</h2>
+        <p>Creé un sistema de diseño que contiene todos los componentes base y estilos, lo que permitirá el desarrollo posterior de templates en Mustache y LESS para la nueva skin. La documentación clara fue clave: necesitaba ser comprensible tanto para desarrolladores avanzados como para estudiantes de diseño desde tercer año en adelante. Cada componente fue documentado con convenciones de nombres claras, variantes y estados.</p>
+
+        <div class="img-placeholder" style="height: 300px; margin: var(--space-32) 0;">imagen — componentes del sistema de diseño</div>
+        <span class="caption">Selección de componentes del sistema Aurora, con variantes y microinteracciones.</span>
 
         <div class="img-grid-2">
-          <div class="img-placeholder" style="height: 200px;">wireframe — jerarquía</div>
-          <div class="img-placeholder" style="height: 200px;">flujo — navegación</div>
+          <div class="img-placeholder" style="height: 200px;">skin actual — Wiki Casiopea</div>
+          <div class="img-placeholder" style="height: 200px;">nueva propuesta de skin</div>
         </div>
-        <span class="caption">Izquierda: wireframe de jerarquía de datos. Derecha: diagrama de flujo de navegación.</span>
+        <span class="caption">Comparación entre la skin actual y la nueva propuesta visual.</span>
 
-        <h2>Mi rol</h2>
-        <p>Fui la única diseñadora UX/UI dedicada en UCAP, con apoyo ocasional de una diseñadora senior. Estuve involucrada en todo el proceso: definición de producto, research, arquitectura de información, flujos, diseño visual y documentación para handoff.</p>
+        <h2>Implementación en código</h2>
+        <p>Una vez estructurado el sistema de diseño y definido el diseño visual, se crearon templates usando Mustache, que luego se renderizaron como páginas HTML. Para el manejo de estilos se usó LESS, un preprocesador CSS que permite mejor organización de variables y estilos, de manera similar a cómo se gestionan en Figma. Todo el proceso se llevó a cabo usando Visual Studio Code y GitHub.</p>
 
-        <h2>Proceso de diseño</h2>
-        <p>El trabajo se organizó en tres etapas: comprensión del problema, definición de la arquitectura de información, y diseño visual iterativo con el equipo de datos.</p>
+        <div class="img-placeholder" style="height: 240px; margin: var(--space-32) 0;">imagen — esquema de orden del repositorio en GitHub</div>
+        <span class="caption">Esquema de organización del repositorio en GitHub.</span>
 
-        <h3>Wireframes y arquitectura</h3>
-        <p>Los wireframes ayudaron a definir jerarquía, niveles de lectura y priorización de datos antes de tomar decisiones visuales o de interacción.</p>
+        <h2>Entregable final</h2>
+        <p>Se creó una página de documentación de componentes usando el mismo sistema de diseño desarrollado para el proyecto. Esta documentación está disponible públicamente y el repositorio del proyecto se puede encontrar en GitHub.</p>
 
-        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — proceso completo</div>
-        <span class="caption">Línea de tiempo del proceso desde research hasta handoff.</span>
-
-        <h3>Gráficos, estados y comportamiento</h3>
-        <p>El foco estuvo en diseñar interacciones claras — hover, selección y filtros — asegurando que los datos siguieran siendo comprensibles incluso para usuarios sin experiencia previa con dashboards.</p>
-
-        <div class="img-placeholder" style="height: 240px; margin: var(--space-32) 0;">imagen — estados de gráficos</div>
-        <span class="caption">Estados de los gráficos: cargando, vacío, con datos y con filtro activo.</span>
-
-        <h2>Documentación y handoff</h2>
-        <p>Documenté tipos de gráficos, estados e interacciones para facilitar la implementación, considerando que el equipo de desarrollo no estaba aún completamente formado. El producto fue construido sobre PrimeVue y Tailwind, lo que requirió diseñar con las restricciones reales de implementación en mente.</p>
-
-        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — documentación en Figma</div>
-        <span class="caption">Documentación de componentes y estados en Figma para el equipo de desarrollo.</span>
-
-        <h2>Lo que quedó fuera del MVP</h2>
-        <p>Algunas funciones del dashboard fueron dejadas deliberadamente fuera — como comparaciones avanzadas por área o agrupaciones más complejas — porque requerían una estructura de datos que aún no había sido validada. Decidimos postergarlas para una segunda versión.</p>
+        <div class="img-placeholder" style="height: 280px; margin: var(--space-32) 0;">imagen — página de documentación Aurora</div>
+        <span class="caption">Página de documentación de componentes del sistema Aurora.</span>
 
         <h2>Aprendizajes</h2>
-        <p>UCAP fue mi primer proyecto profesional. El mayor desafío fue aprender a ponerme en los zapatos de profesionales de RRHH — un rol completamente ajeno para mí. Tuve que apoyarme mucho en el equipo, mi manager y entrevistas con usuarios potenciales.</p>
-        <p>Si pudiera hacerlo de nuevo, pondría más énfasis desde el inicio en el copy, la nomenclatura y el testing temprano. Hubo momentos donde conceptos clave no estaban alineados, lo que generó confusión interna e iteraciones innecesarias.</p>
-
+        <p>Este proyecto me permitió entender en profundidad el puente entre diseño y desarrollo — crear documentación que funciona tanto para diseñadores como para desarrolladores, llevar un sistema de diseño desde Figma hasta producción, y trabajar con las restricciones reales de un stack tecnológico preexistente.</p>
 
         <div style="display:flex;justify-content:flex-end;gap:var(--space-12);margin-top:var(--space-64);padding-top:var(--space-32);border-top:1px solid var(--color-border-subtle);">
           <a href="ulern.html" class="btn btn-ghost">← Proyecto anterior</a>
