@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
-    .sm-layout { display: grid; grid-template-columns: 200px 1fr 200px; min-height: calc(100vh - var(--nav-height)); max-width: var(--site-max); margin: 0 auto; width: 100%; }
+    /* usa page-layout del CSS global */
 
     .sm-nav { border-right: 1px solid var(--color-border-subtle); padding: var(--space-40) var(--space-24); position: sticky; top: var(--nav-height); height: calc(100vh - var(--nav-height)); overflow-y: auto; }
     .sm-nav-section { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-subtle); letter-spacing: 0.1em; margin-bottom: var(--space-8); margin-top: var(--space-24); }
@@ -63,7 +63,6 @@
     .skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-6); }
 
     @media (max-width: 860px) {
-      .sm-layout { grid-template-columns: 1fr; }
       .sm-nav { display: none; }
       .sm-main { padding: var(--space-32) var(--space-24); }
       .dim { grid-template-columns: 1fr; gap: var(--space-8); }
@@ -109,10 +108,10 @@
     </div>
   </nav>
 
-  <div class="sm-layout">
+  <div class="page-layout">
 
     <!-- Sidebar -->
-    <aside class="sm-nav">
+    <aside class="sm-nav page-sidebar-left">
       <p class="sm-nav-section">Sobre mí</p>
       <a class="sm-nav-link" onclick="scrollToSection('intro')">Intro</a>
 
@@ -128,7 +127,7 @@
     </aside>
 
     <!-- Main -->
-    <main class="sm-main">
+    <main class="page-main" style="padding-top:var(--space-56);">
 
       <!-- Intro -->
       <div class="sm-section" id="intro">

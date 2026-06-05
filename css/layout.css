@@ -253,9 +253,7 @@
   margin-bottom: var(--space-24);
 }
 
-.project-sidebar-right {
-  padding: var(--space-40) var(--space-32);
-}
+
 
 /* ── Layout: home ── */
 .home-hero {
@@ -343,9 +341,11 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
+  .page-layout,
   .project-layout {
     grid-template-columns: 1fr;
   }
+  .page-sidebar-left,
   .project-sidebar-left {
     border-right: none;
     border-bottom: 1px solid var(--color-border-subtle);
@@ -353,10 +353,11 @@
   }
   .project-sidebar-left .meta-card { display: block; }
   .project-sidebar-left .sidebar-meta { position: static; }
+  .page-main,
   .project-main {
     padding: var(--space-32) var(--space-24);
-    border-right: none;
   }
+  .page-sidebar-right,
   .project-sidebar-right { display: none; }
   .toc-fab { display: flex; }
 
