@@ -96,6 +96,16 @@
 .project-content p + h2 { margin-top: var(--space-56); }
 .project-content p + h3 { margin-top: var(--space-32); }
 
+.project-content .img-placeholder,
+.project-content img {
+  margin-top: var(--space-24);
+  margin-bottom: 0;
+}
+.project-content .caption {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-24);
+}
+
 .project-sidebar-right {
   padding: var(--space-40) var(--space-20);
 }
