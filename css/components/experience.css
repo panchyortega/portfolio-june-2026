@@ -20,9 +20,6 @@
   margin-bottom: var(--space-16);
 }
 .sm-bio {
-  font-size: var(--text-body-lg);
-  font-weight: var(--weight-light);
-  line-height: var(--lh-normal);
   color: var(--color-text-muted);
   margin-bottom: var(--space-20);
 }
@@ -58,18 +55,12 @@
   margin-bottom: var(--space-12);
 }
 .exp-empresa {
-  font-size: var(--text-h3);
-  font-weight: var(--weight-medium);
-  color: var(--color-text);
-  margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
 }
 .exp-rol {
-  font-size: var(--text-body);
   color: var(--color-text-muted);
 }
 .exp-fecha {
-  font-size: 0.75rem;
-  font-family: 'Courier New', monospace;
   color: var(--color-accent);
   white-space: nowrap;
   padding-top: var(--space-6);
@@ -94,16 +85,10 @@
   align-items: start;
 }
 .dim-label {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
   color: var(--color-text-subtle);
   padding-top: var(--space-4);
-  text-transform: uppercase;
 }
 .dim-content {
-  font-size: var(--text-body);
-  line-height: var(--lh-normal);
   color: var(--color-text);
 }
 .dim-content em {
@@ -123,14 +108,11 @@
   margin-bottom: var(--space-4);
 }
 .edu-inst {
-  font-size: var(--text-body);
   color: var(--color-text);
   margin-bottom: var(--space-8);
 }
 .edu-fecha {
-  font-size: 0.75rem;
-  font-family: 'Courier New', monospace;
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 /* Skills */
