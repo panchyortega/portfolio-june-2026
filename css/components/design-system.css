@@ -17,10 +17,9 @@
 
 /* Filas tipográficas */
 .type-row {
-  display: grid;
-  grid-template-columns: 1fr 220px;
-  gap: var(--space-32);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
   padding: var(--space-24) 0;
   border-bottom: 1px solid var(--color-border-subtle);
 }
@@ -28,15 +27,13 @@
 .type-sample { padding-top: var(--space-4); }
 .type-specs {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  padding-top: var(--space-20);
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-24);
 }
 .spec-row {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 .spec-key {
   font-size: 0.6875rem;
@@ -47,24 +44,18 @@
   font-size: 0.6875rem;
   font-family: 'Courier New', monospace;
   color: var(--color-text-muted);
-  text-align: right;
 }
-.spec-div {
-  height: 1px;
-  background: var(--color-border-subtle);
-  margin: var(--space-12) 0;
-}
+.spec-div { display: none; }
 
 /* Componentes */
 .comp-row {
-  display: grid;
-  grid-template-columns: 1fr 220px;
-  gap: var(--space-32);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
   padding: var(--space-32) 0;
   border-bottom: 1px solid var(--color-border-subtle);
 }
-.comp-row .type-specs { padding-top: var(--space-20); }
+.comp-row .type-specs { padding-top: 0; }
 .comp-row:first-of-type { border-top: 1px solid var(--color-border-subtle); }
 .comp-label {
   font-size: 0.6875rem;
@@ -156,6 +147,6 @@
 }
 
 @media (max-width: 860px) {
-  .type-row, .comp-row { grid-template-columns: 1fr; }
+
   .color-scale { grid-template-columns: repeat(5, 1fr); }
 }
