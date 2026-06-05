@@ -12,11 +12,6 @@
   <style>
     /* usa page-layout del CSS global */
 
-    .ds-nav-section { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-subtle); letter-spacing: 0.1em; margin-bottom: var(--space-8); margin-top: var(--space-24); }
-    .ds-nav-section:first-child { margin-top: 0; }
-    .ds-nav-link { display: block; font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: none; padding: var(--space-4) 0; transition: color var(--transition-fast); }
-    .ds-nav-link:hover { color: var(--color-text); }
-    .ds-nav-link.active { color: var(--color-accent); font-weight: 500; }
 
     .ds-section { margin-bottom: var(--space-96); scroll-margin-top: calc(var(--nav-height) + var(--space-24)); }
     .ds-section-title { font-size: var(--text-h2); font-weight: 400; color: var(--color-text); margin-bottom: var(--space-8); padding-bottom: var(--space-16); border-bottom: 1px solid var(--color-border-subtle); }
@@ -61,8 +56,6 @@
     .gd-label { font-size: 9px; font-family: 'Courier New', monospace; color: var(--color-text-subtle); text-align: center; margin-top: var(--space-6); }
 
     @media (max-width: 860px) {
-      .ds-nav { display: none; }
-      .ds-main { padding: var(--space-32) var(--space-24); }
       .type-row, .comp-row { grid-template-columns: 1fr; }
       .color-scale { grid-template-columns: repeat(5, 1fr); }
     }
@@ -105,15 +98,15 @@
 
   <div class="project-layout">
     <aside class="project-sidebar-left">
-      <p class="ds-nav-section">Fundación</p>
-      <a href="#grilla" class="ds-nav-link">Grilla</a>
-      <a href="#tipografia" class="ds-nav-link">Tipografía</a>
-      <a href="#colores" class="ds-nav-link">Colores</a>
-      <a href="#espaciado" class="ds-nav-link">Espaciado</a>
-      <p class="ds-nav-section">Componentes</p>
-      <a href="#atomos" class="ds-nav-link">Átomos</a>
-      <a href="#moleculas" class="ds-nav-link">Moléculas</a>
-      <a href="#organismos" class="ds-nav-link">Organismos</a>
+      <p class="sidebar-nav-section">Fundación</p>
+      <a href="#grilla" class="sidebar-nav-link">Grilla</a>
+      <a href="#tipografia" class="sidebar-nav-link">Tipografía</a>
+      <a href="#colores" class="sidebar-nav-link">Colores</a>
+      <a href="#espaciado" class="sidebar-nav-link">Espaciado</a>
+      <p class="sidebar-nav-section">Componentes</p>
+      <a href="#atomos" class="sidebar-nav-link">Átomos</a>
+      <a href="#moleculas" class="sidebar-nav-link">Moléculas</a>
+      <a href="#organismos" class="sidebar-nav-link">Organismos</a>
     </aside>
 
     <main class="project-main">

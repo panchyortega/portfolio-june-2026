@@ -227,6 +227,35 @@
   padding: var(--space-32) var(--sidebar-pad);
 }
 
+/* ── Sidebar nav — shared styles for DS and sobre-mi ── */
+.sidebar-nav-section {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-8);
+  margin-top: var(--space-24);
+}
+.sidebar-nav-section:first-child { margin-top: 0; }
+
+.sidebar-nav-link {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-4) 0;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+.sidebar-nav-link:hover { color: var(--color-text); }
+.sidebar-nav-link.active { color: var(--color-accent); font-weight: 500; }
+
+/* ── Sidebar meta (proyecto) ── */
+.sidebar-meta {
+  position: sticky;
+  top: var(--space-32);
+}
+
 .project-main {
   padding: var(--space-32) var(--content-pad);
   min-width: 0;
@@ -364,6 +393,7 @@
   .page-sidebar-right,
   .project-sidebar-right { display: none; }
   .page-sidebar-right { display: none; }
+  .sidebar-nav-section, .sidebar-nav-link { font-size: 0.875rem; }
   .toc-fab { display: flex; }
 
   .home-hero {

@@ -310,8 +310,7 @@
 
 /* ── Sidebar left (desktop — meta info) ── */
 .sidebar-meta {
-  position: sticky;
-  top: calc(var(--nav-height) + var(--space-32));
+  position: static;
 }
 .sidebar-meta .sidebar-section {
   margin-bottom: var(--space-24);

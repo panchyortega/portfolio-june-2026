@@ -14,11 +14,6 @@
     /* usa page-layout del CSS global */
 
 
-    .sm-nav-section { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-subtle); letter-spacing: 0.1em; margin-bottom: var(--space-8); margin-top: var(--space-24); }
-    .sm-nav-section:first-child { margin-top: 0; }
-    .sm-nav-link { display: block; font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: none; padding: var(--space-4) 0; transition: color var(--transition-fast); cursor: pointer; }
-    .sm-nav-link:hover { color: var(--color-text); }
-    .sm-nav-link.active { color: var(--color-accent); font-weight: 500; }
 
 
 
@@ -63,8 +58,6 @@
     .skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-6); }
 
     @media (max-width: 860px) {
-      .sm-nav { display: none; }
-      .sm-main { padding: var(--space-32) var(--space-24); }
       .dim { grid-template-columns: 1fr; gap: var(--space-8); }
       .exp-header { grid-template-columns: 1fr; }
       .exp-fecha { padding-top: 0; }
@@ -112,22 +105,22 @@
 
     <!-- Sidebar -->
     <aside class="project-sidebar-left" id="sm-nav">
-      <p class="sm-nav-section">Sobre mí</p>
-      <a class="sm-nav-link" onclick="scrollToSection('intro')">Intro</a>
+      <p class="sidebar-nav-section">Sobre mí</p>
+      <a class="sidebar-nav-link" onclick="scrollToSection('intro')">Intro</a>
 
-      <p class="sm-nav-section">Experiencia</p>
-      <a class="sm-nav-link" onclick="scrollToSection('racional')">Racional</a>
-      <a class="sm-nav-link" onclick="scrollToSection('ulern')">Ulern</a>
-      <a class="sm-nav-link" onclick="scrollToSection('freelance')">Freelance</a>
-      <a class="sm-nav-link" onclick="scrollToSection('cortexia')">Cortexia</a>
+      <p class="sidebar-nav-section">Experiencia</p>
+      <a class="sidebar-nav-link" onclick="scrollToSection('racional')">Racional</a>
+      <a class="sidebar-nav-link" onclick="scrollToSection('ulern')">Ulern</a>
+      <a class="sidebar-nav-link" onclick="scrollToSection('freelance')">Freelance</a>
+      <a class="sidebar-nav-link" onclick="scrollToSection('cortexia')">Cortexia</a>
 
-      <p class="sm-nav-section">Formación</p>
-      <a class="sm-nav-link" onclick="scrollToSection('educacion')">Educación</a>
-      <a class="sm-nav-link" onclick="scrollToSection('skills')">Habilidades</a>
+      <p class="sidebar-nav-section">Formación</p>
+      <a class="sidebar-nav-link" onclick="scrollToSection('educacion')">Educación</a>
+      <a class="sidebar-nav-link" onclick="scrollToSection('skills')">Habilidades</a>
     </aside>
 
     <!-- Main -->
-    <main class="project-main">
+    <main class="project-main"><div class="project-content">
 
       <!-- Intro -->
       <div class="sm-section" id="intro">
