@@ -42,20 +42,51 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── TOC: highlight activo con IntersectionObserver ──
   const headings = document.querySelectorAll('.project-content h2, .project-content h3');
   if (headings.length > 0) {
+    // Compensar la altura del nav sticky en el scroll
+    const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 52;
+    document.documentElement.style.scrollPaddingTop = (navHeight + 16) + 'px';
+
+    let isScrollingToSection = false;
+
+    const setActive = (id) => {
+      document.querySelectorAll('.toc-item').forEach(item => {
+        item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+      });
+    };
+
+    // Observer: marca el heading más cercano al top de la ventana
     const observer = new IntersectionObserver(entries => {
+      if (isScrollingToSection) return;
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          document.querySelectorAll('.toc-item').forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === '#' + entry.target.id) {
-              item.classList.add('active');
-            }
-          });
+          setActive(entry.target.id);
         }
       });
-    }, { rootMargin: '-20% 0px -70% 0px' });
+    }, {
+      rootMargin: `-${navHeight + 16}px 0px -60% 0px`
+    });
 
     headings.forEach(h => observer.observe(h));
+
+    // Al hacer clic en TOC: scroll preciso y marcar activo inmediatamente
+    document.querySelectorAll('.toc-item').forEach(item => {
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = item.getAttribute('href')?.replace('#', '');
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        isScrollingToSection = true;
+        setActive(targetId);
+        closeTocPanel();
+
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+        window.scrollTo({ top, behavior: 'smooth' });
+
+        // Reactivar observer después del scroll
+        setTimeout(() => { isScrollingToSection = false; }, 800);
+      });
+    });
   }
 
   // ── Barra de progreso de lectura ──
