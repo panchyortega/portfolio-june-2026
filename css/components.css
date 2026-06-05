@@ -73,7 +73,7 @@
 }
 .tag-neutral {
   background: var(--n-100);
-  color: var(--n-600);
+  color: var(--color-text-muted);
 }
 
 /* ── Callout ── */
@@ -292,21 +292,7 @@
   margin-bottom: var(--space-8);
 }
 
-/* ── Breadcrumb ── */
-.breadcrumb {
-  font-size: var(--text-small);
-  color: var(--color-text-subtle);
-  margin-bottom: var(--space-12);
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
-}
-.breadcrumb a {
-  color: var(--color-text-subtle);
-  text-decoration: none;
-}
-.breadcrumb a:hover { color: var(--color-text-muted); }
-.breadcrumb-sep { color: var(--n-300); }
+
 
 /* ── Sidebar left (desktop — meta info) ── */
 .sidebar-meta {
@@ -323,18 +309,19 @@
   letter-spacing: 0.05em;
 }
 .sidebar-meta .meta-item {
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-20);
 }
 .sidebar-meta .meta-label {
-  font-size: 0.6875rem; /* 11px */
+  font-size: var(--text-small); /* 12px */
   color: var(--color-text-subtle);
   margin-bottom: var(--space-4);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-medium);
 }
 .sidebar-meta .meta-value {
-  font-size: 0.8125rem; /* 13px */
+  font-size: var(--text-small); /* 12px */
   color: var(--color-text-muted);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-regular);
+  line-height: 1.5;
 }
 .sidebar-divider {
   height: 1px;
