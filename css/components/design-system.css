@@ -43,7 +43,6 @@
 }
 .spec-val {
   font-size: var(--text-small);
-  font-family: 'Courier New', monospace;
   color: var(--color-text-muted);
 }
 .spec-div { display: none; }
