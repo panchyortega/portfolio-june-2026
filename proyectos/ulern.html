@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ulern: Study Session End Screen — Fran Ortega</title>
+  <meta name="description" content="Diseñando el cierre de una sesión de estudio que transforma un punto muerto en un momento de aprendizaje">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+
+  <!-- Nav desktop -->
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Fran Ortega</a>
+    <div class="nav-left">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-proyectos" aria-expanded="false" onclick="toggleDropdown('dd-proyectos', this)">
+          Proyectos <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-proyectos">
+          <a href="ucap.html">Ucap: Dashboard</a>
+          <a href="ulern.html">Ulern: Study Session</a>
+          <a href="aurora.html">Aurora Design System</a>
+          <a href="glukko.html">Glukko App</a>
+          <a href="otros.html">Otros proyectos</a>
+        </div>
+      </div>
+      <a href="../sobre-mi.html" class="nav-btn">Sobre mí</a>
+      <a href="../sistema.html" class="nav-btn">DS</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-lang" aria-expanded="false" onclick="toggleDropdown('dd-lang', this)">
+          <i class="ti ti-language" style="font-size:1rem;"></i> <span id="lang-label">ES</span> <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-lang" style="right:0;left:auto;min-width:140px;">
+          <button onclick="setLang('es')">🇨🇱 Español</button>
+          <button onclick="setLang('en')">🇺🇸 English</button>
+        </div>
+      </div>
+      <button class="nav-btn nav-btn-icon" onclick="toggleTheme()" title="Cambiar tema">
+        <i class="ti ti-moon" id="theme-icon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Layout 3 columnas -->
+  <div class="project-layout">
+
+    <!-- Sidebar izquierda — meta info -->
+    <aside class="project-sidebar-left">
+      <div class="sidebar-meta">
+      <div class="meta-card" id="meta-card-desktop">
+          <div class="meta-item">
+            <p class="sidebar-label">Empresa</p>
+            <p class="meta-value">Ulern / Edtech startup</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Año</p>
+            <p class="meta-value">2025</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Tipo</p>
+            <div class="meta-tags"><span class="tag tag-primary">Profesional</span><span class="tag tag-neutral">UX/UI</span></div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Mi rol</p>
+            <p class="meta-value">UX/UI Designer</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Estado</p>
+            <div class="meta-tags"><span class="tag tag-primary">Diseñado · no en producción</span></div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Herramientas</p>
+            <p class="meta-value">Figma · Notion · Whimsical</p>
+          </div>
+      </div>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="project-main">
+      <div class="project-content">
+<div class="project-header">
+          <h1 class="project-title">Ulern: Study Session End Screen</h1>
+          <p class="project-subtitle">Diseñando el cierre de una sesión de estudio que transforma un punto muerto en un momento de aprendizaje</p>
+          <p class="small" style="margin-top: var(--space-12);">7–8 minutos de lectura</p>
+        </div>
+
+        <!-- Meta card mobile (solo visible en mobile, se oculta en desktop) -->
+        <div class="meta-card" id="meta-card-mobile" style="margin-bottom: var(--space-40); display: none;">
+          <div class="meta-item">
+            <p class="meta-label">Empresa</p>
+            <p class="meta-value">Ulern / Edtech startup</p>
+          </div>
+          
+        <h2>Contexto</h2>
+        <p>Ulern es una startup chilena que desarrolla una app de estudio con IA para estudiantes escolares, universitarios y autodidactas. Una de las piezas centrales del producto son las sesiones de estudio: un formato estructurado de aproximadamente 45 minutos para aprender en profundidad un tema específico.</p>
+        <p>Aunque la sesión en sí estaba cuidadosamente diseñada, identificamos un quiebre significativo en la experiencia: cuando la sesión terminaba, no pasaba nada.</p>
+
+        <h2>El problema</h2>
+        <p>Los estudiantes no recibían un cierre claro ni orientación sobre qué hacer a continuación. No había fin explícito de la sesión, ni sensación de logro, ni llamada a la acción para seguir estudiando. Esto generaba incertidumbre y, desde el negocio, significaba que muchas sesiones no se completaban del todo.</p>
+
+        <blockquote>"El desafío fue diseñar una pantalla de cierre que lograra múltiples objetivos al mismo tiempo: cierre satisfactorio, motivación, rutas personalizadas y valor percibido del producto."</blockquote>
+
+        <h2>Mi rol</h2>
+        <p>Trabajé como UX/UI designer en Ulern y, dentro de un marco ágil Scrum, fui asignada como responsable del proyecto. Esto implicó definir el alcance del MVP, proponer las funcionalidades mínimas necesarias, diseñar los flujos de usuario y coordinar decisiones con el equipo de investigación, diseño y desarrollo.</p>
+
+        <h2>Proceso de diseño</h2>
+        <h3>Flujos y wireframes</h3>
+        <p>Uno de los principales desafíos fue la complejidad de los posibles caminos al terminar una sesión. Desde una sola pantalla, los usuarios necesitaban poder repetir preguntas incorrectas, crear una nueva sesión, exportar resultados o contenido. Diseñé flujos de tareas para mapear estas decisiones sin sobrecargar la experiencia.</p>
+
+        <div class="img-placeholder" style="height: 300px; margin: var(--space-32) 0;">imagen — flujos y wireframes</div>
+        <span class="caption">Brainstorming de flujos y primeras iteraciones de wireframes.</span>
+
+        <h3>Diseño de exportación</h3>
+        <p>También diseñé el flujo de exportación, uno de los aspectos más interesantes del proyecto. Se definieron tres tipos de exportación: resultados de sesión para redes sociales, formato presentación 16:9 y formato imprimible A4.</p>
+
+        <div class="img-grid-2">
+          <div class="img-placeholder" style="height: 200px;">exportación — resultados</div>
+          <div class="img-placeholder" style="height: 200px;">exportación — presentación</div>
+        </div>
+        <span class="caption">Diseño de los distintos formatos de exportación.</span>
+
+        <h2>Pantallas finales</h2>
+        <p>El resultado fue una pantalla de cierre que transformó el final de una sesión de estudio en un momento significativo. Los estudiantes entienden claramente que la sesión terminó, visualizan su progreso de forma motivadora, reciben recomendaciones concretas y personalizadas, y pueden decidir fácilmente cómo continuar estudiando.</p>
+
+        <div class="img-placeholder" style="height: 360px; margin: var(--space-32) 0;">imagen — pantallas finales</div>
+        <span class="caption">Pantallas finales del cierre de sesión de estudio.</span>
+
+        <h2>Aprendizajes</h2>
+        <p>Este proyecto me permitió liderar un diseño end-to-end dentro de un equipo ágil, tomar decisiones de UX fundamentadas en pedagogía y necesidades de negocio, diseñar flows complejos sin perder claridad, y profundizar mis habilidades en diseño de exportación y sistemas visuales.</p>
+        
+
+
+        <div style="display:flex;justify-content:flex-end;gap:var(--space-12);margin-top:var(--space-64);padding-top:var(--space-32);border-top:1px solid var(--color-border-subtle);">
+          <a href="otros.html" class="btn btn-ghost">← Proyecto anterior</a>
+          <a href="aurora.html" class="btn btn-primary">Siguiente proyecto →</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar derecha — TOC (desktop) -->
+    <aside class="project-sidebar-right">
+      <div class="toc">
+        <p class="sidebar-label">Tabla de contenidos</p>
+        <ul class="toc-list">
+          <!-- Se genera automáticamente con JS -->
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Fran Ortega</p>
+        <p class="footer-tagline">UX/UI Designer · Santiago, Chile</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:francisca.ortega.pa@gmail.com" class="footer-link">francisca.ortega.pa@gmail.com</a>
+        <a href="https://linkedin.com/in/franciscaortegaparedes" class="footer-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/panchyortega" class="footer-link" target="_blank">GitHub</a>
+        <a href="../sistema.html" class="footer-link system">Sistema de diseño ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Francisca Ortega · Construido con HTML, CSS y JS</div>
+  </footer>
+
+  <!-- TOC flotante mobile -->
+  <button class="toc-fab" aria-label="Tabla de contenidos">
+    <i class="ti ti-list"></i>
+  </button>
+  <div class="toc-panel">
+    <p class="sidebar-label">Tabla de contenidos</p>
+    <ul class="toc-list"></ul>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav">
+    <a href="../index.html" class="mobile-nav-item">
+      <i class="ti ti-home"></i>
+      <span>Inicio</span>
+    </a>
+    <a href="../index.html" class="mobile-nav-item active">
+      <i class="ti ti-layout-grid"></i>
+      <span>Proyectos</span>
+    </a>
+    <a href="../sobre-mi.html" class="mobile-nav-item">
+      <i class="ti ti-user"></i>
+      <span>Sobre mí</span>
+    </a>
+  </nav>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Mobile: mostrar meta card inline, ocultar sidebar
+    if (window.innerWidth <= 900) {
+      document.getElementById('meta-card-mobile').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

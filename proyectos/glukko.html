@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glukko App — Fran Ortega</title>
+  <meta name="description" content="Diseño UX/UI de una aplicación de apoyo para personas con diabetes, desarrollada a través de investigación y testing">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+
+  <!-- Nav desktop -->
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Fran Ortega</a>
+    <div class="nav-left">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-proyectos" aria-expanded="false" onclick="toggleDropdown('dd-proyectos', this)">
+          Proyectos <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-proyectos">
+          <a href="aurora.html">Ucap: Dashboard</a>
+          <a href="ulern.html">Ulern: Study Session</a>
+          <a href="aurora.html">Aurora Design System</a>
+          <a href="glukko.html">Glukko App</a>
+          <a href="otros.html">Otros proyectos</a>
+        </div>
+      </div>
+      <a href="../sobre-mi.html" class="nav-btn">Sobre mí</a>
+      <a href="../sistema.html" class="nav-btn">DS</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-lang" aria-expanded="false" onclick="toggleDropdown('dd-lang', this)">
+          <i class="ti ti-language" style="font-size:1rem;"></i> <span id="lang-label">ES</span> <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-lang" style="right:0;left:auto;min-width:140px;">
+          <button onclick="setLang('es')">🇨🇱 Español</button>
+          <button onclick="setLang('en')">🇺🇸 English</button>
+        </div>
+      </div>
+      <button class="nav-btn nav-btn-icon" onclick="toggleTheme()" title="Cambiar tema">
+        <i class="ti ti-moon" id="theme-icon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Layout 3 columnas -->
+  <div class="project-layout">
+
+    <!-- Sidebar izquierda — meta info -->
+    <aside class="project-sidebar-left">
+      <div class="sidebar-meta">
+      <div class="meta-card" id="meta-card-desktop">
+          <div class="meta-item">
+            <p class="sidebar-label">Empresa</p>
+            <p class="meta-value">Proyecto académico — PUCV</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Año</p>
+            <p class="meta-value">2024</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Tipo</p>
+            <div class="meta-tags"><span class="tag tag-neutral">Académico</span><span class="tag tag-neutral">UX/UI</span></div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Mi rol</p>
+            <p class="meta-value">UX/UI Designer</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Estado</p>
+            <div class="meta-tags"><span class="tag tag-primary">Prototipo</span></div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Herramientas</p>
+            <p class="meta-value">Figma · Maze · Notion</p>
+          </div>
+      </div>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="project-main">
+      <div class="project-content">
+<div class="project-header">
+          <h1 class="project-title">Glukko App</h1>
+          <p class="project-subtitle">Diseño UX/UI de una aplicación de apoyo para personas con diabetes, desarrollada a través de investigación y testing</p>
+          <p class="small" style="margin-top: var(--space-12);">5–6 minutos de lectura</p>
+        </div>
+
+        <!-- Meta card mobile (solo visible en mobile, se oculta en desktop) -->
+        <div class="meta-card" id="meta-card-mobile" style="margin-bottom: var(--space-40); display: none;">
+          <div class="meta-item">
+            <p class="meta-label">Empresa</p>
+            <p class="meta-value">Ulern / Edtech startup</p>
+          </div>
+          
+        <h2>Contexto</h2>
+        <p>Glukko es un proyecto académico de diseño UX/UI centrado en crear una aplicación de apoyo para personas con diabetes. El proyecto fue desarrollado durante mi formación en la PUCV, aplicando metodologías de investigación centrada en el usuario desde las primeras etapas.</p>
+
+        <h2>El problema</h2>
+        <p>Las personas con diabetes enfrentan una carga cognitiva y emocional significativa en su día a día: monitoreo constante de glucosa, registro de alimentación, medicación y actividad física. Las soluciones existentes tienden a ser complejas, médicamente orientadas y poco amigables para el uso cotidiano.</p>
+
+        <blockquote>"Diseñar para una condición crónica requiere entender no solo las necesidades funcionales, sino también el impacto emocional de vivir con la enfermedad."</blockquote>
+
+        <h2>Proceso de diseño</h2>
+        <h3>Investigación</h3>
+        <p>El proyecto comenzó con investigación cualitativa: entrevistas con usuarios con diabetes tipo 1 y tipo 2, análisis competitivo de aplicaciones existentes y benchmarking de patrones de diseño en salud. Los hallazgos guiaron todas las decisiones de diseño posteriores.</p>
+
+        <h3>Prototipado y testing</h3>
+        <p>Desarrollé múltiples iteraciones de wireframes y prototipos de alta fidelidad, validando con usuarios reales a través de pruebas de usabilidad en Maze. Los resultados del testing informaron ajustes clave en la arquitectura de información y los flujos principales.</p>
+
+        <div class="img-placeholder" style="height: 300px; margin: var(--space-32) 0;">imagen — pantallas principales</div>
+        <span class="caption">Pantallas principales del prototipo de alta fidelidad de Glukko.</span>
+
+        <h2>Resultado</h2>
+        <p>El prototipo final refleja una aplicación centrada en reducir la fricción del monitoreo diario, con una interfaz amigable que prioriza la claridad de la información y la motivación del usuario para mantener hábitos saludables.</p>
+
+        <h2>Aprendizajes</h2>
+        <p>Este proyecto fortaleció mis habilidades de investigación con usuarios, diseño para contextos sensibles y la importancia de iterar basándose en feedback real en lugar de suposiciones.</p>
+        
+
+
+        <div style="display:flex;justify-content:flex-end;gap:var(--space-12);margin-top:var(--space-64);padding-top:var(--space-32);border-top:1px solid var(--color-border-subtle);">
+          <a href="otros.html" class="btn btn-ghost">← Proyecto anterior</a>
+          <a href="otros.html" class="btn btn-primary">Siguiente proyecto →</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar derecha — TOC (desktop) -->
+    <aside class="project-sidebar-right">
+      <div class="toc">
+        <p class="sidebar-label">Tabla de contenidos</p>
+        <ul class="toc-list">
+          <!-- Se genera automáticamente con JS -->
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Fran Ortega</p>
+        <p class="footer-tagline">UX/UI Designer · Santiago, Chile</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:francisca.ortega.pa@gmail.com" class="footer-link">francisca.ortega.pa@gmail.com</a>
+        <a href="https://linkedin.com/in/franciscaortegaparedes" class="footer-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/panchyortega" class="footer-link" target="_blank">GitHub</a>
+        <a href="../sistema.html" class="footer-link system">Sistema de diseño ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Francisca Ortega · Construido con HTML, CSS y JS</div>
+  </footer>
+
+  <!-- TOC flotante mobile -->
+  <button class="toc-fab" aria-label="Tabla de contenidos">
+    <i class="ti ti-list"></i>
+  </button>
+  <div class="toc-panel">
+    <p class="sidebar-label">Tabla de contenidos</p>
+    <ul class="toc-list"></ul>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav">
+    <a href="../index.html" class="mobile-nav-item">
+      <i class="ti ti-home"></i>
+      <span>Inicio</span>
+    </a>
+    <a href="../index.html" class="mobile-nav-item active">
+      <i class="ti ti-layout-grid"></i>
+      <span>Proyectos</span>
+    </a>
+    <a href="../sobre-mi.html" class="mobile-nav-item">
+      <i class="ti ti-user"></i>
+      <span>Sobre mí</span>
+    </a>
+  </nav>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Mobile: mostrar meta card inline, ocultar sidebar
+    if (window.innerWidth <= 900) {
+      document.getElementById('meta-card-mobile').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

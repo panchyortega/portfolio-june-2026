@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otros proyectos — Fran Ortega</title>
+  <meta name="description" content="Una colección de piezas gráficas, campañas de email, presentaciones, diseño editorial y más, desarrollados entre 2023 y 2025">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+
+  <!-- Nav desktop -->
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Fran Ortega</a>
+    <div class="nav-left">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-proyectos" aria-expanded="false" onclick="toggleDropdown('dd-proyectos', this)">
+          Proyectos <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-proyectos">
+          <a href="glukko.html">Ucap: Dashboard</a>
+          <a href="ulern.html">Ulern: Study Session</a>
+          <a href="aurora.html">Aurora Design System</a>
+          <a href="glukko.html">Glukko App</a>
+          <a href="otros.html">Otros proyectos</a>
+        </div>
+      </div>
+      <a href="../sobre-mi.html" class="nav-btn">Sobre mí</a>
+      <a href="../sistema.html" class="nav-btn">DS</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-dropdown-wrap">
+        <button class="nav-btn" id="btn-lang" aria-expanded="false" onclick="toggleDropdown('dd-lang', this)">
+          <i class="ti ti-language" style="font-size:1rem;"></i> <span id="lang-label">ES</span> <i class="ti ti-chevron-down chevron"></i>
+        </button>
+        <div class="nav-dropdown" id="dd-lang" style="right:0;left:auto;min-width:140px;">
+          <button onclick="setLang('es')">🇨🇱 Español</button>
+          <button onclick="setLang('en')">🇺🇸 English</button>
+        </div>
+      </div>
+      <button class="nav-btn nav-btn-icon" onclick="toggleTheme()" title="Cambiar tema">
+        <i class="ti ti-moon" id="theme-icon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Layout 3 columnas -->
+  <div class="project-layout">
+
+    <!-- Sidebar izquierda — meta info -->
+    <aside class="project-sidebar-left">
+      <div class="sidebar-meta">
+      <div class="meta-card" id="meta-card-desktop">
+          <div class="meta-item">
+            <p class="sidebar-label">Período</p>
+            <p class="meta-value">2023–2025</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Año</p>
+            <p class="meta-value">2023–2025</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Tipo</p>
+            <div class="meta-tags"><span class="tag tag-neutral">Gráfica</span><span class="tag tag-neutral">Web</span><span class="tag tag-neutral">Editorial</span></div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Mi rol</p>
+            <p class="meta-value">Designer</p>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Estado</p>
+            <div class="meta-tags"><span class="tag tag-neutral">Varios</span></div>
+          </div>
+          <div class="meta-item">
+            <p class="sidebar-label">Herramientas</p>
+            <p class="meta-value">Figma · Adobe CC · HTML/CSS</p>
+          </div>
+      </div>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="project-main">
+      <div class="project-content">
+<div class="project-header">
+          <h1 class="project-title">Otros proyectos</h1>
+          <p class="project-subtitle">Una colección de piezas gráficas, campañas de email, presentaciones, diseño editorial y más, desarrollados entre 2023 y 2025</p>
+          <p class="small" style="margin-top: var(--space-12);">6–7 minutos de lectura</p>
+        </div>
+
+        <!-- Meta card mobile (solo visible en mobile, se oculta en desktop) -->
+        <div class="meta-card" id="meta-card-mobile" style="margin-bottom: var(--space-40); display: none;">
+          <div class="meta-item">
+            <p class="meta-label">Empresa</p>
+            <p class="meta-value">Ulern / Edtech startup</p>
+          </div>
+          
+        <h2>Sobre esta colección</h2>
+        <p>Esta página reúne proyectos que no encajan en un caso de estudio formal, pero que forman parte importante de mi desarrollo como diseñadora. Incluye trabajo freelance, proyectos personales y colaboraciones en distintos formatos y contextos.</p>
+
+        <h2>Diseño gráfico y branding</h2>
+        <p>Piezas gráficas para clientes de distintas industrias, incluyendo identidad visual, materiales de marketing, diseño de presentaciones y contenido para redes sociales.</p>
+
+        <div class="img-placeholder" style="height: 240px; margin: var(--space-32) 0;">imagen — piezas gráficas</div>
+        <span class="caption">Selección de piezas gráficas para clientes.</span>
+
+        <h2>Email marketing</h2>
+        <p>Diseño de campañas de email para distintos negocios, enfocadas en conversión y coherencia de marca. Trabajo con templates responsivos y adaptación a distintas plataformas de envío.</p>
+
+        <div class="img-placeholder" style="height: 240px; margin: var(--space-32) 0;">imagen — email campaigns</div>
+        <span class="caption">Campañas de email diseñadas para distintas marcas.</span>
+
+        <h2>Diseño web</h2>
+        <p>Landing pages, sitios web y portafolios diseñados e implementados para clientes directos. Proyectos end-to-end desde el brief hasta la entrega final.</p>
+
+        <h2>Diseño editorial</h2>
+        <p>Materiales educativos, presentaciones institucionales y piezas de merchandising desarrolladas durante mi período freelance y en proyectos universitarios.</p>
+        
+
+
+        <div style="display:flex;justify-content:flex-end;gap:var(--space-12);margin-top:var(--space-64);padding-top:var(--space-32);border-top:1px solid var(--color-border-subtle);">
+          <a href="otros.html" class="btn btn-ghost">← Proyecto anterior</a>
+          <a href="ucap.html" class="btn btn-primary">Siguiente proyecto →</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Sidebar derecha — TOC (desktop) -->
+    <aside class="project-sidebar-right">
+      <div class="toc">
+        <p class="sidebar-label">Tabla de contenidos</p>
+        <ul class="toc-list">
+          <!-- Se genera automáticamente con JS -->
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Fran Ortega</p>
+        <p class="footer-tagline">UX/UI Designer · Santiago, Chile</p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:francisca.ortega.pa@gmail.com" class="footer-link">francisca.ortega.pa@gmail.com</a>
+        <a href="https://linkedin.com/in/franciscaortegaparedes" class="footer-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/panchyortega" class="footer-link" target="_blank">GitHub</a>
+        <a href="../sistema.html" class="footer-link system">Sistema de diseño ↗</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Francisca Ortega · Construido con HTML, CSS y JS</div>
+  </footer>
+
+  <!-- TOC flotante mobile -->
+  <button class="toc-fab" aria-label="Tabla de contenidos">
+    <i class="ti ti-list"></i>
+  </button>
+  <div class="toc-panel">
+    <p class="sidebar-label">Tabla de contenidos</p>
+    <ul class="toc-list"></ul>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav">
+    <a href="../index.html" class="mobile-nav-item">
+      <i class="ti ti-home"></i>
+      <span>Inicio</span>
+    </a>
+    <a href="../index.html" class="mobile-nav-item active">
+      <i class="ti ti-layout-grid"></i>
+      <span>Proyectos</span>
+    </a>
+    <a href="../sobre-mi.html" class="mobile-nav-item">
+      <i class="ti ti-user"></i>
+      <span>Sobre mí</span>
+    </a>
+  </nav>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Mobile: mostrar meta card inline, ocultar sidebar
+    if (window.innerWidth <= 900) {
+      document.getElementById('meta-card-mobile').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
