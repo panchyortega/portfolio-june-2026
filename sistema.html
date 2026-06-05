@@ -59,39 +59,6 @@
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">Fran Ortega</a>
-    <div class="nav-left">
-      <div class="nav-dropdown-wrap">
-        <button class="nav-btn" id="btn-proyectos" aria-expanded="false" onclick="toggleDropdown('dd-proyectos', this)">
-          Proyectos <i class="ti ti-chevron-down chevron"></i>
-        </button>
-        <div class="nav-dropdown" id="dd-proyectos">
-          <a href="proyectos/ucap.html">Ucap: Dashboard</a>
-          <a href="proyectos/ulern.html">Ulern: Study Session</a>
-          <a href="proyectos/aurora.html">Aurora Design System</a>
-          <a href="proyectos/glukko.html">Glukko App</a>
-          <a href="proyectos/otros.html">Otros proyectos</a>
-        </div>
-      </div>
-      <a href="sobre-mi.html" class="nav-btn">Sobre mí</a>
-      <a href="sistema.html" class="nav-btn">DS</a>
-    </div>
-    <div class="nav-right">
-      <div class="nav-dropdown-wrap">
-        <button class="nav-btn" id="btn-lang" aria-expanded="false" onclick="toggleDropdown('dd-lang', this)">
-          <i class="ti ti-language" style="font-size:1rem;"></i> <span id="lang-label">ES</span> <i class="ti ti-chevron-down chevron"></i>
-        </button>
-        <div class="nav-dropdown" id="dd-lang" style="right:0;left:auto;min-width:140px;">
-          <button onclick="setLang('es')">🇨🇱 Español</button>
-          <button onclick="setLang('en')">🇺🇸 English</button>
-        </div>
-      </div>
-      <button class="nav-btn nav-btn-icon" onclick="toggleTheme()" title="Cambiar tema">
-        <i class="ti ti-moon" id="theme-icon"></i>
-      </button>
-    </div>
-  </nav>
 
   <div class="project-layout">
     <aside class="project-sidebar-left"></aside>
@@ -694,6 +661,7 @@
     <div class="footer-bottom">© 2026 Francisca Ortega · Construido con HTML, CSS y JS</div>
   </footer>
 
+  <script src="js/nav.js"></script>
   <script src="js/main.js"></script>
   <script>
     // Sidebar nav active on scroll
