@@ -13,7 +13,7 @@
   <style>
     /* usa page-layout del CSS global */
 
-    .sm-nav { height: calc(100vh - var(--nav-height)); overflow-y: auto; }
+
     .sm-nav-section { font-size: 0.6875rem; font-weight: 600; color: var(--color-text-subtle); letter-spacing: 0.1em; margin-bottom: var(--space-8); margin-top: var(--space-24); }
     .sm-nav-section:first-child { margin-top: 0; }
     .sm-nav-link { display: block; font-size: 0.8125rem; color: var(--color-text-muted); text-decoration: none; padding: var(--space-4) 0; transition: color var(--transition-fast); cursor: pointer; }
@@ -108,10 +108,10 @@
     </div>
   </nav>
 
-  <div class="page-layout">
+  <div class="project-layout">
 
     <!-- Sidebar -->
-    <aside class="sm-nav page-sidebar-left">
+    <aside class="project-sidebar-left" id="sm-nav">
       <p class="sm-nav-section">Sobre mí</p>
       <a class="sm-nav-link" onclick="scrollToSection('intro')">Intro</a>
 
@@ -127,7 +127,7 @@
     </aside>
 
     <!-- Main -->
-    <main class="page-main" style="padding-top:var(--space-56);">
+    <main class="project-main" style="padding-top:var(--space-56);">
 
       <!-- Intro -->
       <div class="sm-section" id="intro">
