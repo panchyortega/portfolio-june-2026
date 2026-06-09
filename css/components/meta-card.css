@@ -34,11 +34,8 @@
   margin-bottom: 0;
 }
 .meta-label {
-  font-size: var(--text-h4);
-  font-weight: var(--weight-semibold);
   color: var(--color-text);
   margin-bottom: var(--space-6);
-  letter-spacing: var(--tracking-wide);
 }
 .meta-value {
   font-size: var(--text-body);

@@ -21,8 +21,6 @@ footer {
   gap: var(--space-32);
 }
 .footer-name {
-  font-size: var(--text-h3);
-  font-weight: var(--weight-regular);
   color: var(--color-text);
   margin-bottom: var(--space-4);
 }

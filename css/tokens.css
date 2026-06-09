@@ -2,18 +2,20 @@
    TOKENS — Portfolio Fran Ortega
    ───────────────────────────────────────────── */
 
-@import url('https://fonts.googleapis.com/css2?family=Sentient:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=sora@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap');
 
 :root {
 
   /* ── Tipografía ── */
-  --font: 'Sentient', Georgia, serif;
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'Work Sans', sans-serif;
+  --font:         'Work Sans', sans-serif;
 
-  --text-display:   3.25rem;   /* 52px — hero */
-  --text-h1:        2.5rem;    /* 40px — título de página */
-  --text-h2:        1.75rem;   /* 28px — sección */
+  --text-display:   3rem;      /* 48px — hero */
+  --text-h1:        2.25rem;   /* 36px — título de página */
+  --text-h2:        1.5rem;    /* 24px — sección */
   --text-h3:        1.25rem;   /* 20px — subsección */
-  --text-h4:        0.9375rem; /* 15px — etiqueta */
+  --text-h4:        1.125rem;  /* 18px — etiqueta */
   --text-body-lg:   1.125rem;  /* 18px */
   --text-body:      1rem;      /* 16px */
   --text-small:     0.75rem;   /* 12px */
@@ -45,16 +47,16 @@
   --n-900: #111710;
 
   /* ── Primary — rojo terracota ── */
-  --p-50:  #F7EDE8;
-  --p-100: #EFD3C6;
-  --p-200: #DFA897;
-  --p-300: #CB7A62;
-  --p-400: #B25540;
-  --p-500: #923D2A;
-  --p-600: #712E1E;
-  --p-700: #4F1F13;
-  --p-800: #30120B;
-  --p-900: #170804;
+  --p-50:  #FFF2EC;
+  --p-100: #FFCFB3;
+  --p-200: #FF9966;
+  --p-300: #FF7733;
+  --p-400: #FF5C00;
+  --p-500: #CC4900;
+  --p-600: #BA3500;
+  --p-700: #8A2800;
+  --p-800: #5C1A00;
+  --p-900: #2E0D00;
 
   /* ── Semánticos ── */
   --color-text:        var(--n-800);
@@ -114,9 +116,9 @@
 /* ── Escala tipográfica mobile ── */
 @media (max-width: 900px) {
   :root {
-    --text-display: 2.25rem;  /* 52 → 36px */
-    --text-h1:      1.875rem; /* 40 → 30px */
-    --text-h2:      1.375rem; /* 28 → 22px */
-    --text-h3:      1.125rem; /* 20 → 18px */
+    --text-display: 2rem;     /* 48 → 32px */
+    --text-h1:      1.625rem; /* 36 → 26px */
+    --text-h2:      1.25rem;  /* 24 → 20px */
+    --text-h3:      1.0625rem;/* 20 → 17px */
   }
 }

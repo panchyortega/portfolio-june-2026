@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
   applySelectedStates();
 
   // ── TOC ──
-  const headings = Array.from(document.querySelectorAll('.project-content h2, .project-content h3'));
+  const headings = Array.from(document.querySelectorAll('.project-content h2:not(.no-toc), .project-content h3:not(.no-toc)'));
   if (headings.length === 0) return;
 
   const NAV_H = 68; // nav height + buffer

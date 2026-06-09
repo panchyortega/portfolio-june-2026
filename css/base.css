@@ -12,14 +12,12 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-}
-
-html {
   overflow-x: clip;
 }
 
 body {
   font-family: var(--font);
+  letter-spacing: -0.025em;
   font-size: var(--text-body);
   font-weight: var(--weight-regular);
   line-height: var(--lh-normal);
@@ -32,29 +30,35 @@ body {
 /* ── Tipografía ── */
 
 .display {
+  font-family: var(--font-display);
   font-size: var(--text-display);
-  font-weight: var(--weight-light);
-  line-height: var(--lh-tight);
-  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 h1, .h1 {
+  font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: var(--weight-regular);
-  line-height: var(--lh-tight);
-  letter-spacing: var(--tracking-snug);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 h2, .h2 {
+  font-family: var(--font-display);
   font-size: var(--text-h2);
-  font-weight: var(--weight-regular);
-  line-height: var(--lh-snug);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
 }
 
 h3, .h3 {
+  font-family: var(--font-display);
   font-size: var(--text-h3);
-  font-weight: var(--weight-medium);
-  line-height: var(--lh-snug);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 h4, .h4 {
