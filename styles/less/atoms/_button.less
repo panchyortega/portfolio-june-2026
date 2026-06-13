@@ -1,0 +1,46 @@
+// ============================================
+// ÁTOMO: Botón
+// ============================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: @space-2;
+  padding: @space-3 @space-6;
+  border-radius: @radius-md;
+  font-family: @font-body;
+  font-size: @text-sm;
+  font-weight: @weight-medium;
+  transition: all @transition-fast;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &--primary {
+    background-color: @color-text;
+    color: @color-white;
+
+    &:hover {
+      background-color: @color-accent;
+      color: @color-white;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: @color-text;
+    border-color: @color-border;
+
+    &:hover {
+      border-color: @color-text;
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: @color-text-muted;
+
+    &:hover {
+      color: @color-text;
+    }
+  }
+}

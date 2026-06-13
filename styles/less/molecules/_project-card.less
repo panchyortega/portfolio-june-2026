@@ -1,0 +1,57 @@
+// ============================================
+// MOLÉCULA: Project Card
+// ============================================
+
+.project-card {
+  display: block;
+  background-color: @color-surface;
+  border: 1px solid @color-border;
+  border-radius: @radius-lg;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform @transition-base, box-shadow @transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background-color: @color-border;
+  }
+
+  &__body {
+    padding: @space-6;
+  }
+
+  &__tags {
+    margin-bottom: @space-3;
+  }
+
+  &__title {
+    font-family: @font-display;
+    font-size: @text-lg;
+    font-weight: @weight-semibold;
+    color: @color-text;
+    margin-bottom: @space-2;
+  }
+
+  &__desc {
+    font-size: @text-sm;
+    color: @color-text-muted;
+    line-height: 1.6;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: @space-6;
+
+  @media (max-width: @bp-md) {
+    grid-template-columns: 1fr;
+  }
+}

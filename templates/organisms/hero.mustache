@@ -1,0 +1,14 @@
+{{! Hero — intencionalmente simple. Cambia el contenido sin tocar el CSS. }}
+<section class="hero">
+  <div class="container">
+    {{#eyebrow}}<p class="hero__eyebrow">{{eyebrow}}</p>{{/eyebrow}}
+    <h1 class="hero__title">{{{title}}}</h1>
+    {{#subtitle}}<p class="hero__subtitle">{{subtitle}}</p>{{/subtitle}}
+    {{#actions}}
+    <div class="hero__actions">
+      {{#cta_primary}}<a href="{{url}}" class="btn btn--primary">{{label}}</a>{{/cta_primary}}
+      {{#cta_secondary}}<a href="{{url}}" class="btn btn--outline">{{label}}</a>{{/cta_secondary}}
+    </div>
+    {{/actions}}
+  </div>
+</section>

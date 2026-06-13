@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Panchy Ortega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{cssPath}}styles/css/main.css" />
+</head>
+<body>
+
+{{> nav}}
+
+<main>
+  <div class="container" style="padding-block: 4rem 6rem;">
+
+    <h1 style="margin-bottom: 3rem;">Design System</h1>
+
+    <section style="margin-bottom: 4rem;">
+      <h2 style="margin-bottom: 1.5rem;">Colores</h2>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <div style="width:80px;height:80px;border-radius:8px;background:#2C2C2C;" title="@color-text"></div>
+        <div style="width:80px;height:80px;border-radius:8px;background:#F0EDE8;border:1px solid #D6D1CA;" title="@color-bg"></div>
+        <div style="width:80px;height:80px;border-radius:8px;background:#E8E4DE;border:1px solid #D6D1CA;" title="@color-surface"></div>
+        <div style="width:80px;height:80px;border-radius:8px;background:#D4622A;" title="@color-accent"></div>
+        <div style="width:80px;height:80px;border-radius:8px;background:#7A7570;" title="@color-text-muted"></div>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 4rem;">
+      <h2 style="margin-bottom: 1.5rem;">Tipografía</h2>
+      <p style="font-family:'Sora',sans-serif;font-size:2.25rem;font-weight:600;margin-bottom:0.5rem;">Sora — Títulos</p>
+      <p style="font-family:'Work Sans',sans-serif;font-size:1rem;margin-bottom:0.5rem;">Work Sans — Cuerpo y UI</p>
+    </section>
+
+    <section style="margin-bottom: 4rem;">
+      <h2 style="margin-bottom: 1.5rem;">Tags</h2>
+      <div class="tag-group">
+        <span class="tag">Default</span>
+        <span class="tag tag--accent">Accent</span>
+        <span class="tag">Figma</span>
+        <span class="tag">Mobile</span>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 4rem;">
+      <h2 style="margin-bottom: 1.5rem;">Botones</h2>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="#" class="btn btn--primary">Primary</a>
+        <a href="#" class="btn btn--outline">Outline</a>
+        <a href="#" class="btn btn--ghost">Ghost</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+{{> footer}}
+
+</body>
+</html>

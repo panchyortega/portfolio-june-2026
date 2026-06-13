@@ -1,0 +1,46 @@
+// ============================================
+// ORGANISMO: Hero
+// --------------------------------------------
+// Intencionalmente simple — fácil de reemplazar.
+// Cambia el template hero.mustache sin tocar este CSS.
+// ============================================
+
+.hero {
+  padding-block: @space-24;
+
+  &__eyebrow {
+    font-size: @text-sm;
+    font-weight: @weight-medium;
+    color: @color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: @space-4;
+  }
+
+  &__title {
+    font-family: @font-display;
+    font-size: @text-4xl;
+    font-weight: @weight-semibold;
+    color: @color-text;
+    line-height: 1.1;
+    margin-bottom: @space-6;
+
+    @media (max-width: @bp-md) {
+      font-size: @text-3xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: @text-lg;
+    color: @color-text-muted;
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: @space-8;
+  }
+
+  &__actions {
+    display: flex;
+    gap: @space-3;
+    flex-wrap: wrap;
+  }
+}

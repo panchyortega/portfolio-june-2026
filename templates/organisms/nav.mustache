@@ -1,0 +1,19 @@
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="{{rootPath}}index.html" class="nav__logo">Panchy Ortega</a>
+    <nav class="nav__links">
+      <a href="{{rootPath}}index.html" class="nav__link {{#isHome}}nav__link--active{{/isHome}}">Proyectos</a>
+      <a href="{{rootPath}}sobre-mi.html" class="nav__link {{#isAbout}}nav__link--active{{/isAbout}}">Sobre mí</a>
+      <div class="dropdown">
+        <span class="dropdown__trigger">
+          Más
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </span>
+        <div class="dropdown__menu">
+          <a href="{{rootPath}}sistema.html" class="dropdown__item">Design System</a>
+          <a href="https://read.cv/panchy" class="dropdown__item" target="_blank" rel="noopener">CV</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

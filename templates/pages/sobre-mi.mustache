@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre mí — Panchy Ortega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{cssPath}}styles/css/main.css" />
+</head>
+<body>
+
+{{> nav}}
+
+<main>
+  <div class="container" style="padding-block: 4rem 6rem;">
+
+    <section style="margin-bottom: 5rem;">
+      <h2 style="margin-bottom: 2rem;">Experiencia</h2>
+      {{#experience}}{{> experience-entry}}{{/experience}}
+    </section>
+
+    <section style="margin-bottom: 5rem;">
+      <h2 style="margin-bottom: 2rem;">Educación</h2>
+      {{#education}}{{> education-entry}}{{/education}}
+    </section>
+
+    <section>
+      <h2 style="margin-bottom: 2rem;">Habilidades</h2>
+      <div class="skills-grid">
+        {{#skills}}{{> skills-group}}{{/skills}}
+      </div>
+    </section>
+
+  </div>
+</main>
+
+{{> footer}}
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+// ============================================
+// ORGANISMO: TOC (Tabla de contenidos)
+// Para páginas de proyecto individual
+// ============================================
+
+.toc {
+  position: sticky;
+  top: 80px;
+  padding: @space-6;
+  background-color: @color-surface;
+  border: 1px solid @color-border;
+  border-radius: @radius-md;
+
+  &__title {
+    font-size: @text-xs;
+    font-weight: @weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: @color-text-muted;
+    margin-bottom: @space-4;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: @space-1;
+  }
+
+  &__item {
+    font-size: @text-sm;
+    color: @color-text-muted;
+    text-decoration: none;
+    padding: @space-1 @space-2;
+    border-radius: @radius-sm;
+    border-left: 2px solid transparent;
+    transition: all @transition-fast;
+
+    &:hover,
+    &--active {
+      color: @color-text;
+      background-color: @color-border;
+      border-left-color: @color-accent;
+    }
+  }
+}

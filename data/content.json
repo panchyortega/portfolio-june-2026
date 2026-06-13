@@ -1,0 +1,106 @@
+{
+  "lang": "es",
+  "meta": {
+    "name": "Panchy Ortega",
+    "role": "Product Designer",
+    "email": "hola@panchyortega.com",
+    "linkedin": "https://linkedin.com/in/panchyortega",
+    "github": "https://github.com/panchyortega"
+  },
+  "hero": {
+    "eyebrow": "Product Designer",
+    "title": "Diseño interfaces que tienen sentido.",
+    "subtitle": "Trabajo en el cruce entre UX, producto y sistemas de diseño. Actualmente en Racional.",
+    "actions": true,
+    "cta_primary": { "label": "Ver proyectos", "url": "#proyectos" },
+    "cta_secondary": { "label": "Sobre mí", "url": "sobre-mi.html" }
+  },
+  "projects": [
+    {
+      "title": "Racional — Onboarding",
+      "description": "Rediseño del flujo de onboarding para nuevos inversionistas.",
+      "url": "proyectos/racional.html",
+      "image": "",
+      "tags": { "items": [
+        { "label": "Fintech", "accent": true },
+        { "label": "Mobile" },
+        { "label": "Figma" }
+      ]}
+    },
+    {
+      "title": "Aurora — Design System",
+      "description": "Sistema de componentes y tokens para plataforma educativa.",
+      "url": "proyectos/aurora.html",
+      "image": "",
+      "tags": { "items": [
+        { "label": "Design System" },
+        { "label": "Tokens" }
+      ]}
+    }
+  ],
+  "experience": [
+    {
+      "role": "Product Designer",
+      "company": "Racional",
+      "date_start": "02/2026",
+      "date_end": "presente",
+      "tags": [
+        { "label": "Fintech", "accent": true },
+        { "label": "Startup" },
+        { "label": "Mobile" },
+        { "label": "Inversiones" },
+        { "label": "Figma" },
+        { "label": "Agile" }
+      ],
+      "como_trabaje": "Equipo pequeño e interfuncional — diseño, producto y tecnología comparten la misma mesa. Sprints cortos, feedback constante y mucha autonomía. Todo en híbrido, con ritmos rápidos y decisiones que se toman con pocos pero buenos datos.",
+      "que_se_logro": "Diseño de flows de inversión, distribución de aportes y onboarding. Construcción del sistema de componentes y tokens en Figma, hoy en uso por el equipo. Colaboración en la definición de producto junto a CEO y Growth.",
+      "que_aprendi": "Que en una fintech, la confianza del usuario es el producto. Cada decisión de diseño tiene peso legal, emocional y de negocio al mismo tiempo — y eso lo cambia todo."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diseño con especialización en Interacción",
+      "institution": "Pontificia Universidad Católica de Valparaíso",
+      "year_start": "2020",
+      "year_end": "2024"
+    }
+  ],
+  "skills": [
+    {
+      "title": "UX / Producto",
+      "tags": [
+        { "label": "User flows" },
+        { "label": "Wireframing" },
+        { "label": "Prototipado" },
+        { "label": "Usability testing" },
+        { "label": "Handoff" }
+      ]
+    },
+    {
+      "title": "UI / Visual",
+      "tags": [
+        { "label": "Interface design" },
+        { "label": "Design systems" },
+        { "label": "Tokens" },
+        { "label": "Componentes" }
+      ]
+    },
+    {
+      "title": "Herramientas",
+      "tags": [
+        { "label": "Figma" },
+        { "label": "Adobe CC" },
+        { "label": "Notion" },
+        { "label": "HTML/CSS" }
+      ]
+    },
+    {
+      "title": "Metodologías",
+      "tags": [
+        { "label": "Agile / Scrum" },
+        { "label": "Kanban" },
+        { "label": "Design thinking" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+// ============================================
+// MOLÉCULA: Experience Entry
+// ============================================
+
+.experience-entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: @space-6;
+  padding-block: @space-10;
+  border-bottom: 1px solid @color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__date {
+    font-size: @text-sm;
+    font-weight: @weight-medium;
+    color: @color-accent;
+    text-align: right;
+  }
+
+  &__role {
+    font-family: @font-display;
+    font-size: @text-xl;
+    font-weight: @weight-semibold;
+    color: @color-text;
+    margin-bottom: @space-1;
+  }
+
+  &__company {
+    font-size: @text-base;
+    color: @color-text-muted;
+    margin-bottom: @space-4;
+  }
+
+  &__tags {
+    margin-bottom: @space-6;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: @space-6;
+  }
+
+  &__detail {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: @space-4;
+    align-items: start;
+
+    @media (max-width: @bp-md) {
+      grid-template-columns: 1fr;
+      gap: @space-2;
+    }
+  }
+
+  &__label {
+    font-size: @text-sm;
+    color: @color-text-muted;
+    padding-top: 2px;
+  }
+
+  &__text {
+    font-size: @text-base;
+    color: @color-text;
+    line-height: 1.7;
+
+    em {
+      font-style: italic;
+    }
+  }
+}

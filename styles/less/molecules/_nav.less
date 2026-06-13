@@ -1,0 +1,104 @@
+// ============================================
+// MOLÉCULA: Nav / Header
+// ============================================
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: @color-bg;
+  border-bottom: 1px solid @color-border;
+  padding-block: @space-4;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-family: @font-display;
+    font-size: @text-base;
+    font-weight: @weight-semibold;
+    color: @color-text;
+    text-decoration: none;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: @space-6;
+  }
+
+  &__link {
+    font-size: @text-sm;
+    font-weight: @weight-medium;
+    color: @color-text-muted;
+    text-decoration: none;
+    transition: color @transition-fast;
+    position: relative;
+
+    &:hover,
+    &--active {
+      color: @color-text;
+    }
+  }
+}
+
+// Dropdown
+.dropdown {
+  position: relative;
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    gap: @space-1;
+    font-size: @text-sm;
+    font-weight: @weight-medium;
+    color: @color-text-muted;
+    cursor: pointer;
+    transition: color @transition-fast;
+
+    &:hover {
+      color: @color-text;
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+      transition: transform @transition-fast;
+    }
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + @space-2);
+    left: 0;
+    background-color: @color-white;
+    border: 1px solid @color-border;
+    border-radius: @radius-md;
+    padding: @space-2;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  &:hover &__menu,
+  &:focus-within &__menu {
+    display: block;
+  }
+
+  &__item {
+    display: block;
+    padding: @space-2 @space-3;
+    font-size: @text-sm;
+    color: @color-text;
+    border-radius: @radius-sm;
+    text-decoration: none;
+    transition: background-color @transition-fast;
+
+    &:hover {
+      background-color: @color-surface;
+    }
+  }
+}

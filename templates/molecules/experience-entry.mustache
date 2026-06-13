@@ -1,0 +1,30 @@
+<article class="experience-entry">
+  <div class="experience-entry__date">{{date_start}} — {{date_end}}</div>
+  <div>
+    <h3 class="experience-entry__role">{{role}}</h3>
+    <p class="experience-entry__company">{{company}}</p>
+    <div class="experience-entry__tags tag-group">
+      {{#tags}}<span class="tag{{#accent}} tag--accent{{/accent}}">{{label}}</span>{{/tags}}
+    </div>
+    <div class="experience-entry__details">
+      {{#como_trabaje}}
+      <div class="experience-entry__detail">
+        <span class="experience-entry__label">Cómo trabajé</span>
+        <p class="experience-entry__text">{{como_trabaje}}</p>
+      </div>
+      {{/como_trabaje}}
+      {{#que_se_logro}}
+      <div class="experience-entry__detail">
+        <span class="experience-entry__label">Qué se logró</span>
+        <p class="experience-entry__text">{{que_se_logro}}</p>
+      </div>
+      {{/que_se_logro}}
+      {{#que_aprendi}}
+      <div class="experience-entry__detail">
+        <span class="experience-entry__label">Qué aprendí</span>
+        <p class="experience-entry__text"><em>{{que_aprendi}}</em></p>
+      </div>
+      {{/que_aprendi}}
+    </div>
+  </div>
+</article>

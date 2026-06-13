@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-june-2026",
+  "version": "1.0.0",
+  "description": "Portafolio de Panchy Ortega — LESS + Mustache",
+  "scripts": {
+    "less": "lessc styles/less/main.less styles/css/main.css",
+    "watch:less": "watch \"npm run less\" styles/less",
+    "render": "node render.js",
+    "dev": "npm-run-all --parallel watch:less"
+  },
+  "dependencies": {
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "less": "^4.2.0",
+    "npm-run-all": "^4.1.5",
+    "watch": "^1.0.2"
+  }
+}

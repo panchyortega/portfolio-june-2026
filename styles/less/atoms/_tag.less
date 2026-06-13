@@ -1,0 +1,32 @@
+// ============================================
+// ÁTOMO: Tag / Etiqueta
+// ============================================
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: @space-1 @space-3;
+  border-radius: @radius-full;
+  font-family: @font-body;
+  font-size: @text-sm;
+  font-weight: @weight-medium;
+  background-color: @color-surface;
+  color: @color-text-muted;
+  border: 1px solid @color-border;
+  white-space: nowrap;
+  transition: background-color @transition-fast;
+
+  // Variante destacada (color acento, ej: "Fintech")
+  &--accent {
+    background-color: fade(@color-accent, 15%);
+    color: @color-accent;
+    border-color: fade(@color-accent, 30%);
+  }
+}
+
+// Grupo de tags
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @space-2;
+}

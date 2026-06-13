@@ -1,0 +1,12 @@
+<a href="{{url}}" class="project-card">
+  {{#image}}<img src="{{image}}" alt="{{title}}" class="project-card__image" />{{/image}}
+  <div class="project-card__body">
+    {{#tags}}
+    <div class="project-card__tags tag-group">
+      {{#items}}<span class="tag{{#accent}} tag--accent{{/accent}}">{{label}}</span>{{/items}}
+    </div>
+    {{/tags}}
+    <h3 class="project-card__title">{{title}}</h3>
+    <p class="project-card__desc">{{description}}</p>
+  </div>
+</a>
