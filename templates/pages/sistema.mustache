@@ -4,60 +4,113 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Design System — Panchy Ortega</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=sora@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{{cssPath}}styles/css/main.css" />
 </head>
 <body>
 
 {{> nav}}
 
-<main>
-  <div class="container" style="padding-block: 4rem 6rem;">
+<div class="ds-layout">
 
-    <h1 style="margin-bottom: 3rem;">Design System</h1>
-
-    <section style="margin-bottom: 4rem;">
-      <h2 style="margin-bottom: 1.5rem;">Colores</h2>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <div style="width:80px;height:80px;border-radius:8px;background:#2C2C2C;" title="@color-text"></div>
-        <div style="width:80px;height:80px;border-radius:8px;background:#F0EDE8;border:1px solid #D6D1CA;" title="@color-bg"></div>
-        <div style="width:80px;height:80px;border-radius:8px;background:#E8E4DE;border:1px solid #D6D1CA;" title="@color-surface"></div>
-        <div style="width:80px;height:80px;border-radius:8px;background:#D4622A;" title="@color-accent"></div>
-        <div style="width:80px;height:80px;border-radius:8px;background:#7A7570;" title="@color-text-muted"></div>
-      </div>
-    </section>
-
-    <section style="margin-bottom: 4rem;">
-      <h2 style="margin-bottom: 1.5rem;">Tipografía</h2>
-      <p style="font-family:'Sora',sans-serif;font-size:2.25rem;font-weight:600;margin-bottom:0.5rem;">Sora — Títulos</p>
-      <p style="font-family:'Work Sans',sans-serif;font-size:1rem;margin-bottom:0.5rem;">Work Sans — Cuerpo y UI</p>
-    </section>
-
-    <section style="margin-bottom: 4rem;">
-      <h2 style="margin-bottom: 1.5rem;">Tags</h2>
-      <div class="tag-group">
-        <span class="tag">Default</span>
-        <span class="tag tag--accent">Accent</span>
-        <span class="tag">Figma</span>
-        <span class="tag">Mobile</span>
-      </div>
-    </section>
-
-    <section style="margin-bottom: 4rem;">
-      <h2 style="margin-bottom: 1.5rem;">Botones</h2>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="#" class="btn btn--primary">Primary</a>
-        <a href="#" class="btn btn--outline">Outline</a>
-        <a href="#" class="btn btn--ghost">Ghost</a>
-      </div>
-    </section>
-
+  <div class="ds-header">
+    <h1>Design System</h1>
+    <p>Componentes, estilos y patrones del portafolio.</p>
   </div>
-</main>
+
+  {{! ── Componentes (auto-generados) ── }}
+  {{#componentes}}
+  <section class="ds-section" id="{{id}}">
+
+    <div class="ds-section-header">
+      <h2>{{titulo}}</h2>
+      <span class="ds-badge">{{tipo}}</span>
+    </div>
+    <p class="ds-desc">{{descripcion}}</p>
+
+    {{! Preview }}
+    {{#muestra}}
+    <div class="ds-preview">{{{muestra}}}</div>
+    {{/muestra}}
+
+    {{! Code block con tabs }}
+    <div class="ds-code-block">
+      <div class="ds-code-tabs">
+        <button class="ds-tab active" data-target="mustache-{{id}}">Mustache</button>
+        {{#has_less}}<button class="ds-tab" data-target="less-{{id}}">LESS</button>{{/has_less}}
+      </div>
+      <pre class="ds-code" id="mustache-{{id}}"><code>{{mustache_code}}</code></pre>
+      {{#has_less}}<pre class="ds-code" id="less-{{id}}" hidden><code>{{less_code}}</code></pre>{{/has_less}}
+    </div>
+
+  </section>
+  {{/componentes}}
+
+  {{! ── Páginas ── }}
+  {{#paginas}}
+  <section class="ds-section" id="page-{{id}}">
+
+    <div class="ds-section-header">
+      <h2>{{titulo}}</h2>
+      <span class="ds-badge">Página</span>
+    </div>
+    <p class="ds-desc">{{descripcion}}</p>
+
+    {{! Esquema visual }}
+    <div class="ds-page-schema">
+      {{#es_3cols}}
+      <div class="ds-schema-3col">
+        <div class="ds-schema-full">Nav</div>
+        {{#esquema}}
+          {{#sidebar}}<div class="ds-schema-sidebar">{{label}}</div>{{/sidebar}}
+          {{^sidebar}}<div class="ds-schema-main">{{label}}</div>{{/sidebar}}
+        {{/esquema}}
+      </div>
+      {{/es_3cols}}
+      {{^es_3cols}}
+      <div class="ds-schema-simple">
+        <div class="ds-schema-row">Nav</div>
+        {{#esquema}}
+        <div class="ds-schema-row">{{label}}</div>
+        {{/esquema}}
+      </div>
+      {{/es_3cols}}
+    </div>
+
+    {{! Código del template }}
+    <div class="ds-code-block">
+      <div class="ds-code-tabs">
+        <button class="ds-tab active" data-target="page-code-{{id}}">Template</button>
+      </div>
+      <pre class="ds-code" id="page-code-{{id}}"><code>{{template_code}}</code></pre>
+    </div>
+
+  </section>
+  {{/paginas}}
+
+</div>
 
 {{> footer}}
+
+<script>
+// Tab switching
+document.querySelectorAll('.ds-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const block = tab.closest('.ds-code-block');
+    const target = tab.dataset.target;
+
+    // Deactivate all tabs and hide all code blocks in this block
+    block.querySelectorAll('.ds-tab').forEach(t => t.classList.remove('active'));
+    block.querySelectorAll('.ds-code').forEach(c => c.setAttribute('hidden', ''));
+
+    // Activate clicked tab and show target code
+    tab.classList.add('active');
+    const targetEl = document.getElementById(target);
+    if (targetEl) targetEl.removeAttribute('hidden');
+  });
+});
+</script>
 
 </body>
 </html>

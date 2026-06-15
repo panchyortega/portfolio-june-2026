@@ -1,0 +1,61 @@
+{
+  "muestras": {
+    "tag": "<div class=\"tag-group\">\n  <span class=\"tag\">Diseño</span>\n  <span class=\"tag\">Figma</span>\n  <span class=\"tag tag--accent\">Fintech</span>\n</div>",
+
+    "project-card": "<a href=\"#\" class=\"project-card\" style=\"max-width:320px;display:block\">\n  <div class=\"project-card__image\" style=\"background:#E3E6DF;height:180px;\"></div>\n  <div class=\"project-card__body\">\n    <div class=\"project-card__tags tag-group\"><span class=\"tag tag--accent\">Fintech</span><span class=\"tag\">Mobile</span></div>\n    <h3 class=\"project-card__title\">Racional — Onboarding</h3>\n    <p class=\"project-card__desc\">Rediseño del flujo de onboarding para nuevos inversionistas.</p>\n  </div>\n</a>",
+
+    "experience-entry": "<article class=\"experience-entry\">\n  <div class=\"experience-entry__date\">02/2026 — presente</div>\n  <div>\n    <h3 class=\"experience-entry__role\">Product Designer</h3>\n    <p class=\"experience-entry__company\">Racional</p>\n    <div class=\"experience-entry__tags tag-group\"><span class=\"tag tag--accent\">Fintech</span><span class=\"tag\">Mobile</span></div>\n    <div class=\"experience-entry__details\">\n      <div class=\"experience-entry__detail\">\n        <span class=\"experience-entry__label\">Qué aprendí</span>\n        <p class=\"experience-entry__text\"><em>Que en una fintech, la confianza del usuario es el producto.</em></p>\n      </div>\n    </div>\n  </div>\n</article>",
+
+    "education-entry": "<article class=\"education-entry\">\n  <h3 class=\"education-entry__degree\">Diseño con especialización en Interacción</h3>\n  <p class=\"education-entry__institution\">Pontificia Universidad Católica de Valparaíso</p>\n  <p class=\"education-entry__years\">2020 — 2024</p>\n</article>",
+
+    "skills-group": "<div class=\"skills-grid\" style=\"max-width:500px\">\n  <div class=\"skills-group\">\n    <h3 class=\"skills-group__title\">UX / Producto</h3>\n    <div class=\"tag-group\"><span class=\"tag\">User flows</span><span class=\"tag\">Wireframing</span><span class=\"tag\">Prototipado</span></div>\n  </div>\n  <div class=\"skills-group\">\n    <h3 class=\"skills-group__title\">Herramientas</h3>\n    <div class=\"tag-group\"><span class=\"tag\">Figma</span><span class=\"tag\">Notion</span></div>\n  </div>\n</div>",
+
+    "meta-card": "<div class=\"meta-card\" style=\"max-width:220px\">\n  <div class=\"meta-item\"><p class=\"meta-label\">Tipo</p><p class=\"meta-value\">Trabajo</p></div>\n  <div class=\"meta-item\"><p class=\"meta-label\">Año</p><p class=\"meta-value\">2026</p></div>\n  <div class=\"meta-item\"><p class=\"meta-label\">Empresa</p><p class=\"meta-value\">Racional</p></div>\n  <div class=\"meta-item\"><p class=\"meta-label\">Herramientas</p><div class=\"meta-tags\"><span class=\"tag\">Figma</span><span class=\"tag\">FigJam</span></div></div>\n</div>",
+
+    "nav": "<div style=\"position:relative;border:1px solid var(--color-border-subtle);border-radius:8px;overflow:hidden\">\n  <div style=\"display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:var(--color-bg);border-bottom:1px solid var(--color-border-subtle)\">\n    <span style=\"font-weight:500;font-size:1rem\">Panchy Ortega</span>\n    <div style=\"display:flex;gap:0.25rem\">\n      <span style=\"padding:0.375rem 0.75rem;font-size:1rem;color:var(--color-text-muted)\">Proyectos</span>\n      <span style=\"padding:0.375rem 0.75rem;font-size:1rem;color:var(--color-text-muted)\">Sobre mí</span>\n      <span style=\"padding:0.375rem 0.75rem;font-size:1rem;color:var(--color-text-muted)\">Más ↓</span>\n    </div>\n  </div>\n</div>",
+
+    "hero": "<div class=\"home-hero\" style=\"padding:3rem 2rem\">\n  <div>\n    <p style=\"font-size:0.75rem;color:var(--color-text-subtle);letter-spacing:.08em;margin-bottom:1rem\">PRODUCT DESIGNER</p>\n    <h1 style=\"font-size:2.25rem;margin-bottom:1.5rem\">Diseño interfaces<br>que tienen sentido.</h1>\n    <p style=\"color:var(--color-text-muted);margin-bottom:2rem\">Trabajo en el cruce entre UX, producto y sistemas de diseño.</p>\n    <div style=\"display:flex;gap:.75rem\"><a href=\"#\" class=\"btn btn--primary\">Ver proyectos</a><a href=\"#\" class=\"btn btn--outline\">Sobre mí</a></div>\n  </div>\n</div>",
+
+    "footer": "<footer class=\"footer\"><div class=\"container footer__inner\"><p class=\"footer__copy\">© 2026 Panchy Ortega</p><div class=\"footer__links\"><a href=\"#\" class=\"footer__link\">LinkedIn</a><a href=\"#\" class=\"footer__link\">GitHub</a></div></div></footer>",
+
+    "toc": "<div style=\"max-width:220px\">\n  <p class=\"sidebar-label\">Contenido</p>\n  <ul class=\"toc-list\">\n    <li><a href=\"#\" class=\"toc-item active\">El problema</a></li>\n    <li><a href=\"#\" class=\"toc-item\">Mi proceso</a></li>\n    <li><a href=\"#\" class=\"toc-item sub\">Research</a></li>\n    <li><a href=\"#\" class=\"toc-item\">Resultado</a></li>\n  </ul>\n</div>"
+  },
+
+  "paginas": [
+    {
+      "id": "home",
+      "titulo": "Home",
+      "descripcion": "Página de inicio con hero y grid de proyectos.",
+      "template": "templates/pages/index.mustache",
+      "esquema": [
+        { "label": "Nav", "span": 3 },
+        { "label": "Hero", "span": 3 },
+        { "label": "Grid de proyectos (2 cols)", "span": 3 }
+      ]
+    },
+    {
+      "id": "sobre-mi",
+      "titulo": "Sobre mí",
+      "descripcion": "Página con experiencia, educación y habilidades.",
+      "template": "templates/pages/sobre-mi.mustache",
+      "esquema": [
+        { "label": "Nav", "span": 3 },
+        { "label": "Experiencia", "span": 3 },
+        { "label": "Educación", "span": 3 },
+        { "label": "Habilidades (grid 2 cols)", "span": 3 }
+      ]
+    },
+    {
+      "id": "proyecto",
+      "titulo": "Proyecto",
+      "descripcion": "Página de proyecto individual con 3 columnas.",
+      "template": "templates/pages/proyecto.mustache",
+      "esquema": [
+        { "label": "Nav", "span": 3 },
+        { "label": "Meta Card", "span": 1, "sidebar": true },
+        { "label": "Contenido del proyecto", "span": 1 },
+        { "label": "TOC", "span": 1, "sidebar": true }
+      ]
+    }
+  ]
+}

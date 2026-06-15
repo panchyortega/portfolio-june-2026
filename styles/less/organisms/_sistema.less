@@ -1,0 +1,202 @@
+// ============================================
+// ORGANISMO: Design System Page
+// ============================================
+
+.ds-layout {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: @space-64 @space-32 @space-96;
+
+  @media (max-width: @bp-small) {
+    padding: @space-40 @space-20 @space-64;
+  }
+}
+
+.ds-header {
+  margin-bottom: @space-80;
+
+  h1 {
+    font-size: @text-h1;
+    margin-bottom: @space-8;
+  }
+  p {
+    color: @color-text-muted;
+    font-size: @text-body-lg;
+  }
+}
+
+// ── Sección de componente ─────────────────────
+.ds-section {
+  margin-bottom: @space-80;
+  padding-bottom: @space-80;
+  border-bottom: 1px solid @color-border-subtle;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+
+.ds-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: @space-12;
+  margin-bottom: @space-8;
+
+  h2 {
+    font-size: @text-h2;
+    font-weight: @weight-semibold;
+  }
+}
+
+.ds-badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: @color-text-subtle;
+  background: @n-100;
+  padding: 2px @space-8;
+  border-radius: @radius-full;
+}
+
+.ds-desc {
+  font-size: @text-body;
+  color: @color-text-muted;
+  margin-bottom: @space-32;
+  line-height: @lh-normal;
+}
+
+// ── Preview ───────────────────────────────────
+.ds-preview {
+  border: 1px solid @color-border-subtle;
+  border-radius: @radius-lg @radius-lg 0 0;
+  padding: @space-40 @space-32;
+  background: @color-surface;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: @space-16;
+  min-height: 80px;
+}
+
+// ── Code block con tabs ───────────────────────
+.ds-code-block {
+  border: 1px solid @color-border-subtle;
+  border-top: none;
+  border-radius: 0 0 @radius-lg @radius-lg;
+  overflow: hidden;
+}
+
+.ds-code-tabs {
+  display: flex;
+  border-bottom: 1px solid @n-700;
+  background: @n-800;
+}
+
+.ds-tab {
+  padding: @space-8 @space-16;
+  font-family: @font-body;
+  font-size: @text-small;
+  font-weight: @weight-medium;
+  color: @n-400;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color @transition-fast, background @transition-fast;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+
+  &:hover { color: @n-200; }
+
+  &.active {
+    color: #ffffff;
+    border-bottom-color: @p-400;
+  }
+}
+
+.ds-code {
+  margin: 0;
+  padding: @space-24 @space-24;
+  background: @n-800;
+  color: @n-200;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre;
+  max-height: 320px;
+  overflow-y: auto;
+
+  &[hidden] { display: none; }
+}
+
+// ── Esquema de página ─────────────────────────
+.ds-page-schema {
+  margin-bottom: @space-40;
+}
+
+.ds-schema-3col {
+  display: grid;
+  grid-template-columns: 140px 1fr 140px;
+  gap: 0;
+  border: 1px solid @color-border;
+  border-radius: @radius-lg;
+  overflow: hidden;
+  font-size: @text-small;
+  color: @color-text-muted;
+
+  .ds-schema-full {
+    grid-column: 1 / -1;
+    padding: @space-12 @space-16;
+    background: @n-50;
+    border-bottom: 1px solid @color-border-subtle;
+    text-align: center;
+    font-weight: @weight-medium;
+  }
+
+  .ds-schema-sidebar {
+    padding: @space-32 @space-16;
+    background: @p-50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: @weight-medium;
+    color: @p-600;
+    border-right: 1px solid @color-border-subtle;
+
+    &:last-child {
+      border-right: none;
+      border-left: 1px solid @color-border-subtle;
+    }
+  }
+
+  .ds-schema-main {
+    padding: @space-32 @space-16;
+    background: @color-surface;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.ds-schema-simple {
+  border: 1px solid @color-border;
+  border-radius: @radius-lg;
+  overflow: hidden;
+  font-size: @text-small;
+  color: @color-text-muted;
+
+  .ds-schema-row {
+    padding: @space-12 @space-16;
+    border-bottom: 1px solid @color-border-subtle;
+    text-align: center;
+    background: @n-50;
+    font-weight: @weight-medium;
+
+    &:last-child { border-bottom: none; }
+    &:nth-child(even) { background: @color-surface; }
+  }
+}
