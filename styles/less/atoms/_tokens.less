@@ -1,63 +1,105 @@
 // ============================================
-// TOKENS — Variables globales del portafolio
+// TOKENS — Portafolio Panchy Ortega
+// Espejo fiel de tokens.css del sistema actual
 // ============================================
 
-// Colores
-@color-bg:          #F0EDE8;   // Fondo general (beige cálido)
-@color-surface:     #E8E4DE;   // Superficie de cards
-@color-border:      #D6D1CA;   // Bordes
-@color-text:        #2C2C2C;   // Texto principal
-@color-text-muted:  #7A7570;   // Texto secundario
-@color-accent:      #D4622A;   // Acento naranja (fecha, tag destacado)
-@color-white:       #FFFFFF;
+// Fuentes
+@font-display: 'Sora', sans-serif;
+@font-body:    'Work Sans', sans-serif;
 
-// Tipografía
-@font-display:  'Sora', sans-serif;
-@font-body:     'Work Sans', sans-serif;
+// Escala tipográfica
+@text-display:  3rem;       // 48px — hero
+@text-h1:       2.25rem;    // 36px
+@text-h2:       1.5rem;     // 24px
+@text-h3:       1.25rem;    // 20px
+@text-h4:       1.125rem;   // 18px
+@text-body-lg:  1.125rem;   // 18px
+@text-body:     1rem;       // 16px
+@text-small:    0.75rem;    // 12px
 
-@text-xs:    0.75rem;    // 12px
-@text-sm:    0.875rem;   // 14px
-@text-base:  1rem;       // 16px
-@text-lg:    1.125rem;   // 18px
-@text-xl:    1.375rem;   // 22px
-@text-2xl:   1.75rem;    // 28px
-@text-3xl:   2.25rem;    // 36px
-@text-4xl:   3rem;       // 48px
+@weight-light:    300;
+@weight-regular:  400;
+@weight-medium:   500;
+@weight-semibold: 500;
 
-@weight-regular: 400;
-@weight-medium:  500;
-@weight-semibold: 600;
+@lh-tight:  1.15;
+@lh-snug:   1.35;
+@lh-normal: 1.7;
+
+@tracking-tight: -0.02em;
+@tracking-snug:  -0.01em;
+
+// Neutros — verde desaturado frío
+@n-50:  #F4F5F2;
+@n-100: #E3E6DF;
+@n-200: #C8CEC1;
+@n-300: #A8B09E;
+@n-400: #869180;
+@n-500: #637060;
+@n-600: #4A5546;
+@n-700: #343D31;
+@n-800: #1F261D;
+@n-900: #111710;
+
+// Primary — rojo terracota
+@p-50:  #FFF2EC;
+@p-100: #FFCFB3;
+@p-200: #FF9966;
+@p-300: #FF7733;
+@p-400: #FF5C00;
+@p-500: #CC4900;
+@p-600: #BA3500;
+
+// Semánticos
+@color-text:          @n-800;
+@color-text-muted:    @n-500;
+@color-text-subtle:   @n-400;
+@color-bg:            @n-50;
+@color-surface:       #ffffff;
+@color-border:        @n-200;
+@color-border-subtle: @n-100;
+@color-accent:        @p-500;
+@color-accent-hover:  @p-600;
+@color-accent-tint:   @p-50;
 
 // Espaciado
-@space-1:   0.25rem;
-@space-2:   0.5rem;
-@space-3:   0.75rem;
-@space-4:   1rem;
-@space-5:   1.25rem;
-@space-6:   1.5rem;
-@space-8:   2rem;
-@space-10:  2.5rem;
-@space-12:  3rem;
-@space-16:  4rem;
-@space-20:  5rem;
-@space-24:  6rem;
+@space-4:   0.25rem;
+@space-6:   0.375rem;
+@space-8:   0.5rem;
+@space-12:  0.75rem;
+@space-16:  1rem;
+@space-20:  1.25rem;
+@space-24:  1.5rem;
+@space-32:  2rem;
+@space-40:  2.5rem;
+@space-48:  3rem;
+@space-56:  3.5rem;
+@space-64:  4rem;
+@space-72:  4.5rem;
+@space-80:  5rem;
+@space-96:  6rem;
+@space-128: 8rem;
 
-// Layout
-@container-max: 1100px;
-@container-padding: @space-6;
-
-// Bordes
-@radius-sm:  4px;
-@radius-md:  8px;
-@radius-lg:  12px;
-@radius-full: 999px;
+// Border radius
+@radius-sm:   4px;
+@radius-md:   8px;
+@radius-lg:   12px;
+@radius-xl:   16px;
+@radius-full: 9999px;
 
 // Transiciones
-@transition-fast: 150ms ease;
-@transition-base: 250ms ease;
+@transition-fast:   150ms ease;
+@transition-normal: 250ms ease;
+@transition-slow:   400ms ease;
+
+// Layout
+@nav-height:   52px;
+@sidebar-w:    220px;
+@sidebar-pad:  32px;
+@content-pad:  32px;
+@content-max:  600px;
+@site-max:     1280px;
 
 // Breakpoints
-@bp-sm:  640px;
-@bp-md:  768px;
-@bp-lg:  1024px;
-@bp-xl:  1280px;
+@bp-mobile: 900px;
+@bp-smallall:  600px;

@@ -1,0 +1,83 @@
+// ============================================
+// MOLÉCULA: Meta Card (sidebar de proyectos)
+// Desktop: sin borde, integrada al sidebar
+// Mobile: card con borde, aparece en el flujo
+// ============================================
+
+.meta-card {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+
+  @media (max-width: @bp-mobile) {
+    border: 1px solid @color-border-subtle;
+    border-radius: @radius-lg;
+    padding: @space-80;
+  }
+}
+
+.meta-item {
+  margin-bottom: @space-80;
+  &:last-child { margin-bottom: 0; }
+}
+
+.meta-label {
+  font-size: @text-small;
+  font-weight: @weight-medium;
+  color: @color-text;
+  margin-bottom: @space-6;
+}
+
+.meta-value {
+  font-size: @text-body;
+  color: @color-text-muted;
+  font-weight: @weight-regular;
+  line-height: 1.4;
+}
+
+.meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @space-6;
+}
+
+// Sidebar meta wrapper
+.sidebar-meta {
+  padding-top: 0;
+
+  .sidebar-section { margin-bottom: @space-96; }
+
+  .sidebar-section-title {
+    font-size: @text-small;
+    font-weight: @weight-semibold;
+    color: @color-text-subtle;
+    margin-bottom: @space-64;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-label {
+    font-size: @text-small;
+    font-weight: @weight-medium;
+    color: @color-text;
+    margin-bottom: @space-4;
+  }
+
+  .meta-value {
+    font-size: @text-small;
+    color: @color-text-muted;
+    line-height: 1.5;
+  }
+}
+
+.sidebar-label {
+  font-size: @text-small;
+  font-weight: @weight-medium;
+  color: @color-text;
+  margin-bottom: @space-4;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: @color-border-subtle;
+  margin: @space-20 0;
+}

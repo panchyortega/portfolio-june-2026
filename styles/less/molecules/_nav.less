@@ -1,104 +1,228 @@
 // ============================================
-// MOLÉCULA: Nav / Header
+// MOLÉCULA: Nav desktop + Mobile nav
+// Desktop: sticky top bar
+// Mobile: fixed bottom bar (≤600px)
 // ============================================
 
+// ── Desktop nav ──────────────────────────────
 .nav {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background-color: @color-bg;
-  border-bottom: 1px solid @color-border;
-  padding-block: @space-4;
+  z-index: 50;
+  height: @nav-height;
+  background: @color-bg;
+  border-bottom: 1px solid @color-border-subtle;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 @space-32;
+  gap: @space-96;
 
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  @media (max-width: @bp-mobile) {
+    display: none;
   }
+}
 
-  &__logo {
-    font-family: @font-display;
-    font-size: @text-base;
-    font-weight: @weight-semibold;
+.nav-logo {
+  font-size: @text-body;
+  font-weight: @weight-medium;
+  color: @color-text;
+  text-decoration: none;
+  letter-spacing: @tracking-snug;
+  white-space: nowrap;
+  flex-shrink: 0;
+  &:hover { color: @color-accent; text-decoration: none; }
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: @space-4;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: @space-6;
+  font-family: @font-body;
+  font-size: @text-body;
+  font-weight: @weight-regular;
+  color: @color-text-muted;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: @space-6 @space-48;
+  border-radius: @radius-md;
+  transition: background @transition-fast, color @transition-fast;
+  white-space: nowrap;
+  position: relative;
+
+  &:hover {
+    background: @n-100;
     color: @color-text;
     text-decoration: none;
   }
 
-  &__links {
-    display: flex;
-    align-items: center;
-    gap: @space-6;
+  &.active {
+    color: @color-text;
+    font-weight: @weight-medium;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: @space-48;
+      right: @space-48;
+      height: 2px;
+      background: @color-accent;
+      border-radius: 2px 2px 0 0;
+    }
   }
 
-  &__link {
-    font-size: @text-sm;
-    font-weight: @weight-medium;
+  i {
+    font-size: 0.75rem;
+    transition: transform @transition-fast;
+  }
+
+  &[aria-expanded="true"] {
+    background: @n-100;
+    color: @color-text;
+    i.chevron { transform: rotate(180deg); }
+  }
+}
+
+.nav-btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  justify-content: center;
+  border-radius: @radius-md;
+  i { font-size: 1.1rem; }
+}
+
+// ── Dropdown ──────────────────────────────────
+.nav-dropdown-wrap { position: relative; }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: @n-50;
+  border: 1px solid @color-border-subtle;
+  border-radius: @radius-lg;
+  padding: @space-8 0;
+  min-width: 200px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  z-index: 100;
+  display: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity @transition-normal, transform @transition-normal;
+
+  &.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  a, button {
+    display: flex;
+    align-items: center;
+    gap: @space-48;
+    width: 100%;
+    padding: @space-8 @space-64;
+    font-family: @font-body;
+    font-size: 0.9375rem;
     color: @color-text-muted;
     text-decoration: none;
-    transition: color @transition-fast;
-    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background @transition-fast, color @transition-fast;
 
-    &:hover,
-    &--active {
+    &:hover {
+      background: @n-200;
       color: @color-text;
+    }
+    &.active {
+      color: @color-accent;
+      font-weight: @weight-medium;
     }
   }
 }
 
-// Dropdown
-.dropdown {
-  position: relative;
+.nav-dropdown-divider {
+  height: 1px;
+  background: @color-border-subtle;
+  margin: @space-6 0;
+}
 
-  &__trigger {
+.nav-dropdown-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: @color-text-subtle;
+  letter-spacing: 0.08em;
+  padding: @space-8 @space-16 @space-4;
+}
+
+// ── Mobile nav (bottom bar) ───────────────────
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  background: @color-bg;
+  border-top: 1px solid @color-border-subtle;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 150;
+  padding: 0 @space-64;
+
+  @media (max-width: @bp-smallall) {
     display: flex;
-    align-items: center;
-    gap: @space-1;
-    font-size: @text-sm;
-    font-weight: @weight-medium;
-    color: @color-text-muted;
-    cursor: pointer;
+  }
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: @space-6 @space-80;
+  border-radius: @radius-md;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: @font-body;
+  flex: 1;
+  transition: background @transition-fast;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover { background: @n-50; }
+
+  &.active {
+    background: @p-50;
+    i { color: @p-500; }
+    span { color: @p-500; }
+  }
+
+  i {
+    font-size: 1.25rem;
+    color: @color-text-subtle;
     transition: color @transition-fast;
-
-    &:hover {
-      color: @color-text;
-    }
-
-    svg {
-      width: 14px;
-      height: 14px;
-      transition: transform @transition-fast;
-    }
   }
 
-  &__menu {
-    display: none;
-    position: absolute;
-    top: calc(100% + @space-2);
-    left: 0;
-    background-color: @color-white;
-    border: 1px solid @color-border;
-    border-radius: @radius-md;
-    padding: @space-2;
-    min-width: 160px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
-
-  &:hover &__menu,
-  &:focus-within &__menu {
-    display: block;
-  }
-
-  &__item {
-    display: block;
-    padding: @space-2 @space-3;
-    font-size: @text-sm;
-    color: @color-text;
-    border-radius: @radius-sm;
-    text-decoration: none;
-    transition: background-color @transition-fast;
-
-    &:hover {
-      background-color: @color-surface;
-    }
+  span {
+    font-size: 0.5625rem;
+    color: @color-text-subtle;
+    font-family: @font-body;
   }
 }

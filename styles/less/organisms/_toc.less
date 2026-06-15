@@ -1,45 +1,88 @@
 // ============================================
 // ORGANISMO: TOC (Tabla de contenidos)
-// Para páginas de proyecto individual
+// Desktop: sidebar derecho sticky
+// Mobile: FAB + panel flotante (≤900px)
 // ============================================
 
-.toc {
-  position: sticky;
-  top: 80px;
-  padding: @space-6;
-  background-color: @color-surface;
-  border: 1px solid @color-border;
-  border-radius: @radius-md;
+// ── Desktop TOC ───────────────────────────────
+.toc { padding-top: 0; }
 
-  &__title {
-    font-size: @text-xs;
-    font-weight: @weight-semibold;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: @color-text-muted;
-    margin-bottom: @space-4;
+.toc-list {
+  border-left: 1.5px solid @n-100;
+  list-style: none;
+}
+
+.toc-item {
+  display: block;
+  font-size: @text-small;
+  color: @color-text-muted;
+  padding: @space-4 @space-48;
+  border-left: 2px solid transparent;
+  margin-left: -1.5px;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color @transition-fast, border-color @transition-fast;
+
+  &:hover { color: @color-text; text-decoration: none; }
+
+  &.active {
+    color: @color-accent;
+    border-left-color: @p-400;
   }
 
-  &__list {
+  &.sub { padding-left: @space-96; }
+}
+
+// ── Mobile FAB ────────────────────────────────
+.toc-fab {
+  position: fixed;
+  bottom: calc(60px + @space-16);
+  right: @space-64;
+  width: 40px;
+  height: 40px;
+  border-radius: @radius-full;
+  background: @n-700;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background @transition-fast, transform @transition-fast;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+
+  @media (max-width: @bp-mobile) {
     display: flex;
-    flex-direction: column;
-    gap: @space-1;
   }
 
-  &__item {
-    font-size: @text-sm;
-    color: @color-text-muted;
-    text-decoration: none;
-    padding: @space-1 @space-2;
-    border-radius: @radius-sm;
-    border-left: 2px solid transparent;
-    transition: all @transition-fast;
+  &.open { background: @p-500; }
+  &:active { transform: scale(0.94); }
+}
 
-    &:hover,
-    &--active {
-      color: @color-text;
-      background-color: @color-border;
-      border-left-color: @color-accent;
-    }
+// ── Mobile panel ──────────────────────────────
+.toc-panel {
+  position: fixed;
+  bottom: calc(54px + @space-16 + 40px + @space-8);
+  right: @space-64;
+  background: @color-surface;
+  border: 1px solid @color-border;
+  border-radius: @radius-lg;
+  padding: @space-64;
+  width: 220px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  z-index: 99;
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity @transition-normal, transform @transition-normal;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
+
+  .toc-title { margin-bottom: @space-8; }
 }

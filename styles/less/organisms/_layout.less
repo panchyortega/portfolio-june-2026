@@ -1,0 +1,201 @@
+// ============================================
+// ORGANISMO: Layouts de página
+// Espejo fiel del sistema actual de develop
+// ============================================
+
+// ── Layout de proyecto — 3 columnas ──────────
+.project-layout {
+  display: grid;
+  grid-template-columns: @sidebar-w 1fr @sidebar-w;
+  min-height: calc(100vh - @nav-height);
+  max-width: @site-max;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (max-width: @bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-sidebar-left {
+  border-right: 1px solid @color-border-subtle;
+  padding: @space-32;
+  position: sticky;
+  top: @nav-height;
+  height: calc(100vh - @nav-height);
+  align-self: start;
+  overflow-y: auto;
+
+  @media (max-width: @bp-mobile) {
+    display: none;
+  }
+}
+
+.project-sidebar-right {
+  border-left: 1px solid @color-border-subtle;
+  padding: @space-32;
+  position: sticky;
+  top: @nav-height;
+  height: calc(100vh - @nav-height);
+  align-self: start;
+  overflow-y: auto;
+
+  @media (max-width: @bp-mobile) {
+    display: none;
+  }
+}
+
+.project-main {
+  padding: @space-32 @content-pad;
+  min-width: 0;
+
+  @media (max-width: @bp-mobile) {
+    padding: @space-32 @space-96;
+  }
+}
+
+.project-content {
+  max-width: @content-max;
+  margin: 0 auto;
+
+  // Espaciado entre elementos de contenido
+  h2 {
+    margin-top: @space-56;
+    margin-bottom: @space-64;
+    &:first-child { margin-top: 0; }
+  }
+  h3 {
+    margin-top: @space-32;
+    margin-bottom: @space-48;
+  }
+  p + p     { margin-top: @space-48; }
+  p + h2    { margin-top: @space-56; }
+  p + h3    { margin-top: @space-32; }
+
+  img, .img-placeholder {
+    margin-top: @space-32;
+    margin-bottom: @space-8;
+  }
+  .caption {
+    margin-top: 0;
+    margin-bottom: @space-32;
+    font-size: @text-small;
+    color: @color-text-subtle;
+  }
+}
+
+// ── Header del proyecto ───────────────────────
+.project-header {
+  margin-bottom: @space-48;
+  padding-bottom: @space-32;
+  border-bottom: 1px solid @color-border-subtle;
+}
+.project-title   { margin-bottom: @space-8; }
+.project-subtitle {
+  font-size: @text-body-lg;
+  font-weight: @weight-light;
+  font-style: italic;
+  color: @color-text-muted;
+}
+
+// ── Meta card en mobile (flujo) ───────────────
+// En mobile la meta card aparece entre el header y el contenido
+.project-meta-mobile {
+  display: none;
+  margin-bottom: @space-40;
+
+  @media (max-width: @bp-mobile) {
+    display: block;
+  }
+}
+
+// ── Layout home ───────────────────────────────
+.home-hero {
+  max-width: @site-max;
+  margin: 0 auto;
+  padding: @space-96 @space-32 @space-80;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: @space-64;
+
+  @media (max-width: @bp-mobile) {
+    grid-template-columns: 1fr;
+    padding: @space-48 @space-24 @space-48;
+    gap: @space-32;
+  }
+}
+
+.home-projects {
+  max-width: @site-max;
+  margin: 0 auto;
+  padding: 0 @space-32 @space-96;
+
+  @media (max-width: @bp-smallall) {
+    padding: 0 @space-20 @space-64;
+  }
+}
+
+.home-projects-title {
+  font-size: @text-small;
+  font-weight: @weight-semibold;
+  color: @color-text-subtle;
+  letter-spacing: 0.08em;
+  margin-bottom: @space-32;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: @space-96;
+
+  @media (max-width: @bp-smallall) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Sidebar nav (DS, sobre-mi) ────────────────
+.sidebar-nav-section {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: @color-text-subtle;
+  letter-spacing: 0.1em;
+  margin-bottom: @space-8;
+  margin-top: @space-96;
+  &:first-child { margin-top: 0; }
+}
+
+.sidebar-nav-link {
+  display: block;
+  font-size: 0.8125rem;
+  color: @color-text-muted;
+  text-decoration: none;
+  padding: @space-4 0;
+  transition: color @transition-fast;
+  cursor: pointer;
+  &:hover { color: @color-text; }
+  &.active { color: @color-accent; font-weight: 500; }
+}
+
+// ── Grillas de imágenes ───────────────────────
+.img-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: @space-48;
+  margin: @space-24 0;
+
+  @media (max-width: @bp-smallall) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.img-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: @space-48;
+  margin: @space-24 0;
+
+  @media (max-width: @bp-smallall) {
+    grid-template-columns: 1fr;
+  }
+}

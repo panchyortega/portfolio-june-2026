@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: @space-6;
-  padding-block: @space-10;
+  padding-block: @space-32;
   border-bottom: 1px solid @color-border;
 
   &:last-child {
@@ -14,7 +14,7 @@
   }
 
   &__date {
-    font-size: @text-sm;
+    font-size: @text-small;
     font-weight: @weight-medium;
     color: @color-accent;
     text-align: right;
@@ -22,14 +22,14 @@
 
   &__role {
     font-family: @font-display;
-    font-size: @text-xl;
+    font-size: @text-h3;
     font-weight: @weight-semibold;
     color: @color-text;
-    margin-bottom: @space-1;
+    margin-bottom: @space-4;
   }
 
   &__company {
-    font-size: @text-base;
+    font-size: @text-body;
     color: @color-text-muted;
     margin-bottom: @space-4;
   }
@@ -50,20 +50,20 @@
     gap: @space-4;
     align-items: start;
 
-    @media (max-width: @bp-md) {
+    @media (max-width: @bp-mobile) {
       grid-template-columns: 1fr;
-      gap: @space-2;
+      gap: @space-8;
     }
   }
 
   &__label {
-    font-size: @text-sm;
+    font-size: @text-small;
     color: @color-text-muted;
     padding-top: 2px;
   }
 
   &__text {
-    font-size: @text-base;
+    font-size: @text-body;
     color: @color-text;
     line-height: 1.7;
 

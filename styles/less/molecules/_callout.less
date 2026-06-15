@@ -1,0 +1,28 @@
+// ============================================
+// MOLÉCULA: Callout / Blockquote
+// Se escribe en Markdown con > al inicio
+// Usado para insights, reflexiones, citas
+// ============================================
+
+.project-content blockquote,
+blockquote {
+  border-left: 3px solid @color-accent;
+  padding: @space-16 @space-80;
+  margin: @space-32 0;
+  background: @color-accent-tint;
+  border-radius: 0 @radius-md @radius-md 0;
+
+  p {
+    font-size: @text-body-lg;
+    font-style: italic;
+    color: @color-text;
+    line-height: @lh-normal;
+    margin: 0;
+  }
+
+  // Variante sin fondo (solo línea)
+  &.plain {
+    background: none;
+    padding-left: @space-80;
+  }
+}

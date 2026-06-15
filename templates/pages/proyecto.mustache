@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{titulo}} — Panchy Ortega</title>
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="stylesheet" href="{{cssPath}}styles/css/main.css" />
+</head>
+<body>
+
+{{> nav}}
+
+<div class="project-layout">
+
+  {{! Sidebar izquierdo — Meta card (desktop) }}
+  <aside class="project-sidebar-left">
+    <div class="sidebar-meta">
+      {{> meta-card}}
+    </div>
+  </aside>
+
+  {{! Contenido principal }}
+  <main class="project-main">
+    <div class="project-content">
+
+      <header class="project-header">
+        <h1 class="project-title">{{titulo}}</h1>
+        {{#subtitulo}}<p class="project-subtitle">{{subtitulo}}</p>{{/subtitulo}}
+      </header>
+
+      {{! Meta card en mobile (entre header y contenido) }}
+      <div class="project-meta-mobile">
+        {{> meta-card}}
+      </div>
+
+      {{{contenido_html}}}
+
+    </div>
+  </main>
+
+  {{! Sidebar derecho — TOC (desktop) + FAB (mobile) }}
+  <aside class="project-sidebar-right">
+    {{> toc}}
+  </aside>
+
+</div>
+
+{{> footer}}
+
+</body>
+</html>

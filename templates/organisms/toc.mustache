@@ -1,0 +1,22 @@
+{{! TOC — Desktop: sidebar derecho. Mobile: FAB + panel flotante }}
+<nav class="toc" aria-label="Tabla de contenidos">
+  <p class="sidebar-label">Contenido</p>
+  <ul class="toc-list">
+    {{#toc}}
+    <li><a href="#{{id}}" class="toc-item{{#sub}} sub{{/sub}}">{{label}}</a></li>
+    {{/toc}}
+  </ul>
+</nav>
+
+{{! Mobile FAB }}
+<button class="toc-fab" id="toc-fab" aria-label="Ver contenido" aria-expanded="false">
+  ☰
+</button>
+<div class="toc-panel" id="toc-panel" aria-hidden="true">
+  <p class="sidebar-label toc-title">Contenido</p>
+  <ul class="toc-list">
+    {{#toc}}
+    <li><a href="#{{id}}" class="toc-item{{#sub}} sub{{/sub}}">{{label}}</a></li>
+    {{/toc}}
+  </ul>
+</div>

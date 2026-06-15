@@ -4,7 +4,7 @@
 
 .skills-group {
   &__title {
-    font-size: @text-lg;
+    font-size: @text-body-lg;
     font-weight: @weight-medium;
     color: @color-text;
     margin-bottom: @space-4;
@@ -14,9 +14,9 @@
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: @space-10;
+  gap: @space-32;
 
-  @media (max-width: @bp-md) {
+  @media (max-width: @bp-mobile) {
     grid-template-columns: 1fr;
   }
 }

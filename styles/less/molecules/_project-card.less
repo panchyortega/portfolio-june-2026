@@ -9,7 +9,7 @@
   border-radius: @radius-lg;
   overflow: hidden;
   text-decoration: none;
-  transition: transform @transition-base, box-shadow @transition-base;
+  transition: transform @transition-normal, box-shadow @transition-normal;
 
   &:hover {
     transform: translateY(-2px);
@@ -28,19 +28,19 @@
   }
 
   &__tags {
-    margin-bottom: @space-3;
+    margin-bottom: @space-48;
   }
 
   &__title {
     font-family: @font-display;
-    font-size: @text-lg;
+    font-size: @text-body-lg;
     font-weight: @weight-semibold;
     color: @color-text;
-    margin-bottom: @space-2;
+    margin-bottom: @space-8;
   }
 
   &__desc {
-    font-size: @text-sm;
+    font-size: @text-small;
     color: @color-text-muted;
     line-height: 1.6;
   }
@@ -51,7 +51,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: @space-6;
 
-  @media (max-width: @bp-md) {
+  @media (max-width: @bp-mobile) {
     grid-template-columns: 1fr;
   }
 }

@@ -6,10 +6,10 @@
 // ============================================
 
 .hero {
-  padding-block: @space-24;
+  padding-block: @space-96;
 
   &__eyebrow {
-    font-size: @text-sm;
+    font-size: @text-small;
     font-weight: @weight-medium;
     color: @color-text-muted;
     text-transform: uppercase;
@@ -19,19 +19,19 @@
 
   &__title {
     font-family: @font-display;
-    font-size: @text-4xl;
+    font-size: @text-display;
     font-weight: @weight-semibold;
     color: @color-text;
     line-height: 1.1;
     margin-bottom: @space-6;
 
-    @media (max-width: @bp-md) {
-      font-size: @text-3xl;
+    @media (max-width: @bp-mobile) {
+      font-size: @text-h1;
     }
   }
 
   &__subtitle {
-    font-size: @text-lg;
+    font-size: @text-body-lg;
     color: @color-text-muted;
     max-width: 560px;
     line-height: 1.6;
@@ -40,7 +40,7 @@
 
   &__actions {
     display: flex;
-    gap: @space-3;
+    gap: @space-48;
     flex-wrap: wrap;
   }
 }

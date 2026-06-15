@@ -2,50 +2,28 @@
 // TIPOGRAFÍA
 // ============================================
 
-body {
-  font-family: @font-body;
-  font-size: @text-base;
-  font-weight: @weight-regular;
-  color: @color-text;
-  line-height: 1.6;
-  background-color: @color-bg;
-  -webkit-font-smoothing: antialiased;
-}
+h1 { font-size: @text-h1; font-weight: @weight-semibold; line-height: @lh-tight; letter-spacing: @tracking-tight; }
+h2 { font-size: @text-h2; font-weight: @weight-regular; line-height: @lh-snug; }
+h3 { font-size: @text-h3; font-weight: @weight-medium; line-height: @lh-snug; }
+h4 { font-size: @text-h4; font-weight: @weight-medium; }
 
 h1, h2, h3, h4 {
   font-family: @font-display;
-  font-weight: @weight-semibold;
-  line-height: 1.2;
   color: @color-text;
 }
 
-h1 { font-size: @text-3xl; }
-h2 { font-size: @text-2xl; }
-h3 { font-size: @text-xl; }
-h4 { font-size: @text-lg; }
-
-p {
-  font-size: @text-base;
-  line-height: 1.7;
-  color: @color-text;
-}
-
-.text-muted {
-  color: @color-text-muted;
-}
-
-.text-accent {
-  color: @color-accent;
-}
-
-.text-sm { font-size: @text-sm; }
-.text-xs { font-size: @text-xs; }
+p { font-size: @text-body; line-height: @lh-normal; color: @color-text; }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color @transition-fast;
+  &:hover { color: @color-accent; }
+}
 
-  &:hover {
-    color: @color-accent;
-  }
+// Mobile scale
+@media (max-width: @bp-mobile) {
+  h1 { font-size: 1.625rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.0625rem; }
 }

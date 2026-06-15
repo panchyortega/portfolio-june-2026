@@ -1,0 +1,34 @@
+<div class="meta-card">
+  {{#meta_tipo}}
+  <div class="meta-item">
+    <p class="meta-label">{{meta_tipo_label}}</p>
+    <p class="meta-value">{{meta_tipo}}</p>
+  </div>
+  {{/meta_tipo}}
+  {{#meta_año}}
+  <div class="meta-item">
+    <p class="meta-label">{{meta_año_label}}</p>
+    <p class="meta-value">{{meta_año}}</p>
+  </div>
+  {{/meta_año}}
+  {{#meta_empresa}}
+  <div class="meta-item">
+    <p class="meta-label">{{meta_empresa_label}}</p>
+    <p class="meta-value">{{meta_empresa}}</p>
+  </div>
+  {{/meta_empresa}}
+  {{#meta_herramientas}}
+  <div class="meta-item">
+    <p class="meta-label">{{meta_herramientas_label}}</p>
+    <div class="meta-tags">
+      {{#herramientas}}<span class="tag">{{.}}</span>{{/herramientas}}
+    </div>
+  </div>
+  {{/meta_herramientas}}
+  {{#meta_estado}}
+  <div class="meta-item">
+    <p class="meta-label">{{meta_estado_label}}</p>
+    <p class="meta-value">{{meta_estado}}</p>
+  </div>
+  {{/meta_estado}}
+</div>
