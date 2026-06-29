@@ -1,7 +1,15 @@
 <script>
-  import { intro, experience, education, skills } from '$lib/data/about.js';
+  import { intro, quickFacts, experience, education, skills } from '$lib/data/about.js';
+  import ContentLayout from '$lib/components/ContentLayout.svelte';
   import ExperienceItem from '$lib/components/ExperienceItem.svelte';
+  import MetaCard from '$lib/components/MetaCard.svelte';
   import Tag from '$lib/components/Tag.svelte';
+
+  const toc = [
+    { text: 'Experiencia', id: 'experiencia', depth: 2 },
+    { text: 'Educación', id: 'educacion', depth: 2 },
+    { text: 'Habilidades', id: 'habilidades', depth: 2 }
+  ];
 </script>
 
 <svelte:head>
@@ -9,20 +17,17 @@
   <meta name="description" content={intro.bio} />
 </svelte:head>
 
-<main>
-  <!-- Intro -->
-  <section class="intro">
-    <h1 class="intro-name">{intro.name}</h1>
-    <p class="intro-bio type-body-lg">{intro.bio}</p>
-    <div class="intro-tags">
-      {#each intro.tags as tag}
-        <Tag variant="neutral">{tag}</Tag>
-      {/each}
-    </div>
-  </section>
+<ContentLayout tocItems={toc}>
+  {#snippet left()}
+    <MetaCard items={quickFacts} />
+  {/snippet}
 
-  <!-- Experiencia -->
-  <section class="section">
+  <header class="page-header">
+    <h1 class="page-name type-h1">{intro.name}</h1>
+    <p class="page-bio type-body-lg">{intro.bio}</p>
+  </header>
+
+  <section class="section" id="experiencia">
     <h2 class="section-title type-h2">Experiencia</h2>
     <div class="exp-list">
       {#each experience as exp}
@@ -31,8 +36,7 @@
     </div>
   </section>
 
-  <!-- Educación -->
-  <section class="section">
+  <section class="section" id="educacion">
     <h2 class="section-title type-h2">Educación</h2>
     <div class="edu-list">
       {#each education as edu}
@@ -45,8 +49,7 @@
     </div>
   </section>
 
-  <!-- Habilidades -->
-  <section class="section">
+  <section class="section" id="habilidades">
     <h2 class="section-title type-h2">Habilidades</h2>
     <div class="skills-grid">
       {#each skills as group}
@@ -61,66 +64,41 @@
       {/each}
     </div>
   </section>
-</main>
+</ContentLayout>
 
 <style>
-  main {
-    max-width: var(--content-max);
-    margin: 0 auto;
-    padding: var(--spacing-section-md) var(--spacing-content-pad) var(--spacing-section-md);
+  .page-header {
+    margin-bottom: var(--space-40);
+    padding-bottom: var(--space-32);
+    border-bottom: 1px solid var(--border-neutral-primary);
   }
-
-  /* Intro */
-  .intro { margin-bottom: var(--space-80); }
-  .intro-name {
+  .page-name {
     font-family: var(--font-display);
-    font-size: var(--size-4xl);
     font-weight: var(--weight-light);
     letter-spacing: var(--tracking-tight);
-    line-height: 1.05;
     color: var(--text-primary);
-    margin-bottom: var(--space-24);
+    margin-bottom: var(--space-16);
   }
-  .intro-bio {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-24);
-  }
-  .intro-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-  }
+  .page-bio { color: var(--text-secondary); }
 
-  /* Secciones */
-  .section { margin-bottom: var(--space-64); }
+  .section { margin-bottom: var(--space-56); }
+  .section:last-child { margin-bottom: 0; }
   .section-title {
     color: var(--text-primary);
     margin-bottom: var(--space-24);
     padding-bottom: var(--space-12);
     border-bottom: 1px solid var(--border-neutral-primary);
+    scroll-margin-top: calc(var(--nav-height) + var(--space-24));
   }
 
-  /* Educación */
   .edu-list { display: grid; gap: var(--space-24); }
   .edu-titulo { color: var(--text-primary); margin-bottom: var(--space-4); }
   .edu-inst { color: var(--text-secondary); }
   .edu-periodo { color: var(--text-secondary); margin-top: var(--space-4); }
 
-  /* Skills */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-32);
-  }
-  .skill-group-title {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-12);
-  }
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-  }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-32); }
+  .skill-group-title { color: var(--text-secondary); margin-bottom: var(--space-12); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-6); }
 
   @media (max-width: 600px) {
     .skills-grid { grid-template-columns: 1fr; }
