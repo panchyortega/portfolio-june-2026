@@ -11,8 +11,7 @@ const config = {
       strict: true
     }),
     paths: {
-      // Si publicas en usuario.github.io/portfolio-june-2026 descomenta la línea:
-      // base: '/portfolio-june-2026'
+      base: '/portfolio-june-2026'
     }
   }
 };
