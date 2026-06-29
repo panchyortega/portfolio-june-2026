@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   // Home — placeholder. Los componentes reales llegan en el Paso 2.
 </script>
 
@@ -10,6 +11,7 @@
   <h1 class="type-display">Fran Ortega</h1>
   <p class="type-body-lg">Product Designer</p>
   <p class="type-small">Andamiaje SvelteKit funcionando. Los componentes llegan en el siguiente paso.</p>
+  <a class="sandbox-link type-label" href="{base}/sandbox">Ver sandbox de componentes →</a>
 </main>
 
 <style>
@@ -20,5 +22,12 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-gap-sm);
+  }
+  .sandbox-link {
+    color: var(--text-accent);
+    margin-top: var(--space-16);
+  }
+  .sandbox-link:hover {
+    color: var(--text-accent-hover);
   }
 </style>
