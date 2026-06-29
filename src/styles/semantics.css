@@ -178,3 +178,49 @@
   line-height: var(--lh-snug);
   letter-spacing: var(--tracking-wide);
 }
+
+/* ==============================================
+   TEMA OSCURO — solo remapea semánticos
+   Los primitivos no cambian. Esta es la ventaja
+   de la arquitectura en capas: el dark mode
+   son ~20 líneas, no un sistema paralelo.
+   ============================================== */
+
+:root[data-theme='dark'] {
+
+  /* Texto */
+  --text-primary:   var(--neutral-50);
+  --text-secondary: var(--neutral-300);
+  --text-disabled:  var(--neutral-500);
+
+  /* Neutral Primary */
+  --bg-neutral-primary:              var(--neutral-900);
+  --bg-neutral-primary-hover:        var(--neutral-800);
+  --bg-neutral-primary-disabled:     var(--neutral-800);
+  --border-neutral-primary:          var(--neutral-700);
+  --border-neutral-primary-hover:    var(--neutral-600);
+  --border-neutral-primary-disabled: var(--neutral-700);
+
+  /* Neutral Secondary */
+  --bg-neutral-secondary:              var(--neutral-800);
+  --bg-neutral-secondary-hover:        var(--neutral-700);
+  --bg-neutral-secondary-disabled:     var(--neutral-700);
+  --border-neutral-secondary:          var(--neutral-600);
+  --border-neutral-secondary-hover:    var(--neutral-500);
+  --border-neutral-secondary-disabled: var(--neutral-600);
+
+  /* Neutral Tertiary */
+  --bg-neutral-tertiary:               var(--neutral-700);
+  --bg-neutral-tertiary-hover:         var(--neutral-600);
+  --bg-neutral-tertiary-disabled:      var(--neutral-600);
+  --border-neutral-tertiary:           var(--neutral-500);
+  --border-neutral-tertiary-hover:     var(--neutral-400);
+  --border-neutral-tertiary-disabled:  var(--neutral-500);
+
+  /* Accent — el texto de acento sube a un tono mas brillante para leer sobre oscuro */
+  --text-accent:          var(--primary-300);
+  --text-accent-hover:    var(--primary-200);
+  --bg-accent-subtle:     var(--neutral-800);
+  --bg-accent-muted:      var(--primary-800);
+  --border-accent-subtle: var(--primary-500);
+}
