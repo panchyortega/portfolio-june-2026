@@ -1,0 +1,69 @@
+/* ==============================================
+   SEMÁNTICOS — Portfolio Fran Ortega
+   Siempre referenciar desde primitives.css.
+   Estos son los tokens que usan los componentes.
+   ============================================== */
+
+:root {
+
+  /* ── Texto genérico ── */
+  --text-primary:   var(--neutral-800);
+  --text-secondary: var(--neutral-500);
+  --text-disabled:  var(--neutral-400);
+
+  /* ── Neutral Primary ── */
+  --bg-neutral-primary:              var(--neutral-50);
+  --bg-neutral-primary-hover:        var(--neutral-100);
+  --bg-neutral-primary-disabled:     var(--neutral-100);
+  --border-neutral-primary:          var(--neutral-200);
+  --border-neutral-primary-hover:    var(--neutral-300);
+  --border-neutral-primary-disabled: var(--neutral-200);
+
+  /* ── Neutral Secondary ── */
+  --bg-neutral-secondary:              var(--neutral-100);
+  --bg-neutral-secondary-hover:        var(--neutral-200);
+  --bg-neutral-secondary-disabled:     var(--neutral-200);
+  --border-neutral-secondary:          var(--neutral-300);
+  --border-neutral-secondary-hover:    var(--neutral-400);
+  --border-neutral-secondary-disabled: var(--neutral-300);
+
+  /* ── Neutral Tertiary ── */
+  --bg-neutral-tertiary:               var(--neutral-200);
+  --bg-neutral-tertiary-hover:         var(--neutral-300);
+  --bg-neutral-tertiary-disabled:      var(--neutral-300);
+  --border-neutral-tertiary:           var(--neutral-400);
+  --border-neutral-tertiary-hover:     var(--neutral-500);
+  --border-neutral-tertiary-disabled:  var(--neutral-400);
+
+  /* ── Accent ── */
+  --bg-accent:                 var(--primary-600);
+  --bg-accent-hover:           var(--primary-700);
+  --bg-accent-disabled:        var(--primary-100);
+  --border-accent:             var(--primary-600);
+  --border-accent-hover:       var(--primary-700);
+  --border-accent-disabled:    var(--primary-200);
+  --text-on-accent:            #ffffff;
+  --text-on-accent-disabled:   var(--primary-600);
+
+  /* ── Success ── */
+  --bg-success:           var(--green-100);
+  --bg-success-hover:     var(--green-200);
+  --border-success:       var(--green-300);
+  --border-success-hover: var(--green-500);
+  --text-success:         var(--green-700);
+
+  /* ── Warning ── */
+  --bg-warning:           var(--amber-100);
+  --bg-warning-hover:     var(--amber-200);
+  --border-warning:       var(--amber-300);
+  --border-warning-hover: var(--amber-600);
+  --text-warning:         var(--amber-800);
+
+  /* ── Error ── */
+  --bg-error:           var(--red-100);
+  --bg-error-hover:     var(--red-200);
+  --border-error:       var(--red-300);
+  --border-error-hover: var(--red-600);
+  --text-error:         var(--red-700);
+
+}
