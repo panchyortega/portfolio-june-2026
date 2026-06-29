@@ -2,7 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 
 // Rutas que aún no existen durante la migración. Cuando se construyan,
 // se quitan de esta lista. El prerender avisa en vez de romper.
-const PENDIENTES = ['/sistema'];
+const PENDIENTES = [];
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
