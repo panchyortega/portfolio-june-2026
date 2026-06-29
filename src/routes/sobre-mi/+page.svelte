@@ -1,8 +1,8 @@
 <script>
-  import { intro, quickFacts, experience, education, skills } from '$lib/data/about.js';
+  import { intro, experience, education, skills } from '$lib/data/about.js';
   import ContentLayout from '$lib/components/ContentLayout.svelte';
+  import PageHeader from '$lib/components/PageHeader.svelte';
   import ExperienceItem from '$lib/components/ExperienceItem.svelte';
-  import MetaCard from '$lib/components/MetaCard.svelte';
   import Tag from '$lib/components/Tag.svelte';
 
   const toc = [
@@ -18,14 +18,7 @@
 </svelte:head>
 
 <ContentLayout tocItems={toc}>
-  {#snippet left()}
-    <MetaCard items={quickFacts} />
-  {/snippet}
-
-  <header class="page-header">
-    <h1 class="page-name type-h1">{intro.name}</h1>
-    <p class="page-bio type-body-lg">{intro.bio}</p>
-  </header>
+  <PageHeader title={intro.name} subtitle={intro.bio} />
 
   <section class="section" id="experiencia">
     <h2 class="section-title type-h2">Experiencia</h2>
@@ -67,20 +60,6 @@
 </ContentLayout>
 
 <style>
-  .page-header {
-    margin-bottom: var(--space-40);
-    padding-bottom: var(--space-32);
-    border-bottom: 1px solid var(--border-neutral-primary);
-  }
-  .page-name {
-    font-family: var(--font-display);
-    font-weight: var(--weight-light);
-    letter-spacing: var(--tracking-tight);
-    color: var(--text-primary);
-    margin-bottom: var(--space-16);
-  }
-  .page-bio { color: var(--text-secondary); }
-
   .section { margin-bottom: var(--space-56); }
   .section:last-child { margin-bottom: 0; }
   .section-title {

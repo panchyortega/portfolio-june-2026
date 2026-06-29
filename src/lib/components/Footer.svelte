@@ -25,7 +25,6 @@
   footer {
     border-top: 1px solid var(--border-neutral-primary);
     padding: var(--space-48) 0 var(--space-32);
-    margin-top: var(--space-96);
   }
   .footer-inner {
     max-width: var(--site-max);

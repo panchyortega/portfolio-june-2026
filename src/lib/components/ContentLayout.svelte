@@ -3,30 +3,31 @@
 
   /**
    * Layout de 3 columnas: sidebar izq | contenido | TOC der.
-   * Con líneas divisorias y sidebars sticky. Responsive a 1 columna.
-   * @prop {Array<{text,id,depth}>} tocItems - items de la tabla de contenidos
-   * @prop {import('svelte').Snippet} [left] - contenido del sidebar izquierdo
-   * @prop {import('svelte').Snippet} children - contenido central
+   * Las líneas divisorias llegan siempre hasta abajo (tocan el footer).
+   * La columna izquierda puede ir vacía (mantiene su divisor).
+   * @prop {Array<{text,id,depth}>} tocItems
+   * @prop {import('svelte').Snippet} [left] - contenido del sidebar izquierdo (opcional)
+   * @prop {import('svelte').Snippet} children
    */
   let { tocItems = [], left, children } = $props();
 </script>
 
 <div class="layout">
-  <aside class="sidebar-left">
-    {@render left?.()}
+  <aside class="col col-left">
+    {#if left}<div class="sticky">{@render left()}</div>{/if}
   </aside>
 
-  <main class="content">
-    {#if left}
-      <div class="left-mobile">{@render left()}</div>
-    {/if}
+  <main class="col-center">
+    {#if left}<div class="left-mobile">{@render left()}</div>{/if}
     {@render children()}
   </main>
 
-  <aside class="sidebar-right">
+  <aside class="col col-right">
     {#if tocItems.length}
-      <p class="toc-title type-label">En esta página</p>
-      <TableOfContents items={tocItems} />
+      <div class="sticky">
+        <p class="toc-title type-label">En esta página</p>
+        <TableOfContents items={tocItems} />
+      </div>
     {/if}
   </aside>
 </div>
@@ -38,26 +39,28 @@
     max-width: var(--site-max);
     margin: 0 auto;
     width: 100%;
+    /* Asegura que los divisores lleguen al footer incluso en páginas cortas */
+    min-height: calc(100vh - var(--nav-height));
   }
 
-  .sidebar-left {
-    border-right: 1px solid var(--border-neutral-primary);
-    padding: var(--space-32);
+  /* Las columnas laterales se estiran a la altura total del grid:
+     el borde vive en la columna, no en el contenido sticky,
+     así el divisor llega hasta abajo y toca el footer. */
+  .col-left { border-right: 1px solid var(--border-neutral-primary); }
+  .col-right { border-left: 1px solid var(--border-neutral-primary); }
+
+  .col-left .sticky,
+  .col-right .sticky {
     position: sticky;
     top: var(--nav-height);
-    height: calc(100vh - var(--nav-height));
-    align-self: start;
+    padding: var(--space-32);
+  }
+  .col-left .sticky {
+    max-height: calc(100vh - var(--nav-height));
     overflow-y: auto;
   }
-  .sidebar-right {
-    border-left: 1px solid var(--border-neutral-primary);
-    padding: var(--space-32);
-    position: sticky;
-    top: var(--nav-height);
-    align-self: start;
-  }
 
-  .content {
+  .col-center {
     padding: var(--space-48) var(--space-56);
     max-width: 760px;
     width: 100%;
@@ -71,9 +74,9 @@
   .left-mobile { display: none; }
 
   @media (max-width: 900px) {
-    .layout { grid-template-columns: 1fr; }
-    .sidebar-left, .sidebar-right { display: none; }
-    .content { padding: var(--space-32) var(--space-24); max-width: 100%; }
+    .layout { grid-template-columns: 1fr; min-height: 0; }
+    .col-left, .col-right { display: none; }
+    .col-center { padding: var(--space-32) var(--space-24); max-width: 100%; }
     .left-mobile {
       display: block;
       padding: var(--space-20);

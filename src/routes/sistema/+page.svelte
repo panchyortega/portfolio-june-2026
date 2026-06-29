@@ -1,5 +1,6 @@
 <script>
   import ContentLayout from '$lib/components/ContentLayout.svelte';
+  import PageHeader from '$lib/components/PageHeader.svelte';
   import MetaCard from '$lib/components/MetaCard.svelte';
   import Tag from '$lib/components/Tag.svelte';
   import Button from '$lib/components/Button.svelte';
@@ -15,7 +16,7 @@
     .sort();
 
   const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem'];
-  const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout'];
+  const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
   const neutralScale = ['50','100','200','300','400','500','600','700','800','900'];
@@ -48,12 +49,6 @@
     aprendi: { lead: 'El aprendizaje principal destacado.', rest: 'Y el resto del aprendizaje en texto normal.' }
   };
 
-  const summary = [
-    { label: 'Componentes', value: `${allComponents.length} detectados` },
-    { label: 'Tema', tags: [{ label: 'Claro' }, { label: 'Oscuro' }] },
-    { label: 'Tokens', value: 'Primitivos → Semánticos' }
-  ];
-
   const toc = [
     { text: 'Inventario', id: 'inventario', depth: 2 },
     { text: 'Color — primitivos', id: 'color-primitivos', depth: 2 },
@@ -68,18 +63,11 @@
 <svelte:head><title>Sistema de diseño — Fran Ortega</title></svelte:head>
 
 <ContentLayout tocItems={toc}>
-  {#snippet left()}
-    <MetaCard items={summary} />
-  {/snippet}
-
-  <header class="page-header">
-    <p class="eyebrow type-label">Documentación viva</p>
-    <h1 class="page-title type-h1">Sistema de diseño</h1>
-    <p class="page-intro type-body-lg">
-      Cada componente acá es el componente real del sitio, renderizado en vivo.
-      La lista se detecta automáticamente desde el código.
-    </p>
-  </header>
+  <PageHeader
+    eyebrow="Documentación viva"
+    title="Sistema de diseño"
+    subtitle="Cada componente acá es el componente real del sitio, renderizado en vivo. La lista se detecta automáticamente desde el código."
+  />
 
   <section class="section" id="inventario">
     <h2 class="section-title type-h2">Inventario de componentes</h2>
@@ -174,23 +162,15 @@
 
   <section class="section" id="en-contexto">
     <h2 class="section-title type-h2">En contexto</h2>
-    <p class="page-intro type-body">
-      Nav, Footer, TableOfContents y ContentLayout se documentan en uso real: la Nav y el
-      Footer están visibles ahora; la TOC y el layout de 3 columnas estructuran esta misma página.
+    <p class="muted type-body">
+      Nav, Footer, TableOfContents, ContentLayout y PageHeader se documentan en uso real:
+      la Nav y el Footer están visibles ahora; la TOC, el layout de 3 columnas y el
+      encabezado estructuran esta misma página.
     </p>
   </section>
 </ContentLayout>
 
 <style>
-  .page-header {
-    margin-bottom: var(--space-40);
-    padding-bottom: var(--space-32);
-    border-bottom: 1px solid var(--border-neutral-primary);
-  }
-  .eyebrow { color: var(--text-secondary); display: block; margin-bottom: var(--space-12); }
-  .page-title { color: var(--text-primary); margin-bottom: var(--space-16); }
-  .page-intro { color: var(--text-secondary); }
-
   .section { margin-bottom: var(--space-56); }
   .section:last-child { margin-bottom: 0; }
   .section-title {

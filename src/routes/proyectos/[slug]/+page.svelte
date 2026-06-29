@@ -1,12 +1,12 @@
 <script>
   import { base } from '$app/paths';
   import ContentLayout from '$lib/components/ContentLayout.svelte';
+  import PageHeader from '$lib/components/PageHeader.svelte';
   import MetaCard from '$lib/components/MetaCard.svelte';
   import Button from '$lib/components/Button.svelte';
-  import { ArrowLeft } from '@lucide/svelte';
 
   let { data } = $props();
-  let { project, html, toc } = $derived(data);
+  let { project, html, toc, readingTime, prev, next } = $derived(data);
 </script>
 
 <svelte:head>
@@ -16,51 +16,34 @@
 
 <ContentLayout tocItems={toc}>
   {#snippet left()}
-    <a href="{base}/" class="back-link type-label">
-      <ArrowLeft size={15} /> Volver
-    </a>
     <MetaCard items={project.meta} />
   {/snippet}
 
-  <header class="project-header">
-    <h1 class="project-title type-h1">{project.title}</h1>
-    <p class="project-desc type-body-lg">{project.desc}</p>
-  </header>
+  <PageHeader
+    title={project.title}
+    subtitle={project.desc}
+    backHref={`${base}/`}
+    {readingTime}
+  />
 
   <article class="prose">
     {@html html}
   </article>
 
-  <div class="project-nav">
-    <Button variant="ghost" href={`${base}/`}>← Todos los proyectos</Button>
-  </div>
+  <nav class="project-nav">
+    <Button variant="ghost" href={`${base}/proyectos/${prev.slug}`}>← Anterior</Button>
+    <Button variant="primary" href={`${base}/proyectos/${next.slug}`}>Siguiente →</Button>
+  </nav>
 </ContentLayout>
 
 <style>
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-6);
-    color: var(--text-secondary);
-    margin-bottom: var(--space-32);
-    transition: color var(--duration-fast) var(--ease-default);
-  }
-  .back-link:hover { color: var(--text-accent); }
-
-  .project-header {
-    margin-bottom: var(--space-40);
-    padding-bottom: var(--space-32);
-    border-bottom: 1px solid var(--border-neutral-primary);
-  }
-  .project-title { color: var(--text-primary); margin-bottom: var(--space-16); }
-  .project-desc { color: var(--text-secondary); }
-
   .project-nav {
     margin-top: var(--space-64);
     padding-top: var(--space-32);
     border-top: 1px solid var(--border-neutral-primary);
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    gap: var(--space-12);
   }
 
   /* ── Prose — estilos del markdown renderizado ── */
