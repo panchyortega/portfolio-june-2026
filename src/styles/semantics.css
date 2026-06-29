@@ -44,6 +44,11 @@
   --border-accent-disabled:  var(--primary-200);
   --text-on-accent:          #ffffff;
   --text-on-accent-disabled: var(--primary-600);
+  --text-accent:             var(--primary-600);
+  --text-accent-hover:       var(--primary-700);
+  --bg-accent-subtle:        var(--primary-50);
+  --bg-accent-muted:         var(--primary-100);
+  --border-accent-subtle:    var(--primary-400);
 
   /* ── Success ── */
   --bg-success:           var(--green-100);
