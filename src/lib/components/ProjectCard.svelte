@@ -8,6 +8,7 @@
    * @prop {string} href - ruta al proyecto (relativa, ej: '/proyectos/ucap')
    * @prop {string} title
    * @prop {string} desc
+   * @prop {string} [readingTime] - tiempo de lectura
    * @prop {string} image - URL de imagen real (opcional)
    * @prop {string} imageLabel - texto del placeholder si no hay imagen
    * @prop {Array<{label: string, variant?: 'neutral'|'primary'}>} tags
@@ -40,6 +41,9 @@
     {/if}
     <p class="project-card-title type-h3">{title}</p>
     <p class="project-card-desc type-small">{desc}</p>
+    <p class="ph-reading type-small">
+      <Clock size={14} /> {readingTime}
+    </p>
   </div>
 </a>
 
@@ -91,5 +95,12 @@
   .project-card-desc {
     color: var(--text-secondary);
     line-height: 1.6;
+  }
+  .ph-reading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  color: var(--text-secondary);
+  margin-top: var(--space-16);
   }
 </style>
