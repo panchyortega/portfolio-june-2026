@@ -2,6 +2,7 @@
   import { base } from '$app/paths';
   import Tag from './Tag.svelte';
   import ImagePlaceholder from './ImagePlaceholder.svelte';
+  import { Clock } from '@lucide/svelte';
 
   /**
    * Project Card
