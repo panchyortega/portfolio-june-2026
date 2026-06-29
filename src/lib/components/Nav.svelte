@@ -3,6 +3,7 @@
   import { page } from '$app/stores';
   import { theme, toggleTheme } from '$lib/stores/theme.js';
   import { projects } from '$lib/data/projects.js';
+  import { ChevronDown, House, LayoutGrid, User, Palette, Sun, Moon } from '@lucide/svelte';
 
   let openDropdown = $state(null); // 'proyectos' | 'mas' | null
 
@@ -40,7 +41,7 @@
         aria-expanded={openDropdown === 'proyectos'}
         onclick={() => toggle('proyectos')}
       >
-        Proyectos <i class="ti ti-chevron-down chevron"></i>
+        Proyectos <ChevronDown size={14} class="chevron" />
       </button>
       <div class="nav-dropdown" class:open={openDropdown === 'proyectos'}>
         {#each projects as p}
@@ -58,7 +59,7 @@
 
   <div class="nav-right">
     <button class="nav-btn nav-btn-icon" onclick={toggleTheme} title="Cambiar tema" aria-label="Cambiar tema">
-      <i class="ti {$theme === 'dark' ? 'ti-sun' : 'ti-moon'}"></i>
+      {#if $theme === 'dark'}<Sun size={18} />{:else}<Moon size={18} />{/if}
     </button>
   </div>
 </nav>
@@ -66,7 +67,7 @@
 <!-- ── Nav mobile ── -->
 <nav class="mobile-nav">
   <a href="{base}/" class="mobile-nav-item" class:active={path === '/'}>
-    <i class="ti ti-home" aria-hidden="true"></i>
+    <House size={22} />
     <span>Inicio</span>
   </a>
 
@@ -77,7 +78,7 @@
       aria-expanded={openDropdown === 'proyectos'}
       onclick={() => toggle('proyectos')}
     >
-      <i class="ti ti-layout-grid" aria-hidden="true"></i>
+      <LayoutGrid size={22} />
       <span>Proyectos</span>
     </button>
     <div class="nav-dropdown nav-dropdown--up mobile-dd" class:open={openDropdown === 'proyectos'}>
@@ -91,17 +92,17 @@
   </div>
 
   <a href="{base}/sobre-mi" class="mobile-nav-item" class:active={path === '/sobre-mi'}>
-    <i class="ti ti-user" aria-hidden="true"></i>
+    <User size={22} />
     <span>Sobre mí</span>
   </a>
 
   <a href="{base}/sistema" class="mobile-nav-item" class:active={path === '/sistema'}>
-    <i class="ti ti-palette" aria-hidden="true"></i>
+    <Palette size={22} />
     <span>DS</span>
   </a>
 
   <button class="mobile-nav-item" onclick={toggleTheme} aria-label="Cambiar tema">
-    <i class="ti {$theme === 'dark' ? 'ti-sun' : 'ti-moon'}" aria-hidden="true"></i>
+    {#if $theme === 'dark'}<Sun size={22} />{:else}<Moon size={22} />{/if}
     <span>Tema</span>
   </button>
 </nav>
@@ -171,15 +172,14 @@
     background: var(--bg-accent);
     border-radius: 2px 2px 0 0;
   }
-  .nav-btn i {
-    font-size: var(--size-xs);
+  .nav-btn :global(.chevron) {
     transition: transform var(--duration-fast) var(--ease-default);
   }
   .nav-btn[aria-expanded='true'] {
     background: var(--bg-neutral-secondary);
     color: var(--text-primary);
   }
-  .nav-btn[aria-expanded='true'] i.chevron { transform: rotate(180deg); }
+  .nav-btn[aria-expanded='true'] :global(.chevron) { transform: rotate(180deg); }
 
   .nav-btn-icon {
     width: 36px;
@@ -187,7 +187,6 @@
     padding: 0;
     justify-content: center;
   }
-  .nav-btn-icon i { font-size: 1.1rem; }
 
   /* ── Dropdown ── */
   .nav-dropdown-wrap { position: relative; }
@@ -277,19 +276,16 @@
   }
   .mobile-nav-item:hover { background: var(--bg-neutral-secondary); }
   .mobile-nav-item.active { background: var(--bg-accent-subtle); }
-  .mobile-nav-item i {
-    font-size: 1.25rem;
+  .mobile-nav-item {
     color: var(--text-secondary);
-    transition: color var(--duration-fast) var(--ease-default);
+    transition: background var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default);
   }
-  .mobile-nav-item.active i { color: var(--text-accent); }
+  .mobile-nav-item.active { color: var(--text-accent); }
   .mobile-nav-item span {
     font-size: 0.625rem;
-    color: var(--text-secondary);
-    transition: color var(--duration-fast) var(--ease-default);
+    color: inherit;
     white-space: nowrap;
   }
-  .mobile-nav-item.active span { color: var(--text-accent); }
 
   .mobile-wrap {
     flex: 1;
