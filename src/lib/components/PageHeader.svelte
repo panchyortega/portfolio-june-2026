@@ -27,7 +27,7 @@
   <h1 class="ph-title type-h1">{title}</h1>
 
   {#if subtitle}
-    <p class="ph-subtitle type-body-lg">{subtitle}</p>
+    <p class="ph-subtitle type-body">{subtitle}</p>
   {/if}
 
   {#if readingTime}
