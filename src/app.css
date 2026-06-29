@@ -1,0 +1,53 @@
+/* ==============================================
+   APP — Entrada global de estilos
+   Importa tokens y define el reset base.
+   Los estilos de componentes viven en cada .svelte
+   ============================================== */
+
+@import './styles/primitives.css';
+@import './styles/semantics.css';
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-normal);
+  color: var(--text-primary);
+  background: var(--bg-neutral-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Defaults de elementos ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}

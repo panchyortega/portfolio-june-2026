@@ -1,0 +1,143 @@
+/* ==============================================
+   PRIMITIVOS — Portfolio Fran Ortega
+   Nunca usar directamente en componentes.
+   Referenciar siempre desde semantics.css
+   ============================================== */
+
+@import url('https://api.fontshare.com/v2/css?f[]=sora@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap');
+
+:root {
+
+  /* ── Tipografía — Familias ── */
+  --font-display: 'Sora', sans-serif;
+  --font-body:    'Work Sans', sans-serif;
+
+  /* ── Tipografía — Escala de tamaños ── */
+  --size-xs:   0.75rem;    /* 12px */
+  --size-sm:   0.875rem;   /* 14px */
+  --size-base: 1rem;       /* 16px */
+  --size-lg:   1.125rem;   /* 18px */
+  --size-xl:   1.25rem;    /* 20px */
+  --size-2xl:  1.5rem;     /* 24px */
+  --size-3xl:  2.25rem;    /* 36px */
+  --size-4xl:  3rem;       /* 48px */
+
+  /* ── Tipografía — Pesos ── */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  /* ── Tipografía — Line height ── */
+  --lh-tight:  1.15;
+  --lh-snug:   1.35;
+  --lh-normal: 1.7;
+  --lh-loose:  1.8;
+
+  /* ── Tipografía — Letter spacing ── */
+  --tracking-tight:  -0.02em;
+  --tracking-snug:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.01em;
+
+  /* ── Colores — Neutral (verde desaturado frío) ── */
+  --neutral-50:  #F4F5F2;
+  --neutral-100: #E3E6DF;
+  --neutral-200: #C8CEC1;
+  --neutral-300: #A8B09E;
+  --neutral-400: #869180;
+  --neutral-500: #637060;
+  --neutral-600: #4A5546;
+  --neutral-700: #343D31;
+  --neutral-800: #1F261D;
+  --neutral-900: #111710;
+
+  /* ── Colores — Primary (terracota) ── */
+  --primary-50:  #FFF2EC;
+  --primary-100: #FFCFB3;
+  --primary-200: #FF9966;
+  --primary-300: #FF7733;
+  --primary-400: #FF5C00;
+  --primary-500: #CC4900;
+  --primary-600: #BA3500;
+  --primary-700: #8A2800;
+  --primary-800: #5C1A00;
+  --primary-900: #2E0D00;
+
+  /* ── Colores — Green (success) ── */
+  --green-100: #DCFCE7;
+  --green-200: #BBF7D0;
+  --green-300: #86EFAC;
+  --green-400: #4ADE80;
+  --green-500: #22C55E;
+  --green-600: #16A34A;
+  --green-700: #15803D;
+
+  /* ── Colores — Amber (warning) ── */
+  --amber-100: #FEF3C7;
+  --amber-200: #FDE68A;
+  --amber-300: #FCD34D;
+  --amber-400: #FBBF24;
+  --amber-500: #F59E0B;
+  --amber-600: #D97706;
+  --amber-700: #B45309;
+  --amber-800: #92400E;
+
+  /* ── Colores — Red (error) ── */
+  --red-100: #FEE2E2;
+  --red-200: #FECDD3;
+  --red-300: #FCA5A5;
+  --red-400: #F87171;
+  --red-500: #EF4444;
+  --red-600: #DC2626;
+  --red-700: #B91C1C;
+
+  /* ── Espaciado ── */
+  --space-1:   0.0625rem;  /*   1px */
+  --space-2:   0.125rem;   /*   2px */
+  --space-4:   0.25rem;    /*   4px */
+  --space-6:   0.375rem;   /*   6px */
+  --space-8:   0.5rem;     /*   8px */
+  --space-12:  0.75rem;    /*  12px */
+  --space-16:  1rem;       /*  16px */
+  --space-20:  1.25rem;    /*  20px */
+  --space-24:  1.5rem;     /*  24px */
+  --space-32:  2rem;       /*  32px */
+  --space-40:  2.5rem;     /*  40px */
+  --space-48:  3rem;       /*  48px */
+  --space-56:  3.5rem;     /*  56px */
+  --space-64:  4rem;       /*  64px */
+  --space-80:  5rem;       /*  80px */
+  --space-96:  6rem;       /*  96px */
+  --space-128: 8rem;       /* 128px */
+
+  /* ── Border radius ── */
+  --radius-2:    2px;
+  --radius-4:    4px;
+  --radius-8:    8px;
+  --radius-12:   12px;
+  --radius-16:   16px;
+  --radius-full: 9999px;
+
+  /* ── Transiciones ── */
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --duration-slow:   400ms;
+  --ease-default:    ease;
+
+  /* ── Layout ── */
+  --nav-height:    52px;
+  --site-max:      1280px;
+  --content-max:   600px;
+  --sidebar-width: 220px;
+}
+
+/* ── Escala tipográfica mobile ── */
+@media (max-width: 900px) {
+  :root {
+    --size-4xl: 2rem;      /* 48 → 32px */
+    --size-3xl: 1.625rem;  /* 36 → 26px */
+    --size-2xl: 1.25rem;   /* 24 → 20px */
+    --size-xl:  1.0625rem; /* 20 → 17px */
+  }
+}
