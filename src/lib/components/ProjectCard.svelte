@@ -18,6 +18,7 @@
     href = '#',
     title = '',
     desc = '',
+    readingTime = '',
     image = undefined,
     imageLabel = '',
     tags = []
