@@ -1,12 +1,28 @@
 <script>
   import { base } from '$app/paths';
+  import { onMount } from 'svelte';
   import ContentLayout from '$lib/components/ContentLayout.svelte';
   import PageHeader from '$lib/components/PageHeader.svelte';
   import MetaCard from '$lib/components/MetaCard.svelte';
   import Button from '$lib/components/Button.svelte';
+  import ImageLightbox from '$lib/components/ImageLightbox.svelte';
 
   let { data } = $props();
   let { project, html, toc, readingTime, prev, next } = $derived(data);
+
+  // Lightbox: se abre al clickear una imagen del contenido
+  let lightbox = $state(null);
+  let proseEl;
+
+  onMount(() => {
+    function handleClick(e) {
+      const btn = e.target.closest('.content-image-btn');
+      if (!btn) return;
+      lightbox = { src: btn.dataset.src, alt: btn.dataset.alt || '' };
+    }
+    proseEl.addEventListener('click', handleClick);
+    return () => proseEl.removeEventListener('click', handleClick);
+  });
 </script>
 
 <svelte:head>
@@ -26,7 +42,7 @@
     {readingTime}
   />
 
-  <article class="prose">
+  <article class="prose" bind:this={proseEl}>
     {@html html}
   </article>
 
@@ -35,6 +51,8 @@
     <Button variant="primary" href={`${base}/proyectos/${next.slug}`}>Siguiente →</Button>
   </nav>
 </ContentLayout>
+
+<ImageLightbox src={lightbox?.src ?? null} alt={lightbox?.alt ?? ''} onclose={() => (lightbox = null)} />
 
 <style>
   .project-nav {
@@ -88,4 +106,33 @@
     list-style: revert;
   }
   .prose :global(li) { margin-bottom: var(--space-8); line-height: var(--lh-normal); }
+
+  /* ── Imágenes del contenido ── */
+  .prose :global(.content-image) {
+    margin: var(--space-32) 0;
+  }
+  .prose :global(.content-image-btn) {
+    display: block;
+    width: 100%;
+    padding: var(--space-16);
+    background: var(--bg-neutral-secondary);
+    border: 1px solid var(--border-neutral-primary);
+    border-radius: var(--radius-loose);
+    cursor: zoom-in;
+    transition: background var(--duration-fast) var(--ease-default);
+  }
+  .prose :global(.content-image-btn:hover) {
+    background: var(--bg-neutral-secondary-hover);
+  }
+  .prose :global(.content-image img) {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-default);
+  }
+  .prose :global(.content-caption) {
+    margin-top: var(--space-8);
+    font-size: var(--size-xs);
+    color: var(--text-secondary);
+    text-align: center;
+  }
 </style>

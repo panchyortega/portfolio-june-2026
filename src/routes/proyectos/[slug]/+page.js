@@ -1,4 +1,5 @@
 import { error } from '@sveltejs/kit';
+import { base } from '$app/paths';
 import { getProject, projects } from '$lib/data/projects.js';
 import { renderMarkdown } from '$lib/markdown.js';
 
@@ -11,7 +12,7 @@ export function load({ params }) {
   if (idx === -1) error(404, 'Proyecto no encontrado');
 
   const project = projects[idx];
-  const { html, toc } = renderMarkdown(project.content);
+  const { html, toc } = renderMarkdown(project.content, { base });
 
   // Tiempo de lectura estimado (~200 palabras por minuto)
   const words = (project.content || '').split(/\s+/).filter(Boolean).length;

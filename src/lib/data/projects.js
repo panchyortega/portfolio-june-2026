@@ -81,6 +81,8 @@ La propuesta incluía: una sidebar fija para navegación interna en una misma p�
 
 Creé un sistema de diseño que contiene todos los componentes base y estilos, lo que permitirá el desarrollo posterior de templates en Mustache y LESS para la nueva skin. La documentación clara fue clave: necesitaba ser comprensible tanto para desarrolladores avanzados como para estudiantes de diseño desde tercer año en adelante. Cada componente fue documentado con convenciones de nombres claras, variantes y estados.
 
+![Dashboard del sistema Aurora con componentes y visualización de datos](/images/proyectos/aurora/dashboard.png "Vista general del sistema Aurora aplicado a un dashboard")
+
 ## Implementación en código
 
 Una vez estructurado el sistema de diseño y definido el diseño visual, se crearon templates usando Mustache, que luego se renderizaron como páginas HTML. Para el manejo de estilos se usó LESS, un preprocesador CSS que permite mejor organización de variables y estilos, de manera similar a cómo se gestionan en Figma. Todo el proceso se llevó a cabo usando Visual Studio Code y GitHub.
