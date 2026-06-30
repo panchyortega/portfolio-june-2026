@@ -64,6 +64,7 @@
     padding: var(--space-48) var(--space-56);
     max-width: 760px;
     width: 100%;
+    justify-self: center;
   }
 
   .toc-title {
