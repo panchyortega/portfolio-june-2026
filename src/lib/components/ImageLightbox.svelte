@@ -105,7 +105,10 @@
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background: rgba(17, 23, 16, 0.92);
+    /* El lightbox siempre es oscuro (no sigue el tema claro/oscuro del sitio).
+       Se nombra localmente para no inventar un color suelto. */
+    --lightbox-overlay: color-mix(in srgb, var(--neutral-900) 92%, transparent);
+    background: var(--lightbox-overlay);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -131,8 +134,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Botones blancos translúcidos sobre el overlay oscuro: intencional,
+       no se mapean a tokens de tema porque el lightbox no cambia con el modo. */
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: var(--neutral-50);
     border: none;
     border-radius: var(--radius-default);
     cursor: pointer;

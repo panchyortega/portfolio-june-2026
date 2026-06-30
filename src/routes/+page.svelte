@@ -1,5 +1,6 @@
 <script>
   import { projects } from '$lib/data/projects.js';
+  import { readingTime } from '$lib/markdown.js';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
 </script>
 
@@ -28,6 +29,7 @@
           desc={p.desc}
           imageLabel={p.imageLabel}
           tags={p.tags}
+          readingTime={readingTime(p.content)}
         />
       {/each}
     </div>

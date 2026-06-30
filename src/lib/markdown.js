@@ -18,6 +18,17 @@ function escapeHtml(str = '') {
 }
 
 /**
+ * Estima el tiempo de lectura de un texto markdown (~200 palabras/min).
+ * @param {string} md
+ * @returns {string} ej: "3 min de lectura"
+ */
+export function readingTime(md) {
+  const words = (md || '').split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 200));
+  return `${minutes} min de lectura`;
+}
+
+/**
  * Renderiza markdown a HTML y extrae la tabla de contenidos.
  * - Agrega id a h2/h3 para la TOC.
  * - Las imágenes salen envueltas en un <figure> con botón (para zoom + a11y).

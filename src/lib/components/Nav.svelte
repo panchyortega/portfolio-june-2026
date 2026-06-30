@@ -282,7 +282,7 @@
   }
   .mobile-nav-item.active { color: var(--text-accent); }
   .mobile-nav-item span {
-    font-size: 0.625rem;
+    font-size: var(--size-2xs);
     color: inherit;
     white-space: nowrap;
   }

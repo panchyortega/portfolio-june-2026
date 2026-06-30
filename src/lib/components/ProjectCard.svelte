@@ -1,5 +1,6 @@
 <script>
   import { base } from '$app/paths';
+  import { Clock } from '@lucide/svelte';
   import Tag from './Tag.svelte';
   import ImagePlaceholder from './ImagePlaceholder.svelte';
 
@@ -11,6 +12,7 @@
    * @prop {string} image - URL de imagen real (opcional)
    * @prop {string} imageLabel - texto del placeholder si no hay imagen
    * @prop {Array<{label: string, variant?: 'neutral'|'primary'}>} tags
+   * @prop {string} [readingTime] - ej: "3 min de lectura"
    */
   let {
     href = '#',
@@ -18,7 +20,8 @@
     desc = '',
     image = undefined,
     imageLabel = '',
-    tags = []
+    tags = [],
+    readingTime = undefined
   } = $props();
 </script>
 
@@ -40,6 +43,11 @@
     {/if}
     <p class="project-card-title type-h3">{title}</p>
     <p class="project-card-desc type-small">{desc}</p>
+    {#if readingTime}
+      <p class="project-card-reading type-small">
+        <Clock size={13} /> {readingTime}
+      </p>
+    {/if}
   </div>
 </a>
 
@@ -91,5 +99,12 @@
   .project-card-desc {
     color: var(--text-secondary);
     line-height: 1.6;
+  }
+  .project-card-reading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    color: var(--text-secondary);
+    margin-top: var(--space-12);
   }
 </style>
