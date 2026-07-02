@@ -48,7 +48,7 @@
         labelTextColor: text,
         lineColor: accent,
         fontFamily: token('--font-body'),
-        fontSize: token('--size-base')
+        fontSize: token('--size-sm')
       },
       flowchart: { curve: 'basis', padding: 18, useMaxWidth: true, htmlLabels: true }
     });
