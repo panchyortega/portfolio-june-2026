@@ -1,7 +1,7 @@
 <script>
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
-  import { theme } from '$lib/stores/theme.js';
+  import { setupMermaid } from '$lib/mermaid.js';
   import ContentLayout from '$lib/components/ContentLayout.svelte';
   import PageHeader from '$lib/components/PageHeader.svelte';
   import MetaCard from '$lib/components/MetaCard.svelte';
@@ -15,53 +15,6 @@
   let lightbox = $state(null);
   let proseEl;
 
-  // Fuentes originales de cada diagrama mermaid (para poder re-renderizar al cambiar tema)
-  let mermaidSources = [];
-
-  async function renderMermaid() {
-    if (!mermaidSources.length) return;
-    const styles = getComputedStyle(document.documentElement);
-    const token = (n) => styles.getPropertyValue(n).trim();
-    const accent = token('--border-accent');
-    const text = token('--text-primary');
-    const bg = token('--bg-neutral-primary');
-
-    const { default: mermaid } = await import('mermaid');
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'base',
-      themeVariables: {
-        background: bg,
-        mainBkg: bg,
-        nodeBorder: accent,
-        clusterBkg: bg,
-        clusterBorder: accent,
-        tertiaryBkg: bg,
-        tertiaryBorderColor: accent,
-        tertiaryTextColor: text,
-        secondaryBkg: bg,
-        secondaryBorderColor: accent,
-        secondaryTextColor: text,
-        nodeTextColor: text,
-        titleColor: text,
-        edgeLabelBackground: bg,
-        labelTextColor: text,
-        lineColor: accent,
-        fontFamily: token('--font-body'),
-        fontSize: token('--size-sm')
-      },
-      flowchart: { curve: 'basis', padding: 18, useMaxWidth: true, htmlLabels: true }
-    });
-
-    const nodes = proseEl.querySelectorAll('pre.mermaid');
-    for (let i = 0; i < nodes.length; i++) {
-      const el = nodes[i];
-      el.removeAttribute('data-processed');
-      el.innerHTML = mermaidSources[i];
-    }
-    await mermaid.run({ nodes });
-  }
-
   onMount(() => {
     function handleClick(e) {
       const btn = e.target.closest('.content-image-btn');
@@ -70,17 +23,11 @@
     }
     proseEl.addEventListener('click', handleClick);
 
-    // Guarda las fuentes de los diagramas antes de que mermaid las reemplace
-    mermaidSources = [...proseEl.querySelectorAll('pre.mermaid')].map((el) => el.textContent);
-
-    // Re-renderiza cuando cambia el tema (los colores se leen de los tokens)
-    const unsub = theme.subscribe(() => {
-      renderMermaid();
-    });
+    const cleanupMermaid = setupMermaid(proseEl);
 
     return () => {
       proseEl.removeEventListener('click', handleClick);
-      unsub();
+      cleanupMermaid();
     };
   });
 </script>

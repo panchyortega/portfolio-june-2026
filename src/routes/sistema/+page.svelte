@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from 'svelte';
+  import { setupMermaid } from '$lib/mermaid.js';
   import ContentLayout from '$lib/components/ContentLayout.svelte';
   import PageHeader from '$lib/components/PageHeader.svelte';
   import MetaCard from '$lib/components/MetaCard.svelte';
@@ -8,6 +10,9 @@
   import ImagePlaceholder from '$lib/components/ImagePlaceholder.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
   import ExperienceItem from '$lib/components/ExperienceItem.svelte';
+
+  let diagramaEl;
+  onMount(() => setupMermaid(diagramaEl));
 
   // ── Inventario automático ──
   const modules = import.meta.glob('$lib/components/*.svelte', { eager: true });
@@ -56,6 +61,7 @@
     { text: 'Tipografía', id: 'tipografia', depth: 2 },
     { text: 'Átomos', id: 'atomos', depth: 2 },
     { text: 'Moléculas', id: 'moleculas', depth: 2 },
+    { text: 'Diagramas', id: 'diagramas', depth: 2 },
     { text: 'En contexto', id: 'en-contexto', depth: 2 }
   ];
 </script>
@@ -160,6 +166,22 @@
     </div>
   </section>
 
+  <section class="section" id="diagramas">
+    <h2 class="section-title type-h2">Diagramas</h2>
+    <p class="muted type-body">
+      Los esquemas se escriben como bloques <code>mermaid</code> en el markdown de un
+      proyecto y se renderizan con los tokens del sistema: borde y líneas en acento,
+      relleno y texto neutros. Figuras: círculo (inicio/fin), rectángulo (paso), rombo (decisión).
+    </p>
+    <div class="diagram-demo" bind:this={diagramaEl}>
+      <pre class="mermaid">{`flowchart TD
+    A((Inicio)) --> B[Paso del proceso]
+    B --> C{¿Decisión?}
+    C -- No --> B
+    C -- Sí --> D((Fin))`}</pre>
+    </div>
+  </section>
+
   <section class="section" id="en-contexto">
     <h2 class="section-title type-h2">En contexto</h2>
     <p class="muted type-body">
@@ -205,4 +227,20 @@
   .comp-name { color: var(--text-secondary); display: block; margin-bottom: var(--space-12); }
   .comp-demo { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; padding: var(--space-24); background: var(--bg-neutral-secondary); border-radius: var(--radius-loose); }
   .comp-demo.full { display: block; }
+
+  .diagram-demo {
+    margin-top: var(--space-24);
+    display: flex;
+    justify-content: center;
+  }
+  .diagram-demo :global(pre.mermaid) {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0;
+  }
+  .diagram-demo :global(pre.mermaid svg) {
+    max-width: 100%;
+    height: auto;
+  }
 </style>

@@ -9,7 +9,7 @@ construido con SvelteKit, con su propio sistema de diseño basado en tokens.
 
 Un portafolio con:
 - Página de inicio con la grilla de proyectos.
-- Páginas de detalle por proyecto (con tabla de contenidos y galería de imágenes con zoom).
+- Páginas de detalle por proyecto (con tabla de contenidos, galería de imágenes con zoom y diagramas de flujo).
 - Página "Sobre mí" (experiencia, educación, habilidades).
 - Una página de **sistema de diseño** que documenta los componentes en vivo y se
   mantiene sola (detecta los componentes automáticamente).
@@ -82,6 +82,25 @@ uno nuevo, aparece solo en el menú, en la home y genera su propia página.
 3. Listo: la imagen sale enmarcada y, al hacer click, abre un visor con zoom.
 
 Tip: usa imágenes optimizadas (idealmente bajo ~500 KB) para que el sitio cargue rápido.
+
+### Agregar un diagrama de flujo a un proyecto
+
+Dentro del `content`, escribe un bloque de código con lenguaje `mermaid`:
+
+````
+```mermaid
+flowchart TD
+    A((Inicio)) --> B[Paso del usuario]
+    B --> C{¿Decisión?}
+    C -- No --> B
+    C -- Sí --> D((Fin))
+```
+````
+
+Se renderiza automáticamente con los colores del sistema (borde y líneas en
+terracota, texto y fondo neutros). Figuras que uso: `(( ))` círculo para
+inicio/fin, `[ ]` rectángulo para pasos, `{ }` rombo para decisiones. Como es
+texto, puedes tener un diagrama en español y otro en inglés.
 
 ### Editar la página Sobre mí
 

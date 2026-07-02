@@ -61,7 +61,7 @@
   }
 
   .col-center {
-    padding: var(--space-48) var(--space-56);
+    padding: var(--space-32) var(--space-56) var(--space-48);
     max-width: 760px;
     width: 100%;
     justify-self: center;
