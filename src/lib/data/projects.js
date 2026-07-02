@@ -87,6 +87,20 @@ Creé un sistema de diseño que contiene todos los componentes base y estilos, l
 
 Una vez estructurado el sistema de diseño y definido el diseño visual, se crearon templates usando Mustache, que luego se renderizaron como páginas HTML. Para el manejo de estilos se usó LESS, un preprocesador CSS que permite mejor organización de variables y estilos, de manera similar a cómo se gestionan en Figma. Todo el proceso se llevó a cabo usando Visual Studio Code y GitHub.
 
+\`\`\`mermaid
+flowchart TD
+    A((Inicio)) --> B[Definir componente en Figma]
+    B --> C{¿Cumple con los tokens?}
+    C -- No --> D[Ajustar variables y estilos]
+    D --> C
+    C -- Sí --> E[Crear template en Mustache]
+    E --> F[Aplicar estilos en LESS]
+    F --> G{¿Pasa revisión visual?}
+    G -- No --> D
+    G -- Sí --> H[Renderizar a HTML]
+    H --> I((Fin))
+\`\`\`
+
 ## Entregable final
 
 Se creó una página de documentación de componentes usando el mismo sistema de diseño desarrollado para el proyecto. Esta documentación está disponible públicamente y el repositorio del proyecto se puede encontrar en GitHub.

@@ -32,6 +32,7 @@ export function readingTime(md) {
  * Renderiza markdown a HTML y extrae la tabla de contenidos.
  * - Agrega id a h2/h3 para la TOC.
  * - Las imágenes salen envueltas en un <figure> con botón (para zoom + a11y).
+ * - Los bloques ```mermaid salen como <pre class="mermaid"> para render en cliente.
  * - Antepone `base` a las rutas de imagen que empiezan con "/".
  *
  * @param {string} md
@@ -48,6 +49,7 @@ export function renderMarkdown(md, { base = '' } = {}) {
   const renderer = new marked.Renderer();
   const originalParagraph = renderer.paragraph.bind(renderer);
   const originalHeading = renderer.heading.bind(renderer);
+  const originalCode = renderer.code.bind(renderer);
 
   function renderImage(token) {
     const raw = token.href || '';
@@ -68,8 +70,16 @@ export function renderMarkdown(md, { base = '' } = {}) {
 
   renderer.image = renderImage;
 
-  // Si un párrafo es solo una imagen, renderiza el figure sin envolverlo en <p>
-  // (figure dentro de p es HTML inválido).
+  // Bloques ```mermaid → <pre class="mermaid"> para render en cliente.
+  // El resto de los bloques de código se renderizan normal.
+  renderer.code = function (token) {
+    if (token.lang === 'mermaid') {
+      return `<pre class="mermaid">${escapeHtml(token.text)}</pre>`;
+    }
+    return originalCode(token);
+  };
+
+  // Si un párrafo es solo una imagen, renderiza el figure sin <p> (figure en p es inválido).
   renderer.paragraph = function (token) {
     if (token.tokens && token.tokens.length === 1 && token.tokens[0].type === 'image') {
       return renderImage(token.tokens[0]);
