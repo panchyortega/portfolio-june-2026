@@ -60,9 +60,18 @@ export function renderMarkdown(md, { base = '' } = {}) {
       : '';
     return (
       `<figure class="content-image">` +
-        `<button type="button" class="content-image-btn" data-src="${href}" data-alt="${alt}" aria-label="Ampliar imagen${alt ? ': ' + alt : ''}">` +
-          `<img src="${href}" alt="${alt}" loading="lazy" />` +
-        `</button>` +
+        `<div class="zoom-image" role="group" aria-label="Imagen${alt ? ': ' + alt : ''}. Usa scroll o los controles para hacer zoom, arrastra para mover.">` +
+          `<div class="zoom-canvas">` +
+            `<div class="zoom-dots"></div>` +
+            `<img src="${href}" alt="${alt}" loading="lazy" />` +
+          `</div>` +
+          `<span class="zoom-level">100%</span>` +
+          `<div class="zoom-controls">` +
+            `<button type="button" data-act="out" aria-label="Alejar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>` +
+            `<button type="button" data-act="in" aria-label="Acercar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>` +
+            `<button type="button" data-act="reset" aria-label="Restablecer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>` +
+          `</div>` +
+        `</div>` +
         caption +
       `</figure>`
     );

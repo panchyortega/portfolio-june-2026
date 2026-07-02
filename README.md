@@ -79,7 +79,10 @@ uno nuevo, aparece solo en el menú, en la home y genera su propia página.
    ```
    ![descripción de la imagen](/images/proyectos/aurora/dashboard.png "Caption opcional")
    ```
-3. Listo: la imagen sale enmarcada y, al hacer click, abre un visor con zoom.
+3. Listo: la imagen aparece en su marco con fondo punteado, manteniendo su
+   proporción original. Al pasar el mouse aparecen los controles de zoom;
+   puedes acercar con scroll o los botones, y arrastrar para moverte dentro
+   de la imagen — todo ocurre en el lugar, sin overlays.
 
 Tip: usa imágenes optimizadas (idealmente bajo ~500 KB) para que el sitio cargue rápido.
 

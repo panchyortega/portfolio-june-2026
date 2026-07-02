@@ -41,7 +41,7 @@ Reglas:
 
 - **Proyectos**: se editan en `src/lib/data/projects.js`. Cada proyecto tiene `slug`, `label`, `title`, `desc`, `tags`, `meta` (sidebar) y `content` (markdown). La página, la nav y la TOC se generan solos.
 - **Sobre mí**: datos en `src/lib/data/about.js`.
-- **Imágenes**: se suben a `static/images/proyectos/{slug}/` y se referencian en el markdown con `![alt](/images/proyectos/{slug}/archivo.png "Caption opcional")`. El render les agrega el base path, las envuelve en un rectángulo secundario y habilita el lightbox con zoom. No uses `<img>` a mano en el contenido.
+- **Imágenes**: se suben a `static/images/proyectos/{slug}/` y se referencian en el markdown con `![alt](/images/proyectos/{slug}/archivo.png "Caption opcional")`. El render (`markdown.js`) las envuelve en un marco `.zoom-image` con fondo punteado; el comportamiento de pan + zoom in-situ vive en `src/lib/zoomImage.js` (`setupZoomImages()`, llamado en `onMount` de la página de proyecto junto a `setupMermaid()`). El marco toma el aspect ratio real de la imagen (fijado por JS al cargar, no un valor fijo). No uses `<img>` a mano en el contenido, y no reintroduzcas el patrón de lightbox/overlay: la interacción es siempre dentro del propio marco.
 - **Diagramas**: bloques ` ```mermaid ` en el markdown se renderizan como diagramas de flujo. Se estilizan con tokens (borde y líneas `--border-accent`, relleno `--bg-neutral-primary`, texto `--text-primary` en `--size-sm` con `--font-body`) vía `themeVariables` leídos en `proyectos/[slug]/+page.svelte`, y se re-renderizan al cambiar de tema. No agregues otros colores ni una sección de simbología.
 
 ## Página de sistema de diseño

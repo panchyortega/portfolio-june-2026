@@ -2,32 +2,24 @@
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import { setupMermaid } from '$lib/mermaid.js';
+  import { setupZoomImages } from '$lib/zoomImage.js';
   import ContentLayout from '$lib/components/ContentLayout.svelte';
   import PageHeader from '$lib/components/PageHeader.svelte';
   import MetaCard from '$lib/components/MetaCard.svelte';
   import Button from '$lib/components/Button.svelte';
-  import ImageLightbox from '$lib/components/ImageLightbox.svelte';
 
   let { data } = $props();
   let { project, html, toc, readingTime, prev, next } = $derived(data);
 
-  // Lightbox: se abre al clickear una imagen del contenido
-  let lightbox = $state(null);
   let proseEl;
 
   onMount(() => {
-    function handleClick(e) {
-      const btn = e.target.closest('.content-image-btn');
-      if (!btn) return;
-      lightbox = { src: btn.dataset.src, alt: btn.dataset.alt || '' };
-    }
-    proseEl.addEventListener('click', handleClick);
-
     const cleanupMermaid = setupMermaid(proseEl);
+    const cleanupZoomImages = setupZoomImages(proseEl);
 
     return () => {
-      proseEl.removeEventListener('click', handleClick);
       cleanupMermaid();
+      cleanupZoomImages();
     };
   });
 </script>
@@ -58,8 +50,6 @@
     <Button variant="primary" href={`${base}/proyectos/${next.slug}`}>Siguiente →</Button>
   </nav>
 </ContentLayout>
-
-<ImageLightbox src={lightbox?.src ?? null} alt={lightbox?.alt ?? ''} onclose={() => (lightbox = null)} />
 
 <style>
   .project-nav {
@@ -114,33 +104,118 @@
   }
   .prose :global(li) { margin-bottom: var(--space-8); line-height: var(--lh-normal); }
 
-  /* ── Imágenes del contenido ── */
+  /* ── Imágenes del contenido — pan + zoom in-situ ── */
   .prose :global(.content-image) {
     margin: var(--space-32) 0;
-  }
-  .prose :global(.content-image-btn) {
-    display: block;
-    width: 100%;
-    padding: var(--space-16);
-    background: var(--bg-neutral-secondary);
-    border: 1px solid var(--border-neutral-primary);
-    border-radius: var(--radius-loose);
-    cursor: zoom-in;
-    transition: background var(--duration-fast) var(--ease-default);
-  }
-  .prose :global(.content-image-btn:hover) {
-    background: var(--bg-neutral-secondary-hover);
-  }
-  .prose :global(.content-image img) {
-    display: block;
-    width: 100%;
-    border-radius: var(--radius-default);
   }
   .prose :global(.content-caption) {
     margin-top: var(--space-8);
     font-size: var(--size-xs);
     color: var(--text-secondary);
     text-align: center;
+  }
+
+  .prose :global(.zoom-image) {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-loose);
+    border: 1px solid var(--border-neutral-primary);
+    background: var(--bg-neutral-secondary);
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    /* El aspect-ratio real se fija por JS al cargar la imagen (setupZoomImages) */
+    aspect-ratio: 16 / 9;
+  }
+  .prose :global(.zoom-image.grabbing) {
+    cursor: grabbing;
+  }
+
+  .prose :global(.zoom-canvas) {
+    position: absolute;
+    inset: 0;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+  .prose :global(.zoom-dots) {
+    position: absolute;
+    inset: -2000px;
+    background-image: radial-gradient(var(--bg-neutral-tertiary) 1.4px, transparent 1.4px);
+    background-size: 12.6px 12.6px;
+  }
+  .prose :global(.zoom-canvas img) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Controles fijos — aparecen en hover, no oscurecen el fondo */
+  .prose :global(.zoom-controls) {
+    position: absolute;
+    bottom: var(--space-16);
+    right: var(--space-16);
+    display: flex;
+    gap: var(--space-6);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity var(--duration-fast) var(--ease-default), transform var(--duration-fast) var(--ease-default);
+    z-index: 2;
+  }
+  .prose :global(.zoom-image:hover .zoom-controls),
+  .prose :global(.zoom-image:focus-within .zoom-controls) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .prose :global(.zoom-controls button) {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-neutral-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-neutral-primary);
+    border-radius: var(--radius-default);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(17, 23, 16, 0.1);
+    transition: background var(--duration-fast) var(--ease-default);
+  }
+  .prose :global(.zoom-controls button:hover:not(:disabled)) {
+    background: var(--bg-neutral-secondary-hover);
+  }
+  .prose :global(.zoom-controls button:disabled) {
+    color: var(--text-disabled);
+    cursor: default;
+    opacity: 0.5;
+  }
+  .prose :global(.zoom-controls button svg) {
+    width: 17px;
+    height: 17px;
+  }
+
+  .prose :global(.zoom-level) {
+    position: absolute;
+    bottom: var(--space-16);
+    left: var(--space-16);
+    font-size: var(--size-xs);
+    color: var(--text-secondary);
+    background: var(--bg-neutral-primary);
+    border: 1px solid var(--border-neutral-primary);
+    border-radius: var(--radius-default);
+    padding: var(--space-4) var(--space-8);
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-default);
+    z-index: 2;
+    font-variant-numeric: tabular-nums;
+  }
+  .prose :global(.zoom-image:hover .zoom-level) {
+    opacity: 1;
   }
 
   /* ── Diagramas Mermaid ── */
