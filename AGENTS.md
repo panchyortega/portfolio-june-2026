@@ -52,6 +52,25 @@ Reglas:
 
 Proyecto, Sobre mí y Sistema usan `ContentLayout` (grid de 3 columnas con divisores que llegan al footer) + `PageHeader`. El sidebar izquierdo es opcional (Sobre mí y Sistema lo dejan vacío a propósito). La TOC derecha hace scroll-spy sobre los `id` de los `<h2>`/`<h3>`.
 
+## Ideas futuras (no construidas aún)
+
+`ideas/` guarda ideas exploradas en conversación pero no implementadas —
+cada archivo `.md` documenta el problema, las opciones técnicas
+conversadas, referencias, y qué se decidió NO hacer y por qué. Ver
+`ideas/README.md` para el índice y cómo agregar una idea nueva.
+
+**Consulta esta carpeta cuando:**
+- La persona pida algo que suene a una conversación anterior ("lo de los
+  gráficos interactivos", "esa idea de los widgets").
+- Vayas a proponer arquitectura para contenido no-texto/no-imagen en los
+  proyectos (gráficos, componentes de producto recreados, cualquier
+  cosa "interactiva" en el contenido) — probablemente ya se pensó una
+  dirección, no la reinventes desde cero.
+
+Si implementas algo de una idea documentada, actualiza ese archivo con
+una línea de estado en vez de borrarlo (queda como registro de por qué
+se construyó así).
+
 ## Deploy
 
 - Push a `main` dispara `.github/workflows/deploy.yml`, que hace build y publica a Pages.
