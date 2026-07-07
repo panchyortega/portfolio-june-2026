@@ -6,13 +6,6 @@ export const intro = {
   tags: ['Product Design', 'Design Systems', 'Figma', 'Santiago, Chile', 'Español · English · Italiano']
 };
 
-// Datos compactos para el sidebar izquierdo de la página
-export const quickFacts = [
-  { label: 'Ubicación', value: 'Santiago, Chile' },
-  { label: 'Idiomas', value: 'Español · English · Italiano' },
-  { label: 'Enfoque', tags: [{ label: 'Product Design' }, { label: 'Design Systems' }, { label: 'Figma' }] }
-];
-
 export const experience = [
   {
     id: 'racional',
