@@ -1,8 +1,10 @@
 # Galería de proyectos estilo Netflix en la home
 
-**Estado:** explorado en conversación, sin construir aún — definición
-incompleta, tiene preguntas abiertas antes de poder implementarse.
-**Fecha:** julio 2026
+**Estado:** definición cerrada — lista para construirse cuando se priorice.
+Todas las preguntas abiertas de la primera versión quedaron resueltas en
+conversación (ver "Decisiones tomadas"). Quedan solo un par de detalles
+menores por confirmar antes de implementar.
+**Fecha:** julio 2026 (actualizado tras segunda conversación)
 
 ## El problema / motivación
 
@@ -12,109 +14,140 @@ horizontal**, al estilo de las filas de Netflix: un título de categoría
 arriba, y debajo el listado de proyectos correspondientes en una fila
 scrolleable.
 
-## Las categorías propuestas
+## Decisiones tomadas
 
-1. **Proyectos profesionales** — trabajo UX/UI en empresas (Racional, Ulern, etc.)
-2. **Proyectos académicos** (nombre tentativo, Panchy dudaba entre
-   "educativos" y otro término) — de la universidad y talleres tomados
-3. **Proyectos personales** — proyectos propios fuera de un contexto laboral/académico
-4. **Exploraciones personales** — piezas cortas y random: animaciones,
-   componentes sueltos, ideas que nunca llegaron a convertirse en un
-   proyecto completo
-5. **Otros trabajos** (nombre tentativo) — trabajo profesional que no es
-   UX/UI/product: plantillas de mail, flyers, proyectos editoriales
+### Categorías: 3, no 5
 
-## Preguntas abiertas (hay que resolverlas antes de construir)
+Se descartaron las categorías "Exploraciones personales" y "Otros
+trabajos" como categorías propias. Quedan solo:
 
-### 1. ¿Categoría y "tags" son la misma cosa?
+1. **Proyectos profesionales**
+2. **Proyectos académicos** (universidad + talleres)
+3. **Proyectos personales**
 
-`projects.js` ya tiene un campo `tags` con valores como "Profesional",
-"Capstone", "Académico", "Varios" — muy parecido a las categorías nuevas.
-Hay que decidir:
-- ¿El campo `tags` se convierte en el campo de categoría oficial (una
-  fuente única), o son conceptos distintos que conviven?
-- Si son distintos: un proyecto podría tener tag "Profesional" pero
-  categoría "Otros trabajos" (ej: un flyer hecho en un trabajo). Ese
-  caso ya existe en la idea original de Panchy, así que probablemente
-  **sí son cosas distintas** — pero falta confirmarlo explícitamente
-  para no duplicar taxonomías sin sentido.
+Las "exploraciones cortas/random" y el "trabajo no-UX" (flyers, mails,
+editorial) **no son un tipo de contenido distinto** — son proyectos
+normales que caen dentro de alguna de estas 3 categorías (probablemente
+"Personales" la mayoría de las veces). No necesitan tratamiento especial.
 
-### 2. ¿Un proyecto puede vivir en más de una categoría?
+### Tags y categorías son cosas independientes
 
-En Netflix, el mismo título aparece en varias filas a la vez ("Tendencias",
-"Dramas"...). Acá el ejemplo obvio es la categoría 5: un flyer hecho en
-un trabajo, ¿es "profesional" Y "otros trabajos" a la vez (aparece en
-ambas filas), o cada proyecto vive en una sola categoría?
+Las tags (`Profesional`, `Capstone`, `Académico`, `Varios`, etc.) son
+**informativas**, no de categorización — se quedan como están, sin
+relación directa con las 3 categorías nuevas. Un proyecto tiene tags
+Y categoría(s), son dos campos distintos con propósitos distintos.
 
-- Si es una sola categoría → el dato es simple: `category: 'profesional'`.
-- Si puede ser varias → el dato tiene que ser un array:
-  `categories: ['profesional', 'otros-trabajos']`, y hay que decidir
-  el orden de aparición cuando se repite en más de una fila.
+### Un proyecto puede estar en varias categorías
 
-### 3. ¿Las "exploraciones" necesitan página de detalle completa?
+Confirmado: el campo de categoría es un **array**, no un valor único.
+Un proyecto puede aparecer, por ejemplo, en "Profesionales" y
+"Personales" a la vez si corresponde.
 
-Los proyectos actuales tienen una página de detalle pesada: meta,
-markdown con TOC, prev/next. Panchy describió las exploraciones como
-piezas cortas, a veces sin terminar, "que nunca salieron de la idea".
+### Todos los proyectos son estructuralmente iguales
 
-Preguntas:
-- ¿Ameritan una página `/proyectos/slug` igual de completa que un caso
-  de estudio, o necesitan un formato más liviano (card con descripción
-  corta, sin página propia — capaz sin ni siquiera un link a ningún lado)?
-- Si es un formato distinto, es **un tipo de contenido nuevo**, no solo
-  una categoría nueva sobre el modelo de datos actual. Esto cambia el
-  alcance de la idea: no es solo "reorganizar visualmente", es agregar
-  un tipo de entrada más simple al lado de "proyecto completo".
+No existe un tipo de contenido "liviano" para exploraciones. Todo
+proyecto — sea un caso de estudio completo o una exploración corta —
+usa exactamente el mismo layout de página de detalle, el mismo modelo
+de datos (`meta`, `content` en markdown, etc.). La única diferencia
+entre ellos es **en qué categoría(s) se muestran y en qué orden** — no
+cómo están construidos. Esto simplifica bastante la idea: no hay que
+diseñar un tipo de dato nuevo, solo agregar campos de organización a lo
+que ya existe.
 
-### 4. Comportamiento del scroll horizontal
+### Scroll horizontal — comportamiento
 
-- ¿Flechas tipo Netflix que aparecen al hacer hover en los bordes de la
-  fila, o solo scroll nativo (swipe en mobile, rueda del mouse en
-  desktop)? Nota: el scroll nativo ya funciona bien en mobile por
-  naturaleza (swipe es el gesto esperado); las flechas son más para
-  desktop con mouse.
-- Accesibilidad: el scroll horizontal necesita pensarse para navegación
-  por teclado y lectores de pantalla — no es trivial hacerlo bien.
-- ¿Qué pasa cuando una categoría tiene pocos proyectos (2-3)? ¿Igual se
-  ve como carrusel scrolleable aunque no llene la fila, o se acomoda
-  distinto (ej: sin scroll, alineado a la izquierda) cuando no hay
-  contenido suficiente para justificarlo?
+- **Desktop:** flechas que aparecen al hacer **hover** sobre la fila,
+  pero *solo* si hay contenido desbordado (overflow) en esa dirección.
+  Si no hay overflow en absoluto, no aparecen flechas.
+- **Mobile:** no flechas. Falta pensar más el diseño exacto — Panchy
+  intuye que debería haber algún indicador visual o botón por
+  accesibilidad, pero no está decidido cómo se ve. **Punto pendiente,
+  ver sección de detalles por confirmar.**
+- **Estado activo/inactivo de las flechas:** el criterio es el
+  *desborde disponible en esa dirección*, no la cantidad de proyectos.
+  Mientras exista contenido para scrollear hacia un lado, esa flecha
+  está activa; en cuanto se llega al límite en esa dirección, esa
+  flecha específica se desactiva (independiente la una de la otra:
+  puede estar activa la de la derecha y desactivada la de la izquierda
+  al principio de la fila, y viceversa al final).
+- Si no hay overflow en absoluto (la fila completa cabe sin scroll), no
+  se muestran flechas en ningún momento, ni siquiera en hover.
 
-### 5. Orden
+### Orden de los proyectos dentro de cada categoría
 
-- Orden de las categorías entre sí: ¿fijo (Panchy decide el orden en el
-  código), o alguna lógica automática? Probablemente fijo — no hay razón
-  para complicarlo con un algoritmo tipo Netflix.
-- Orden de los proyectos dentro de cada categoría: ¿el orden en que se
-  ingresan en `projects.js` (como ahora), o por fecha?
+Lógica definida, en este orden de prioridad:
 
-### 6. Categorías vacías
+1. **Favoritos primero**, ordenados por fecha (más recientes primero).
+2. **Luego el resto** (no favoritos), también por fecha (más recientes primero).
 
-Si "Otros trabajos" todavía no tiene ningún proyecto cargado (es nueva),
-¿la fila completa desaparece de la home, o se muestra vacía con algún
-mensaje tipo "próximamente"? Probablemente lo más limpio es que
-simplemente no se renderice la fila si no tiene proyectos — pero falta
-confirmarlo.
+"Favorito" es un campo/flag **independiente de las tags** — se muestra
+como un **badge visual en la ProjectCard** (no como una tag más), con
+texto tipo "Favoritos personales" / "Personal favs" (falta definir cuál
+usar; ver nota sobre bilingüe abajo).
 
-## Por qué esto no se construye todavía
+### Visibilidad — mostrar/ocultar sin borrar
 
-La idea tiene una ambigüedad real en el punto 3 (¿tipo de contenido nuevo
-o no?) que cambia bastante el trabajo necesario. Construir esto sin
-resolver esa pregunta primero corre el riesgo de armar el modelo de datos
-equivocado y tener que rehacerlo. Vale la pena cerrar las preguntas 1-6
-con Panchy antes de tocar código.
+Se necesita un flag de visibilidad por proyecto (ej: `visible: true/false`)
+para poder tener un proyecto cargado en los datos pero oculto de la home
+sin necesidad de borrarlo (caso de uso mencionado: un documento/proyecto
+que no se quiere mostrar pero tampoco borrar).
 
-## Próximos pasos posibles (sin decidir aún)
+### Categorías vacías
 
-- [ ] Definir con Panchy las respuestas a las 6 preguntas abiertas de
-      arriba, especialmente la del tipo de contenido para exploraciones.
-- [ ] Decidir el nombre final de las categorías 2 y 5 (quedaron tentativos).
-- [ ] Revisar si esto reemplaza o convive con el sistema de `tags`
-      actual en `projects.js`.
-- [ ] Una vez resuelto lo anterior, definir el componente de fila
-      (`ProjectShelf` o similar) y cómo se integra con `ProjectCard`
-      existente — probablemente se reutiliza tal cual, solo cambia el
-      contenedor/layout que las agrupa.
-- [ ] Pensar el diseño del scroll horizontal (flechas vs. nativo) antes
-      de implementar, capaz con un prototipo HTML suelto como se hizo
-      con el componente de zoom/pan de imágenes.
+Confirmado: si una categoría no tiene ningún proyecto visible, el título
+de la categoría **no aparece** en la home. No se muestra vacía ni con
+mensaje — directamente no se renderiza esa fila.
+
+## Detalles menores por confirmar (antes de implementar)
+
+Estos no bloquean el diseño general, pero hay que resolverlos:
+
+- **Orden de las 3 categorías entre sí** en la home. No se ha discutido
+  explícitamente — sugerencia por defecto: Profesionales → Académicos →
+  Personales (mismo orden en que Panchy las nombró ambas veces).
+- **Diseño del indicador/botón en mobile** para el scroll horizontal —
+  Panchy fue explícita en que esto necesita más pensamiento antes de
+  decidir cómo se ve.
+- **Texto del badge de favorito**: "Favoritos personales" vs. "Personal
+  favs" — probablemente depende de si el sitio tiene contenido bilingüe
+  para ese momento. El sitio **todavía no tiene toggle de idioma** (es
+  un pendiente de más largo plazo, documentado aparte); mientras no
+  exista, el badge iría solo en español.
+- **Campo de fecha real para ordenar.** Hoy `projects.js` no tiene un
+  campo de fecha ordenable — el año vive como texto dentro de `meta`
+  (ej: `{ label: 'Año', value: '2024' }`), pensado solo para mostrarse,
+  no para ordenar programáticamente. Para implementar el orden por
+  fecha hay que agregar un campo real (ej: `date: '2024-03-01'`)
+  separado del texto que se muestra en el sidebar.
+
+## Modelo de datos — cambios que esto implica en `projects.js`
+
+Para cuando se implemente, cada proyecto necesitaría estos campos
+nuevos (además de los que ya existen):
+
+```js
+{
+  // ...campos existentes (slug, label, title, desc, tags, meta, content)...
+  categories: ['profesional', 'personal'],  // array, uno o más valores
+  favorite: false,                           // badge "favoritos", ordena primero
+  visible: true,                             // si aparece en la home o no
+  date: '2025-03-01'                         // fecha real para ordenar (ISO)
+}
+```
+
+## Próximos pasos posibles
+
+- [ ] Confirmar los detalles menores listados arriba (orden de
+      categorías, diseño mobile, texto del badge).
+- [ ] Agregar los campos nuevos (`categories`, `favorite`, `visible`,
+      `date`) a todos los proyectos existentes en `projects.js`.
+- [ ] Diseñar el componente de fila (`ProjectShelf` o similar) que
+      agrupa `ProjectCard`s con scroll horizontal — reutiliza
+      `ProjectCard` tal cual, solo cambia el contenedor.
+- [ ] Diseñar las flechas de scroll con sus estados activo/inactivo
+      (probablemente conviene prototipar en HTML suelto primero, como
+      se hizo con el componente de zoom/pan de imágenes, antes de
+      llevarlo a Svelte).
+- [ ] Definir el estilo visual del badge de "favorito" en `ProjectCard`
+      (distinto a las tags existentes).
+- [ ] Pensar el comportamiento mobile con más detalle antes de construir esa parte.
