@@ -120,3 +120,21 @@ automáticamente. No hay que hacer nada manual.
 Si vas a usar una herramienta de IA para hacer cambios, revisa
 [`AGENTS.md`](./AGENTS.md): tiene las convenciones y la arquitectura que hay que
 respetar.
+
+### Prompt para empezar una sesión nueva
+
+Este repo se edita dándole acceso directo a una IA (clonar, commitear,
+pushear), lo que requiere un token de GitHub. Para no tener que acordarte
+tú de los pasos exactos cada vez, copia y pega esto como uno de los primeros
+mensajes al empezar una sesión nueva (con Claude o cualquier otra IA):
+
+> Vamos a trabajar en mi portafolio (repo `panchyortega/portfolio-june-2026`).
+> Antes de que hagamos cualquier cambio: lee `AGENTS.md` del repo, en
+> especial la sección "Acceso al repo (token de GitHub)". Si no te he
+> pasado un token todavía, dime paso a paso qué tipo de token generar y
+> con qué permisos exactos, según lo que dice esa sección — no asumas ni
+> me pidas algo más amplio o más restrictivo de lo que ahí se especifica.
+
+Esto funciona incluso si la IA no tiene memoria de conversaciones
+anteriores: la instrucción la manda a leer `AGENTS.md`, que es la fuente
+de verdad real (no depende de que alguna IA "se acuerde" de nada).
