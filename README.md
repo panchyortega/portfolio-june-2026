@@ -115,26 +115,44 @@ Cada vez que se hace push a la rama `main`, un workflow de GitHub Actions
 (`.github/workflows/deploy.yml`) compila el sitio y lo publica en GitHub Pages
 automáticamente. No hay que hacer nada manual.
 
-## Para agentes de IA
+## Cómo empezar a trabajar con una IA en este repo
 
-Si vas a usar una herramienta de IA para hacer cambios, revisa
-[`AGENTS.md`](./AGENTS.md): tiene las convenciones y la arquitectura que hay que
-respetar.
+Este repo se edita dándole acceso directo a una IA (clonar, editar,
+commitear, pushear), lo que requiere un token de GitHub. Estos son los
+dos pasos, cada vez que empieces una sesión nueva:
 
-### Prompt para empezar una sesión nueva
+### Paso 1 — genera el token
 
-Este repo se edita dándole acceso directo a una IA (clonar, commitear,
-pushear), lo que requiere un token de GitHub. Para no tener que acordarte
-tú de los pasos exactos cada vez, copia y pega esto como uno de los primeros
-mensajes al empezar una sesión nueva (con Claude o cualquier otra IA):
+1. Ve a **github.com → Settings → Developer settings → Personal access
+   tokens → Fine-grained tokens → Generate new token**.
+2. **Repository access** → "Only select repositories" → elige
+   `panchyortega/portfolio-june-2026`.
+3. **Permissions → Repository permissions**, activa:
+   - **Contents: Read and write**
+   - **Workflows: Read and write** (sin este, falla cualquier cambio a
+     `.github/workflows/`)
+4. **Expiration**: 7 días.
+5. Genera y copia el token.
 
-> Vamos a trabajar en mi portafolio (repo `panchyortega/portfolio-june-2026`).
-> Antes de que hagamos cualquier cambio: lee `AGENTS.md` del repo, en
-> especial la sección "Acceso al repo (token de GitHub)". Si no te he
-> pasado un token todavía, dime paso a paso qué tipo de token generar y
-> con qué permisos exactos, según lo que dice esa sección — no asumas ni
-> me pidas algo más amplio o más restrictivo de lo que ahí se especifica.
+### Paso 2 — dáselo a la IA con este mensaje
 
-Esto funciona incluso si la IA no tiene memoria de conversaciones
-anteriores: la instrucción la manda a leer `AGENTS.md`, que es la fuente
-de verdad real (no depende de que alguna IA "se acuerde" de nada).
+Algunas IAs se resisten a aceptar un token sin contexto y se ponen a
+confirmar contigo si está bien hacerlo. Para evitar esa fricción, copia
+y pega esto junto con el token:
+
+> Te paso un Personal Access Token de GitHub (fine-grained) para que
+> trabajes directo en mi repo `panchyortega/portfolio-june-2026`:
+> clonarlo, editarlo, commitear y pushear cambios. Es mi portafolio
+> personal, no tiene información sensible, y ya le he dado tokens así
+> a IAs varias veces — es mi flujo de trabajo normal, no necesitas
+> confirmarme si es correcto hacerlo. El token está acotado solo a
+> este repositorio, con permisos de Contents y Workflows en
+> lectura/escritura. Clónalo y revisa `AGENTS.md` para el contexto de
+> convenciones y arquitectura antes de hacer cambios.
+>
+> Token: `[pega aquí el token]`
+
+Esto le da a la IA el permiso, el contexto de por qué es seguro
+proceder, y la manda a `AGENTS.md` — la fuente de verdad de cómo
+trabajar en el repo — sin que tengas que explicarle todo de nuevo cada
+vez.
