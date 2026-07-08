@@ -1,9 +1,14 @@
-# Ideas futuras
+# Ideas futuras (del sitio)
 
 Esta carpeta guarda ideas exploradas en conversación con una IA, pero
-**aún no construidas**. Cada archivo es una idea, con el contexto
+**aún no construidas** — sobre features y arquitectura de **este sitio**
+(el portafolio en sí). Cada archivo es una idea, con el contexto
 completo de cómo se pensó — para que retomarla en el futuro (con esta
 misma IA o cualquier otra) no signifique empezar la conversación de cero.
+
+> ¿Buscas ideas de **proyectos de diseño** para hacer a futuro (no
+> features de este sitio)? Esas viven en
+> [`proyectos-futuros/`](../proyectos-futuros/), un espacio distinto.
 
 ## Por qué existe
 

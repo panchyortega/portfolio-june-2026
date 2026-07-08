@@ -81,22 +81,36 @@ Proyecto, Sobre mí y Sistema usan `ContentLayout` (grid de 3 columnas con divis
 
 ## Ideas futuras (no construidas aún)
 
-`ideas/` guarda ideas exploradas en conversación pero no implementadas —
-cada archivo `.md` documenta el problema, las opciones técnicas
-conversadas, referencias, y qué se decidió NO hacer y por qué. Ver
-`ideas/README.md` para el índice y cómo agregar una idea nueva.
+El repo tiene **dos** carpetas de ideas, con propósitos distintos —
+distínguelas antes de asumir cuál aplica:
 
-**Consulta esta carpeta cuando:**
-- La persona pida algo que suene a una conversación anterior ("lo de los
-  gráficos interactivos", "esa idea de los widgets").
+- **`ideas/`** — ideas sobre features/arquitectura de **este sitio**
+  (el portafolio en sí: componentes, layout, contenido interactivo).
+  Ver `ideas/README.md` para el índice y cómo agregar una idea nueva.
+- **`proyectos-futuros/`** — banco de ideas de **proyectos de diseño**
+  que Panchy podría hacer a futuro (posibles casos de estudio) — no
+  tienen relación con el código del sitio. Ver
+  `proyectos-futuros/README.md`.
+
+**Consulta `ideas/` cuando:**
+- La persona pida algo que suene a una conversación anterior sobre el
+  sitio ("lo de los gráficos interactivos", "esa idea de los widgets").
 - Vayas a proponer arquitectura para contenido no-texto/no-imagen en los
-  proyectos (gráficos, componentes de producto recreados, cualquier
-  cosa "interactiva" en el contenido) — probablemente ya se pensó una
-  dirección, no la reinventes desde cero.
+  proyectos, o cambios estructurales a la home/páginas — probablemente
+  ya se pensó una dirección, no la reinventes desde cero.
 
-Si implementas algo de una idea documentada, actualiza ese archivo con
-una línea de estado en vez de borrarlo (queda como registro de por qué
-se construyó así).
+**Consulta `proyectos-futuros/` cuando:**
+- La persona diga que quiere diseñar algo nuevo pero no sepa qué, o
+  pregunte "¿qué ideas tenía guardadas?" refiriéndose a proyectos (no a
+  features del sitio).
+- No confundas esta carpeta con `ideas/`: acá no hay nada que construir
+  en el código de este repo — son ideas de proyectos de diseño en sí,
+  ajenas al sitio. Si alguna se convierte en proyecto real, se agrega a
+  `src/lib/data/projects.js` como cualquier otro proyecto.
+
+Si implementas algo de una idea documentada en cualquiera de las dos
+carpetas, actualiza ese archivo con una línea de estado en vez de
+borrarlo (queda como registro de por qué se hizo así).
 
 ## Deploy
 

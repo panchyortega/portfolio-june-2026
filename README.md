@@ -62,6 +62,9 @@ src/
 
 static/
 └── images/proyectos/     # ← acá van las imágenes de los proyectos
+
+ideas/                    # ideas de features del sitio, no construidas aún
+proyectos-futuros/        # banco de ideas de proyectos de diseño a futuro
 ```
 
 ## Cómo actualizar el contenido
