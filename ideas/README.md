@@ -39,3 +39,8 @@ histórico de por qué se construyó así.
   arquitectura para mostrar visualizaciones de datos interactivas,
   componentes de producto recreados, y patrones tipo hover-reveal con
   video, dentro del contenido markdown de los proyectos.
+- [`galeria-estilo-netflix-en-home.md`](./galeria-estilo-netflix-en-home.md) —
+  reorganizar la home en categorías de proyectos con scroll horizontal
+  (profesionales, académicos, personales, exploraciones, otros
+  trabajos). Definición incompleta — tiene preguntas abiertas antes de
+  poder construirse.
