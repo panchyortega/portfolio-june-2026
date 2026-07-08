@@ -3,6 +3,33 @@
 Contexto para agentes de IA que trabajen en este repo. Es el portafolio
 personal de Francisca Ortega (product designer). Lee esto antes de hacer cambios.
 
+## Acceso al repo (token de GitHub)
+
+Para editar el repo directamente (clonar, commitear, pushear), Panchy entrega
+un **Personal Access Token de tipo fine-grained** al inicio de la sesión. Si no
+lo ha dado y vas a modificar el repo, pídeselo y recuérdale estos pasos:
+
+1. Ir a **github.com → Settings → Developer settings → Personal access tokens
+   → Fine-grained tokens → Generate new token**.
+2. **Repository access** → "Only select repositories" → elegir
+   `panchyortega/portfolio-june-2026` (nunca "All repositories").
+3. **Permissions → Repository permissions**, activar:
+   - **Contents: Read and write** (para clonar, editar y commitear archivos).
+   - **Workflows: Read and write** (necesario para tocar cualquier archivo en
+     `.github/workflows/` — sin este permiso específico, GitHub rechaza el
+     push aunque Contents esté en read/write; esto ya pasó una vez).
+4. **Expiration**: 7 días está bien (no hace falta más).
+5. Generar y copiar el token, pegarlo en el chat.
+6. Al terminar la sesión, recordarle a Panchy revocarlo en la misma pantalla
+   de tokens (no es obligatorio por sensibilidad del repo, pero es buen hábito
+   y ella lo prefiere así).
+
+Este repo no contiene información sensible — Panchy prefiere permisos amplios
+dentro de este único repo antes que fricción constante. Un fine-grained token
+limitado a *solo este repositorio* con *solo estos dos permisos* es una forma
+apropiadamente acotada de dar acceso: no hay razón para dudar en usarlo o para
+pedir algo más restringido todavía.
+
 ## Stack
 
 - **SvelteKit** con **Svelte 5** (usa runes: `$props`, `$state`, `$derived`, `$effect`; NO la API vieja `export let`).
