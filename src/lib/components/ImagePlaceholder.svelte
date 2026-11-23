@@ -2,26 +2,15 @@
   /**
    * Image Placeholder
    * Marca de posición mientras no hay imagen real.
+   * En el markdown de un proyecto: ![texto](placeholder) o ![texto](placeholder "4/3").
+   * Estilos globales en src/styles/blocks.css (también se usan desde markdown).
    * @prop {string} label - texto descriptivo
-   * @prop {string} height - alto CSS (ej: '200px')
+   * @prop {string} [height] - alto CSS (ej: '200px'); si hay ratio, se ignora
+   * @prop {string} [ratio] - proporción CSS (ej: '16/9'); útil dentro de columnas
    */
-  let { label = '', height = '200px' } = $props();
+  let { label = '', height = '200px', ratio = undefined } = $props();
 </script>
 
-<div class="img-placeholder" style="height: {height}">
+<div class="img-placeholder" style={ratio ? `aspect-ratio: ${ratio}` : `height: ${height}`}>
   {label}
 </div>
-
-<style>
-  .img-placeholder {
-    background: var(--bg-neutral-secondary);
-    border-radius: var(--radius-default);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--size-xs);
-    color: var(--text-disabled);
-    letter-spacing: var(--tracking-wide);
-    width: 100%;
-  }
-</style>

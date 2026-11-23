@@ -12,6 +12,8 @@
   import ExperienceItem from '$lib/components/ExperienceItem.svelte';
   import Columns from '$lib/components/Columns.svelte';
   import DataCard from '$lib/components/DataCard.svelte';
+  import VideoFrame from '$lib/components/VideoFrame.svelte';
+  import { base } from '$app/paths';
 
   let diagramaEl;
   onMount(() => setupMermaid(diagramaEl));
@@ -22,7 +24,7 @@
     .map((p) => p.split('/').pop().replace('.svelte', ''))
     .sort();
 
-  const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard'];
+  const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard', 'VideoFrame'];
   const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
@@ -149,6 +151,13 @@
     <div class="comp-block">
       <p class="comp-name type-label">ImagePlaceholder</p>
       <div class="comp-demo full"><ImagePlaceholder label="imagen de ejemplo" height="120px" /></div>
+      <p class="muted type-small">En el markdown de un proyecto: <code>![texto](placeholder)</code>, o <code>![texto](placeholder "4/3")</code> para otra proporción (por defecto 16/9).</p>
+    </div>
+    <div class="comp-block">
+      <p class="comp-name type-label">VideoFrame</p>
+      <div class="comp-demo full"><div style="max-width: 480px"><VideoFrame src={`${base}/videos/sistema/demo.mp4`} alt="Video de ejemplo" caption="Caption opcional" /></div></div>
+      <p class="muted type-small">Siempre en loop y silenciado. Clic o Espacio pausa y reanuda; en hover aparece la línea de progreso, que se arrastra para saltar.</p>
+      <p class="muted type-small">En el markdown de un proyecto, igual que una imagen pero con un video: <code>![alt](/videos/proyectos/slug/archivo.mp4 "Caption")</code>.</p>
     </div>
   </section>
 
