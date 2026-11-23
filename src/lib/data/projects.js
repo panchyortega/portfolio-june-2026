@@ -12,7 +12,7 @@ import racionalResumenDeposito from './proyectos/racional-resumen-deposito.md?ra
 export const projects = [
   {
     slug: 'racional-resumen-deposito',
-    label: 'Racional: Resumen pre-confirmación',
+    label: 'Racional: Resumen pre-inversión',
     title: 'Resumen pre-confirmación de depósito',
     desc: 'Pantalla que se muestra antes de confirmar un depósito en Portafolios de Racional: la persona ve cómo se repartirá su plata y por qué una parte podría quedar sin invertir.',
     imageLabel: 'imagen — Racional: resumen pre-confirmación',
