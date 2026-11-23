@@ -14,6 +14,37 @@
 
 const KEY_STEP_S = 2;
 
+function esc(str = '') {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/**
+ * HTML del marco de video. Lo usan markdown.js y VideoFrame.svelte, para que
+ * ambos rendericen exactamente lo mismo.
+ * @param {{ src: string, alt?: string, caption?: string }} opts - src ya con base
+ */
+export function videoMarkup({ src, alt = '', caption = '' }) {
+  const a = esc(alt);
+  // #t=0.001 hace que se vea el primer cuadro antes de reproducir (también en iOS)
+  const url = src.includes('#') ? src : `${src}#t=0.001`;
+  return (
+    `<figure class="content-video">` +
+      `<div class="video-frame" tabindex="0" role="group" aria-label="Video${a ? ': ' + a : ''}. Clic o Espacio para pausar y reanudar; flechas para avanzar o retroceder.">` +
+        `<video src="${esc(url)}" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="${a}"></video>` +
+        `<span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span>` +
+        `<div class="video-scrub" aria-hidden="true">` +
+          `<div class="video-scrub-rail"><div class="video-scrub-fill"></div><div class="video-scrub-thumb"></div></div>` +
+        `</div>` +
+      `</div>` +
+      (caption ? `<figcaption class="content-caption">${esc(caption)}</figcaption>` : '') +
+    `</figure>`
+  );
+}
+
 /**
  * @param {HTMLElement} container
  * @returns {() => void} función de limpieza

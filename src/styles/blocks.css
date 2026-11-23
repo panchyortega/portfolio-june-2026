@@ -1,8 +1,9 @@
 /* ==============================================
-   BLOQUES DE CONTENIDO — Columns y DataCard
+   BLOQUES DE CONTENIDO — Columns, DataCard, ImagePlaceholder, VideoFrame
    Viven acá (y no en el .svelte) porque se usan de dos formas:
    como componentes Svelte y como HTML que genera el markdown de
-   los proyectos (:::columnas / :::tarjeta, ver markdown.js).
+   los proyectos (:::columnas, :::tarjeta, ![…](placeholder), videos;
+   ver markdown.js).
    Solo usan tokens semánticos.
    ============================================== */
 
@@ -68,4 +69,134 @@
   font-weight: var(--weight-medium);
   line-height: var(--lh-snug);
   color: var(--text-primary);
+}
+
+/* ── ImagePlaceholder: marca de posición mientras no hay imagen real ── */
+.img-placeholder {
+  background: var(--bg-neutral-secondary);
+  border-radius: var(--radius-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-12);
+  font-size: var(--size-xs);
+  color: var(--text-disabled);
+  letter-spacing: var(--tracking-wide);
+  width: 100%;
+}
+/* En el contenido de un proyecto: mismo radio y margen que las imágenes */
+.img-placeholder.in-content {
+  border-radius: var(--radius-loose);
+  border: 1px solid var(--border-neutral-primary);
+  margin: var(--space-32) 0;
+}
+.data-card > .img-placeholder.in-content { margin: 0; }
+
+/* ── Videos del contenido — marco propio, loop, clic para pausar ── */
+.content-video {
+  margin: var(--space-32) 0;
+}
+.video-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-loose); /* mismo radio que las imágenes */
+  border: 1px solid var(--border-neutral-primary);
+  background: var(--bg-neutral-secondary);
+  cursor: pointer;
+  user-select: none;
+  /* El aspect-ratio real se fija por JS al cargar el video (setupVideos) */
+  aspect-ratio: 16 / 9;
+}
+.video-frame:focus-visible {
+  outline: 2px solid var(--border-accent);
+  outline-offset: 2px;
+}
+.video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Indicador de pausa: solo se ve cuando está en pausa */
+.video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--space-48);
+  height: var(--space-48);
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--bg-neutral-primary) 85%, transparent);
+  color: var(--text-primary);
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-default);
+  pointer-events: none;
+}
+.video-play svg {
+  width: var(--space-20);
+  height: var(--space-20);
+  margin-left: 2px; /* centra óptico el triángulo */
+}
+.video-frame.is-paused .video-play {
+  opacity: 1;
+}
+
+/* Línea de progreso superpuesta: aparece en hover, en pausa o al arrastrar */
+.video-scrub {
+  position: absolute;
+  left: var(--space-16);
+  right: var(--space-16);
+  bottom: var(--space-8);
+  height: var(--space-20); /* zona de clic más alta que la línea */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-default);
+}
+.video-frame:hover .video-scrub,
+.video-frame:focus-visible .video-scrub,
+.video-frame.is-paused .video-scrub,
+.video-frame.is-scrubbing .video-scrub {
+  opacity: 1;
+}
+.video-scrub-rail {
+  position: relative;
+  width: 100%;
+  height: var(--space-4);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--bg-neutral-primary) 70%, transparent);
+}
+.video-scrub-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(var(--progress, 0) * 100%);
+  border-radius: var(--radius-pill);
+  background: var(--bg-accent);
+}
+.video-scrub-thumb {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--progress, 0) * 100%);
+  width: var(--space-12);
+  height: var(--space-12);
+  transform: translate(-50%, -50%);
+  border-radius: var(--radius-pill);
+  background: var(--bg-accent);
+  border: 2px solid var(--bg-neutral-primary);
+}
+.content-video .content-caption {
+  margin-top: var(--space-8);
+  font-size: var(--size-xs);
+  color: var(--text-secondary);
+  text-align: center;
 }

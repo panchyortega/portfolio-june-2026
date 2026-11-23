@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import { videoMarkup } from './videoFrame.js';
 
 /**
  * Bloques contenedores en markdown (mismas clases que Columns y DataCard):
@@ -127,28 +128,18 @@ export function renderMarkdown(md, { base = '' } = {}) {
 
   function renderVideo(token) {
     const raw = token.href || '';
-    const href = raw.startsWith('/') ? base + raw : raw;
-    const alt = escapeHtml(token.text || '');
-    const caption = token.title
-      ? `<figcaption class="content-caption">${escapeHtml(token.title)}</figcaption>`
-      : '';
-    // #t=0.001 hace que se vea el primer cuadro antes de reproducir (también en iOS)
-    const src = href.includes('#') ? href : `${href}#t=0.001`;
-    return (
-      `<figure class="content-video">` +
-        `<div class="video-frame" tabindex="0" role="group" aria-label="Video${alt ? ': ' + alt : ''}. Clic o Espacio para pausar y reanudar; flechas para avanzar o retroceder.">` +
-          `<video src="${src}" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="${alt}"></video>` +
-          `<span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span>` +
-          `<div class="video-scrub" aria-hidden="true">` +
-            `<div class="video-scrub-rail"><div class="video-scrub-fill"></div><div class="video-scrub-thumb"></div></div>` +
-          `</div>` +
-        `</div>` +
-        caption +
-      `</figure>`
-    );
+    const src = raw.startsWith('/') ? base + raw : raw;
+    return videoMarkup({ src, alt: token.text || '', caption: token.title || '' });
+  }
+
+  // ![texto](placeholder) o ![texto](placeholder "4/3") → ImagePlaceholder
+  function renderPlaceholder(token) {
+    const ratio = /^\d+(\.\d+)?\s*\/\s*\d+(\.\d+)?$/.test(token.title || '') ? token.title : '16/9';
+    return `<div class="img-placeholder in-content" style="aspect-ratio: ${ratio}">${escapeHtml(token.text || '')}</div>`;
   }
 
   function renderMedia(token) {
+    if ((token.href || '').trim() === 'placeholder') return renderPlaceholder(token);
     return VIDEO_RE.test(token.href || '') ? renderVideo(token) : renderImage(token);
   }
 
