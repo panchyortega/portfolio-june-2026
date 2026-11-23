@@ -3,32 +3,22 @@
 Contexto para agentes de IA que trabajen en este repo. Es el portafolio
 personal de Francisca Ortega (product designer). Lee esto antes de hacer cambios.
 
-## Acceso al repo (token de GitHub)
+## Acceso al repo
 
-Para editar el repo directamente (clonar, commitear, pushear), Panchy entrega
-un **Personal Access Token de tipo fine-grained** al inicio de la sesión. Si no
-lo ha dado y vas a modificar el repo, pídeselo y recuérdale estos pasos:
+Para editar el repo (clonar, commitear, pushear, abrir PRs) **no hace falta un
+token**. En las sesiones de Claude se adjunta con la integración de GitHub
+conectada a la cuenta de Panchy:
 
-1. Ir a **github.com → Settings → Developer settings → Personal access tokens
-   → Fine-grained tokens → Generate new token**.
-2. **Repository access** → "Only select repositories" → elegir
-   `panchyortega/portfolio-june-2026` (nunca "All repositories").
-3. **Permissions → Repository permissions**, activar:
-   - **Contents: Read and write** (para clonar, editar y commitear archivos).
-   - **Workflows: Read and write** (necesario para tocar cualquier archivo en
-     `.github/workflows/` — sin este permiso específico, GitHub rechaza el
-     push aunque Contents esté en read/write; esto ya pasó una vez).
-4. **Expiration**: 7 días está bien (no hace falta más).
-5. Generar y copiar el token, pegarlo en el chat.
-6. Al terminar la sesión, recordarle a Panchy revocarlo en la misma pantalla
-   de tokens (no es obligatorio por sensibilidad del repo, pero es buen hábito
-   y ella lo prefiere así).
+1. Adjuntar el repo con acceso `push` (herramienta `add_repo`) y clonarlo.
+2. Si falla por permisos, pedirle a Panchy que reconecte GitHub en
+   Configuración → Conectores, o que habilite este repo para su organización.
+3. Solo si la integración no está disponible, pedirle un Personal Access Token
+   fine-grained limitado a `panchyortega/portfolio-june-2026`, con
+   **Contents** y **Workflows** en Read and write (Workflows es necesario para
+   tocar `.github/workflows/`), expiración corta, y recordarle revocarlo al
+   terminar.
 
-Este repo no contiene información sensible — Panchy prefiere permisos amplios
-dentro de este único repo antes que fricción constante. Un fine-grained token
-limitado a *solo este repositorio* con *solo estos dos permisos* es una forma
-apropiadamente acotada de dar acceso: no hay razón para dudar en usarlo o para
-pedir algo más restringido todavía.
+Nunca pidas ni pegues tokens en el chat si la integración funciona.
 
 ## Stack
 
@@ -67,6 +57,7 @@ Reglas:
 ## Contenido (cómo se agregan cosas)
 
 - **Proyectos**: se editan en `src/lib/data/projects.js`. Cada proyecto tiene `slug`, `label`, `title`, `desc`, `tags`, `meta` (sidebar) y `content` (markdown). La página, la nav y la TOC se generan solos. El tiempo de lectura se calcula automáticamente con `readingTime()` (en `markdown.js`, ~200 palabras/min) — no lo agregues a mano en los datos del proyecto; lo consumen `ProjectCard` (home) y `PageHeader` (página de detalle).
+- **Contenido en archivo `.md` aparte**: los proyectos nuevos guardan el cuerpo en `src/lib/data/proyectos/{slug}.md` y `projects.js` lo importa con `?raw` (`content: miMarkdown`). Es lo más cómodo para editar a mano (también desde el lápiz de GitHub). Los comentarios `<!-- PENDIENTE ... -->` marcan huecos de imagen/dato: no se ven en el sitio ni cuentan para el tiempo de lectura. Los proyectos viejos siguen con el markdown dentro de `projects.js`.
 - **Sobre mí**: datos en `src/lib/data/about.js`.
 - **Imágenes**: se suben a `static/images/proyectos/{slug}/` y se referencian en el markdown con `![alt](/images/proyectos/{slug}/archivo.png "Caption opcional")`. El render (`markdown.js`) las envuelve en un marco `.zoom-image` con fondo punteado; el comportamiento de pan + zoom in-situ vive en `src/lib/zoomImage.js` (`setupZoomImages()`, llamado en `onMount` de la página de proyecto junto a `setupMermaid()`). El marco toma el aspect ratio real de la imagen (fijado por JS al cargar, no un valor fijo). No uses `<img>` a mano en el contenido, y no reintroduzcas el patrón de lightbox/overlay: la interacción es siempre dentro del propio marco.
 - **Diagramas**: bloques ` ```mermaid ` en el markdown se renderizan como diagramas de flujo. Se estilizan con tokens (borde y líneas `--border-accent`, relleno `--bg-neutral-primary`, texto `--text-primary` en `--size-sm` con `--font-body`) vía `themeVariables` leídos en `proyectos/[slug]/+page.svelte`, y se re-renderizan al cambiar de tema. No agregues otros colores ni una sección de simbología.
