@@ -71,7 +71,7 @@ A partir de esos resultados, diseñé e iteré el resumen y el desglose de compr
 
 ![Solución 1](placeholder)
 
-![Solución 2](placeholder)
+![Resumen detallado y resumen simplificado, lado a lado con el mismo monto](/images/proyectos/racional-resumen-deposito/resumen-detallado-vs-simplificado.png "Resumen detallado (izquierda) y simplificado (derecha)")
 
 <!-- PENDIENTE · Comparación de los resúmenes: una imagen por versión (detallada y simplificada), lado a lado y con el mismo monto, señalando las diferencias verificadas en las pantallas. Fuente: diseños de ambas variantes. -->
 
