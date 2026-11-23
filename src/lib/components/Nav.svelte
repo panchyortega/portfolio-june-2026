@@ -144,6 +144,7 @@
     font-family: var(--font-body);
     font-size: var(--size-base);
     font-weight: var(--weight-regular);
+    line-height: var(--lh-normal); /* el <button> no hereda el line-height del body; así mide igual que los <a> */
     color: var(--text-secondary);
     background: none;
     border: none;
