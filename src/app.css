@@ -6,6 +6,7 @@
 
 @import './styles/primitives.css';
 @import './styles/semantics.css';
+@import './styles/blocks.css';
 
 /* ── Reset ── */
 *, *::before, *::after {

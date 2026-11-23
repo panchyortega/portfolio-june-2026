@@ -12,10 +12,10 @@ import racionalResumenDeposito from './proyectos/racional-resumen-deposito.md?ra
 export const projects = [
   {
     slug: 'racional-resumen-deposito',
-    label: 'Racional: Resumen de depósito',
-    title: 'Qué pasa con tu plata después de depositar en Racional',
-    desc: 'Diseñé un resumen para el flujo de depósito en Portafolios de Racional. Antes de confirmar, la persona puede revisar cómo se repartirá su plata y por qué una parte podría quedar sin invertir.',
-    imageLabel: 'imagen — Racional: resumen de depósito',
+    label: 'Racional: Resumen pre-confirmación',
+    title: 'Resumen pre-confirmación de depósito',
+    desc: 'Pantalla que se muestra antes de confirmar un depósito en Portafolios de Racional: la persona ve cómo se repartirá su plata y por qué una parte podría quedar sin invertir.',
+    imageLabel: 'imagen — Racional: resumen pre-confirmación',
     tags: [{ label: 'Profesional', variant: 'primary' }, { label: '2026' }],
     meta: [
       { label: 'Empresa', value: 'Racional / Fintech' },

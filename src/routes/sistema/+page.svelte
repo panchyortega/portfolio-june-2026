@@ -10,6 +10,8 @@
   import ImagePlaceholder from '$lib/components/ImagePlaceholder.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
   import ExperienceItem from '$lib/components/ExperienceItem.svelte';
+  import Columns from '$lib/components/Columns.svelte';
+  import DataCard from '$lib/components/DataCard.svelte';
 
   let diagramaEl;
   onMount(() => setupMermaid(diagramaEl));
@@ -20,7 +22,7 @@
     .map((p) => p.split('/').pop().replace('.svelte', ''))
     .sort();
 
-  const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem'];
+  const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard'];
   const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
@@ -159,6 +161,29 @@
     <div class="comp-block">
       <p class="comp-name type-label">MetaCard</p>
       <div class="comp-demo"><div style="max-width: 240px"><MetaCard items={metaEjemplo} /></div></div>
+    </div>
+    <div class="comp-block">
+      <p class="comp-name type-label">DataCard</p>
+      <div class="comp-demo"><div style="max-width: 280px">
+        <DataCard>
+          <h4>7 de cada 10 personas</h4>
+          <p>No sabían por qué parte de su plata quedaba sin invertir.</p>
+          <Tag variant="primary">Hallazgo</Tag>
+        </DataCard>
+      </div></div>
+      <p class="muted type-small">Contenedor libre: apila lo que le pongas, de arriba hacia abajo.</p>
+    </div>
+    <div class="comp-block">
+      <p class="comp-name type-label">Columns</p>
+      <div class="comp-demo full">
+        <Columns cols={3}>
+          <DataCard><h4>Dato uno</h4><p>Texto de ejemplo.</p></DataCard>
+          <DataCard><h4>Dato dos</h4><p>Texto de ejemplo.</p></DataCard>
+          <DataCard><h4>Dato tres</h4><p>Texto de ejemplo.</p></DataCard>
+        </Columns>
+      </div>
+      <p class="muted type-small">2, 3 o 4 columnas con el gap de la home. Se apilan según el ancho del contenido.</p>
+      <p class="muted type-small">En el markdown de un proyecto: <code>::::columnas 3</code> con <code>:::tarjeta</code> adentro, cada bloque cerrado con sus mismos dos puntos. El externo lleva un <code>:</code> más.</p>
     </div>
     <div class="comp-block">
       <p class="comp-name type-label">ExperienceItem</p>
