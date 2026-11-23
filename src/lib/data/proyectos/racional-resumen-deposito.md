@@ -43,7 +43,7 @@ flowchart LR
 
 ## Research
 
-En pruebas de usabilidad con unos 150 usuarios, vimos que el desglose por acción aportaba poco a principiantes, pero algunos usuarios avanzados necesitaban verlo. Por eso, dejamos la información básica del depósito a primera vista y el desglose a un clic.
+En pruebas de usabilidad con 111 usuarios, vimos que el desglose por acción aportaba poco a principiantes, pero algunos usuarios avanzados necesitaban verlo. Por eso, dejamos la información básica del depósito a primera vista y el desglose a un clic.
 
 ::::columnas 2
 :::tarjeta
@@ -72,7 +72,7 @@ Cerca de 3 de cada 10 no la entendió o le sobró.
 
 ![Pantallazo de una pregunta de la encuesta](placeholder)
 
-Se consultó a 111 usuarios reales de Racional qué datos necesitan ver antes de confirmar un depósito. Lo más pedido fue la comisión, y por eso quedó en primera capa. Después, lo que más pesó en la preferencia fue saber en qué se invierte la plata: la pantalla que mostraba los ETFs ganó en principiantes y avanzados por igual. Por eso ese dato se priorizó, y las cuotas y el precio quedaron en el desglose, a un clic, para quien quiera calcular. El riesgo dividió a los usuarios: lo valoraron más los principiantes, y la mayoría de quienes lo pidieron por escrito lo eran. Se dejó visible igual, porque quien recién empieza no sabe que ese dato existe si queda escondido. "Reinversión de caja" fue el dato más difícil de entender, así que se movió al desglose con un texto informativo, idea que propuso un usuario. Finalmente, la forma de pago era lo menos útil para los usuarios y por los datos habría salido de la pantalla. Aun así es un requerimiento de producto, por lo que se mantiene en algunos estados donde corresponde. En todo el estudio, quienes se sintieron menos seguros pidieron más detalle y no menos. Por eso no se eliminó información: se ordenó en capas, con lo esencial a la vista y el resto a un clic.
+Se consultó a 111 usuarios reales de Racional qué datos necesitan ver antes de confirmar un depósito. Lo más pedido fue la comisión, y por eso quedó en primera capa. Después, lo que más pesó en la preferencia fue saber en qué se invierte la plata: la pantalla que mostraba los ETFs ganó en principiantes y avanzados por igual. Por eso ese dato se priorizó, y las cuotas y el precio quedaron en el desglose, a un clic, para quien quiera calcular. El riesgo dividió a los usuarios: lo valoraron más los principiantes, y la mayoría de quienes lo pidieron por escrito lo eran. Se dejó visible igual, porque quien recién empieza no sabe que ese dato existe si queda escondido. "Reinversión de caja" fue el dato más difícil de entender, así que se movió al desglose con un texto informativo, idea que propuso un usuario. En todo el estudio, quienes se sintieron menos seguros pidieron más detalle y no menos. Por eso no se eliminó información: se ordenó en capas, con lo esencial a la vista y el resto a un clic.
 
 ## Solución
 
