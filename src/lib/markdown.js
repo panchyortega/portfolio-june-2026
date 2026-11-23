@@ -1,5 +1,47 @@
 import { marked } from 'marked';
 
+/**
+ * Bloques contenedores en markdown (mismas clases que Columns y DataCard):
+ *
+ *   ::::columnas 3        (2, 3 o 4; por defecto 2)
+ *   :::tarjeta
+ *   cualquier markdown
+ *   :::
+ *   ::::
+ *
+ * El contenedor externo usa más ":" que los internos (4 vs 3) para poder anidarse.
+ */
+marked.use({
+  extensions: [
+    {
+      name: 'bloque',
+      level: 'block',
+      start(src) {
+        return src.match(/^:{3,}(?:columnas|tarjeta)/m)?.index;
+      },
+      tokenizer(src) {
+        const m = /^(:{3,})(columnas|tarjeta)[ \t]*(\d)?[ \t]*(\n[\s\S]*?)?\n\1[ \t]*(?:\n|$)/.exec(src);
+        if (!m) return;
+        const cols = Math.min(4, Math.max(2, Number(m[3]) || 2));
+        return {
+          type: 'bloque',
+          raw: m[0],
+          kind: m[2],
+          cols,
+          tokens: this.lexer.blockTokens((m[4] || '').trim())
+        };
+      },
+      renderer(token) {
+        const inner = this.parser.parse(token.tokens);
+        if (token.kind === 'columnas') {
+          return `<div class="columns-wrap"><div class="columns columns-${token.cols}">${inner}</div></div>`;
+        }
+        return `<div class="data-card">${inner}</div>`;
+      }
+    }
+  ]
+});
+
 export function slugify(text) {
   return text
     .toLowerCase()
