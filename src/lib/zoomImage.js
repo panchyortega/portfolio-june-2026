@@ -14,6 +14,13 @@ const MIN_VISIBLE = 0.2; // fracción mínima de la imagen que queda visible al 
 const EPS = 0.001;
 const WHEEL_SETTLE_MS = 150;
 
+// Grilla de puntos adaptativa (como Figma): la separación en pantalla siempre
+// queda entre DOT_STEP y 2×DOT_STEP. Al acercar, aparecen puntos intermedios
+// con un fundido; al alejar, se van. Al 100% la separación es exactamente DOT_STEP.
+const DOT_STEP = 16; // px en pantalla al 100%
+const ANIM_MS = 340;
+const easeOut = (t) => 1 - Math.pow(1 - t, 4); // ≈ cubic-bezier(0.22, 1, 0.36, 1)
+
 /**
  * @param {HTMLElement} container
  * @returns {() => void} función de limpieza
@@ -69,18 +76,49 @@ function setupOne(root) {
     btnReset.disabled = Math.abs(scale - 1) < EPS && Math.abs(tx) < 0.5 && Math.abs(ty) < 0.5;
   }
 
+  // Dibuja la grilla para un estado dado (escala y desplazamiento)
+  function drawDots(s, x, y) {
+    if (!dots) return;
+    let step = DOT_STEP * s;
+    while (step < DOT_STEP - EPS) step *= 2;
+    while (step >= DOT_STEP * 2 - EPS) step /= 2;
+    // 0 al 100% (solo la grilla base) → 1 justo antes de duplicarse
+    const fine = Math.min(1, Math.max(0, (step - DOT_STEP) / DOT_STEP));
+    dots.style.setProperty('--dot-step', `${step}px`);
+    dots.style.setProperty('--dot-fine', String(fine));
+    dots.style.backgroundPosition = `${x}px ${y}px, ${x + step / 4}px ${y + step / 4}px`;
+  }
+
+  // Los puntos siguen la misma curva que la transición CSS del canvas
+  let dotsState = { s: 1, x: 0, y: 0 };
+  let dotsRaf = 0;
+  function animateDots(animate) {
+    cancelAnimationFrame(dotsRaf);
+    const from = { ...dotsState };
+    const to = { s: scale, x: tx, y: ty };
+    if (!animate) {
+      dotsState = to;
+      drawDots(to.s, to.x, to.y);
+      return;
+    }
+    const t0 = performance.now();
+    const step = (now) => {
+      const k = easeOut(Math.min(1, (now - t0) / ANIM_MS));
+      dotsState = {
+        s: from.s + (to.s - from.s) * k,
+        x: from.x + (to.x - from.x) * k,
+        y: from.y + (to.y - from.y) * k
+      };
+      drawDots(dotsState.s, dotsState.x, dotsState.y);
+      if (k < 1) dotsRaf = requestAnimationFrame(step);
+    };
+    dotsRaf = requestAnimationFrame(step);
+  }
+
   function apply(animate) {
     canvas.style.transition = animate ? 'transform 340ms cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
     canvas.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
-    // Los puntos del fondo no se escalan como bitmap: se redibujan con su tamaño
-    // fijo y solo cambia la separación y el desplazamiento (como la grilla de Figma)
-    if (dots) {
-      dots.style.transition = animate
-        ? 'background-size 340ms cubic-bezier(0.22, 1, 0.36, 1), background-position 340ms cubic-bezier(0.22, 1, 0.36, 1)'
-        : 'none';
-      dots.style.setProperty('--zoom-scale', String(scale));
-      dots.style.backgroundPosition = `${tx}px ${ty}px`;
-    }
+    animateDots(animate);
     zoomLabel.textContent = Math.round(scale * 100) + '%';
     updateButtons();
   }
@@ -228,6 +266,7 @@ function setupOne(root) {
   apply(false);
 
   return function cleanup() {
+    cancelAnimationFrame(dotsRaf);
     clearTimeout(wheelTimer);
     root.removeEventListener('wheel', onWheel);
     controls.removeEventListener('pointerdown', stopProp);

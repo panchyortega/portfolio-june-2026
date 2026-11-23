@@ -142,13 +142,20 @@
     will-change: transform;
   }
   /* Fuera del canvas: no se escala como bitmap, así se ve nítido con cualquier zoom.
-     El tamaño del punto es fijo; la separación sigue al zoom (--zoom-scale, por JS). */
+     Grilla adaptativa (zoomImage.js): punto de tamaño fijo, separación --dot-step
+     entre 16 y 32px, y una grilla intermedia que aparece con --dot-fine (0→1). */
   .prose :global(.zoom-dots) {
+    --dot: var(--bg-neutral-tertiary);
+    --dot-r: 1.1px;
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: radial-gradient(var(--bg-neutral-tertiary) 1.4px, transparent 1.4px);
-    background-size: calc(12.6px * var(--zoom-scale, 1)) calc(12.6px * var(--zoom-scale, 1));
+    background-image:
+      radial-gradient(circle, var(--dot) var(--dot-r), transparent calc(var(--dot-r) + 0.6px)),
+      radial-gradient(circle, color-mix(in srgb, var(--dot) calc(var(--dot-fine, 0) * 100%), transparent) var(--dot-r), transparent calc(var(--dot-r) + 0.6px));
+    background-size:
+      var(--dot-step, 16px) var(--dot-step, 16px),
+      calc(var(--dot-step, 16px) / 2) calc(var(--dot-step, 16px) / 2);
   }
   .prose :global(.zoom-canvas img) {
     position: absolute;
