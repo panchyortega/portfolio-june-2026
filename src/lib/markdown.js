@@ -23,7 +23,9 @@ function escapeHtml(str = '') {
  * @returns {string} ej: "3 min de lectura"
  */
 export function readingTime(md) {
-  const words = (md || '').split(/\s+/).filter(Boolean).length;
+  // Los comentarios HTML (huecos pendientes) no se ven, así que no cuentan
+  const visible = (md || '').replace(/<!--[\s\S]*?-->/g, '');
+  const words = visible.split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.round(words / 200));
   return `${minutes} min de lectura`;
 }

@@ -7,7 +7,27 @@
 //   meta    → filas del sidebar en la página de detalle
 //   content → cuerpo del caso de estudio en Markdown (## genera la TOC)
 
+import racionalResumenDeposito from './proyectos/racional-resumen-deposito.md?raw';
+
 export const projects = [
+  {
+    slug: 'racional-resumen-deposito',
+    label: 'Racional: Resumen de depósito',
+    title: 'Qué pasa con tu plata después de depositar en Racional',
+    desc: 'Diseñé un resumen para el flujo de depósito en Portafolios de Racional. Antes de confirmar, la persona puede revisar cómo se repartirá su plata y por qué una parte podría quedar sin invertir.',
+    imageLabel: 'imagen — Racional: resumen de depósito',
+    tags: [{ label: 'Profesional', variant: 'primary' }, { label: '2026' }],
+    meta: [
+      { label: 'Empresa', value: 'Racional / Fintech' },
+      { label: 'Año', value: '2026' },
+      { label: 'Tipo', tags: [{ label: 'Profesional', variant: 'primary' }] },
+      { label: 'Mi rol', value: 'Product Designer' },
+      { label: 'Estado', tags: [{ label: 'Experimento en curso' }] },
+      { label: 'Herramientas', value: 'Figma' }
+    ],
+    // El contenido vive en un .md aparte para editarlo cómodo (ver AGENTS.md)
+    content: racionalResumenDeposito
+  },
   {
     slug: 'ucap',
     label: 'Ucap: Dashboard',
