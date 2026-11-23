@@ -1,38 +1,100 @@
 <script>
-  import { onMount } from 'svelte';
-
   /**
    * Table of Contents con scroll-spy.
    * @prop {Array<{text: string, id: string, depth: number}>} items
+   *
+   * - Se re-engancha cada vez que cambian los items (al navegar entre
+   *   proyectos el componente se reutiliza y onMount no vuelve a correr).
+   * - Al hacer clic, fija el ítem activo mientras dura el scroll y corrige
+   *   el destino si el contenido cambió de alto en el camino (imágenes lazy,
+   *   diagramas), en vez de dejar que el scroll-spy salte entre secciones.
    */
   let { items = [] } = $props();
 
-  let activeId = $state(items[0]?.id ?? '');
+  let activeId = $state('');
+  let lockedId = null; // ítem clicado mientras dura el scroll programático
+  let settleTimer = 0;
+  let tries = 0;
 
-  onMount(() => {
-    const headings = items
-      .map((i) => document.getElementById(i.id))
-      .filter(Boolean);
+  const MAX_TRIES = 4;
+  const SETTLE_MS = 140;
 
+  // Offset bajo la nav: el mismo scroll-margin-top que usan los headings
+  function offsetOf(el) {
+    return parseFloat(getComputedStyle(el).scrollMarginTop) || 72;
+  }
+
+  function atBottom() {
+    return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+  }
+
+  $effect(() => {
+    const ids = items.map((i) => i.id);
+    const headings = ids.map((id) => document.getElementById(id)).filter(Boolean);
+
+    activeId = ids[0] ?? '';
+    lockedId = null;
     if (!headings.length) return;
 
-    // Marca activo el último heading que pasó bajo la nav
-    const NAV_OFFSET = 72;
-    function onScroll() {
+    function spy() {
+      // Marca activo el último heading que pasó bajo la nav
       let current = headings[0];
       for (const h of headings) {
-        if (h.getBoundingClientRect().top <= NAV_OFFSET + 4) {
-          current = h;
-        } else {
-          break;
+        if (h.getBoundingClientRect().top <= offsetOf(h) + 4) current = h;
+        else break;
+      }
+      // Al final de la página, las últimas secciones no alcanzan a subir:
+      // marca la última cuyo título ya es visible
+      if (atBottom()) {
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top < window.innerHeight) current = h;
         }
       }
       activeId = current.id;
     }
 
+    function settle() {
+      const target = lockedId && document.getElementById(lockedId);
+      if (!target) return;
+      const delta = target.getBoundingClientRect().top - offsetOf(target);
+      // El contenido se movió durante el scroll: vuelve a apuntar
+      if (Math.abs(delta) > 4 && !(delta > 0 && atBottom()) && tries < MAX_TRIES) {
+        tries++;
+        window.scrollTo({ top: window.scrollY + delta, behavior: 'smooth' });
+        return;
+      }
+      lockedId = null;
+    }
+
+    function onScroll() {
+      if (lockedId) {
+        clearTimeout(settleTimer);
+        settleTimer = setTimeout(settle, SETTLE_MS);
+        return;
+      }
+      spy();
+    }
+
+    // La persona toma el control (rueda, touch, teclado): suelta el bloqueo
+    function release() {
+      if (!lockedId) return;
+      lockedId = null;
+      clearTimeout(settleTimer);
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('wheel', release, { passive: true });
+    window.addEventListener('touchstart', release, { passive: true });
+    window.addEventListener('keydown', release);
+    spy();
+
+    return () => {
+      clearTimeout(settleTimer);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('wheel', release);
+      window.removeEventListener('touchstart', release);
+      window.removeEventListener('keydown', release);
+    };
   });
 
   function handleClick(e, id) {
@@ -40,9 +102,15 @@
     const target = document.getElementById(id);
     if (!target) return;
     activeId = id;
-    const NAV_OFFSET = 72;
-    const top = target.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    lockedId = id;
+    tries = 0;
+    clearTimeout(settleTimer);
+    const top = target.getBoundingClientRect().top + window.scrollY - offsetOf(target);
     window.scrollTo({ top, behavior: 'smooth' });
+    // Si no hay nada que scrollear, igual se resuelve
+    settleTimer = setTimeout(() => {
+      if (lockedId === id) lockedId = null;
+    }, 1500);
   }
 </script>
 
