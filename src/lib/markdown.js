@@ -106,8 +106,8 @@ export function renderMarkdown(md, { base = '' } = {}) {
     return (
       `<figure class="content-image">` +
         `<div class="zoom-image" role="group" aria-label="Imagen${alt ? ': ' + alt : ''}. Usa scroll o los controles para hacer zoom, arrastra para mover.">` +
+          `<div class="zoom-dots"></div>` +
           `<div class="zoom-canvas">` +
-            `<div class="zoom-dots"></div>` +
             `<img src="${href}" alt="${alt}" loading="lazy" />` +
           `</div>` +
           `<span class="zoom-level">100%</span>` +
