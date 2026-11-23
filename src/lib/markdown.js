@@ -121,7 +121,38 @@ export function renderMarkdown(md, { base = '' } = {}) {
     );
   }
 
-  renderer.image = renderImage;
+  // Videos: mismo ![alt](ruta "caption") pero con extensión de video.
+  // Marco propio (no el de las imágenes); el comportamiento vive en videoFrame.js.
+  const VIDEO_RE = /\.(mp4|webm|mov|m4v)(?:[?#].*)?$/i;
+
+  function renderVideo(token) {
+    const raw = token.href || '';
+    const href = raw.startsWith('/') ? base + raw : raw;
+    const alt = escapeHtml(token.text || '');
+    const caption = token.title
+      ? `<figcaption class="content-caption">${escapeHtml(token.title)}</figcaption>`
+      : '';
+    // #t=0.001 hace que se vea el primer cuadro antes de reproducir (también en iOS)
+    const src = href.includes('#') ? href : `${href}#t=0.001`;
+    return (
+      `<figure class="content-video">` +
+        `<div class="video-frame" tabindex="0" role="group" aria-label="Video${alt ? ': ' + alt : ''}. Clic o Espacio para pausar y reanudar; flechas para avanzar o retroceder.">` +
+          `<video src="${src}" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="${alt}"></video>` +
+          `<span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span>` +
+          `<div class="video-scrub" aria-hidden="true">` +
+            `<div class="video-scrub-rail"><div class="video-scrub-fill"></div><div class="video-scrub-thumb"></div></div>` +
+          `</div>` +
+        `</div>` +
+        caption +
+      `</figure>`
+    );
+  }
+
+  function renderMedia(token) {
+    return VIDEO_RE.test(token.href || '') ? renderVideo(token) : renderImage(token);
+  }
+
+  renderer.image = renderMedia;
 
   // Bloques ```mermaid → <pre class="mermaid"> para render en cliente.
   // El resto de los bloques de código se renderizan normal.
@@ -135,7 +166,7 @@ export function renderMarkdown(md, { base = '' } = {}) {
   // Si un párrafo es solo una imagen, renderiza el figure sin <p> (figure en p es inválido).
   renderer.paragraph = function (token) {
     if (token.tokens && token.tokens.length === 1 && token.tokens[0].type === 'image') {
-      return renderImage(token.tokens[0]);
+      return renderMedia(token.tokens[0]);
     }
     return originalParagraph(token);
   };
