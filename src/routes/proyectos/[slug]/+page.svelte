@@ -141,11 +141,14 @@
     transform-origin: 0 0;
     will-change: transform;
   }
+  /* Fuera del canvas: no se escala como bitmap, así se ve nítido con cualquier zoom.
+     El tamaño del punto es fijo; la separación sigue al zoom (--zoom-scale, por JS). */
   .prose :global(.zoom-dots) {
     position: absolute;
-    inset: -2000px;
+    inset: 0;
+    pointer-events: none;
     background-image: radial-gradient(var(--bg-neutral-tertiary) 1.4px, transparent 1.4px);
-    background-size: 12.6px 12.6px;
+    background-size: calc(12.6px * var(--zoom-scale, 1)) calc(12.6px * var(--zoom-scale, 1));
   }
   .prose :global(.zoom-canvas img) {
     position: absolute;

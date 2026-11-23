@@ -26,6 +26,7 @@ export function setupZoomImages(container) {
 
 function setupOne(root) {
   const canvas = root.querySelector('.zoom-canvas');
+  const dots = root.querySelector('.zoom-dots');
   const img = root.querySelector('img');
   const zoomLabel = root.querySelector('.zoom-level');
   const controls = root.querySelector('.zoom-controls');
@@ -71,6 +72,15 @@ function setupOne(root) {
   function apply(animate) {
     canvas.style.transition = animate ? 'transform 340ms cubic-bezier(0.22, 1, 0.36, 1)' : 'none';
     canvas.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    // Los puntos del fondo no se escalan como bitmap: se redibujan con su tamaño
+    // fijo y solo cambia la separación y el desplazamiento (como la grilla de Figma)
+    if (dots) {
+      dots.style.transition = animate
+        ? 'background-size 340ms cubic-bezier(0.22, 1, 0.36, 1), background-position 340ms cubic-bezier(0.22, 1, 0.36, 1)'
+        : 'none';
+      dots.style.setProperty('--zoom-scale', String(scale));
+      dots.style.backgroundPosition = `${tx}px ${ty}px`;
+    }
     zoomLabel.textContent = Math.round(scale * 100) + '%';
     updateButtons();
   }
