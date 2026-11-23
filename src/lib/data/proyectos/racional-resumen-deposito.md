@@ -9,7 +9,7 @@
 
 <!-- PENDIENTE · Apertura: mockup cuidado de las pantallas finales, o un video breve del resultado. Fuente: diseños finales. Por producir. -->
 
-## El problema
+## Problema
 
 Al depositar en un portafolio de Racional (una cartera de acciones transadas en Chile), algunas personas descubrían recién después de hacer el depósito que una parte importante de su plata quedaba sin invertirse y no entendían por qué.
 
@@ -21,7 +21,7 @@ flowchart LR
 
 <!-- PENDIENTE · Flujo original: bajo cada paso, una nota breve de qué ocurre o qué duda aparece (en el esquema o como texto). Fuente: recorrido original confirmado por la diseñadora. -->
 
-## Qué queríamos lograr
+## Objetivo
 
 Queríamos que antes de confirmar el depósito, los usuarios supieran cuánto se invertiría en cada acción, y si parte de su plata iba a quedar sin invertir, que entendieran por qué.
 
@@ -33,13 +33,13 @@ flowchart LR
 
 <!-- PENDIENTE · Flujo con resumen: bajo "Resumen", explicar que la persona puede revisar qué se va a comprar y por qué podría quedar plata sin invertir. Fuente: flujo rediseñado. -->
 
-## Qué vimos en las pruebas de usabilidad
+## Research
 
 En pruebas de usabilidad con unos 150 usuarios, vimos que el desglose por acción aportaba poco a principiantes, pero algunos usuarios avanzados necesitaban verlo. Por eso, dejamos la información básica del depósito a primera vista y el desglose a un clic.
 
 <!-- PENDIENTE · Tarjetas de usabilidad: una por hallazgo principal, con un dato cuantitativo o una observación cualitativa. Incluir qué se probó y qué observaron sobre el desglose. Fuente: resultados de usabilidad, por cotejar. -->
 
-## La solución
+## Solución
 
 A partir de esos resultados, diseñé e iteré el resumen y el desglose de compra, con revisiones del diseñador senior y del equipo de Producto. Llegamos a dos versiones del resumen, una detallada y otra simplificada.
 
@@ -47,7 +47,7 @@ A partir de esos resultados, diseñé e iteré el resumen y el desglose de compr
 
 <!-- PENDIENTE · Comparación de los resúmenes: una imagen por versión (detallada y simplificada), lado a lado y con el mismo monto, señalando las diferencias verificadas en las pantallas. Fuente: diseños de ambas variantes. -->
 
-## El experimento
+## Qué aprendimos
 
 Lanzamos un experimento con tres variantes (el flujo sin resumen, el resumen detallado y uno simplificado). Aún evaluamos si quienes veían un resumen completaban más depósitos y, a largo plazo, hacían menos consultas a soporte y volvían a depositar con mayor frecuencia.
 
