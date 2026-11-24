@@ -89,7 +89,7 @@
 .data-card > h4 {
   font-family: var(--font-display);
   font-size: var(--size-xl);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-regular);
   line-height: var(--lh-snug);
   color: var(--text-primary);
 }

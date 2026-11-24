@@ -56,12 +56,13 @@
   .hero-title {
     font-family: var(--font-display);
     font-size: var(--size-4xl);
-    font-weight: var(--weight-light);
-    letter-spacing: var(--tracking-tight);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-snug);
     line-height: 1.05;
     color: var(--text-primary);
     margin-bottom: var(--space-24);
   }
+  .hero-title em { font-style: italic; }
   .hero-bio {
     color: var(--text-secondary);
     max-width: 480px;

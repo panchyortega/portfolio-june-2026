@@ -42,6 +42,7 @@
     { cls: 'type-body', label: 'Body' },
     { cls: 'type-small', label: 'Small' },
     { cls: 'type-label', label: 'Label' },
+    { cls: 'type-overline', label: 'Overline' },
     { cls: 'type-caption', label: 'Caption' }
   ];
 
