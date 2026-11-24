@@ -1,12 +1,12 @@
 import { marked } from 'marked';
 import { videoMarkup } from './videoFrame.js';
-import { lucideSvg } from './lucideSvg.js';
+import { lucideSvg, hasLucideIcon } from './lucideSvg.js';
 
 /**
  * Bloques contenedores en markdown (mismas clases que Columns y DataCard):
  *
  *   ::::columnas 3        (2, 3 o 4; por defecto 2)
- *   :::tarjeta
+ *   :::tarjeta search     (ícono Lucide opcional, en kebab-case; ver lucideSvg.js)
  *   cualquier markdown
  *   :::
  *   ::::
@@ -22,14 +22,16 @@ marked.use({
         return src.match(/^:{3,}(?:columnas|tarjeta)/m)?.index;
       },
       tokenizer(src) {
-        const m = /^(:{3,})(columnas|tarjeta)[ \t]*(\d)?[ \t]*(\n[\s\S]*?)?\n\1[ \t]*(?:\n|$)/.exec(src);
+        const m = /^(:{3,})(columnas|tarjeta)[ \t]*([\w-]+)?[ \t]*(\n[\s\S]*?)?\n\1[ \t]*(?:\n|$)/.exec(src);
         if (!m) return;
         const cols = Math.min(4, Math.max(2, Number(m[3]) || 2));
+        const icon = m[2] === 'tarjeta' && hasLucideIcon(m[3]) ? m[3] : undefined;
         return {
           type: 'bloque',
           raw: m[0],
           kind: m[2],
           cols,
+          icon,
           tokens: this.lexer.blockTokens((m[4] || '').trim())
         };
       },
@@ -38,7 +40,8 @@ marked.use({
         if (token.kind === 'columnas') {
           return `<div class="columns-wrap"><div class="columns columns-${token.cols}">${inner}</div></div>`;
         }
-        return `<div class="data-card">${inner}</div>`;
+        const icon = token.icon ? lucideSvg(token.icon, { size: 20, class: 'data-card-icon' }) : '';
+        return `<div class="data-card">${icon}${inner}</div>`;
       }
     }
   ]

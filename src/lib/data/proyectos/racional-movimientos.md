@@ -28,18 +28,18 @@ La funcionalidad existente ofrecía opciones de filtrado limitadas, obligando a 
 ![Pantalla original en web](placeholder "16/9")
 
 ::::columnas 3
-:::tarjeta
-#### Períodos limitados
+:::tarjeta calendar-off
+**Períodos limitados**
 
 <small>En web, solo era posible seleccionar el último mes, los últimos tres meses o el año en curso.</small>
 :::
-:::tarjeta
-#### Filtros poco flexibles
+:::tarjeta list-filter
+**Filtros poco flexibles**
 
 <small>No era posible filtrar por producto en web.</small>
 :::
-:::tarjeta
-#### Sin opción de exportar
+:::tarjeta file-x
+**Sin opción de exportar**
 
 <small>Los usuarios debían recurrir al registro manual de sus movimientos.</small>
 :::
@@ -54,18 +54,18 @@ Aunque esta mejora no estaba priorizada inicialmente, identifiqué una oportunid
 Para comprender si esta necesidad era compartida por otros usuarios, revisé tickets de soporte y conversé con el equipo encargado de atenderlos, quienes confirmaron que ambas funcionalidades eran solicitadas de manera recurrente.
 
 ::::columnas 3
-:::tarjeta
-#### Entrevistas
+:::tarjeta messages-square
+**Entrevistas**
 
 <small>Identificación de la necesidad inicial.</small>
 :::
-:::tarjeta
-#### Soporte
+:::tarjeta headset
+**Soporte**
 
 <small>Confirmación de solicitudes recurrentes.</small>
 :::
-:::tarjeta
-#### Tickets
+:::tarjeta ticket
+**Tickets**
 
 <small>Revisión de necesidades reportadas.</small>
 :::
@@ -76,18 +76,18 @@ Identifiqué que estas necesidades eran especialmente relevantes para usuarios a
 ### Principales necesidades
 
 ::::columnas 3
-:::tarjeta
-#### Encontrar movimientos específicos
+:::tarjeta search
+**Encontrar movimientos específicos**
 
 <small>Consultar períodos personalizados sin recorrer manualmente el historial.</small>
 :::
-:::tarjeta
-#### Segmentar la información
+:::tarjeta sliders-horizontal
+**Segmentar la información**
 
 <small>Filtrar movimientos según el producto y el tipo de transacción.</small>
 :::
-:::tarjeta
-#### Disponer de su información
+:::tarjeta download
+**Disponer de su información**
 
 <small>Exportar los movimientos para utilizarlos en herramientas externas de organización financiera.</small>
 :::
@@ -100,16 +100,16 @@ Identifiqué que estas necesidades eran especialmente relevantes para usuarios a
 El objetivo fue mejorar las posibilidades de consulta del historial sin modificar su estructura ni la navegación existente.
 
 ::::columnas 2
-:::tarjeta
-#### Dentro del alcance
+:::tarjeta circle-check
+**Dentro del alcance**
 
 - Sistema de filtros
 - Selector de fechas
 - Flujo de exportación
 - Adaptación web y mobile
 :::
-:::tarjeta
-#### Fuera del alcance
+:::tarjeta circle-x
+**Fuera del alcance**
 
 - Navegación
 - Estructura del historial
@@ -128,23 +128,23 @@ Dado que Racional no contaba con un componente propio para seleccionar rangos de
 Utilicé Claude para generar prototipos funcionales que incorporaban inputs, estados y lógica de selección. Esto me permitió evaluar interacciones reales sin invertir tiempo prematuramente en su diseño visual o en construir prototipos complejos en Figma.
 
 ::::columnas 4
-:::tarjeta
-#### 01. Referencias
+:::tarjeta layers
+**01. Referencias**
 
 <small>Mobbin</small>
 :::
-:::tarjeta
-#### 02. Prototipado
+:::tarjeta mouse-pointer-click
+**02. Prototipado**
 
 <small>Claude</small>
 :::
-:::tarjeta
-#### 03. Pruebas
+:::tarjeta users
+**03. Pruebas**
 
 <small>Equipo interno</small>
 :::
-:::tarjeta
-#### 04. Diseño
+:::tarjeta pen-tool
+**04. Diseño**
 
 <small>Figma</small>
 :::
@@ -160,21 +160,21 @@ A través de pruebas exploratorias con integrantes del equipo, incluyendo soport
 :::tarjeta
 ![Prototipo 1](placeholder)
 
-#### Iteración 1
+**Iteración 1**
 
 <small>Hipótesis de interacción por explorar.</small>
 :::
 :::tarjeta
 ![Prototipo 2](placeholder)
 
-#### Iteración 2
+**Iteración 2**
 
 <small>Dificultad observada durante las pruebas.</small>
 :::
 :::tarjeta
 ![Prototipo 3](placeholder)
 
-#### Iteración 3
+**Iteración 3**
 
 <small>Ajustes realizados a partir de las pruebas.</small>
 :::
@@ -188,14 +188,14 @@ Este proceso permitió reducir las alternativas a dos propuestas finalistas, que
 :::tarjeta
 ![Alternativa A](placeholder)
 
-#### Propuesta descartada
+**Propuesta descartada**
 
 <small>Pendiente: diferencias de interacción y motivo de descarte.</small>
 :::
 :::tarjeta
 ![Alternativa B](placeholder)
 
-#### Propuesta seleccionada
+**Propuesta seleccionada**
 
 <small>Pendiente: ventajas de interacción y criterios de selección.</small>
 :::
@@ -251,18 +251,18 @@ La solución busca entregar mayor autonomía a los usuarios para consultar, veri
 Una vez implementada, su impacto podrá evaluarse mediante:
 
 ::::columnas 3
-:::tarjeta
-#### Adopción
+:::tarjeta trending-up
+**Adopción**
 
 <small>Uso de las funcionalidades entre usuarios con alta actividad transaccional.</small>
 :::
-:::tarjeta
-#### Utilidad
+:::tarjeta repeat
+**Utilidad**
 
 <small>Recurrencia de uso de filtros y exportaciones completadas.</small>
 :::
-:::tarjeta
-#### Fricción
+:::tarjeta life-buoy
+**Fricción**
 
 <small>Evolución de los tickets de soporte asociados a estas necesidades.</small>
 :::
