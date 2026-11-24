@@ -53,6 +53,10 @@ Se testearon 3 pantallas, cada una con sus datos por separado.
 
 ![Las 3 pantallas testeadas](placeholder)
 
+<!-- PENDIENTE · Pantallazo de la encuesta: una de las preguntas. -->
+
+![Pantallazo de una pregunta de la encuesta](placeholder)
+
 ::::columnas 2
 :::tarjeta
 Quieren ver la comisión para quedarse tranquilos
@@ -75,10 +79,6 @@ Lo que no conocen hay que explicárselo
 <small>Cerca de 3 de cada 10 no entendió "Reinversión de caja" o le sobró.</small>
 :::
 ::::
-
-<!-- PENDIENTE · Pantallazo de la encuesta: una de las preguntas. -->
-
-![Pantallazo de una pregunta de la encuesta](placeholder)
 
 La pantalla es un momento de verificación: la persona ya decidió cuánto depositar y solo quiere confirmar que todo está bien. Por eso lo que más buscó fue el costo y el destino de su plata. La comisión quedó en la primera capa porque para algunas personas ver CLP 0 es lo que las deja tranquilas. Saber en qué se invierte fue lo que más pesó al comparar pantallas, así que se priorizó mostrarlo, y las cuotas y el precio quedaron en el desglose para quien quiera calcular. El riesgo se dejó visible aunque a los avanzados les sobre, porque quien recién empieza no sabe que existe si queda escondido. "Reinversión de caja" pasó al desglose con un texto informativo, idea que propuso un usuario. La forma de pago, que según los datos saldría de la pantalla, se mantiene en algunos estados por requerimiento de producto. Además, quienes se sintieron menos seguros pidieron más detalle y no menos, por eso la información se ordenó en capas en vez de quitarse.
 
