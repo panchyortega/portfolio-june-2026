@@ -8,6 +8,7 @@
   import PageHeader from '$lib/components/PageHeader.svelte';
   import MetaCard from '$lib/components/MetaCard.svelte';
   import Button from '$lib/components/Button.svelte';
+  import { ArrowLeft, ArrowRight } from '@lucide/svelte';
 
   let { data } = $props();
   let { project, html, toc, readingTime, prev, next } = $derived(data);
@@ -49,8 +50,8 @@
   </article>
 
   <nav class="project-nav">
-    <Button variant="ghost" href={`${base}/proyectos/${prev.slug}`}>← Anterior</Button>
-    <Button variant="primary" href={`${base}/proyectos/${next.slug}`}>Siguiente →</Button>
+    <Button variant="ghost" href={`${base}/proyectos/${prev.slug}`}><ArrowLeft size={16} aria-hidden="true" /> Anterior</Button>
+    <Button variant="primary" href={`${base}/proyectos/${next.slug}`}>Siguiente <ArrowRight size={16} aria-hidden="true" /></Button>
   </nav>
 </ContentLayout>
 
