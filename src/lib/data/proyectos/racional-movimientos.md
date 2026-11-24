@@ -19,11 +19,13 @@ Durante las entrevistas realizadas tras el lanzamiento de Racional Web 2.0, un u
 
 La funcionalidad existente ofrecía opciones de filtrado limitadas, obligando a los usuarios a recorrer manualmente su historial para encontrar transacciones específicas. Tampoco permitía exportar los movimientos directamente, dificultando su registro en herramientas externas de organización financiera.
 
-![Pantalla original de movimientos de Racional en mobile](/images/proyectos/racional-movimientos/pantalla-original-mobile.webp "Pantalla original · Mobile")
+<!-- PENDIENTE · Pantalla original de movimientos en mobile. Fuente: producto actual. -->
+
+![Pantalla original en mobile](placeholder "16/9")
 
 <!-- PENDIENTE · Pantalla original de movimientos en web. Fuente: producto actual. -->
 
-![Pantalla original en web](placeholder)
+![Pantalla original en web](placeholder "16/9")
 
 ::::columnas 3
 :::tarjeta
