@@ -10,6 +10,6 @@
 </script>
 
 <div class="data-card">
-  {#if Icon}<Icon size={20} class="data-card-icon" aria-hidden="true" />{/if}
+  {#if Icon}<Icon size={28} class="data-card-icon" aria-hidden="true" />{/if}
   {@render children()}
 </div>

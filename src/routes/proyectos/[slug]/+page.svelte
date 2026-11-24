@@ -106,7 +106,7 @@
     margin: 0 0 var(--space-20) var(--space-20);
     list-style: revert;
   }
-  .prose :global(li) { margin-bottom: var(--space-8); line-height: var(--lh-normal); }
+  .prose :global(li) { margin-bottom: var(--space-4); line-height: var(--lh-normal); }
 
   /* ── Imágenes del contenido — pan + zoom in-situ ── */
   .prose :global(.content-image) {

@@ -40,7 +40,7 @@ marked.use({
         if (token.kind === 'columnas') {
           return `<div class="columns-wrap"><div class="columns columns-${token.cols}">${inner}</div></div>`;
         }
-        const icon = token.icon ? lucideSvg(token.icon, { size: 20, class: 'data-card-icon' }) : '';
+        const icon = token.icon ? lucideSvg(token.icon, { size: 28, class: 'data-card-icon' }) : '';
         return `<div class="data-card">${icon}${inner}</div>`;
       }
     }
