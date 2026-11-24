@@ -45,6 +45,14 @@ flowchart LR
 
 En pruebas de usabilidad con 111 usuarios, vimos que el desglose por acción aportaba poco a principiantes, pero algunos usuarios avanzados necesitaban verlo. Por eso, dejamos la información básica del depósito a primera vista y el desglose a un clic.
 
+### Pruebas en Useberry
+
+Se testearon 3 pantallas, cada una con sus datos por separado.
+
+<!-- PENDIENTE · Las 3 pantallas que se testearon. -->
+
+![Las 3 pantallas testeadas](placeholder)
+
 ::::columnas 2
 :::tarjeta
 Quieren ver la comisión para quedarse tranquilos
