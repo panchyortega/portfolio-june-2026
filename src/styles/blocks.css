@@ -63,6 +63,20 @@
 .data-card > :is(span, a, button) {
   align-self: flex-start;
 }
+/* Ícono Lucide arriba de la tarjeta */
+.data-card > .data-card-icon {
+  color: var(--text-accent);
+  flex-shrink: 0;
+}
+/* Título + bajada agrupados: gap más chico que el de la tarjeta */
+.data-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.data-card-text > * {
+  margin: 0 !important;
+}
 /* Bajada en texto pequeño: <small>…</small> en el markdown (mismo estilo que .type-small) */
 .data-card small {
   display: block;

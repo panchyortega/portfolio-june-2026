@@ -1,11 +1,12 @@
 import { marked } from 'marked';
 import { videoMarkup } from './videoFrame.js';
+import { lucideSvg, hasLucideIcon } from './lucideSvg.js';
 
 /**
  * Bloques contenedores en markdown (mismas clases que Columns y DataCard):
  *
  *   ::::columnas 3        (2, 3 o 4; por defecto 2)
- *   :::tarjeta
+ *   :::tarjeta search     (ícono Lucide opcional, en kebab-case; ver lucideSvg.js)
  *   cualquier markdown
  *   :::
  *   ::::
@@ -21,14 +22,16 @@ marked.use({
         return src.match(/^:{3,}(?:columnas|tarjeta)/m)?.index;
       },
       tokenizer(src) {
-        const m = /^(:{3,})(columnas|tarjeta)[ \t]*(\d)?[ \t]*(\n[\s\S]*?)?\n\1[ \t]*(?:\n|$)/.exec(src);
+        const m = /^(:{3,})(columnas|tarjeta)[ \t]*([\w-]+)?[ \t]*(\n[\s\S]*?)?\n\1[ \t]*(?:\n|$)/.exec(src);
         if (!m) return;
         const cols = Math.min(4, Math.max(2, Number(m[3]) || 2));
+        const icon = m[2] === 'tarjeta' && hasLucideIcon(m[3]) ? m[3] : undefined;
         return {
           type: 'bloque',
           raw: m[0],
           kind: m[2],
           cols,
+          icon,
           tokens: this.lexer.blockTokens((m[4] || '').trim())
         };
       },
@@ -37,7 +40,13 @@ marked.use({
         if (token.kind === 'columnas') {
           return `<div class="columns-wrap"><div class="columns columns-${token.cols}">${inner}</div></div>`;
         }
-        return `<div class="data-card">${inner}</div>`;
+        const icon = token.icon ? lucideSvg(token.icon, { size: 28, class: 'data-card-icon' }) : '';
+        // Título en negrita + bajada <small> van juntos en un div con gap propio (más chico que el de la tarjeta)
+        const grouped = inner.replace(
+          /(<p><strong>[^<]*<\/strong><\/p>\s*)(<p><small>[\s\S]*?<\/small><\/p>)/g,
+          '<div class="data-card-text">$1$2</div>'
+        );
+        return `<div class="data-card">${icon}${grouped}</div>`;
       }
     }
   ]
@@ -112,9 +121,9 @@ export function renderMarkdown(md, { base = '' } = {}) {
           `</div>` +
           `<span class="zoom-level">100%</span>` +
           `<div class="zoom-controls">` +
-            `<button type="button" data-act="out" aria-label="Alejar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>` +
-            `<button type="button" data-act="in" aria-label="Acercar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>` +
-            `<button type="button" data-act="reset" aria-label="Restablecer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>` +
+            `<button type="button" data-act="out" aria-label="Alejar">${lucideSvg('minus')}</button>` +
+            `<button type="button" data-act="in" aria-label="Acercar">${lucideSvg('plus')}</button>` +
+            `<button type="button" data-act="reset" aria-label="Restablecer">${lucideSvg('rotate-ccw')}</button>` +
           `</div>` +
         `</div>` +
         caption +
