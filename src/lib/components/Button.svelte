@@ -5,13 +5,13 @@
    * @prop {'primary' | 'ghost' | 'link'} variant
    * @prop {string} href - si existe, es un enlace
    * @prop {boolean} disabled
-   * @prop {string} icon - clase de Tabler Icon (ej: 'ti-arrow-right')
+   * @prop {import('svelte').Component} icon - componente de @lucide/svelte (ej: ArrowRight), va antes del texto
    */
   let {
     variant = 'primary',
     href = undefined,
     disabled = false,
-    icon = undefined,
+    icon: Icon = undefined,
     onclick = undefined,
     children
   } = $props();
@@ -19,12 +19,12 @@
 
 {#if href}
   <a class="btn btn-{variant}" {href} aria-disabled={disabled}>
-    {#if icon}<i class="ti {icon}" aria-hidden="true"></i>{/if}
+    {#if Icon}<Icon size={16} aria-hidden="true" />{/if}
     {@render children()}
   </a>
 {:else}
   <button class="btn btn-{variant}" {disabled} {onclick}>
-    {#if icon}<i class="ti {icon}" aria-hidden="true"></i>{/if}
+    {#if Icon}<Icon size={16} aria-hidden="true" />{/if}
     {@render children()}
   </button>
 {/if}

@@ -1,3 +1,4 @@
+import { lucideSvg } from './lucideSvg.js';
 /**
  * Comportamiento de los videos de contenido (.video-frame):
  * - Siempre en loop, silenciados, sin controles nativos.
@@ -35,7 +36,7 @@ export function videoMarkup({ src, alt = '', caption = '' }) {
     `<figure class="content-video">` +
       `<div class="video-frame" tabindex="0" role="group" aria-label="Video${a ? ': ' + a : ''}. Clic o Espacio para pausar y reanudar; flechas para avanzar o retroceder.">` +
         `<video src="${esc(url)}" muted loop playsinline preload="metadata" disablepictureinpicture disableremoteplayback aria-label="${a}"></video>` +
-        `<span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></span>` +
+        `<span class="video-play" aria-hidden="true">${lucideSvg('play', { fill: true })}</span>` +
         `<div class="video-scrub" aria-hidden="true">` +
           `<div class="video-scrub-rail"><div class="video-scrub-fill"></div><div class="video-scrub-thumb"></div></div>` +
         `</div>` +
