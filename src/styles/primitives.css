@@ -42,6 +42,7 @@
   --tracking-wide:    0.01em;
 
   /* ── Colores — Neutral (verde desaturado frío) ── */
+  --neutral-white: #FFFFFF;
   --neutral-50:  #F4F5F2;
   --neutral-100: #E3E6DF;
   --neutral-200: #C8CEC1;
@@ -52,6 +53,7 @@
   --neutral-700: #343D31;
   --neutral-800: #1F261D;
   --neutral-900: #111710;
+  --neutral-black: #000000;
 
   /* ── Colores — Primary (terracota) ── */
   --primary-50:  #FFF2EC;

@@ -42,7 +42,7 @@
   --border-accent:           var(--primary-600);
   --border-accent-hover:     var(--primary-700);
   --border-accent-disabled:  var(--primary-200);
-  --text-on-accent:          #ffffff;
+  --text-on-accent:          var(--neutral-white);
   --text-on-accent-disabled: var(--primary-600);
   --text-accent:             var(--primary-600);
   --text-accent-hover:       var(--primary-700);
