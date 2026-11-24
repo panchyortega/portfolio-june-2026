@@ -6,8 +6,20 @@
 
 :root {
 
-  /* ── Tipografía — Familias ── */
-  /* Se cargan desde Google Fonts en src/app.html */
+  /* ── Tipografía — Familias ──
+     Actuales (desde nov 2026): Instrument Serif + Albert Sans.
+     Se cargan desde Google Fonts en src/app.html.
+     Referencia de la pareja: pin de Kathalyst Design Studio
+     (kathalystdesignstudio.com) visto en Pinterest.
+
+     Anteriores: Sora (display) + Work Sans (body), desde Fontshare.
+     Para volver a ellas, reemplaza el <link> de Google Fonts en
+     app.html por este import al inicio de este archivo:
+       @import url('https://api.fontshare.com/v2/css?f[]=sora@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap');
+     y usa:
+       --font-display: 'Sora', sans-serif;
+       --font-body:    'Work Sans', sans-serif;
+     Sora sí tiene pesos 500–600: los títulos estaban en semibold. */
   --font-display: 'Instrument Serif', serif;   /* solo existe en 400 (+ cursiva) */
   --font-body:    'Albert Sans', sans-serif;
 
