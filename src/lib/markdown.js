@@ -41,7 +41,12 @@ marked.use({
           return `<div class="columns-wrap"><div class="columns columns-${token.cols}">${inner}</div></div>`;
         }
         const icon = token.icon ? lucideSvg(token.icon, { size: 28, class: 'data-card-icon' }) : '';
-        return `<div class="data-card">${icon}${inner}</div>`;
+        // Título en negrita + bajada <small> van juntos en un div con gap propio (más chico que el de la tarjeta)
+        const grouped = inner.replace(
+          /(<p><strong>[^<]*<\/strong><\/p>\s*)(<p><small>[\s\S]*?<\/small><\/p>)/g,
+          '<div class="data-card-text">$1$2</div>'
+        );
+        return `<div class="data-card">${icon}${grouped}</div>`;
       }
     }
   ]

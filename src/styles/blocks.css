@@ -74,6 +74,18 @@
   line-height: var(--lh-snug);
 }
 .data-card li:last-child { margin-bottom: 0 !important; }
+/* Título + bajada agrupados: gap más chico que el de la tarjeta */
+.data-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.data-card-text > * {
+  margin: 0 !important;
+}
+.data-card-text > p {
+  line-height: var(--lh-snug) !important;
+}
 /* Bajada en texto pequeño: <small>…</small> en el markdown (mismo estilo que .type-small) */
 .data-card small {
   display: block;
