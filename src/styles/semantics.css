@@ -12,7 +12,7 @@
   --text-disabled:  var(--neutral-400);
 
   /* ── Neutral Primary ── */
-  --bg-neutral-primary:              var(--neutral-50);
+  --bg-neutral-primary:              var(--neutral-white);
   --bg-neutral-primary-hover:        var(--neutral-100);
   --bg-neutral-primary-disabled:     var(--neutral-100);
   --border-neutral-primary:          var(--neutral-200);
