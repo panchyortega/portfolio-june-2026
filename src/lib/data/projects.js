@@ -8,6 +8,7 @@
 //   content → cuerpo del caso de estudio en Markdown (## genera la TOC)
 
 import racionalResumenDeposito from './proyectos/racional-resumen-deposito.md?raw';
+import racionalMovimientos from './proyectos/racional-movimientos.md?raw';
 
 export const projects = [
   {
@@ -27,6 +28,24 @@ export const projects = [
     ],
     // El contenido vive en un .md aparte para editarlo cómodo (ver AGENTS.md)
     content: racionalResumenDeposito
+  },
+  {
+    slug: 'racional-movimientos',
+    label: 'Racional: Movimientos',
+    title: 'Filtros y exportación de movimientos',
+    desc: 'Sistema de filtros, selector de fechas personalizado y exportación de movimientos en Racional, para consultar y organizar el historial financiero con más autonomía, en web y mobile.',
+    imageLabel: 'imagen — Racional: filtros y exportación de movimientos',
+    tags: [{ label: 'Profesional', variant: 'primary' }, { label: '2026' }],
+    meta: [
+      { label: 'Empresa', value: 'Racional / Fintech' },
+      { label: 'Año', value: '2026' },
+      { label: 'Tipo', tags: [{ label: 'Profesional', variant: 'primary' }] },
+      { label: 'Mi rol', value: 'Product Designer' },
+      { label: 'Plataformas', value: 'Web y mobile' },
+      { label: 'Estado', tags: [{ label: 'Pendiente de implementación' }] },
+      { label: 'Herramientas', value: 'Figma · Mobbin · Claude' }
+    ],
+    content: racionalMovimientos
   },
   {
     slug: 'ucap',
