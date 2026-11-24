@@ -28,7 +28,7 @@
   const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
-  const neutralScale = ['50','100','200','300','400','500','600','700','800','900'];
+  const neutralScale = ['white', '50','100','200','300','400','500','600','700','800','900', 'black'];
   const primaryScale = ['50','100','200','300','400','500','600','700','800','900'];
   const semanticBg = ['--bg-neutral-primary','--bg-neutral-secondary','--bg-neutral-tertiary','--bg-accent','--bg-success','--bg-warning','--bg-error'];
   const textTokens = ['--text-primary','--text-secondary','--text-accent','--text-disabled'];

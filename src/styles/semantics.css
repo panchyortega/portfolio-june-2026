@@ -12,7 +12,7 @@
   --text-disabled:  var(--neutral-400);
 
   /* ── Neutral Primary ── */
-  --bg-neutral-primary:              var(--neutral-50);
+  --bg-neutral-primary:              var(--neutral-white);
   --bg-neutral-primary-hover:        var(--neutral-100);
   --bg-neutral-primary-disabled:     var(--neutral-100);
   --border-neutral-primary:          var(--neutral-200);
@@ -42,7 +42,7 @@
   --border-accent:           var(--primary-600);
   --border-accent-hover:     var(--primary-700);
   --border-accent-disabled:  var(--primary-200);
-  --text-on-accent:          #ffffff;
+  --text-on-accent:          var(--neutral-white);
   --text-on-accent-disabled: var(--primary-600);
   --text-accent:             var(--primary-600);
   --text-accent-hover:       var(--primary-700);
