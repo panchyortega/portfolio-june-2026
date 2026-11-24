@@ -4,13 +4,12 @@
    Referenciar siempre desde semantics.css
    ============================================== */
 
-@import url('https://api.fontshare.com/v2/css?f[]=sora@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap');
-
 :root {
 
   /* ── Tipografía — Familias ── */
-  --font-display: 'Sora', sans-serif;
-  --font-body:    'Work Sans', sans-serif;
+  /* Se cargan desde Google Fonts en src/app.html */
+  --font-display: 'Instrument Serif', serif;   /* solo existe en 400 (+ cursiva) */
+  --font-body:    'Albert Sans', sans-serif;
 
   /* ── Tipografía — Escala de tamaños ── */
   --size-2xs:  0.625rem;   /* 10px — solo para casos especiales como labels de íconos */
@@ -20,8 +19,8 @@
   --size-lg:   1.125rem;   /* 18px */
   --size-xl:   1.25rem;    /* 20px */
   --size-2xl:  1.5rem;     /* 24px */
-  --size-3xl:  2.25rem;    /* 36px */
-  --size-4xl:  3rem;       /* 48px */
+  --size-3xl:  2.5rem;     /* 40px — subió desde 36: la serif se ve más chica */
+  --size-4xl:  3.5rem;     /* 56px — subió desde 48 */
 
   /* ── Tipografía — Pesos ── */
   --weight-light:    300;
@@ -40,6 +39,7 @@
   --tracking-snug:   -0.01em;
   --tracking-normal:  0;
   --tracking-wide:    0.01em;
+  --tracking-caps:    0.08em;   /* para texto en mayúsculas */
 
   /* ── Colores — Neutral (verde desaturado frío) ── */
   --neutral-white: #FFFFFF;
@@ -138,8 +138,8 @@
 /* ── Escala tipográfica mobile ── */
 @media (max-width: 900px) {
   :root {
-    --size-4xl: 2rem;      /* 48 → 32px */
-    --size-3xl: 1.625rem;  /* 36 → 26px */
+    --size-4xl: 2.25rem;   /* 56 → 36px */
+    --size-3xl: 1.75rem;   /* 40 → 28px */
     --size-2xl: 1.25rem;   /* 24 → 20px */
     --size-xl:  1.0625rem; /* 20 → 17px */
   }

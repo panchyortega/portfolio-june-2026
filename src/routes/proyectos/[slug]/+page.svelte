@@ -79,7 +79,7 @@
   .prose :global(h3) {
     font-family: var(--font-display);
     font-size: var(--size-xl);
-    font-weight: var(--weight-medium);
+    font-weight: var(--weight-regular);
     color: var(--text-primary);
     line-height: var(--lh-snug);
     margin: var(--space-32) 0 var(--space-12);
