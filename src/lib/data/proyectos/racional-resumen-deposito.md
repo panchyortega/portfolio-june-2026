@@ -47,24 +47,24 @@ En pruebas de usabilidad con 111 usuarios, vimos que el desglose por acción apo
 
 ::::columnas 2
 :::tarjeta
-**1. La comisión va primero**
+Quieren ver la comisión para quedarse tranquilos
 
-7 de cada 10 quisieron verla antes de confirmar.
+<small>7 de cada 10 la pidió.</small>
 :::
 :::tarjeta
-**2. Ver a dónde va la plata**
+Saber que son "5 ETFs" no les basta, quieren saber cuáles
 
-La mitad prefirió la pantalla que muestra en qué ETFs se invierte.
+<small>De quienes vieron solo "5 ETFs", 6 de cada 10 prefirió la pantalla con los nombres.</small>
 :::
 :::tarjeta
-**3. El riesgo depende de la experiencia**
+Al avanzado le sobra el riesgo, al que recién empieza no
 
-Lo pidió la mitad de los principiantes y 1 de cada 3 avanzados.
+<small>Lo pidió la mitad de los principiantes y 1 de cada 3 avanzados.</small>
 :::
 :::tarjeta
-**4. "Reinversión de caja" confunde**
+Lo que no conocen hay que explicárselo
 
-Cerca de 3 de cada 10 no la entendió o le sobró.
+<small>Cerca de 3 de cada 10 no entendió "Reinversión de caja" o le sobró.</small>
 :::
 ::::
 
@@ -72,7 +72,7 @@ Cerca de 3 de cada 10 no la entendió o le sobró.
 
 ![Pantallazo de una pregunta de la encuesta](placeholder)
 
-Se consultó a 111 usuarios reales de Racional qué datos necesitan ver antes de confirmar un depósito. Lo más pedido fue la comisión, y por eso quedó en primera capa. Después, lo que más pesó en la preferencia fue saber en qué se invierte la plata: la pantalla que mostraba los ETFs ganó en principiantes y avanzados por igual. Por eso ese dato se priorizó, y las cuotas y el precio quedaron en el desglose, a un clic, para quien quiera calcular. El riesgo dividió a los usuarios: lo valoraron más los principiantes, y la mayoría de quienes lo pidieron por escrito lo eran. Se dejó visible igual, porque quien recién empieza no sabe que ese dato existe si queda escondido. "Reinversión de caja" fue el dato más difícil de entender, así que se movió al desglose con un texto informativo, idea que propuso un usuario. En todo el estudio, quienes se sintieron menos seguros pidieron más detalle y no menos. Por eso no se eliminó información: se ordenó en capas, con lo esencial a la vista y el resto a un clic.
+La pantalla es un momento de verificación: la persona ya decidió cuánto depositar y solo quiere confirmar que todo está bien. Por eso lo que más buscó fue el costo y el destino de su plata. La comisión quedó en la primera capa porque para algunas personas ver CLP 0 es lo que las deja tranquilas. Saber en qué se invierte fue lo que más pesó al comparar pantallas, así que se priorizó mostrarlo, y las cuotas y el precio quedaron en el desglose para quien quiera calcular. El riesgo se dejó visible aunque a los avanzados les sobre, porque quien recién empieza no sabe que existe si queda escondido. "Reinversión de caja" pasó al desglose con un texto informativo, idea que propuso un usuario. La forma de pago, que según los datos saldría de la pantalla, se mantiene en algunos estados por requerimiento de producto. Además, quienes se sintieron menos seguros pidieron más detalle y no menos, por eso la información se ordenó en capas en vez de quitarse.
 
 ## Solución
 
