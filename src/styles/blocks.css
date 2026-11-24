@@ -63,6 +63,15 @@
 .data-card > :is(span, a, button) {
   align-self: flex-start;
 }
+/* Bajada en texto pequeño: <small>…</small> en el markdown (mismo estilo que .type-small) */
+.data-card small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-normal);
+  color: var(--text-secondary);
+}
 .data-card > h4 {
   font-family: var(--font-display);
   font-size: var(--size-xl);
