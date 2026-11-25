@@ -90,7 +90,7 @@
     right: 0;
     top: calc(var(--top) + var(--phh) * var(--vis));
     height: var(--ph);
-    filter: drop-shadow(0 -1px 2px rgba(17, 23, 16, 0.08)) var(--filter-shadow-paper);
+    filter: drop-shadow(0 -1px 2px hsl(var(--shadow-color) / 0.1)) var(--filter-shadow-paper);
     transition: transform var(--duration-slow) var(--ease-default);
   }
   /* El recorte semicircular es una máscara; el arco de abajo le dibuja el borde */
