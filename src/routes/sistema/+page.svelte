@@ -25,7 +25,7 @@
     .sort();
 
   const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard', 'VideoFrame'];
-  const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader', 'HeroPhotos'];
+  const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader', 'HeroPhotos', 'ProjectCardTicket', 'ProjectCardSobre', 'ProjectCardClip', 'ProjectCardText', 'ProjectCardPhoto'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
   const neutralScale = ['white', '50','100','200','300','400','500','600','700','800','900', 'black'];
@@ -169,6 +169,18 @@
       <div class="comp-demo"><div style="max-width: 340px"><ProjectCard href="#" title="Proyecto de ejemplo" desc="Descripción breve del caso de estudio." imageLabel="imagen" tags={[{ label: 'Profesional', variant: 'primary' }, { label: '2025' }]} /></div></div>
     </div>
     <div class="comp-block">
+      <p class="comp-name type-label">ProjectCard — variantes</p>
+      <p class="muted type-small">Misma card con <code>variant="ticket"</code>, <code>"sobre"</code> o <code>"clip"</code>: objetos de papel con su propia animación al hover. Reciben las mismas props que la card base (la bajada se ajusta a lo que quepa).</p>
+      <div class="comp-demo variants">
+        {#each ['ticket', 'sobre', 'clip'] as v}
+          <div class="variant-cell">
+            <span class="type-small muted">variant="{v}"</span>
+            <ProjectCard variant={v} href="#" title="Resumen pre-confirmación de depósito" desc="Pantalla que se muestra antes de confirmar un depósito en Portafolios de Racional: la persona ve cómo se repartirá su plata." imageLabel="imagen 4:3" tags={[{ label: 'Profesional', variant: 'primary' }, { label: '2026' }]} />
+          </div>
+        {/each}
+      </div>
+    </div>
+    <div class="comp-block">
       <p class="comp-name type-label">MetaCard</p>
       <div class="comp-demo"><div style="max-width: 240px"><MetaCard items={metaEjemplo} /></div></div>
     </div>
@@ -262,6 +274,8 @@
   .comp-name { color: var(--text-secondary); display: block; margin-bottom: var(--space-12); }
   .comp-demo { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; padding: var(--space-24); background: var(--bg-neutral-secondary); border-radius: var(--radius-loose); }
   .comp-demo.full { display: block; }
+  .comp-demo.variants { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-32); align-items: start; }
+  .variant-cell { display: flex; flex-direction: column; gap: var(--space-12); }
 
   .diagram-demo {
     margin-top: var(--space-24);
