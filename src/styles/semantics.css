@@ -103,6 +103,9 @@
   --bg-paper:     var(--neutral-white);
   --border-paper: var(--neutral-200);
 
+  /* Destellos del hero */
+  --fill-sparkle: var(--amber-200);
+
 }
 
 /* ==============================================
@@ -247,4 +250,5 @@
   /* Papel — la foto impresa sigue siendo clara sobre fondo oscuro */
   --bg-paper:     var(--neutral-50);
   --border-paper: var(--neutral-200);
+  --fill-sparkle: var(--amber-200);
 }

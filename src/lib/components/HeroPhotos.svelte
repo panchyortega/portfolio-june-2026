@@ -246,7 +246,6 @@
     display: block;
     width: 100%;
     height: 100%;
-    fill: var(--bg-accent);
-    opacity: 0.85;
+    fill: var(--fill-sparkle);
   }
 </style>
