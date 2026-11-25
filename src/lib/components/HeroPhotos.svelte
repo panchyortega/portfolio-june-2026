@@ -78,12 +78,15 @@
       const q = m[1].split(',').map(Number);
       return Math.atan2(q[1], q[0]) * 180 / Math.PI;
     };
-    const R = (a) => ({ transform: `rotate(${a}deg)` });
+    // La sombra vive en la superficie: en reposo es corta y al abrirse (la foto se aleja) se desplaza, se difumina y se suaviza
+    const shadow = (l) => `0 ${(1 + 8 * l).toFixed(1)}px ${(3 + 14 * l).toFixed(1)}px rgba(0, 0, 0, ${(0.12 - 0.02 * l).toFixed(3)})`;
+    const R = (a, rest = a) => ({ transform: `rotate(${a}deg)`, boxShadow: shadow(Math.min(1, Math.abs(a - rest) / 12)) });
     // arranca siempre desde el ángulo actual, así nunca pega un salto si se interrumpe una animación
     const run = (o, kfs, dur, delay) => {
-      const cur = angle(o.el);
+      const cur = angle(o.el), sh = getComputedStyle(o.el).boxShadow;
       o.el._a?.cancel();
       kfs[0].transform = `rotate(${cur}deg)`;
+      kfs[0].boxShadow = sh;
       const a = o.el.animate(kfs, { duration: dur, delay, fill: 'both' });
       o.el._a = a;
       return a.finished;
@@ -99,7 +102,7 @@
       if (busy) return;
       hv = VARIANTS[vi];
       photos.forEach((o) =>
-        run(o, [{ ...R(0), easing: UP }, R(o.rest + o.sign * hv[o.k][0])], hv.dur * hv.t[0], lagOf(o, hv))
+        run(o, [{ ...R(0), easing: UP }, R(o.rest + o.sign * hv[o.k][0], o.rest)], hv.dur * hv.t[0], lagOf(o, hv))
       );
       burst(hv.fx, Math.ceil(hv.fx.n * .6), hv.dur * hv.t[0]);
     }
@@ -113,7 +116,7 @@
         if (hv[o.k].length > 1) {
           kf.splice(1, 0,
             { ...R(o.rest), offset: .6, easing: UP },
-            { ...R(o.rest + o.sign * hv[o.k][1]), offset: .8, easing: DOWN });
+            { ...R(o.rest + o.sign * hv[o.k][1], o.rest), offset: .8, easing: DOWN });
         }
         run(o, kf, hv.dur * (1 - hv.t[0]), lagOf(o, hv) * .5);
       });
@@ -126,7 +129,7 @@
       vi = (vi + 1) % VARIANTS.length;
       busy = true;
       const ps = photos.map((o) => {
-        const t = hv.t, pk = hv[o.k], a = (d) => R(o.rest + o.sign * d);
+        const t = hv.t, pk = hv[o.k], a = (d) => R(o.rest + o.sign * d, o.rest);
         const kf = [{ ...R(0), offset: 0, easing: UP }, { ...a(pk[0]), offset: t[0], easing: DOWN }];
         if (pk.length > 1) kf.push({ ...R(o.rest), offset: t[1], easing: UP }, { ...a(pk[1]), offset: t[2], easing: DOWN });
         kf.push({ ...R(o.rest), offset: 1 });
@@ -162,11 +165,11 @@
 <style>
   .duo {
     --px: 50%;    /* posición del clip: ancla común de las dos fotos */
-    --py: 8%;
+    --py: 9%;
     position: relative;
     width: 100%;
     max-width: 460px;
-    aspect-ratio: 1 / 1.02;
+    aspect-ratio: 1 / 0.86;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
@@ -177,30 +180,32 @@
     padding: var(--space-8);
     background: var(--bg-paper);
     border: 1px solid var(--border-paper);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-    will-change: transform;
+    border-radius: var(--radius-default);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    will-change: transform, box-shadow;
   }
   .ph img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: var(--radius-subtle);
   }
   /* El origen de la rotación es el clip, para las dos fotos */
   .back {
-    width: 82%;
+    width: 78%;
     aspect-ratio: 4 / 3.18;
-    left: calc(var(--px) - 56% * .82);
-    transform-origin: 56% 16px;
+    left: calc(var(--px) - 36% * .78);
+    transform-origin: 36% 16px;
     transform: rotate(-5deg);
     z-index: 1;
   }
-  .back img { object-position: 55% 50%; }
+  .back img { object-position: 70% 50%; }
   .front {
     width: 56%;
     aspect-ratio: 3 / 4.15;
-    left: calc(var(--px) - 44% * .56);
-    transform-origin: 44% 16px;
+    left: calc(var(--px) - 64% * .56);
+    transform-origin: 64% 16px;
     transform: rotate(5deg);
     z-index: 2;
   }
