@@ -15,9 +15,10 @@
    * @prop {string} image - URL de imagen real (opcional)
    * @prop {string} imageLabel - texto del placeholder si no hay imagen
    * @prop {Array<{label: string, variant?: 'neutral'|'primary'}>} tags
-   * @prop {string} [readingTime] - ej: "3 min de lectura" (solo variante 'default')
-   * @prop {'default'|'ticket'|'sobre'|'clip'} variant - forma de la card. 'default' es la card de siempre;
-   *   'ticket', 'sobre' y 'clip' son objetos de papel con su propia animación al hover.
+   * @prop {string} [readingTime] - ej: "3 min de lectura" (solo variante 'clasica')
+   * @prop {'sobre'|'clasica'|'ticket'|'clip'} variant - forma de la card. 'sobre' es la oficial del sitio
+   *   (decisión de Panchy: el listado del home usa solo sobres). 'clasica' es la card anterior, y
+   *   'ticket' y 'clip' son alternativas guardadas. No cambiar el home a otra sin que ella lo pida.
    */
   let {
     href = '#',
@@ -27,17 +28,15 @@
     imageLabel = '',
     tags = [],
     readingTime = undefined,
-    variant = 'default'
+    variant = 'sobre'
   } = $props();
 </script>
 
 {#if variant === 'ticket'}
   <ProjectCardTicket {href} {title} {desc} {image} {imageLabel} {tags} />
-{:else if variant === 'sobre'}
-  <ProjectCardSobre {href} {title} {desc} {image} {imageLabel} {tags} />
 {:else if variant === 'clip'}
   <ProjectCardClip {href} {title} {desc} {image} {imageLabel} {tags} />
-{:else}
+{:else if variant === 'clasica'}
 <a class="project-card" href="{base}{href}">
   <div class="project-card-thumb">
     {#if image}
@@ -63,6 +62,8 @@
     {/if}
   </div>
 </a>
+{:else}
+  <ProjectCardSobre {href} {title} {desc} {image} {imageLabel} {tags} />
 {/if}
 
 <style>

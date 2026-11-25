@@ -166,11 +166,11 @@
     <h2 class="section-title type-h2">Moléculas</h2>
     <div class="comp-block">
       <p class="comp-name type-label">ProjectCard</p>
-      <div class="comp-demo"><div style="max-width: 340px"><ProjectCard href="#" title="Proyecto de ejemplo" desc="Descripción breve del caso de estudio." imageLabel="imagen" tags={[{ label: 'Profesional', variant: 'primary' }, { label: '2025' }]} /></div></div>
+      <div class="comp-demo"><div style="max-width: 340px"><ProjectCard variant="clasica" href="#" title="Proyecto de ejemplo" desc="Descripción breve del caso de estudio." imageLabel="imagen" tags={[{ label: 'Profesional', variant: 'primary' }, { label: '2025' }]} /></div></div>
     </div>
     <div class="comp-block">
       <p class="comp-name type-label">ProjectCard — variantes</p>
-      <p class="muted type-small">Misma card con <code>variant="ticket"</code>, <code>"sobre"</code> o <code>"clip"</code>: objetos de papel con su propia animación al hover. Reciben las mismas props que la card base (la bajada se ajusta a lo que quepa).</p>
+      <p class="muted type-small">El <code>sobre</code> es la card oficial y la que usa el home (es el valor por defecto). <code>"clasica"</code>, <code>"ticket"</code> y <code>"clip"</code> son alternativas guardadas: objetos de papel con su propia animación al hover. Reciben las mismas props que la card base (la bajada se ajusta a lo que quepa).</p>
       <div class="comp-demo variants">
         {#each ['ticket', 'sobre', 'clip'] as v}
           <div class="variant-cell">
