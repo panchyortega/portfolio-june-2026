@@ -25,7 +25,7 @@
     .sort();
 
   const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard', 'VideoFrame'];
-  const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader'];
+  const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader', 'HeroPhotos'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
   const neutralScale = ['white', '50','100','200','300','400','500','600','700','800','900', 'black'];
