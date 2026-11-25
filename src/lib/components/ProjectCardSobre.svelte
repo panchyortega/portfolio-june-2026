@@ -5,20 +5,16 @@
 
   /**
    * ProjectCard — variante Sobre.
-   * Una ficha (con "Año …" arriba y la foto 4:3) asomando de un sobre con un recorte semicircular.
+   * Una ficha (solo la foto 4:3) asomando de un sobre con un recorte semicircular.
    * En reposo se ve ~75 % de la ficha; al hover sube y se ve completa. El texto va escrito en el sobre.
    * @prop {string} href - ruta al proyecto (ej: '/proyectos/ucap')
-   * @prop {string} [year] - texto de la cabecera de la ficha (ej: '2026'); si falta se toma de los tags
    */
-  let { href = '#', title = '', desc = '', image = undefined, imageLabel = '', tags = [], year = undefined } = $props();
-
-  let yr = $derived(year ?? tags.map((t) => t.label).find((l) => /^\d{4}$/.test(l)) ?? '');
+  let { href = '#', title = '', desc = '', image = undefined, imageLabel = '', tags = [] } = $props();
 </script>
 
 <div class="cq">
   <a class="env" href="{base}{href}">
     <div class="card">
-      <div class="head type-small"><span>{yr ? `Año ${yr}` : 'Proyecto'}</span></div>
       <div class="ph"><ProjectCardPhoto {image} alt={title} {imageLabel} /></div>
     </div>
     <div class="pocket">
@@ -34,10 +30,10 @@
   .env {
     --ei: 12px;     /* margen lateral de la ficha dentro del sobre */
     --vis: 0.75;    /* cuánto de la ficha se ve en reposo */
-    --ph: clamp(165px, 17cqw, 210px);    /* alto del sobre: crece con el ancho */
+    --ph: clamp(198px, 20.4cqw, 252px);    /* alto del sobre: crece con el ancho */
     --nr: 22px;     /* radio del recorte semicircular */
     --cpad: 10px;   /* margen de la foto dentro de la ficha */
-    --chd: 28px;    /* alto de la cabecera "Año …" */
+    --chd: var(--cpad); /* margen superior de la foto dentro de la ficha */
     --top: 10px;
     --pw: calc(100cqw - 2 * var(--ei));
     --phh: calc(var(--chd) + (var(--pw) - 2 * var(--cpad)) * 0.75 + var(--cpad));
@@ -48,7 +44,7 @@
     color: inherit;
   }
   @container (max-width: 380px) {
-    .env { --ei: 10px; --ph: 165px; --nr: 20px; }
+    .env { --ei: 10px; --ph: 198px; --nr: 20px; }
   }
 
   .card {
@@ -65,21 +61,10 @@
     box-shadow: var(--shadow-paper);
     transition: transform var(--duration-slow) var(--ease-default);
   }
-  .head {
-    flex: none;
-    height: var(--chd);
-    display: flex;
-    align-items: center;
-    padding: 0 var(--cpad);
-    font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-caps);
-    text-transform: uppercase;
-    color: var(--text-on-paper);
-  }
   .ph {
     flex: none;
     width: calc(100% - 2 * var(--cpad));
-    margin: 0 var(--cpad);
+    margin: var(--chd) var(--cpad) 0;
     aspect-ratio: 4 / 3;
   }
 
