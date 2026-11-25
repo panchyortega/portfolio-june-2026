@@ -3,6 +3,9 @@
   import { Clock } from '@lucide/svelte';
   import Tag from './Tag.svelte';
   import ImagePlaceholder from './ImagePlaceholder.svelte';
+  import ProjectCardTicket from './ProjectCardTicket.svelte';
+  import ProjectCardSobre from './ProjectCardSobre.svelte';
+  import ProjectCardClip from './ProjectCardClip.svelte';
 
   /**
    * Project Card
@@ -12,7 +15,9 @@
    * @prop {string} image - URL de imagen real (opcional)
    * @prop {string} imageLabel - texto del placeholder si no hay imagen
    * @prop {Array<{label: string, variant?: 'neutral'|'primary'}>} tags
-   * @prop {string} [readingTime] - ej: "3 min de lectura"
+   * @prop {string} [readingTime] - ej: "3 min de lectura" (solo variante 'default')
+   * @prop {'default'|'ticket'|'sobre'|'clip'} variant - forma de la card. 'default' es la card de siempre;
+   *   'ticket', 'sobre' y 'clip' son objetos de papel con su propia animación al hover.
    */
   let {
     href = '#',
@@ -21,10 +26,18 @@
     image = undefined,
     imageLabel = '',
     tags = [],
-    readingTime = undefined
+    readingTime = undefined,
+    variant = 'default'
   } = $props();
 </script>
 
+{#if variant === 'ticket'}
+  <ProjectCardTicket {href} {title} {desc} {image} {imageLabel} {tags} />
+{:else if variant === 'sobre'}
+  <ProjectCardSobre {href} {title} {desc} {image} {imageLabel} {tags} />
+{:else if variant === 'clip'}
+  <ProjectCardClip {href} {title} {desc} {image} {imageLabel} {tags} />
+{:else}
 <a class="project-card" href="{base}{href}">
   <div class="project-card-thumb">
     {#if image}
@@ -50,6 +63,7 @@
     {/if}
   </div>
 </a>
+{/if}
 
 <style>
   .project-card {
