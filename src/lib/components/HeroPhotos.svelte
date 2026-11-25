@@ -165,11 +165,11 @@
 <style>
   .duo {
     --px: 50%;    /* posición del clip: ancla común de las dos fotos */
-    --py: 8%;
+    --py: 9%;
     position: relative;
     width: 100%;
     max-width: 460px;
-    aspect-ratio: 1 / 1.02;
+    aspect-ratio: 1 / 0.86;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
