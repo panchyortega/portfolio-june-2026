@@ -99,6 +99,13 @@
   --spacing-sidebar-pad: var(--space-32);
   --spacing-content-pad: var(--space-32);
 
+  /* Papel — fotos impresas con marco (hero del home). Se mantiene claro en modo oscuro. */
+  --bg-paper:     var(--neutral-white);
+  --border-paper: var(--neutral-200);
+
+  /* Destellos del hero */
+  --fill-sparkle: var(--amber-200);
+
 }
 
 /* ==============================================
@@ -239,4 +246,9 @@
   --bg-accent-subtle:     var(--neutral-800);
   --bg-accent-muted:      var(--primary-800);
   --border-accent-subtle: var(--primary-500);
+
+  /* Papel — la foto impresa sigue siendo clara sobre fondo oscuro */
+  --bg-paper:     var(--neutral-50);
+  --border-paper: var(--neutral-200);
+  --fill-sparkle: var(--amber-200);
 }
