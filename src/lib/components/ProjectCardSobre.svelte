@@ -34,7 +34,7 @@
   .env {
     --ei: 12px;     /* margen lateral de la ficha dentro del sobre */
     --vis: 0.75;    /* cuánto de la ficha se ve en reposo */
-    --ph: 140px;    /* alto del sobre */
+    --ph: clamp(165px, 17cqw, 210px);    /* alto del sobre: crece con el ancho */
     --nr: 22px;     /* radio del recorte semicircular */
     --cpad: 10px;   /* margen de la foto dentro de la ficha */
     --chd: 28px;    /* alto de la cabecera "Año …" */
@@ -48,7 +48,7 @@
     color: inherit;
   }
   @container (max-width: 380px) {
-    .env { --ei: 10px; --ph: 150px; --nr: 20px; }
+    .env { --ei: 10px; --ph: 165px; --nr: 20px; }
   }
 
   .card {
@@ -62,7 +62,7 @@
     background: var(--bg-paper);
     border: 1px solid var(--border-neutral-secondary);
     border-radius: var(--radius-loose);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+    box-shadow: var(--shadow-paper);
     transition: transform var(--duration-slow) var(--ease-default);
   }
   .head {
@@ -90,7 +90,7 @@
     right: 0;
     top: calc(var(--top) + var(--phh) * var(--vis));
     height: var(--ph);
-    filter: drop-shadow(0 -1px 3px rgba(0, 0, 0, 0.1)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.14));
+    filter: drop-shadow(0 -1px 2px rgba(17, 23, 16, 0.08)) var(--filter-shadow-paper);
     transition: transform var(--duration-slow) var(--ease-default);
   }
   /* El recorte semicircular es una máscara; el arco de abajo le dibuja el borde */

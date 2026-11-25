@@ -78,7 +78,7 @@
     position: relative;
     display: flex;
     min-width: 0;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.14));
+    filter: var(--filter-shadow-paper);
     transition: transform var(--duration-normal) var(--ease-default);
   }
   .half.l { transform-origin: 100% 100%; }

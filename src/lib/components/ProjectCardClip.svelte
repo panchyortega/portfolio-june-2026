@@ -46,7 +46,7 @@
     background: var(--bg-paper);
     border: 1px solid var(--border-neutral-secondary);
     border-radius: var(--radius-default);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+    box-shadow: var(--shadow-paper);
   }
   .photo > :global(.photo) { flex: 1; }
 
@@ -61,7 +61,7 @@
     background: var(--bg-paper);
     border: 1px solid var(--border-neutral-secondary);
     border-radius: var(--radius-default);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-paper-raised);
     transform-origin: 19px 8px;   /* el clip es el ancla */
     transform: rotate(-1deg);
     transition: transform var(--duration-slow) var(--ease-default);
