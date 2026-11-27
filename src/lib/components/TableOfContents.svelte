@@ -120,7 +120,7 @@
       <li>
         <a
           href="#{item.id}"
-          class="toc-item type-small"
+          class="toc-item type-toc"
           class:sub={item.depth === 3}
           class:active={activeId === item.id}
           onclick={(e) => handleClick(e, item.id)}
@@ -137,10 +137,9 @@
   .toc-item {
     display: block;
     color: var(--text-secondary);
-    padding: var(--space-4) var(--space-12);
+    padding: var(--spacing-inset-2xs) var(--spacing-inset-sm);
     border-left: var(--border-width-lg) solid transparent;
-    margin-left: -1.5px;
-    line-height: 1.4;
+    margin-left: calc(var(--border-width-md) * -1); /* se monta sobre la línea de la lista */
     cursor: pointer;
     transition:
       color var(--duration-fast) var(--ease-default),
@@ -154,6 +153,6 @@
     border-left-color: var(--border-accent-subtle);
   }
   .toc-item.sub {
-    padding-left: var(--space-24);
+    padding-left: var(--spacing-inset-lg);
   }
 </style>

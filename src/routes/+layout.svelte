@@ -20,7 +20,7 @@
   }
   @media (max-width: 900px) {
     :global(body) {
-      padding-bottom: 60px;
+      padding-bottom: var(--nav-height-mobile);
     }
   }
 </style>

@@ -60,24 +60,24 @@
 </ContentLayout>
 
 <style>
-  .section { margin-bottom: var(--space-56); }
+  .section { margin-bottom: var(--spacing-section-sm); }
   .section:last-child { margin-bottom: 0; }
   .section-title {
     color: var(--text-primary);
-    margin-bottom: var(--space-24);
-    padding-bottom: var(--space-12);
+    margin-bottom: var(--spacing-stack-lg);
+    padding-bottom: var(--spacing-inset-sm);
     border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
-    scroll-margin-top: calc(var(--nav-height) + var(--space-24));
+    scroll-margin-top: calc(var(--nav-height) + var(--spacing-stack-lg));
   }
 
-  .edu-list { display: grid; gap: var(--space-24); }
-  .edu-titulo { color: var(--text-primary); margin-bottom: var(--space-4); }
+  .edu-list { display: grid; gap: var(--spacing-gap-lg); }
+  .edu-titulo { color: var(--text-primary); margin-bottom: var(--spacing-stack-2xs); }
   .edu-inst { color: var(--text-secondary); }
-  .edu-periodo { color: var(--text-secondary); margin-top: var(--space-4); }
+  .edu-periodo { color: var(--text-secondary); margin-top: var(--spacing-stack-2xs); }
 
-  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-32); }
-  .skill-group-title { color: var(--text-secondary); margin-bottom: var(--space-12); }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-gap-xl); }
+  .skill-group-title { color: var(--text-secondary); margin-bottom: var(--spacing-stack-sm); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: var(--spacing-gap-xs); }
 
   @media (max-width: 600px) {
     .skills-grid { grid-template-columns: 1fr; }

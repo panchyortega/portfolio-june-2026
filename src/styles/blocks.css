@@ -12,11 +12,11 @@
    ancho real del contenido (no al de la pantalla). */
 .columns-wrap {
   container-type: inline-size;
-  margin: var(--space-32) 0;
+  margin: var(--spacing-stack-xl) 0;
 }
 .columns {
   display: grid;
-  gap: var(--spacing-gap-md);
+  gap: var(--spacing-gap-lg);
   align-items: stretch;
 }
 .columns-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -47,11 +47,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-gap-sm);
-  padding: var(--space-20);
+  padding: var(--spacing-inset-lg);
   background: var(--bg-neutral-primary);
   border: var(--border-width-sm) solid var(--border-neutral-primary);
   border-radius: var(--radius-loose);
-  margin: var(--space-24) 0;
+  margin: var(--spacing-stack-lg) 0;
 }
 /* Dentro de columnas la card llena la celda y no suma margen */
 .columns > .data-card { margin: 0 !important; }
@@ -71,7 +71,7 @@
 .data-card-text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--spacing-gap-2xs);
 }
 .data-card-text > * {
   margin: 0 !important;
@@ -85,6 +85,42 @@
 /* Tipografía: clase .type-h3 que agrega markdown.js */
 .data-card > h4 {
   color: var(--text-primary);
+}
+
+/* ── ListItem: ícono + título y bajada, responsive ──
+   Web: se ve como tarjeta (ícono arriba, mismo estilo que DataCard).
+   Mobile (≤ 900px, mismo corte que la nav): misma caja, pero ícono a la
+   izquierda y texto al costado.
+   En el markdown: :::item nombre-icono (ver markdown.js). */
+.list-item {
+  --icon-color: var(--icon-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-gap-sm);
+  padding: var(--spacing-inset-lg);
+  background: var(--bg-neutral-primary);
+  border: var(--border-width-sm) solid var(--border-neutral-primary);
+  border-radius: var(--radius-loose);
+  margin: var(--spacing-stack-lg) 0;
+}
+.columns > .list-item { margin: 0 !important; }
+.list-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-2xs);
+  min-width: 0;
+}
+.list-item-text > * {
+  margin: 0 !important;
+}
+.list-item-text small {
+  display: block;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .list-item { flex-direction: row; }
 }
 
 /* ── Icon: contenedor de tamaño fijo para íconos Lucide ──
@@ -125,7 +161,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: var(--space-12);
+  padding: var(--spacing-inset-sm);
   font-size: var(--size-xs);
   color: var(--text-disabled);
   letter-spacing: var(--tracking-wide);
@@ -135,13 +171,13 @@
 .img-placeholder.in-content {
   border-radius: var(--radius-loose);
   border: var(--border-width-sm) solid var(--border-neutral-primary);
-  margin: var(--space-32) 0;
+  margin: var(--spacing-stack-xl) 0;
 }
 .data-card > .img-placeholder.in-content { margin: 0; }
 
 /* ── Videos del contenido — marco propio, loop, clic para pausar ── */
 .content-video {
-  margin: var(--space-32) 0;
+  margin: var(--spacing-stack-xl) 0;
 }
 .video-frame {
   position: relative;
@@ -173,8 +209,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: var(--space-48);
-  height: var(--space-48);
+  width: var(--size-control);
+  height: var(--size-control);
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
@@ -187,8 +223,8 @@
   pointer-events: none;
 }
 .video-play svg {
-  width: var(--space-20);
-  height: var(--space-20);
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
   margin-left: 2px; /* centra óptico el triángulo */
 }
 .video-frame.is-paused .video-play {
@@ -198,10 +234,10 @@
 /* Línea de progreso superpuesta: aparece en hover, en pausa o al arrastrar */
 .video-scrub {
   position: absolute;
-  left: var(--space-16);
-  right: var(--space-16);
-  bottom: var(--space-8);
-  height: var(--space-20); /* zona de clic más alta que la línea */
+  left: var(--spacing-inset-md);
+  right: var(--spacing-inset-md);
+  bottom: var(--spacing-inset-xs);
+  height: var(--size-hit-area); /* zona de clic más alta que la línea */
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -218,7 +254,7 @@
 .video-scrub-rail {
   position: relative;
   width: 100%;
-  height: var(--space-4);
+  height: var(--size-track);
   border-radius: var(--radius-pill);
   background: color-mix(in srgb, var(--bg-neutral-primary) 70%, transparent);
 }
@@ -233,15 +269,15 @@
   position: absolute;
   top: 50%;
   left: calc(var(--progress, 0) * 100%);
-  width: var(--space-12);
-  height: var(--space-12);
+  width: var(--size-handle);
+  height: var(--size-handle);
   transform: translate(-50%, -50%);
   border-radius: var(--radius-pill);
   background: var(--bg-accent);
   border: var(--border-width-lg) solid var(--bg-neutral-primary);
 }
 .content-video .content-caption {
-  margin-top: var(--space-8);
+  margin-top: var(--spacing-stack-xs);
   font-size: var(--size-xs);
   color: var(--text-secondary);
   text-align: center;

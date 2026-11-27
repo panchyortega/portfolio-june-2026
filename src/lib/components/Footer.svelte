@@ -24,21 +24,21 @@
 <style>
   footer {
     border-top: var(--border-width-sm) solid var(--border-neutral-primary);
-    padding: var(--space-48) 0 var(--space-32);
+    padding: var(--spacing-inset-2xl) 0 var(--spacing-inset-xl);
   }
   .footer-inner {
     max-width: var(--site-max);
     margin: 0 auto;
-    padding: 0 var(--space-24);
+    padding: 0 var(--spacing-gutter);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: var(--space-32);
+    gap: var(--spacing-gap-xl);
   }
   .footer-name {
     color: var(--text-primary);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--spacing-stack-2xs);
   }
   .footer-tagline {
     color: var(--text-secondary);
@@ -46,7 +46,7 @@
   .footer-links {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: var(--spacing-gap-xs);
   }
   .footer-link {
     color: var(--text-secondary);
@@ -57,8 +57,8 @@
   }
   .footer-bottom {
     max-width: var(--site-max);
-    margin: var(--space-32) auto 0;
-    padding: var(--space-16) var(--space-24) 0;
+    margin: var(--spacing-stack-xl) auto 0;
+    padding: var(--spacing-inset-md) var(--spacing-gutter) 0;
     border-top: var(--border-width-sm) solid var(--border-neutral-primary);
     color: var(--text-secondary);
   }

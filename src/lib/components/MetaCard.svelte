@@ -19,7 +19,7 @@
           {/each}
         </div>
       {:else}
-        <p class="meta-value type-small">{item.value}</p>
+        <p class="meta-value type-meta-value">{item.value}</p>
       {/if}
     </div>
   {/each}
@@ -27,22 +27,35 @@
 
 <style>
   .meta-item {
-    margin-bottom: var(--space-20);
+    margin-bottom: var(--spacing-stack-lg);
   }
   .meta-item:last-child {
     margin-bottom: 0;
   }
   .meta-label {
     color: var(--text-primary);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--spacing-stack-2xs);
   }
   .meta-value {
     color: var(--text-secondary);
-    line-height: 1.5;
   }
   .meta-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-6);
+    gap: var(--spacing-gap-xs);
+  }
+
+  /* Mobile: tabla compacta, etiqueta a la izquierda y valor a la derecha */
+  @media (max-width: 900px) {
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--spacing-gap-md);
+      margin-bottom: var(--spacing-stack-sm);
+    }
+    .meta-label { margin-bottom: 0; flex-shrink: 0; }
+    .meta-value { text-align: right; }
+    .meta-tags { justify-content: flex-end; }
   }
 </style>

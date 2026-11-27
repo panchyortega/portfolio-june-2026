@@ -14,7 +14,7 @@
     align-items: center;
     font-size: var(--size-xs);
     font-weight: var(--weight-medium);
-    padding: var(--space-4) var(--space-8);
+    padding: var(--spacing-inset-2xs) var(--spacing-inset-xs);
     border-radius: var(--radius-subtle);
     line-height: var(--lh-none);
     white-space: nowrap;

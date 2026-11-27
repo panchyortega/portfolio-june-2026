@@ -9,8 +9,10 @@
    * @prop {string} [backHref] - si existe, muestra "← Volver" (solo proyectos)
    * @prop {string} [readingTime] - tiempo de lectura (solo proyectos)
    * @prop {string} [eyebrow] - texto pequeño sobre el título (opcional)
+   * @prop {import('svelte').Snippet} [meta] - datos del proyecto; solo se ven en mobile
+   *   (en desktop van en el sidebar izquierdo de ContentLayout)
    */
-  let { title, subtitle, backHref, readingTime, eyebrow } = $props();
+  let { title, subtitle, backHref, readingTime, eyebrow, meta } = $props();
 </script>
 
 <header class="page-header">
@@ -35,22 +37,26 @@
       <Icon icon={Clock} size="sm" /> {readingTime}
     </p>
   {/if}
+
+  {#if meta}
+    <div class="ph-meta">{@render meta()}</div>
+  {/if}
 </header>
 
 <style>
   .page-header {
-    margin-bottom: var(--space-40);
-    padding-bottom: var(--space-32);
+    margin-bottom: var(--spacing-stack-2xl);
+    padding-bottom: var(--spacing-inset-xl);
     border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
   }
 
   .back-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-6);
+    gap: var(--spacing-gap-xs);
     color: var(--text-secondary);
     --icon-color: var(--icon-secondary);
-    margin-bottom: var(--space-32);
+    margin-bottom: var(--spacing-stack-xl);
     transition: color var(--duration-fast) var(--ease-default);
   }
   .back-link:hover { color: var(--text-accent); --icon-color: var(--icon-accent); }
@@ -58,12 +64,12 @@
   .eyebrow {
     color: var(--text-secondary);
     display: block;
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--spacing-stack-sm);
   }
 
   .ph-title {
     color: var(--text-primary);
-    margin-bottom: var(--space-16);
+    margin-bottom: var(--spacing-stack-md);
   }
 
   .ph-subtitle {
@@ -73,9 +79,18 @@
   .ph-reading {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-6);
+    gap: var(--spacing-gap-xs);
     color: var(--text-secondary);
     --icon-color: var(--icon-secondary);
-    margin-top: var(--space-16);
+    margin-top: var(--spacing-stack-md);
+  }
+
+  /* Datos del proyecto: en desktop viven en el sidebar; en mobile, acá */
+  .ph-meta { display: none; }
+  @media (max-width: 900px) {
+    .ph-meta {
+      display: block;
+      margin-top: var(--spacing-stack-lg);
+    }
   }
 </style>

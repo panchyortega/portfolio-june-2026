@@ -6,19 +6,17 @@
   let { children } = $props();
 </script>
 
-<div class="callout type-body">
+<div class="callout type-callout">
   {@render children()}
 </div>
 
 <style>
   .callout {
     border-left: var(--border-width-lg) solid var(--border-accent-subtle);
-    padding: var(--space-12) var(--space-16);
+    padding: var(--spacing-inset-sm) var(--spacing-inset-md);
     background: var(--bg-accent-subtle);
     border-radius: 0 var(--radius-default) var(--radius-default) 0;
-    font-style: italic;
     color: var(--text-accent);
-    line-height: 1.6;
-    margin: var(--space-24) 0;
+    margin: var(--spacing-stack-lg) 0;
   }
 </style>

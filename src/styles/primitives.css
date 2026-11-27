@@ -23,7 +23,9 @@
   --font-display: 'Instrument Serif', serif;   /* solo existe en 400 (+ cursiva) */
   --font-body:    'Albert Sans', sans-serif;
 
-  /* ── Tipografía — Escala de tamaños ── */
+  /* ── Tipografía — Escala de tamaños ──
+     Valores fijos: lo que cambia entre desktop y mobile se decide en
+     semantics.css (--font-size-*), no acá. */
   --size-2xs:  0.625rem;   /* 10px — solo para casos especiales como labels de íconos */
   --size-xs:   0.75rem;    /* 12px */
   --size-sm:   0.875rem;   /* 14px */
@@ -31,8 +33,11 @@
   --size-lg:   1.125rem;   /* 18px */
   --size-xl:   1.25rem;    /* 20px */
   --size-2xl:  1.5rem;     /* 24px */
-  --size-3xl:  2.5rem;     /* 40px — subió desde 36: la serif se ve más chica */
-  --size-4xl:  3.5rem;     /* 56px — subió desde 48 */
+  --size-3xl:  1.75rem;    /* 28px */
+  --size-4xl:  2rem;       /* 32px */
+  --size-5xl:  2.5rem;     /* 40px */
+  --size-6xl:  3rem;       /* 48px */
+  --size-7xl:  3.5rem;     /* 56px */
 
   /* ── Tipografía — Pesos ── */
   --weight-light:    300;
@@ -151,17 +156,9 @@
 
   /* ── Layout ── */
   --nav-height:    52px;
+  --nav-height-mobile: 60px;   /* barra inferior en mobile */
   --site-max:      1280px;
   --content-max:   600px;
   --sidebar-width: 220px;
 }
 
-/* ── Escala tipográfica mobile ── */
-@media (max-width: 900px) {
-  :root {
-    --size-4xl: 2.25rem;   /* 56 → 36px */
-    --size-3xl: 1.75rem;   /* 40 → 28px */
-    --size-2xl: 1.25rem;   /* 24 → 20px */
-    --size-xl:  1.0625rem; /* 20 → 17px */
-  }
-}

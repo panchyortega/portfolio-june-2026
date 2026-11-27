@@ -44,7 +44,7 @@
 
 <style>
   .exp {
-    padding: var(--space-32) 0;
+    padding: var(--spacing-inset-xl) 0;
     border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
   }
   .exp:last-child { border-bottom: none; }
@@ -53,8 +53,8 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: var(--space-16);
-    margin-bottom: var(--space-16);
+    gap: var(--spacing-gap-md);
+    margin-bottom: var(--spacing-stack-md);
   }
   .exp-empresa { color: var(--text-primary); }
   .exp-rol { color: var(--text-secondary); }
@@ -67,17 +67,17 @@
   .exp-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-6);
-    margin-bottom: var(--space-24);
+    gap: var(--spacing-gap-xs);
+    margin-bottom: var(--spacing-stack-lg);
   }
 
   .exp-blocks {
     display: grid;
-    gap: var(--space-20);
+    gap: var(--spacing-gap-lg);
   }
   .exp-block-title {
     color: var(--text-secondary);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--spacing-stack-xs);
   }
   .exp-block-text { color: var(--text-primary); }
   .exp-lead {
@@ -86,6 +86,6 @@
   }
 
   @media (max-width: 600px) {
-    .exp-header { flex-direction: column; gap: var(--space-4); }
+    .exp-header { flex-direction: column; gap: var(--spacing-gap-2xs); }
   }
 </style>

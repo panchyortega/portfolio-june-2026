@@ -105,26 +105,53 @@
   --radius-loose:   var(--radius-12);
   --radius-pill:    var(--radius-full);
 
-  /* ── Spacing — padding interno de componentes ── */
-  --spacing-component-xs: var(--space-4)  var(--space-8);
-  --spacing-component-sm: var(--space-8)  var(--space-12);
-  --spacing-component-md: var(--space-12) var(--space-20);
-  --spacing-component-lg: var(--space-16) var(--space-24);
+  /* ── Espaciado ──
+     Una escala de 7 pasos: 2xs 4 · xs 8 · sm 12 · md 16 · lg 24 · xl 32 · 2xl 48.
+     Tres familias con los mismos pasos, separadas por uso para poder
+     ajustarlas sin mover las otras:
+     - inset: relleno interno de un elemento y desplazamientos dentro de él
+     - gap:   separación entre hermanos (flex / grid)
+     - stack: separación vertical entre bloques (margin) */
+  --spacing-inset-2xs: var(--space-4);
+  --spacing-inset-xs:  var(--space-8);
+  --spacing-inset-sm:  var(--space-12);
+  --spacing-inset-md:  var(--space-16);
+  --spacing-inset-lg:  var(--space-24);
+  --spacing-inset-xl:  var(--space-32);
+  --spacing-inset-2xl: var(--space-48);
 
-  /* ── Spacing — gaps entre elementos ── */
-  --spacing-gap-xs: var(--space-8);
-  --spacing-gap-sm: var(--space-12);
-  --spacing-gap-md: var(--space-24);
-  --spacing-gap-lg: var(--space-40);
+  --spacing-gap-2xs: var(--space-4);
+  --spacing-gap-xs:  var(--space-8);
+  --spacing-gap-sm:  var(--space-12);
+  --spacing-gap-md:  var(--space-16);
+  --spacing-gap-lg:  var(--space-24);
+  --spacing-gap-xl:  var(--space-32);
+  --spacing-gap-2xl: var(--space-48);
 
-  /* ── Spacing — padding de secciones ── */
+  --spacing-stack-2xs: var(--space-4);
+  --spacing-stack-xs:  var(--space-8);
+  --spacing-stack-sm:  var(--space-12);
+  --spacing-stack-md:  var(--space-16);
+  --spacing-stack-lg:  var(--space-24);
+  --spacing-stack-xl:  var(--space-32);
+  --spacing-stack-2xl: var(--space-48);
+
+  /* ── Espaciado — secciones ── */
   --spacing-section-sm: var(--space-48);
   --spacing-section-md: var(--space-80);
   --spacing-section-lg: var(--space-128);
 
-  /* ── Spacing — layout ── */
-  --spacing-sidebar-pad: var(--space-32);
-  --spacing-content-pad: var(--space-32);
+  /* ── Espaciado — layout de página (responsive, ver media query abajo) ── */
+  --spacing-gutter:        var(--space-32);  /* margen lateral de nav y footer */
+  --spacing-sidebar-pad:   var(--space-32);
+  --spacing-content-pad-y: var(--space-32);
+  --spacing-content-pad-x: var(--space-48);
+
+  /* ── Tamaños de controles (video) ── */
+  --size-control:  var(--space-48);  /* botón circular de pausa */
+  --size-hit-area: var(--space-24);  /* zona de clic de la línea de progreso */
+  --size-track:    var(--space-4);   /* grosor de la línea de progreso */
+  --size-handle:   var(--space-12);  /* punto que se arrastra */
 
   /* Papel — fotos impresas con marco (hero del home). Se mantiene claro en modo oscuro. */
   --bg-paper:     var(--neutral-white);
@@ -166,6 +193,29 @@
 
 }
 
+/* ── Tamaños de título — responsive ──
+   Instrument Serif tiene un ojo mucho más chico que Albert Sans: a igual
+   tamaño en px se ve más pequeña. Por eso los títulos van al menos un
+   paso de escala por sobre el texto que los rodea (h3 24px > body-lg 18px),
+   y en mobile bajan menos de lo que bajarían en una sans. */
+:root {
+  --font-size-display: var(--size-7xl);   /* 56px */
+  --font-size-h1:      var(--size-6xl);   /* 48px */
+  --font-size-h2:      var(--size-4xl);   /* 32px */
+  --font-size-h3:      var(--size-2xl);   /* 24px */
+}
+
+@media (max-width: 900px) {
+  :root {
+    --spacing-gutter:        var(--space-24);
+    --spacing-content-pad-x: var(--space-24);
+    --font-size-display: var(--size-5xl); /* 40px */
+    --font-size-h1:      var(--size-4xl); /* 32px */
+    --font-size-h2:      var(--size-3xl); /* 28px */
+    --font-size-h3:      var(--size-2xl); /* 24px */
+  }
+}
+
 /* ==============================================
    TIPOGRAFÍA — Estilos compuestos globales
    Clases globales porque Svelte aísla estilos
@@ -178,7 +228,7 @@
    o el navegador inventa una negrita falsa. ── */
 .type-display {
   font-family: var(--font-display);
-  font-size: var(--size-4xl);
+  font-size: var(--font-size-display);
   font-weight: var(--weight-regular);
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-snug);
@@ -191,7 +241,7 @@
 
 .type-h1 {
   font-family: var(--font-display);
-  font-size: var(--size-3xl);
+  font-size: var(--font-size-h1);
   font-weight: var(--weight-regular);
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-snug);
@@ -199,7 +249,7 @@
 
 .type-h2 {
   font-family: var(--font-display);
-  font-size: var(--size-2xl);
+  font-size: var(--font-size-h2);
   font-weight: var(--weight-regular);
   line-height: var(--lh-snug);
   letter-spacing: var(--tracking-snug);
@@ -207,7 +257,7 @@
 
 .type-h3 {
   font-family: var(--font-display);
-  font-size: var(--size-xl);
+  font-size: var(--font-size-h3);
   font-weight: var(--weight-regular);
   line-height: var(--lh-snug);
 }
@@ -245,6 +295,31 @@
 }
 
 .type-card-small {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-snug);
+}
+
+/* ── Callout — cita destacada dentro del contenido ── */
+.type-callout {
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  line-height: var(--lh-normal);
+}
+
+/* ── Sidebar — valores del MetaCard e ítems del índice ──
+   Texto pequeño en columnas angostas: interlineado snug */
+.type-meta-value {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-snug);
+}
+
+.type-toc {
   font-family: var(--font-body);
   font-size: var(--size-xs);
   font-weight: var(--weight-regular);

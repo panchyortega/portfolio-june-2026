@@ -34,12 +34,12 @@
   .btn {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-8);
+    gap: var(--spacing-gap-xs);
     font-family: var(--font-body);
     font-size: var(--size-base);
     font-weight: var(--weight-medium);
     line-height: var(--lh-none);
-    padding: var(--space-12) var(--space-24);
+    padding: var(--spacing-inset-sm) var(--spacing-inset-lg);
     border-radius: var(--radius-pill);
     border: var(--border-width-md) solid transparent;
     cursor: pointer;
