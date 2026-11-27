@@ -60,7 +60,7 @@
 
   <div class="nav-right">
     <button class="nav-btn nav-btn-icon" onclick={toggleTheme} title="Cambiar tema" aria-label="Cambiar tema">
-      <Icon icon={$theme === 'dark' ? Sun : Moon} size="md" />
+      {#if $theme === 'dark'}<Icon icon={Sun} size="md" />{:else}<Icon icon={Moon} size="md" />{/if}
     </button>
   </div>
 </nav>
@@ -103,7 +103,7 @@
   </a>
 
   <button class="mobile-nav-item" onclick={toggleTheme} aria-label="Cambiar tema">
-    <Icon icon={$theme === 'dark' ? Sun : Moon} size="md" />
+    {#if $theme === 'dark'}<Icon icon={Sun} size="md" />{:else}<Icon icon={Moon} size="md" />{/if}
     <span>Tema</span>
   </button>
 </nav>
