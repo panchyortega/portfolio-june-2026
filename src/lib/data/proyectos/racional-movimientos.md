@@ -28,17 +28,17 @@ La funcionalidad existente ofrecía opciones de filtrado limitadas, obligando a 
 ![Pantalla original en web](placeholder "16/9")
 
 ::::columnas 3
-:::tarjeta calendar-off
+:::item calendar-off
 **Períodos limitados**
 
 <small>En web, solo era posible seleccionar el último mes, los últimos tres meses o el año en curso.</small>
 :::
-:::tarjeta list-filter
+:::item list-filter
 **Filtros poco flexibles**
 
 <small>No era posible filtrar por producto en web.</small>
 :::
-:::tarjeta file-x
+:::item file-x
 **Sin opción de exportar**
 
 <small>Los usuarios debían recurrir al registro manual de sus movimientos.</small>
@@ -54,17 +54,17 @@ Aunque esta mejora no estaba priorizada inicialmente, identifiqué una oportunid
 Para comprender si esta necesidad era compartida por otros usuarios, revisé tickets de soporte y conversé con el equipo encargado de atenderlos, quienes confirmaron que ambas funcionalidades eran solicitadas de manera recurrente.
 
 ::::columnas 3
-:::tarjeta messages-square
+:::item messages-square
 **Entrevistas**
 
 <small>Identificación de la necesidad inicial.</small>
 :::
-:::tarjeta headset
+:::item headset
 **Soporte**
 
 <small>Confirmación de solicitudes recurrentes.</small>
 :::
-:::tarjeta ticket
+:::item ticket
 **Tickets**
 
 <small>Revisión de necesidades reportadas.</small>
@@ -76,17 +76,17 @@ Identifiqué que estas necesidades eran especialmente relevantes para usuarios a
 ### Principales necesidades
 
 ::::columnas 3
-:::tarjeta search
+:::item search
 **Encontrar movimientos específicos**
 
 <small>Consultar períodos personalizados sin recorrer manualmente el historial.</small>
 :::
-:::tarjeta sliders-horizontal
+:::item sliders-horizontal
 **Segmentar la información**
 
 <small>Filtrar movimientos según el producto y el tipo de transacción.</small>
 :::
-:::tarjeta download
+:::item download
 **Disponer de su información**
 
 <small>Exportar los movimientos para utilizarlos en herramientas externas de organización financiera.</small>
@@ -128,22 +128,22 @@ Dado que Racional no contaba con un componente propio para seleccionar rangos de
 Utilicé Claude para generar prototipos funcionales que incorporaban inputs, estados y lógica de selección. Esto me permitió evaluar interacciones reales sin invertir tiempo prematuramente en su diseño visual o en construir prototipos complejos en Figma.
 
 ::::columnas 4
-:::tarjeta layers
+:::item layers
 **01. Referencias**
 
 <small>Mobbin</small>
 :::
-:::tarjeta mouse-pointer-click
+:::item mouse-pointer-click
 **02. Prototipado**
 
 <small>Claude</small>
 :::
-:::tarjeta users
+:::item users
 **03. Pruebas**
 
 <small>Equipo interno</small>
 :::
-:::tarjeta pen-tool
+:::item pen-tool
 **04. Diseño**
 
 <small>Figma</small>
@@ -246,17 +246,17 @@ La solución busca entregar mayor autonomía a los usuarios para consultar, veri
 Una vez implementada, su impacto podrá evaluarse mediante:
 
 ::::columnas 3
-:::tarjeta trending-up
+:::item trending-up
 **Adopción**
 
 <small>Uso de las funcionalidades entre usuarios con alta actividad transaccional.</small>
 :::
-:::tarjeta repeat
+:::item repeat
 **Utilidad**
 
 <small>Recurrencia de uso de filtros y exportaciones completadas.</small>
 :::
-:::tarjeta life-buoy
+:::item life-buoy
 **Fricción**
 
 <small>Evolución de los tickets de soporte asociados a estas necesidades.</small>

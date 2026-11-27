@@ -87,6 +87,30 @@
   color: var(--text-primary);
 }
 
+/* ── ListItem: ícono a la izquierda, título y bajada al costado ──
+   En el markdown: :::item nombre-icono (ver markdown.js). */
+.list-item {
+  --icon-color: var(--icon-accent);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-gap-sm);
+  margin: var(--space-24) 0;
+}
+.columns > .list-item { margin: 0 !important; }
+.list-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+.list-item-text > * {
+  margin: 0 !important;
+}
+.list-item-text small {
+  display: block;
+  color: var(--text-secondary);
+}
+
 /* ── Icon: contenedor de tamaño fijo para íconos Lucide ──
    Global porque lo usan el componente Icon.svelte y el HTML que genera
    markdown.js. El SVG (cuadrado) llena el contenedor sin deformarse.

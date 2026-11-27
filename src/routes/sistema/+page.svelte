@@ -14,7 +14,8 @@
   import DataCard from '$lib/components/DataCard.svelte';
   import VideoFrame from '$lib/components/VideoFrame.svelte';
   import Icon from '$lib/components/Icon.svelte';
-  import { Search, ArrowRight } from '@lucide/svelte';
+  import ListItem from '$lib/components/ListItem.svelte';
+  import { Search, ArrowRight, Headset } from '@lucide/svelte';
   import { base } from '$app/paths';
 
   let diagramaEl;
@@ -26,7 +27,7 @@
     .map((p) => p.split('/').pop().replace('.svelte', ''))
     .sort();
 
-  const documented = ['Icon', 'Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard', 'VideoFrame'];
+  const documented = ['Icon', 'Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard', 'ListItem', 'VideoFrame'];
   const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader', 'HeroPhotos', 'ProjectCardTicket', 'ProjectCardSobre', 'ProjectCardClip', 'ProjectCardText', 'ProjectCardPhoto'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
@@ -218,6 +219,13 @@
         </DataCard>
       </div></div>
       <p class="muted type-small">Contenedor libre: apila lo que le pongas, de arriba hacia abajo.</p>
+    </div>
+    <div class="comp-block">
+      <p class="comp-name type-label">ListItem</p>
+      <div class="comp-demo"><div style="max-width: 280px">
+        <ListItem icon={Headset} title="Soporte" description="Confirmación de solicitudes recurrentes." />
+      </div></div>
+      <p class="muted type-small">Ícono a la izquierda, título y bajada al costado. En el markdown: <code>:::item nombre-icono</code>.</p>
     </div>
     <div class="comp-block">
       <p class="comp-name type-label">Columns</p>

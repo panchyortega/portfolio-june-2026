@@ -19,13 +19,13 @@ marked.use({
       name: 'bloque',
       level: 'block',
       start(src) {
-        return src.match(/^:{3,}(?:columnas|tarjeta)/m)?.index;
+        return src.match(/^:{3,}(?:columnas|tarjeta|item)/m)?.index;
       },
       tokenizer(src) {
-        const m = /^(:{3,})(columnas|tarjeta)[ \t]*([\w-]+)?[ \t]*(\n[\s\S]*?)?\n\1[ \t]*(?:\n|$)/.exec(src);
+        const m = /^(:{3,})(columnas|tarjeta|item)[ \t]*([\w-]+)?[ \t]*(\n[\s\S]*?)?\n\1[ \t]*(?:\n|$)/.exec(src);
         if (!m) return;
         const cols = Math.min(4, Math.max(2, Number(m[3]) || 2));
-        const icon = m[2] === 'tarjeta' && hasLucideIcon(m[3]) ? m[3] : undefined;
+        const icon = (m[2] === 'tarjeta' || m[2] === 'item') && hasLucideIcon(m[3]) ? m[3] : undefined;
         return {
           type: 'bloque',
           raw: m[0],
@@ -40,6 +40,17 @@ marked.use({
         if (token.kind === 'columnas') {
           return `<div class="columns-wrap"><div class="columns columns-${token.cols}">${inner}</div></div>`;
         }
+        // Texto de tarjeta e item: estilos de card (interlineado más apretado)
+        const asCardText = (html) => html
+          .replace(/<p class="type-body">/g, '<p class="type-card">')
+          .replace(/<small>/g, '<small class="type-card-small">');
+        if (token.kind === 'item') {
+          // ListItem: ícono a la izquierda, título y bajada al costado (mismo HTML que ListItem.svelte)
+          const itemIcon = token.icon
+            ? `<span class="icon icon-lg list-item-icon" aria-hidden="true">${lucideSvg(token.icon)}</span>`
+            : '';
+          return `<div class="list-item">${itemIcon}<div class="list-item-text">${asCardText(inner)}</div></div>`;
+        }
         // Mismo contenedor que Icon.svelte (tamaño lg)
         const icon = token.icon
           ? `<span class="icon icon-lg data-card-icon" aria-hidden="true">${lucideSvg(token.icon)}</span>`
@@ -50,9 +61,7 @@ marked.use({
           '<div class="data-card-text">$1$2</div>'
         );
         // Dentro de la card el texto usa los estilos de card (interlineado más apretado)
-        const cardText = grouped
-          .replace(/<p class="type-body">/g, '<p class="type-card">')
-          .replace(/<small>/g, '<small class="type-card-small">');
+        const cardText = asCardText(grouped);
         return `<div class="data-card">${icon}${cardText}</div>`;
       }
     }
