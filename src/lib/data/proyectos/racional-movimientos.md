@@ -219,14 +219,14 @@ Facilita la consulta de movimientos específicos, ampliando las posibilidades de
 
 Permite consultar movimientos de fechas específicas, eliminando la dependencia de períodos predefinidos y reduciendo la necesidad de recorrer manualmente el historial.
 
-<!-- PENDIENTE · Un video corto (MP4) de la interacción del selector de fechas en mobile y otro en web. -->
+<!-- PENDIENTE · Un video corto (MP4) de la interacción del selector de fechas en web. -->
 
 ::::columnas 2
 :::tarjeta
-![Selector de fechas mobile · video de interacción](placeholder)
+![Selector de fechas en mobile, en modo oscuro y claro](/videos/proyectos/racional-movimientos/selector-fechas-mobile.mp4 "Selector de fechas en mobile, en modo oscuro y claro")
 :::
 :::tarjeta
-![Selector de fechas web · video de interacción](placeholder)
+![Selector de fechas web · video de interacción](placeholder "1/1")
 :::
 ::::
 
