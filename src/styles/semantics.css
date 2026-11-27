@@ -143,8 +143,8 @@
   /* Sombras de papel (técnica de Josh Comeau): una sola luz arriba a la izquierda,
      por eso la proporción x:y es siempre 1:2; 4-5 capas que duplican desplazamiento
      y desenfoque, cada una con poca opacidad; y el color sale del tono del fondo
-     (verde de la paleta, más oscuro), no de negro puro. */
-  --shadow-color: 100deg 18% 22%;
+     (gris de la paleta, más oscuro), no de negro puro. */
+  --shadow-color: 0deg 0% 16%;
   --shadow-paper:
     0.5px 1px 1px hsl(var(--shadow-color) / 0.20),
     1px 2px 2px hsl(var(--shadow-color) / 0.15),
@@ -327,6 +327,13 @@
   --border-clip: var(--neutral-300);
 
   /* Accent — el texto de acento sube a un tono mas brillante para leer sobre oscuro */
+  /* Acento de relleno (botón, subrayado de nav, TOC) más claro con texto oscuro:
+     primary-600 casi no se ve sobre el fondo oscuro (2,3:1) */
+  --bg-accent:            var(--primary-400);
+  --bg-accent-hover:      var(--primary-300);
+  --border-accent:        var(--primary-400);
+  --border-accent-hover:  var(--primary-300);
+  --text-on-accent:       var(--neutral-900);
   --text-accent:          var(--primary-300);
   --text-accent-hover:    var(--primary-200);
   --bg-accent-subtle:     var(--neutral-800);

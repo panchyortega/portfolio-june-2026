@@ -54,31 +54,31 @@
   --tracking-wide:    0.01em;
   --tracking-caps:    0.08em;   /* para texto en mayúsculas */
 
-  /* ── Colores — Neutral (verde desaturado frío) ── */
+  /* ── Colores — Neutral (gris puro) ── */
   --neutral-white: #FFFFFF;
-  --neutral-50:  #F4F5F2;
-  --neutral-100: #E3E6DF;
-  --neutral-200: #C8CEC1;
-  --neutral-300: #A8B09E;
-  --neutral-400: #869180;
-  --neutral-500: #637060;
-  --neutral-600: #4A5546;
-  --neutral-700: #343D31;
-  --neutral-800: #1F261D;
-  --neutral-900: #111710;
+  --neutral-50:  #FDFDFD;
+  --neutral-100: #DADADA;
+  --neutral-200: #B8B8B8;
+  --neutral-300: #989898;
+  --neutral-400: #787878;
+  --neutral-500: #5A5A5A;
+  --neutral-600: #4D4D4D;
+  --neutral-700: #404040;
+  --neutral-800: #343434;
+  --neutral-900: #282828;
   --neutral-black: #000000;
 
-  /* ── Colores — Primary (terracota) ── */
-  --primary-50:  #FFF2EC;
-  --primary-100: #FFCFB3;
-  --primary-200: #FF9966;
-  --primary-300: #FF7733;
-  --primary-400: #FF5C00;
-  --primary-500: #CC4900;
-  --primary-600: #BA3500;
-  --primary-700: #8A2800;
-  --primary-800: #5C1A00;
-  --primary-900: #2E0D00;
+  /* ── Colores — Primary (lavanda / índigo) ── */
+  --primary-50:  #F5F6FF;
+  --primary-100: #D8DDFF;
+  --primary-200: #BCC3FF;
+  --primary-300: #A2A9FF;
+  --primary-400: #898DFF;
+  --primary-500: #7373F2;
+  --primary-600: #5550B7;
+  --primary-700: #382F80;
+  --primary-800: #1C114C;
+  --primary-900: #05001E;
 
   /* ── Colores — Green (success) ── */
   --green-100: #DCFCE7;
