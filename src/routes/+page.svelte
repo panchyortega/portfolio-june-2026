@@ -26,7 +26,7 @@
   </section>
 
   <section class="projects">
-    <h2 class="projects-title type-h2">Proyectos</h2>
+    <h2 class="projects-title type-h1">Proyectos</h2>
     <div class="projects-grid">
       {#each projects as p}
         <ProjectCard
