@@ -42,7 +42,7 @@ export const projects = [
       { label: 'Tipo', tags: [{ label: 'Profesional', variant: 'primary' }] },
       { label: 'Mi rol', value: 'Product Designer' },
       { label: 'Plataformas', value: 'Web y mobile' },
-      { label: 'Estado', tags: [{ label: 'Pendiente de implementación' }] },
+      { label: 'Estado', tags: [{ label: 'En implementación' }] },
       { label: 'Herramientas', value: 'Figma · Mobbin · Claude' }
     ],
     content: racionalMovimientos
