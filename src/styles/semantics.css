@@ -113,8 +113,8 @@
   /* Sombras de papel (técnica de Josh Comeau): una sola luz arriba a la izquierda,
      por eso la proporción x:y es siempre 1:2; 4-5 capas que duplican desplazamiento
      y desenfoque, cada una con poca opacidad; y el color sale del tono del fondo
-     (verde de la paleta, más oscuro), no de negro puro. */
-  --shadow-color: 100deg 18% 22%;
+     (gris violeta de la paleta, más oscuro), no de negro puro. */
+  --shadow-color: 270deg 4% 16%;
   --shadow-paper:
     0.5px 1px 1px hsl(var(--shadow-color) / 0.20),
     1px 2px 2px hsl(var(--shadow-color) / 0.15),

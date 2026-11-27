@@ -104,7 +104,7 @@ flowchart TD
 ````
 
 Se renderiza automáticamente con los colores del sistema (borde y líneas en
-terracota, texto y fondo neutros). Figuras que uso: `(( ))` círculo para
+color de acento, texto y fondo neutros). Figuras que uso: `(( ))` círculo para
 inicio/fin, `[ ]` rectángulo para pasos, `{ }` rombo para decisiones. Como es
 texto, puedes tener un diagrama en español y otro en inglés.
 
