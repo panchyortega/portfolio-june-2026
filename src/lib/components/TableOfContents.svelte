@@ -120,7 +120,7 @@
       <li>
         <a
           href="#{item.id}"
-          class="toc-item type-small"
+          class="toc-item type-toc"
           class:sub={item.depth === 3}
           class:active={activeId === item.id}
           onclick={(e) => handleClick(e, item.id)}
@@ -140,7 +140,6 @@
     padding: var(--space-4) var(--space-12);
     border-left: var(--border-width-lg) solid transparent;
     margin-left: -1.5px;
-    line-height: 1.4;
     cursor: pointer;
     transition:
       color var(--duration-fast) var(--ease-default),

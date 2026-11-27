@@ -19,7 +19,7 @@
           {/each}
         </div>
       {:else}
-        <p class="meta-value type-small">{item.value}</p>
+        <p class="meta-value type-meta-value">{item.value}</p>
       {/if}
     </div>
   {/each}
@@ -38,7 +38,6 @@
   }
   .meta-value {
     color: var(--text-secondary);
-    line-height: 1.5;
   }
   .meta-tags {
     display: flex;

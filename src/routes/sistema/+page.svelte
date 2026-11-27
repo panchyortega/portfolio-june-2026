@@ -46,6 +46,9 @@
     { cls: 'type-small', label: 'Small' },
     { cls: 'type-card', label: 'Card' },
     { cls: 'type-card-small', label: 'Card small' },
+    { cls: 'type-callout', label: 'Callout' },
+    { cls: 'type-meta-value', label: 'Meta value' },
+    { cls: 'type-toc', label: 'Índice' },
     { cls: 'type-label', label: 'Label' },
     { cls: 'type-overline', label: 'Overline' },
     { cls: 'type-caption', label: 'Caption' }

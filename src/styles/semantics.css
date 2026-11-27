@@ -251,6 +251,31 @@
   line-height: var(--lh-snug);
 }
 
+/* ── Callout — cita destacada dentro del contenido ── */
+.type-callout {
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  line-height: var(--lh-normal);
+}
+
+/* ── Sidebar — valores del MetaCard e ítems del índice ──
+   Texto pequeño en columnas angostas: interlineado snug */
+.type-meta-value {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-snug);
+}
+
+.type-toc {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-snug);
+}
+
 /* ── Casos especiales ── */
 .type-label {
   font-family: var(--font-body);
