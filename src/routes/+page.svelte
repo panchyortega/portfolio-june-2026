@@ -26,7 +26,7 @@
   </section>
 
   <section class="projects">
-    <p class="projects-title type-label">Proyectos</p>
+    <h2 class="projects-title type-h2">Proyectos</h2>
     <div class="projects-grid">
       {#each projects as p}
         <ProjectCard
@@ -88,7 +88,7 @@
     padding-bottom: var(--spacing-section-md);
   }
   .projects-title {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     display: block;
     margin-bottom: var(--space-24);
   }
