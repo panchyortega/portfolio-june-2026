@@ -40,13 +40,20 @@ marked.use({
         if (token.kind === 'columnas') {
           return `<div class="columns-wrap"><div class="columns columns-${token.cols}">${inner}</div></div>`;
         }
-        const icon = token.icon ? lucideSvg(token.icon, { size: 28, class: 'data-card-icon' }) : '';
+        // Mismo contenedor que Icon.svelte (tamaño lg)
+        const icon = token.icon
+          ? `<span class="icon icon-lg data-card-icon" aria-hidden="true">${lucideSvg(token.icon)}</span>`
+          : '';
         // Título en negrita + bajada <small> van juntos en un div con gap propio (más chico que el de la tarjeta)
         const grouped = inner.replace(
-          /(<p><strong>[^<]*<\/strong><\/p>\s*)(<p><small>[\s\S]*?<\/small><\/p>)/g,
+          /(<p[^>]*><strong>[^<]*<\/strong><\/p>\s*)(<p[^>]*><small>[\s\S]*?<\/small><\/p>)/g,
           '<div class="data-card-text">$1$2</div>'
         );
-        return `<div class="data-card">${icon}${grouped}</div>`;
+        // Dentro de la card el texto usa los estilos de card (interlineado más apretado)
+        const cardText = grouped
+          .replace(/<p class="type-body">/g, '<p class="type-card">')
+          .replace(/<small>/g, '<small class="type-card-small">');
+        return `<div class="data-card">${icon}${cardText}</div>`;
       }
     }
   ]
@@ -168,16 +175,19 @@ export function renderMarkdown(md, { base = '' } = {}) {
     if (token.tokens && token.tokens.length === 1 && token.tokens[0].type === 'image') {
       return renderMedia(token.tokens[0]);
     }
-    return originalParagraph(token);
+    // Clase tipográfica global: el estilo vive en semantics.css, no en .prose
+    return originalParagraph(token).replace(/^<p>/, '<p class="type-body">');
   };
+
+  // Cada nivel usa su clase tipográfica global (semantics.css). h4 solo se usa
+  // dentro de tarjetas y toma el estilo de h3.
+  const HEADING_CLASS = { 2: 'type-h2', 3: 'type-h3', 4: 'type-h3' };
 
   renderer.heading = function (token) {
     const html = originalHeading(token);
-    if (token.depth === 2 || token.depth === 3) {
-      const id = slugify(token.text);
-      return html.replace(/^<h([23])/, `<h$1 id="${id}"`);
-    }
-    return html;
+    const cls = HEADING_CLASS[token.depth];
+    const id = token.depth === 2 || token.depth === 3 ? ` id="${slugify(token.text)}"` : '';
+    return cls ? html.replace(/^<h([234])/, `<h$1${id} class="${cls}"`) : html;
   };
 
   const html = marked.parse(md, { renderer });

@@ -1,6 +1,7 @@
 <script>
   import { base } from '$app/paths';
   import { Clock } from '@lucide/svelte';
+  import Icon from './Icon.svelte';
   import Tag from './Tag.svelte';
   import ImagePlaceholder from './ImagePlaceholder.svelte';
   import ProjectCardTicket from './ProjectCardTicket.svelte';
@@ -57,7 +58,7 @@
     <p class="project-card-desc type-small">{desc}</p>
     {#if readingTime}
       <p class="project-card-reading type-small">
-        <Clock size={13} /> {readingTime}
+        <Icon icon={Clock} size="sm" /> {readingTime}
       </p>
     {/if}
   </div>
@@ -120,6 +121,7 @@
     align-items: center;
     gap: var(--space-6);
     color: var(--text-secondary);
+    --icon-color: var(--icon-secondary);
     margin-top: var(--space-12);
   }
 </style>

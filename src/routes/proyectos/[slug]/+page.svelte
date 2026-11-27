@@ -9,6 +9,7 @@
   import MetaCard from '$lib/components/MetaCard.svelte';
   import Button from '$lib/components/Button.svelte';
   import { ArrowLeft, ArrowRight } from '@lucide/svelte';
+  import Icon from '$lib/components/Icon.svelte';
 
   let { data } = $props();
   let { project, html, toc, readingTime, prev, next } = $derived(data);
@@ -50,8 +51,8 @@
   </article>
 
   <nav class="project-nav">
-    <Button variant="ghost" href={`${base}/proyectos/${prev.slug}`}><ArrowLeft size={16} aria-hidden="true" /> Anterior</Button>
-    <Button variant="primary" href={`${base}/proyectos/${next.slug}`}>Siguiente <ArrowRight size={16} aria-hidden="true" /></Button>
+    <Button variant="ghost" href={`${base}/proyectos/${prev.slug}`}><Icon icon={ArrowLeft} size="md" /> Anterior</Button>
+    <Button variant="primary" href={`${base}/proyectos/${next.slug}`}>Siguiente <Icon icon={ArrowRight} size="md" /></Button>
   </nav>
 </ContentLayout>
 
@@ -59,40 +60,32 @@
   .project-nav {
     margin-top: var(--space-64);
     padding-top: var(--space-32);
-    border-top: 1px solid var(--border-neutral-primary);
+    border-top: var(--border-width-sm) solid var(--border-neutral-primary);
     display: flex;
     justify-content: flex-end;
     gap: var(--space-12);
   }
 
   /* ── Prose — estilos del markdown renderizado ── */
+  /* Tipografía de h2/h3/p: clases .type-h2, .type-h3 y .type-body que agrega
+     markdown.js. Acá solo color y ritmo vertical. */
   .prose :global(h2) {
-    font-family: var(--font-display);
-    font-size: var(--size-2xl);
-    font-weight: var(--weight-regular);
     color: var(--text-primary);
-    line-height: var(--lh-snug);
     margin: var(--space-48) 0 var(--space-16);
     scroll-margin-top: calc(var(--nav-height) + var(--space-24));
   }
   .prose :global(h2:first-child) { margin-top: 0; }
   .prose :global(h3) {
-    font-family: var(--font-display);
-    font-size: var(--size-xl);
-    font-weight: var(--weight-regular);
     color: var(--text-primary);
-    line-height: var(--lh-snug);
     margin: var(--space-32) 0 var(--space-12);
     scroll-margin-top: calc(var(--nav-height) + var(--space-24));
   }
   .prose :global(p) {
-    font-size: var(--size-base);
-    line-height: var(--lh-normal);
     color: var(--text-primary);
     margin-bottom: var(--space-20);
   }
   .prose :global(blockquote) {
-    border-left: 2px solid var(--border-accent-subtle);
+    border-left: var(--border-width-lg) solid var(--border-accent-subtle);
     padding: var(--space-12) var(--space-16);
     background: var(--bg-accent-subtle);
     border-radius: 0 var(--radius-default) var(--radius-default) 0;
@@ -124,7 +117,7 @@
     width: 100%;
     overflow: hidden;
     border-radius: var(--radius-loose);
-    border: 1px solid var(--border-neutral-primary);
+    border: var(--border-width-sm) solid var(--border-neutral-primary);
     background: var(--bg-neutral-secondary);
     cursor: grab;
     touch-action: none;
@@ -194,7 +187,7 @@
     justify-content: center;
     background: var(--bg-neutral-primary);
     color: var(--text-primary);
-    border: 1px solid var(--border-neutral-primary);
+    border: var(--border-width-sm) solid var(--border-neutral-primary);
     border-radius: var(--radius-default);
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(17, 23, 16, 0.1);
@@ -220,7 +213,7 @@
     font-size: var(--size-xs);
     color: var(--text-secondary);
     background: var(--bg-neutral-primary);
-    border: 1px solid var(--border-neutral-primary);
+    border: var(--border-width-sm) solid var(--border-neutral-primary);
     border-radius: var(--radius-default);
     padding: var(--space-4) var(--space-8);
     opacity: 0;

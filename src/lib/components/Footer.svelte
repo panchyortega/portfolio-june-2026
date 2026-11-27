@@ -23,7 +23,7 @@
 
 <style>
   footer {
-    border-top: 1px solid var(--border-neutral-primary);
+    border-top: var(--border-width-sm) solid var(--border-neutral-primary);
     padding: var(--space-48) 0 var(--space-32);
   }
   .footer-inner {
@@ -59,7 +59,7 @@
     max-width: var(--site-max);
     margin: var(--space-32) auto 0;
     padding: var(--space-16) var(--space-24) 0;
-    border-top: 1px solid var(--border-neutral-primary);
+    border-top: var(--border-width-sm) solid var(--border-neutral-primary);
     color: var(--text-secondary);
   }
 </style>

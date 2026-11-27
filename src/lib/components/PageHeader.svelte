@@ -1,6 +1,6 @@
 <script>
-  import { ArrowLeft } from '@lucide/svelte';
-  import { Clock } from '@lucide/svelte';
+  import { ArrowLeft, Clock } from '@lucide/svelte';
+  import Icon from './Icon.svelte';
 
   /**
    * Page Header — encabezado consistente de páginas internas.
@@ -16,7 +16,7 @@
 <header class="page-header">
   {#if backHref}
     <a href={backHref} class="back-link type-label">
-      <ArrowLeft size={15} /> Volver
+      <Icon icon={ArrowLeft} size="sm" /> Volver
     </a>
   {/if}
 
@@ -32,7 +32,7 @@
 
   {#if readingTime}
     <p class="ph-reading type-small">
-      <Clock size={14} /> {readingTime}
+      <Icon icon={Clock} size="sm" /> {readingTime}
     </p>
   {/if}
 </header>
@@ -41,7 +41,7 @@
   .page-header {
     margin-bottom: var(--space-40);
     padding-bottom: var(--space-32);
-    border-bottom: 1px solid var(--border-neutral-primary);
+    border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
   }
 
   .back-link {
@@ -49,10 +49,11 @@
     align-items: center;
     gap: var(--space-6);
     color: var(--text-secondary);
+    --icon-color: var(--icon-secondary);
     margin-bottom: var(--space-32);
     transition: color var(--duration-fast) var(--ease-default);
   }
-  .back-link:hover { color: var(--text-accent); }
+  .back-link:hover { color: var(--text-accent); --icon-color: var(--icon-accent); }
 
   .eyebrow {
     color: var(--text-secondary);
@@ -74,6 +75,7 @@
     align-items: center;
     gap: var(--space-6);
     color: var(--text-secondary);
+    --icon-color: var(--icon-secondary);
     margin-top: var(--space-16);
   }
 </style>

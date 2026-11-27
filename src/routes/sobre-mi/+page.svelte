@@ -66,7 +66,7 @@
     color: var(--text-primary);
     margin-bottom: var(--space-24);
     padding-bottom: var(--space-12);
-    border-bottom: 1px solid var(--border-neutral-primary);
+    border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
     scroll-margin-top: calc(var(--nav-height) + var(--space-24));
   }
 

@@ -45,7 +45,7 @@
 <style>
   .exp {
     padding: var(--space-32) 0;
-    border-bottom: 1px solid var(--border-neutral-primary);
+    border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
   }
   .exp:last-child { border-bottom: none; }
 
