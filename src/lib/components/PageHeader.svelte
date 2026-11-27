@@ -91,6 +91,10 @@
     .ph-meta {
       display: block;
       margin-top: var(--spacing-stack-lg);
+      padding: var(--spacing-inset-md);
+      background: var(--bg-neutral-primary);
+      border: var(--border-width-sm) solid var(--border-neutral-primary);
+      border-radius: var(--radius-loose);
     }
   }
 </style>
