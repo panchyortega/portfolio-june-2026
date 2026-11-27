@@ -321,9 +321,8 @@
   --icon-disabled:    var(--neutral-500);
   --icon-accent:      var(--primary-300);
   --icon-accent-hover: var(--primary-200);
-  /* Sigue a --text-on-accent: en oscuro el botón de acento lleva texto oscuro
-     (si la paleta lo define así); el ícono tiene que ir igual */
-  --icon-on-accent:   var(--text-on-accent);
+  /* En oscuro el botón de acento lleva texto oscuro (ver --text-on-accent) */
+  --icon-on-accent:   var(--neutral-900);
 
   --border-clip: var(--neutral-300);
 
