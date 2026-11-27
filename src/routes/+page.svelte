@@ -72,7 +72,7 @@
     font-family: var(--font-display);
     font-size: var(--font-size-display);
     font-weight: var(--weight-regular);
-    letter-spacing: var(--tracking-snug);
+    letter-spacing: var(--tracking-tight);
     line-height: 1.05;
     color: var(--text-primary);
     margin-bottom: var(--space-24);

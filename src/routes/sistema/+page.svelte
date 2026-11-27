@@ -37,22 +37,29 @@
   const textTokens = ['--text-primary','--text-secondary','--text-accent','--text-disabled'];
   const iconTokens = ['--icon-primary','--icon-secondary','--icon-accent','--icon-disabled'];
 
+  const fontFamilies = [
+    { cls: 'font-display', name: 'DM Serif Display', uso: 'Display del hero', muestra: 'Aa' },
+    { cls: 'font-heading', name: 'DM Serif Text', uso: 'Headings h1, h2, h3', muestra: 'Aa' },
+    { cls: 'font-body', name: 'DM Sans', uso: 'Párrafos y UI · 300–700', muestra: 'Aa' }
+  ];
+
+  // spec: familia · tamaño web / mobile (px) · interlineado
   const typeStyles = [
-    { cls: 'type-display', label: 'Display' },
-    { cls: 'type-h1', label: 'Heading 1' },
-    { cls: 'type-h2', label: 'Heading 2' },
-    { cls: 'type-h3', label: 'Heading 3' },
-    { cls: 'type-body-lg', label: 'Body Large' },
-    { cls: 'type-body', label: 'Body' },
-    { cls: 'type-small', label: 'Small' },
-    { cls: 'type-card', label: 'Card' },
-    { cls: 'type-card-small', label: 'Card small' },
-    { cls: 'type-callout', label: 'Callout' },
-    { cls: 'type-meta-value', label: 'Meta value' },
-    { cls: 'type-toc', label: 'Índice' },
-    { cls: 'type-label', label: 'Label' },
-    { cls: 'type-overline', label: 'Overline' },
-    { cls: 'type-caption', label: 'Caption' }
+    { cls: 'type-display', label: 'Display', spec: 'DM Serif Display · 64 / 40 · 1.15', texto: 'Diseño con sentido' },
+    { cls: 'type-h1', label: 'Heading 1', spec: 'DM Serif Text · 48 / 32 · 1.15', texto: 'Diseño con sentido' },
+    { cls: 'type-h2', label: 'Heading 2', spec: 'DM Serif Text · 32 / 28 · 1.35', texto: 'Diseño con sentido' },
+    { cls: 'type-h3', label: 'Heading 3', spec: 'DM Serif Text · 24 / 20 · 1.35', texto: 'Diseño con sentido' },
+    { cls: 'type-body-lg', label: 'Body Large', spec: 'DM Sans · 18 · 1.7', texto: 'Diseño productos digitales que la gente entiende a la primera.' },
+    { cls: 'type-body', label: 'Body', spec: 'DM Sans · 16 · 1.7', texto: 'Diseño productos digitales que la gente entiende a la primera.' },
+    { cls: 'type-small', label: 'Small', spec: 'DM Sans · 12 · 1.7', texto: 'Diseño productos digitales que la gente entiende a la primera.' },
+    { cls: 'type-card', label: 'Card', spec: 'DM Sans · 16 · 1.35', texto: 'Diseño productos digitales que la gente entiende a la primera.' },
+    { cls: 'type-card-small', label: 'Card small', spec: 'DM Sans · 12 · 1.35', texto: 'Diseño productos digitales que la gente entiende a la primera.' },
+    { cls: 'type-callout', label: 'Callout', spec: 'DM Sans cursiva · 16 · 1.7', texto: 'Diseño productos digitales que la gente entiende a la primera.' },
+    { cls: 'type-meta-value', label: 'Meta value', spec: 'DM Sans · 12 · 1.35', texto: 'Racional · Fintech' },
+    { cls: 'type-toc', label: 'Índice', spec: 'DM Sans · 12 · 1.35', texto: 'Problema y objetivo' },
+    { cls: 'type-label', label: 'Label', spec: 'DM Sans medium · 14 · 1.15', texto: 'Diseño con sentido' },
+    { cls: 'type-overline', label: 'Overline', spec: 'DM Sans medium · 14 · mayúsculas', texto: 'Diseño con sentido' },
+    { cls: 'type-caption', label: 'Caption', spec: 'DM Sans light · 12 · 1.35', texto: 'Diseño con sentido' }
   ];
 
   const metaEjemplo = [
@@ -141,9 +148,25 @@
 
   <section class="section" id="tipografia">
     <h2 class="section-title type-h2">Tipografía</h2>
+    <p class="muted type-small">Familia DM. Los tamaños de display y headings cambian bajo 900px (web / mobile); el resto es igual en ambos.</p>
+    <div class="family-grid">
+      {#each fontFamilies as f}
+        <div class="family-card">
+          <span class="family-sample {f.cls}">{f.muestra}</span>
+          <span class="type-label">{f.name}</span>
+          <span class="type-caption family-use">{f.uso}</span>
+        </div>
+      {/each}
+    </div>
     <div class="type-list">
       {#each typeStyles as t}
-        <div class="type-row"><span class="type-meta type-caption">{t.label}</span><span class={t.cls}>Diseño con sentido</span></div>
+        <div class="type-row">
+          <div class="type-meta">
+            <span class="type-label">{t.label}</span>
+            <span class="type-caption">{t.spec}</span>
+          </div>
+          <span class="type-sample {t.cls}">{t.texto}</span>
+        </div>
       {/each}
     </div>
   </section>
@@ -300,7 +323,19 @@
 
   .type-list { display: flex; flex-direction: column; gap: var(--spacing-gap-lg); }
   .type-row { display: flex; align-items: baseline; gap: var(--spacing-gap-lg); }
-  .type-meta { color: var(--text-secondary); width: 80px; flex-shrink: 0; }
+  .type-meta { color: var(--text-secondary); width: 220px; flex-shrink: 0; display: flex; flex-direction: column; gap: var(--spacing-gap-2xs); }
+  .type-sample { min-width: 0; overflow-wrap: anywhere; }
+  .family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-gap-md); margin-bottom: var(--spacing-stack-xl); }
+  .family-card { display: flex; flex-direction: column; gap: var(--spacing-gap-2xs); padding: var(--spacing-inset-lg); background: var(--bg-neutral-secondary); border-radius: var(--radius-loose); }
+  .family-sample { font-size: var(--size-6xl); line-height: var(--lh-tight); color: var(--text-primary); }
+  .family-use { color: var(--text-secondary); }
+  .font-display { font-family: var(--font-display); }
+  .font-heading { font-family: var(--font-heading); }
+  .font-body { font-family: var(--font-body); }
+  @media (max-width: 900px) {
+    .type-row { flex-direction: column; align-items: flex-start; gap: var(--spacing-gap-xs); }
+    .type-meta { width: auto; }
+  }
 
   .comp-block { margin-bottom: var(--spacing-stack-2xl); }
   .icon-demo { align-items: center; }

@@ -7,21 +7,22 @@
 :root {
 
   /* ── Tipografía — Familias ──
-     Actuales (desde nov 2026): Instrument Serif + Albert Sans.
-     Se cargan desde Google Fonts en src/app.html.
-     Referencia de la pareja: pin de Kathalyst Design Studio
-     (kathalystdesignstudio.com) visto en Pinterest.
+     Familia DM (desde nov 2026), de Google Fonts, cargada en src/app.html:
+       · DM Serif Display → solo el display del hero
+       · DM Serif Text    → headings (h1, h2, h3)
+       · DM Sans          → párrafos y UI (variable, 300–700)
+     Las dos serif solo existen en 400 (+ cursiva): no pedirles negrita.
 
-     Anteriores: Sora (display) + Work Sans (body), desde Fontshare.
-     Para volver a ellas, reemplaza el <link> de Google Fonts en
-     app.html por este import al inicio de este archivo:
-       @import url('https://api.fontshare.com/v2/css?f[]=sora@400,500,600,700,800&f[]=work-sans@300,400,500,600,700&display=swap');
-     y usa:
-       --font-display: 'Sora', sans-serif;
-       --font-body:    'Work Sans', sans-serif;
-     Sora sí tiene pesos 500–600: los títulos estaban en semibold. */
-  --font-display: 'Instrument Serif', serif;   /* solo existe en 400 (+ cursiva) */
-  --font-body:    'Albert Sans', sans-serif;
+     Anteriores: Instrument Serif + Albert Sans, y antes Sora + Work Sans.
+     Para volver a Instrument Serif + Albert Sans, reemplaza el <link>
+     de app.html por:
+       family=Albert+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400
+       &family=Instrument+Serif:ital@0;1
+     y usa --font-display y --font-heading: 'Instrument Serif', serif;
+     --font-body: 'Albert Sans', sans-serif. */
+  --font-display: 'DM Serif Display', 'DM Serif Text', Georgia, serif;
+  --font-heading: 'DM Serif Text', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
 
   /* ── Tipografía — Escala de tamaños ──
      Valores fijos: lo que cambia entre desktop y mobile se decide en
@@ -38,6 +39,7 @@
   --size-5xl:  2.5rem;     /* 40px */
   --size-6xl:  3rem;       /* 48px */
   --size-7xl:  3.5rem;     /* 56px */
+  --size-8xl:  4rem;       /* 64px */
 
   /* ── Tipografía — Pesos ── */
   --weight-light:    300;

@@ -193,13 +193,26 @@
 
 }
 
-/* ── Tamaños de título — responsive ──
-   Instrument Serif tiene un ojo mucho más chico que Albert Sans: a igual
-   tamaño en px se ve más pequeña. Por eso los títulos van al menos un
-   paso de escala por sobre el texto que los rodea (h3 24px > body-lg 18px),
-   y en mobile bajan menos de lo que bajarían en una sans. */
+/* ── Escala tipográfica — web / mobile ──
+   Familias: DM Serif Display (display del hero), DM Serif Text (h1–h3)
+   y DM Sans (todo lo demás). Las dos serif tienen ojo grande y trazo
+   alto contraste: a tamaños chicos pierden finura, por eso h3 no baja
+   de 20px. El display es el único que usa la Display (más condensada y
+   con más contraste, hecha para tamaños grandes).
+
+                web    mobile   familia
+   display      64      40      DM Serif Display
+   h1           48      32      DM Serif Text
+   h2           32      28      DM Serif Text
+   h3           24      20      DM Serif Text
+   body-lg      18      18      DM Sans
+   body         16      16      DM Sans
+   small/card   12      12      DM Sans
+
+   Los primitivos --size-* son fijos: lo que cambia por breakpoint son
+   estos --font-size-*. */
 :root {
-  --font-size-display: var(--size-7xl);   /* 56px */
+  --font-size-display: var(--size-8xl);   /* 64px */
   --font-size-h1:      var(--size-6xl);   /* 48px */
   --font-size-h2:      var(--size-4xl);   /* 32px */
   --font-size-h3:      var(--size-2xl);   /* 24px */
@@ -212,7 +225,7 @@
     --font-size-display: var(--size-5xl); /* 40px */
     --font-size-h1:      var(--size-4xl); /* 32px */
     --font-size-h2:      var(--size-3xl); /* 28px */
-    --font-size-h3:      var(--size-2xl); /* 24px */
+    --font-size-h3:      var(--size-xl);  /* 20px */
   }
 }
 
@@ -223,15 +236,15 @@
    cualquier componente sin repetir propiedades.
    ============================================== */
 
-/* ── Headings — Instrument Serif ──
-   Solo tiene peso 400: no pedirle semibold
+/* ── Display — DM Serif Display (solo hero) ──
+   Las serif DM solo tienen peso 400: no pedirles semibold
    o el navegador inventa una negrita falsa. ── */
 .type-display {
   font-family: var(--font-display);
   font-size: var(--font-size-display);
   font-weight: var(--weight-regular);
   line-height: var(--lh-tight);
-  letter-spacing: var(--tracking-snug);
+  letter-spacing: var(--tracking-tight);
 }
 
 .type-display em,
@@ -239,8 +252,9 @@
   font-style: italic;
 }
 
+/* ── Headings — DM Serif Text ── */
 .type-h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--font-size-h1);
   font-weight: var(--weight-regular);
   line-height: var(--lh-tight);
@@ -248,7 +262,7 @@
 }
 
 .type-h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--font-size-h2);
   font-weight: var(--weight-regular);
   line-height: var(--lh-snug);
@@ -256,13 +270,13 @@
 }
 
 .type-h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--font-size-h3);
   font-weight: var(--weight-regular);
   line-height: var(--lh-snug);
 }
 
-/* ── Body — Albert Sans ── */
+/* ── Body — DM Sans ── */
 .type-body-lg {
   font-family: var(--font-body);
   font-size: var(--size-lg);
