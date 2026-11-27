@@ -120,7 +120,7 @@
 }
 
 @media (max-width: 900px) {
-  .list-item { flex-direction: row; }
+  .list-item { flex-direction: row; align-items: center; }
 }
 
 /* ── Icon: contenedor de tamaño fijo para íconos Lucide ──
