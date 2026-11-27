@@ -16,7 +16,7 @@
    * @prop {string} imageLabel - texto del placeholder si no hay imagen
    * @prop {Array<{label: string, variant?: 'neutral'|'primary'}>} tags
    * @prop {string} [readingTime] - ej: "3 min de lectura" (solo variante 'clasica')
-   * @prop {'sobre'|'clasica'|'ticket'|'clip'} variant - forma de la card. 'sobre' es la oficial del sitio
+   * @prop {'sobre'|'clasica'|'ticket'|'clip'} variant - forma de la card. 'clasica' es la oficial del sitio
    *   (decisión de Panchy: el listado del home usa solo sobres). 'clasica' es la card anterior, y
    *   'ticket' y 'clip' son alternativas guardadas. No cambiar el home a otra sin que ella lo pida.
    */
@@ -28,7 +28,7 @@
     imageLabel = '',
     tags = [],
     readingTime = undefined,
-    variant = 'sobre'
+    variant = 'clasica'
   } = $props();
 </script>
 

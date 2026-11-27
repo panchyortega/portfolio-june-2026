@@ -30,7 +30,7 @@
     <div class="projects-grid">
       {#each projects as p}
         <ProjectCard
-          variant="sobre"
+          variant="clasica"
           href="/proyectos/{p.slug}"
           title={p.title}
           desc={p.desc}

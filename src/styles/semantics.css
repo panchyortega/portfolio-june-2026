@@ -12,7 +12,7 @@
   --text-disabled:  var(--neutral-400);
 
   /* ── Neutral Primary ── */
-  --bg-neutral-primary:              var(--neutral-white);
+  --bg-neutral-primary:              var(--neutral-50);
   --bg-neutral-primary-hover:        var(--neutral-100);
   --bg-neutral-primary-disabled:     var(--neutral-100);
   --border-neutral-primary:          var(--neutral-200);
@@ -28,7 +28,7 @@
   --border-neutral-secondary-disabled: var(--neutral-300);
 
   /* ── Neutral Tertiary ── */
-  --bg-neutral-tertiary:               var(--neutral-200);
+  --bg-neutral-tertiary:               var(--neutral-100);
   --bg-neutral-tertiary-hover:         var(--neutral-300);
   --bg-neutral-tertiary-disabled:      var(--neutral-300);
   --border-neutral-tertiary:           var(--neutral-400);
