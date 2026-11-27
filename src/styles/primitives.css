@@ -41,6 +41,7 @@
   --weight-semibold: 600;
 
   /* ── Tipografía — Line height ── */
+  --lh-none:   1;      /* controles de una sola línea (botones, tags) */
   --lh-tight:  1.15;
   --lh-snug:   1.35;
   --lh-normal: 1.7;
@@ -125,6 +126,14 @@
   --space-80:  5rem;       /*  80px */
   --space-96:  6rem;       /*  96px */
   --space-128: 8rem;       /* 128px */
+
+  /* ── Grosores de línea (bordes y trazo de íconos) ──
+     Una sola escala para todo lo que es "línea". Los decimales
+     viven solo acá; los semánticos eligen de esta lista. */
+  --stroke-1:    1px;
+  --stroke-1-5:  1.5px;
+  --stroke-1-75: 1.75px;
+  --stroke-2:    2px;
 
   /* ── Border radius ── */
   --radius-2:    2px;

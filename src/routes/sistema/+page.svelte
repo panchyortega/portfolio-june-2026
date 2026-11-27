@@ -13,6 +13,8 @@
   import Columns from '$lib/components/Columns.svelte';
   import DataCard from '$lib/components/DataCard.svelte';
   import VideoFrame from '$lib/components/VideoFrame.svelte';
+  import Icon from '$lib/components/Icon.svelte';
+  import { Search, ArrowRight } from '@lucide/svelte';
   import { base } from '$app/paths';
 
   let diagramaEl;
@@ -24,7 +26,7 @@
     .map((p) => p.split('/').pop().replace('.svelte', ''))
     .sort();
 
-  const documented = ['Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard', 'VideoFrame'];
+  const documented = ['Icon', 'Tag', 'Button', 'Callout', 'ImagePlaceholder', 'ProjectCard', 'MetaCard', 'ExperienceItem', 'Columns', 'DataCard', 'VideoFrame'];
   const inContext = ['Nav', 'Footer', 'TableOfContents', 'ContentLayout', 'PageHeader', 'HeroPhotos', 'ProjectCardTicket', 'ProjectCardSobre', 'ProjectCardClip', 'ProjectCardText', 'ProjectCardPhoto'];
   const missing = allComponents.filter((c) => !documented.includes(c) && !inContext.includes(c));
 
@@ -32,6 +34,7 @@
   const primaryScale = ['50','100','200','300','400','500','600','700','800','900'];
   const semanticBg = ['--bg-neutral-primary','--bg-neutral-secondary','--bg-neutral-tertiary','--bg-accent','--bg-success','--bg-warning','--bg-error'];
   const textTokens = ['--text-primary','--text-secondary','--text-accent','--text-disabled'];
+  const iconTokens = ['--icon-primary','--icon-secondary','--icon-accent','--icon-disabled'];
 
   const typeStyles = [
     { cls: 'type-display', label: 'Display' },
@@ -41,6 +44,8 @@
     { cls: 'type-body-lg', label: 'Body Large' },
     { cls: 'type-body', label: 'Body' },
     { cls: 'type-small', label: 'Small' },
+    { cls: 'type-card', label: 'Card' },
+    { cls: 'type-card-small', label: 'Card small' },
     { cls: 'type-label', label: 'Label' },
     { cls: 'type-overline', label: 'Overline' },
     { cls: 'type-caption', label: 'Caption' }
@@ -122,6 +127,12 @@
         <p style="color: var({token})" class="type-body">{token}</p>
       {/each}
     </div>
+    <p class="scale-name type-label">Íconos</p>
+    <div class="text-tokens">
+      {#each iconTokens as token}
+        <p style="--icon-color: var({token})" class="icon-token type-body"><Icon icon={Search} size="md" /> {token}</p>
+      {/each}
+    </div>
   </section>
 
   <section class="section" id="tipografia">
@@ -135,6 +146,16 @@
 
   <section class="section" id="atomos">
     <h2 class="section-title type-h2">Átomos</h2>
+    <div class="comp-block">
+      <p class="comp-name type-label">Icon</p>
+      <div class="comp-demo icon-demo">
+        <span class="icon-sample"><Icon icon={Search} size="sm" /><span class="type-caption">sm</span></span>
+        <span class="icon-sample"><Icon icon={Search} size="md" /><span class="type-caption">md</span></span>
+        <span class="icon-sample"><Icon icon={Search} size="lg" /><span class="type-caption">lg</span></span>
+        <Button variant="primary">Siguiente <Icon icon={ArrowRight} size="md" /></Button>
+      </div>
+      <p class="muted type-small">Contenedor de tamaño fijo: el ícono lo llena sin deformarse. Cada tamaño trae su grosor de trazo. El color lo da el contexto con un token --icon-*.</p>
+    </div>
     <div class="comp-block">
       <p class="comp-name type-label">Tag</p>
       <div class="comp-demo"><Tag variant="neutral">Neutral</Tag><Tag variant="primary">Primary</Tag></div>
@@ -188,8 +209,8 @@
       <p class="comp-name type-label">DataCard</p>
       <div class="comp-demo"><div style="max-width: 280px">
         <DataCard>
-          <h4>7 de cada 10 personas</h4>
-          <p>No sabían por qué parte de su plata quedaba sin invertir.</p>
+          <h4 class="type-h3">7 de cada 10 personas</h4>
+          <p class="type-card">No sabían por qué parte de su plata quedaba sin invertir.</p>
           <Tag variant="primary">Hallazgo</Tag>
         </DataCard>
       </div></div>
@@ -199,9 +220,9 @@
       <p class="comp-name type-label">Columns</p>
       <div class="comp-demo full">
         <Columns cols={3}>
-          <DataCard><h4>Dato uno</h4><p>Texto de ejemplo.</p></DataCard>
-          <DataCard><h4>Dato dos</h4><p>Texto de ejemplo.</p></DataCard>
-          <DataCard><h4>Dato tres</h4><p>Texto de ejemplo.</p></DataCard>
+          <DataCard><h4 class="type-h3">Dato uno</h4><p class="type-card">Texto de ejemplo.</p></DataCard>
+          <DataCard><h4 class="type-h3">Dato dos</h4><p class="type-card">Texto de ejemplo.</p></DataCard>
+          <DataCard><h4 class="type-h3">Dato tres</h4><p class="type-card">Texto de ejemplo.</p></DataCard>
         </Columns>
       </div>
       <p class="muted type-small">2, 3 o 4 columnas con el gap de la home. Se apilan según el ancho del contenido.</p>
@@ -246,7 +267,7 @@
     color: var(--text-primary);
     margin-bottom: var(--space-24);
     padding-bottom: var(--space-12);
-    border-bottom: 1px solid var(--border-neutral-primary);
+    border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
     scroll-margin-top: calc(var(--nav-height) + var(--space-24));
   }
   .muted { color: var(--text-secondary); margin-bottom: var(--space-16); }
@@ -259,11 +280,11 @@
   .scale-name { color: var(--text-secondary); display: block; margin: var(--space-20) 0 var(--space-8); }
   .swatch-row { display: flex; gap: var(--space-8); flex-wrap: wrap; }
   .swatch { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
-  .swatch-color { width: 48px; height: 48px; border-radius: var(--radius-8); border: 1px solid var(--border-neutral-primary); }
+  .swatch-color { width: 48px; height: 48px; border-radius: var(--radius-8); border: var(--border-width-sm) solid var(--border-neutral-primary); }
   .swatch-label { color: var(--text-secondary); }
   .swatch-grid { display: flex; flex-wrap: wrap; gap: var(--space-12); margin-bottom: var(--space-24); }
   .swatch-lg { display: flex; flex-direction: column; gap: var(--space-6); }
-  .swatch-color-lg { width: 100px; height: 64px; border-radius: var(--radius-8); border: 1px solid var(--border-neutral-primary); }
+  .swatch-color-lg { width: 100px; height: 64px; border-radius: var(--radius-8); border: var(--border-width-sm) solid var(--border-neutral-primary); }
   .text-tokens { display: flex; flex-direction: column; gap: var(--space-8); }
 
   .type-list { display: flex; flex-direction: column; gap: var(--space-24); }
@@ -271,6 +292,9 @@
   .type-meta { color: var(--text-secondary); width: 80px; flex-shrink: 0; }
 
   .comp-block { margin-bottom: var(--space-40); }
+  .icon-demo { align-items: center; }
+  .icon-sample { display: inline-flex; flex-direction: column; align-items: center; gap: var(--spacing-gap-xs); color: var(--text-secondary); }
+  .icon-token { display: flex; align-items: center; gap: var(--spacing-gap-xs); }
   .comp-name { color: var(--text-secondary); display: block; margin-bottom: var(--space-12); }
   .comp-demo { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; padding: var(--space-24); background: var(--bg-neutral-secondary); border-radius: var(--radius-loose); }
   .comp-demo.full { display: block; }

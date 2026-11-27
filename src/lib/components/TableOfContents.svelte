@@ -132,13 +132,13 @@
 
 <style>
   .toc-list {
-    border-left: 1.5px solid var(--border-neutral-primary);
+    border-left: var(--border-width-md) solid var(--border-neutral-primary);
   }
   .toc-item {
     display: block;
     color: var(--text-secondary);
     padding: var(--space-4) var(--space-12);
-    border-left: 2px solid transparent;
+    border-left: var(--border-width-lg) solid transparent;
     margin-left: -1.5px;
     line-height: 1.4;
     cursor: pointer;

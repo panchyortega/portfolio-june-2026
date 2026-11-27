@@ -4,6 +4,7 @@
   import { theme, toggleTheme } from '$lib/stores/theme.js';
   import { projects } from '$lib/data/projects.js';
   import { ChevronDown, House, LayoutGrid, User, Palette, Sun, Moon } from '@lucide/svelte';
+  import Icon from './Icon.svelte';
 
   let openDropdown = $state(null); // 'proyectos' | 'mas' | null
 
@@ -41,7 +42,7 @@
         aria-expanded={openDropdown === 'proyectos'}
         onclick={() => toggle('proyectos')}
       >
-        Proyectos <ChevronDown size={14} class="chevron" />
+        Proyectos <Icon icon={ChevronDown} size="sm" class="chevron" />
       </button>
       <div class="nav-dropdown" class:open={openDropdown === 'proyectos'}>
         {#each projects as p}
@@ -59,7 +60,7 @@
 
   <div class="nav-right">
     <button class="nav-btn nav-btn-icon" onclick={toggleTheme} title="Cambiar tema" aria-label="Cambiar tema">
-      {#if $theme === 'dark'}<Sun size={18} />{:else}<Moon size={18} />{/if}
+      {#if $theme === 'dark'}<Icon icon={Sun} size="md" />{:else}<Icon icon={Moon} size="md" />{/if}
     </button>
   </div>
 </nav>
@@ -67,7 +68,7 @@
 <!-- ── Nav mobile ── -->
 <nav class="mobile-nav">
   <a href="{base}/" class="mobile-nav-item" class:active={path === '/'}>
-    <House size={22} />
+    <Icon icon={House} size="md" />
     <span>Inicio</span>
   </a>
 
@@ -78,7 +79,7 @@
       aria-expanded={openDropdown === 'proyectos'}
       onclick={() => toggle('proyectos')}
     >
-      <LayoutGrid size={22} />
+      <Icon icon={LayoutGrid} size="md" />
       <span>Proyectos</span>
     </button>
     <div class="nav-dropdown nav-dropdown--up mobile-dd" class:open={openDropdown === 'proyectos'}>
@@ -92,17 +93,17 @@
   </div>
 
   <a href="{base}/sobre-mi" class="mobile-nav-item" class:active={path === '/sobre-mi'}>
-    <User size={22} />
+    <Icon icon={User} size="md" />
     <span>Sobre mí</span>
   </a>
 
   <a href="{base}/sistema" class="mobile-nav-item" class:active={path === '/sistema'}>
-    <Palette size={22} />
+    <Icon icon={Palette} size="md" />
     <span>DS</span>
   </a>
 
   <button class="mobile-nav-item" onclick={toggleTheme} aria-label="Cambiar tema">
-    {#if $theme === 'dark'}<Sun size={22} />{:else}<Moon size={22} />{/if}
+    {#if $theme === 'dark'}<Icon icon={Sun} size="md" />{:else}<Icon icon={Moon} size="md" />{/if}
     <span>Tema</span>
   </button>
 </nav>
@@ -115,7 +116,7 @@
     z-index: 50;
     height: var(--nav-height);
     background: var(--bg-neutral-primary);
-    border-bottom: 1px solid var(--border-neutral-primary);
+    border-bottom: var(--border-width-sm) solid var(--border-neutral-primary);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -146,6 +147,7 @@
     font-weight: var(--weight-regular);
     line-height: var(--lh-normal); /* el <button> no hereda el line-height del body; así mide igual que los <a> */
     color: var(--text-secondary);
+    --icon-color: var(--icon-secondary);
     background: none;
     border: none;
     cursor: pointer;
@@ -158,9 +160,11 @@
   .nav-btn:hover {
     background: var(--bg-neutral-secondary);
     color: var(--text-primary);
+    --icon-color: var(--icon-primary);
   }
   .nav-btn.active {
     color: var(--text-primary);
+    --icon-color: var(--icon-primary);
     font-weight: var(--weight-medium);
   }
   .nav-btn.active::after {
@@ -169,9 +173,9 @@
     bottom: -1px;
     left: var(--space-12);
     right: var(--space-12);
-    height: 2px;
+    height: var(--border-width-lg);
     background: var(--bg-accent);
-    border-radius: 2px 2px 0 0;
+    border-radius: var(--radius-sharp) var(--radius-sharp) 0 0;
   }
   .nav-btn :global(.chevron) {
     transition: transform var(--duration-fast) var(--ease-default);
@@ -179,6 +183,7 @@
   .nav-btn[aria-expanded='true'] {
     background: var(--bg-neutral-secondary);
     color: var(--text-primary);
+    --icon-color: var(--icon-primary);
   }
   .nav-btn[aria-expanded='true'] :global(.chevron) { transform: rotate(180deg); }
 
@@ -196,7 +201,7 @@
     top: calc(100% + 6px);
     left: 0;
     background: var(--bg-neutral-primary);
-    border: 1px solid var(--border-neutral-primary);
+    border: var(--border-width-sm) solid var(--border-neutral-primary);
     border-radius: var(--radius-loose);
     padding: var(--space-8) 0;
     min-width: 200px;
@@ -252,7 +257,7 @@
     right: 0;
     height: 60px;
     background: var(--bg-neutral-primary);
-    border-top: 1px solid var(--border-neutral-primary);
+    border-top: var(--border-width-sm) solid var(--border-neutral-primary);
     z-index: 150;
     align-items: center;
     justify-content: space-around;
@@ -279,9 +284,10 @@
   .mobile-nav-item.active { background: var(--bg-accent-subtle); }
   .mobile-nav-item {
     color: var(--text-secondary);
+    --icon-color: var(--icon-secondary);
     transition: background var(--duration-fast) var(--ease-default), color var(--duration-fast) var(--ease-default);
   }
-  .mobile-nav-item.active { color: var(--text-accent); }
+  .mobile-nav-item.active { color: var(--text-accent); --icon-color: var(--icon-accent); }
   .mobile-nav-item span {
     font-size: var(--size-2xs);
     color: inherit;

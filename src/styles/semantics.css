@@ -71,6 +71,33 @@
   --border-error-hover: var(--red-600);
   --text-error:         var(--red-700);
 
+  /* ── Íconos — color ──
+     Por ahora usan los mismos primitivos que el texto equivalente,
+     pero son tokens propios para poder separarlos después. */
+  --icon-primary:            var(--neutral-800);
+  --icon-secondary:          var(--neutral-500);
+  --icon-disabled:           var(--neutral-400);
+  --icon-accent:             var(--primary-600);
+  --icon-accent-hover:       var(--primary-700);
+  --icon-on-accent:          var(--neutral-white);
+  --icon-on-accent-disabled: var(--primary-600);
+
+  /* ── Íconos — tamaño del contenedor (el ícono lo llena sin deformarse) ──
+     sm: junto a texto pequeño · md: botones y nav · lg: cards */
+  --icon-size-sm: var(--space-16);
+  --icon-size-md: var(--space-20);
+  --icon-size-lg: var(--space-32);
+
+  /* ── Íconos — grosor del trazo, en px reales (no escala con el tamaño) ── */
+  --icon-stroke-sm: var(--stroke-1-5);
+  --icon-stroke-md: var(--stroke-1-75);
+  --icon-stroke-lg: var(--stroke-2);
+
+  /* ── Grosor de borde ── */
+  --border-width-sm: var(--stroke-1);    /* bordes y divisores */
+  --border-width-md: var(--stroke-1-5);  /* botones */
+  --border-width-lg: var(--stroke-2);    /* acentos, foco, indicadores */
+
   /* ── Radius ── */
   --radius-sharp:   var(--radius-2);
   --radius-subtle:  var(--radius-4);
@@ -102,6 +129,9 @@
   /* Papel — fotos impresas con marco (hero del home). Se mantiene claro en modo oscuro. */
   --bg-paper:     var(--neutral-white);
   --border-paper: var(--neutral-200);
+
+  /* Clip metálico de las fotos (hero y card clip) */
+  --border-clip: var(--neutral-500);
 
   /* Destellos del hero */
   --fill-sparkle: var(--amber-200);
@@ -204,6 +234,23 @@
   line-height: var(--lh-normal);
 }
 
+/* ── Cards de contenido (:::tarjeta en los proyectos) ──
+   Mismo tamaño que body y small, pero con interlineado más apretado:
+   en bloques angostos el interlineado de lectura larga se ve suelto. */
+.type-card {
+  font-family: var(--font-body);
+  font-size: var(--size-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-snug);
+}
+
+.type-card-small {
+  font-family: var(--font-body);
+  font-size: var(--size-xs);
+  font-weight: var(--weight-regular);
+  line-height: var(--lh-snug);
+}
+
 /* ── Casos especiales ── */
 .type-label {
   font-family: var(--font-body);
@@ -268,12 +315,42 @@
   --border-neutral-tertiary-hover:     var(--neutral-400);
   --border-neutral-tertiary-disabled:  var(--neutral-500);
 
+  /* Íconos — mismos primitivos que el texto en oscuro */
+  --icon-primary:     var(--neutral-50);
+  --icon-secondary:   var(--neutral-300);
+  --icon-disabled:    var(--neutral-500);
+  --icon-accent:      var(--primary-300);
+  --icon-accent-hover: var(--primary-200);
+  /* En oscuro el botón de acento lleva texto oscuro (ver --text-on-accent) */
+  --icon-on-accent:   var(--neutral-900);
+
+  --border-clip: var(--neutral-300);
+
   /* Accent — el texto de acento sube a un tono mas brillante para leer sobre oscuro */
   --text-accent:          var(--primary-300);
   --text-accent-hover:    var(--primary-200);
   --bg-accent-subtle:     var(--neutral-800);
   --bg-accent-muted:      var(--primary-800);
   --border-accent-subtle: var(--primary-500);
+
+  /* Estados — fondos oscuros del mismo tono, texto y borde más claros para leer */
+  --bg-success:           var(--green-700);
+  --bg-success-hover:     var(--green-600);
+  --border-success:       var(--green-600);
+  --border-success-hover: var(--green-400);
+  --text-success:         var(--green-200);
+
+  --bg-warning:           var(--amber-800);
+  --bg-warning-hover:     var(--amber-700);
+  --border-warning:       var(--amber-700);
+  --border-warning-hover: var(--amber-400);
+  --text-warning:         var(--amber-100);
+
+  --bg-error:           var(--red-700);
+  --bg-error-hover:     var(--red-600);
+  --border-error:       var(--red-600);
+  --border-error-hover: var(--red-400);
+  --text-error:         var(--red-100);
 
   /* Papel — la foto impresa sigue siendo clara sobre fondo oscuro */
   --bg-paper:     var(--neutral-50);

@@ -46,8 +46,8 @@
   /* Las columnas laterales se estiran a la altura total del grid:
      el borde vive en la columna, no en el contenido sticky,
      así el divisor llega hasta abajo y toca el footer. */
-  .col-left { border-right: 1px solid var(--border-neutral-primary); }
-  .col-right { border-left: 1px solid var(--border-neutral-primary); }
+  .col-left { border-right: var(--border-width-sm) solid var(--border-neutral-primary); }
+  .col-right { border-left: var(--border-width-sm) solid var(--border-neutral-primary); }
 
   .col-left .sticky,
   .col-right .sticky {
@@ -81,7 +81,7 @@
     .left-mobile {
       display: block;
       padding: var(--space-20);
-      border: 1px solid var(--border-neutral-primary);
+      border: var(--border-width-sm) solid var(--border-neutral-primary);
       border-radius: var(--radius-loose);
       margin-bottom: var(--space-32);
     }

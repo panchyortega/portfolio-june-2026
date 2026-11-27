@@ -1,4 +1,5 @@
 <script>
+  import IconBox from './Icon.svelte';
   /**
    * Button
    * Si recibe `href` se renderiza como <a>, si no como <button>.
@@ -19,12 +20,12 @@
 
 {#if href}
   <a class="btn btn-{variant}" {href} aria-disabled={disabled}>
-    {#if Icon}<Icon size={16} aria-hidden="true" />{/if}
+    {#if Icon}<IconBox icon={Icon} size="md" />{/if}
     {@render children()}
   </a>
 {:else}
   <button class="btn btn-{variant}" {disabled} {onclick}>
-    {#if Icon}<Icon size={16} aria-hidden="true" />{/if}
+    {#if Icon}<IconBox icon={Icon} size="md" />{/if}
     {@render children()}
   </button>
 {/if}
@@ -37,10 +38,10 @@
     font-family: var(--font-body);
     font-size: var(--size-base);
     font-weight: var(--weight-medium);
-    line-height: 1;
+    line-height: var(--lh-none);
     padding: var(--space-12) var(--space-24);
     border-radius: var(--radius-pill);
-    border: 1.5px solid transparent;
+    border: var(--border-width-md) solid transparent;
     cursor: pointer;
     text-decoration: none;
     transition:
@@ -58,6 +59,7 @@
   .btn-primary {
     background: var(--bg-accent);
     color: var(--text-on-accent);
+    --icon-color: var(--icon-on-accent);
     border-color: var(--border-accent);
   }
   .btn-primary:hover {
@@ -69,6 +71,7 @@
     background: var(--bg-accent-disabled);
     border-color: var(--border-accent-disabled);
     color: var(--text-on-accent-disabled);
+    --icon-color: var(--icon-on-accent-disabled);
     cursor: not-allowed;
     pointer-events: none;
   }
@@ -77,6 +80,7 @@
   .btn-ghost {
     background: transparent;
     color: var(--text-primary);
+    --icon-color: var(--icon-primary);
     border-color: var(--border-neutral-primary);
   }
   .btn-ghost:hover {
@@ -86,6 +90,7 @@
   .btn-ghost:disabled,
   .btn-ghost[aria-disabled='true'] {
     color: var(--text-disabled);
+    --icon-color: var(--icon-disabled);
     cursor: not-allowed;
     pointer-events: none;
   }
@@ -95,15 +100,18 @@
     background: transparent;
     border-color: transparent;
     color: var(--text-accent);
+    --icon-color: var(--icon-accent);
     padding-left: 0;
     padding-right: 0;
   }
   .btn-link:hover {
     color: var(--text-accent-hover);
+    --icon-color: var(--icon-accent-hover);
   }
   .btn-link:disabled,
   .btn-link[aria-disabled='true'] {
     color: var(--text-disabled);
+    --icon-color: var(--icon-disabled);
     cursor: not-allowed;
     pointer-events: none;
   }

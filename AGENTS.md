@@ -52,7 +52,9 @@ Reglas:
 - Nunca pongas un color hex ni un primitivo de color directo en un componente. Usa el semántico.
 - Si falta un semántico para tu caso, agrégalo en `semantics.css`, no improvises en el componente.
 - El **modo oscuro** funciona remapeando semánticos bajo `:root[data-theme='dark']` en `semantics.css`. No toca componentes. Si agregas un semántico de color nuevo, considera su versión oscura.
-- Las clases de tipografía compuestas (`.type-h1`, `.type-body`, etc.) son globales y viven en `semantics.css`. Úsalas en vez de redefinir font-size/weight.
+- Las clases de tipografía compuestas (`.type-h1`, `.type-body`, etc.) son globales y viven en `semantics.css`. Úsalas en vez de redefinir font-size/weight. El markdown de los proyectos ya sale con ellas (`markdown.js` agrega `.type-h2`, `.type-h3`, `.type-body`, y `.type-card` / `.type-card-small` dentro de las tarjetas): no redefinas tipografía en `.prose`.
+- **Íconos**: siempre con `<Icon icon={NombreLucide} size="sm|md|lg" />` (nunca `<Lucide size={n}>` suelto). Es un contenedor fijo (`--icon-size-*`, que salen de `--space-*`) que el ícono llena sin deformarse; cada tamaño trae su grosor (`--icon-stroke-*`, en px reales). sm: junto a texto pequeño · md: botones y nav · lg: cards. El color lo define el contexto con `--icon-color: var(--icon-*)` junto al `color` del texto (incluye hover/active/disabled). En HTML del markdown: `<span class="icon icon-lg">${lucideSvg(...)}</span>`.
+- **Grosores de línea**: los valores viven en primitivos `--stroke-*`; los bordes usan `--border-width-sm|md|lg`. Excepción: el home y sus cards de papel (HeroPhotos, ProjectCard*) pueden tener grosores propios.
 
 ## Contenido (cómo se agregan cosas)
 

@@ -48,8 +48,8 @@
   flex-direction: column;
   gap: var(--spacing-gap-sm);
   padding: var(--space-20);
-  background: var(--bg-neutral-secondary);
-  border: 1px solid var(--border-neutral-primary);
+  background: var(--bg-neutral-primary);
+  border: var(--border-width-sm) solid var(--border-neutral-primary);
   border-radius: var(--radius-loose);
   margin: var(--space-24) 0;
 }
@@ -63,10 +63,9 @@
 .data-card > :is(span, a, button) {
   align-self: flex-start;
 }
-/* Ícono Lucide arriba de la tarjeta */
-.data-card > .data-card-icon {
-  color: var(--text-accent);
-  flex-shrink: 0;
+/* Ícono Lucide arriba de la tarjeta (contenedor .icon .icon-lg) */
+.data-card {
+  --icon-color: var(--icon-accent);
 }
 /* Título + bajada agrupados: gap más chico que el de la tarjeta */
 .data-card-text {
@@ -77,21 +76,45 @@
 .data-card-text > * {
   margin: 0 !important;
 }
-/* Bajada en texto pequeño: <small>…</small> en el markdown (mismo estilo que .type-small) */
+/* Bajada en texto pequeño: <small>…</small> en el markdown.
+   Tipografía: clase .type-card-small (semantics.css), que agrega markdown.js. */
 .data-card small {
   display: block;
-  font-family: var(--font-body);
-  font-size: var(--size-xs);
-  font-weight: var(--weight-regular);
-  line-height: var(--lh-normal);
   color: var(--text-secondary);
 }
+/* Tipografía: clase .type-h3 que agrega markdown.js */
 .data-card > h4 {
-  font-family: var(--font-display);
-  font-size: var(--size-xl);
-  font-weight: var(--weight-regular);
-  line-height: var(--lh-snug);
   color: var(--text-primary);
+}
+
+/* ── Icon: contenedor de tamaño fijo para íconos Lucide ──
+   Global porque lo usan el componente Icon.svelte y el HTML que genera
+   markdown.js. El SVG (cuadrado) llena el contenedor sin deformarse.
+   El color sale de --icon-color, que define el contexto (botón, nav…)
+   con un token --icon-*; si nadie lo define, usa --icon-primary. */
+.icon {
+  --icon-size: var(--icon-size-md);
+  --icon-stroke: var(--icon-stroke-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: var(--icon-color, var(--icon-primary));
+}
+.icon-sm { --icon-size: var(--icon-size-sm); --icon-stroke: var(--icon-stroke-sm); }
+.icon-md { --icon-size: var(--icon-size-md); --icon-stroke: var(--icon-stroke-md); }
+.icon-lg { --icon-size: var(--icon-size-lg); --icon-stroke: var(--icon-stroke-lg); }
+.icon > svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: var(--icon-stroke);
+}
+/* El trazo se mide en px de pantalla, no en unidades del viewBox:
+   así el grosor del token es el que se ve, sea cual sea el tamaño. */
+.icon > svg * {
+  vector-effect: non-scaling-stroke;
 }
 
 /* ── ImagePlaceholder: marca de posición mientras no hay imagen real ── */
@@ -111,7 +134,7 @@
 /* En el contenido de un proyecto: mismo radio y margen que las imágenes */
 .img-placeholder.in-content {
   border-radius: var(--radius-loose);
-  border: 1px solid var(--border-neutral-primary);
+  border: var(--border-width-sm) solid var(--border-neutral-primary);
   margin: var(--space-32) 0;
 }
 .data-card > .img-placeholder.in-content { margin: 0; }
@@ -125,7 +148,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius-loose); /* mismo radio que las imágenes */
-  border: 1px solid var(--border-neutral-primary);
+  border: var(--border-width-sm) solid var(--border-neutral-primary);
   background: var(--bg-neutral-secondary);
   cursor: pointer;
   user-select: none;
@@ -133,7 +156,7 @@
   aspect-ratio: 16 / 9;
 }
 .video-frame:focus-visible {
-  outline: 2px solid var(--border-accent);
+  outline: var(--border-width-lg) solid var(--border-accent);
   outline-offset: 2px;
 }
 .video-frame video {
@@ -215,7 +238,7 @@
   transform: translate(-50%, -50%);
   border-radius: var(--radius-pill);
   background: var(--bg-accent);
-  border: 2px solid var(--bg-neutral-primary);
+  border: var(--border-width-lg) solid var(--bg-neutral-primary);
 }
 .content-video .content-caption {
   margin-top: var(--space-8);

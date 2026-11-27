@@ -76,7 +76,7 @@
     left: 26px;
     width: 14px;
     height: 40px;
-    border: 2px solid var(--text-secondary);
+    border: 2px solid var(--border-clip);
     border-radius: 7px;
     pointer-events: none;
   }
@@ -87,7 +87,7 @@
     right: 1px;
     top: 9px;
     bottom: -3px;
-    border: 2px solid var(--text-secondary);
+    border: 2px solid var(--border-clip);
     border-radius: 5px;
   }
 

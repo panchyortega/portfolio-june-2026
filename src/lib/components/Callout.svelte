@@ -12,7 +12,7 @@
 
 <style>
   .callout {
-    border-left: 2px solid var(--border-accent-subtle);
+    border-left: var(--border-width-lg) solid var(--border-accent-subtle);
     padding: var(--space-12) var(--space-16);
     background: var(--bg-accent-subtle);
     border-radius: 0 var(--radius-default) var(--radius-default) 0;

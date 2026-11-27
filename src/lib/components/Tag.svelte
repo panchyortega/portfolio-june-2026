@@ -16,7 +16,7 @@
     font-weight: var(--weight-medium);
     padding: var(--space-4) var(--space-8);
     border-radius: var(--radius-subtle);
-    line-height: 1;
+    line-height: var(--lh-none);
     white-space: nowrap;
   }
 
