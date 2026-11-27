@@ -225,7 +225,7 @@
       <div class="comp-demo"><div style="max-width: 280px">
         <ListItem icon={Headset} title="Soporte" description="Confirmación de solicitudes recurrentes." />
       </div></div>
-      <p class="muted type-small">Ícono a la izquierda, título y bajada al costado. En el markdown: <code>:::item nombre-icono</code>.</p>
+      <p class="muted type-small">Tarjeta en web, list item en mobile (ícono a la izquierda). En el markdown: <code>:::item nombre-icono</code>.</p>
     </div>
     <div class="comp-block">
       <p class="comp-name type-label">Columns</p>

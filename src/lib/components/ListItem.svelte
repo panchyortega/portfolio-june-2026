@@ -1,7 +1,8 @@
 <script>
   /**
    * ListItem
-   * Ícono a la izquierda y, al costado, un título con su bajada.
+   * Ícono + título con su bajada. En web se ve como tarjeta (ícono arriba);
+   * en mobile (≤ 900px) como list item (ícono a la izquierda, texto al costado).
    * Para listas de hallazgos, necesidades o aprendizajes dentro del contenido.
    * Estilos globales en src/styles/blocks.css (también se usan desde markdown: :::item nombre-icono).
    * @prop {Component} icon - componente de @lucide/svelte (opcional)

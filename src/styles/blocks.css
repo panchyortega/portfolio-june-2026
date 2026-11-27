@@ -87,13 +87,21 @@
   color: var(--text-primary);
 }
 
-/* ── ListItem: ícono a la izquierda, título y bajada al costado ──
+/* ── ListItem: ícono + título y bajada, responsive ──
+   Web: se ve como tarjeta (ícono arriba, mismo estilo que DataCard).
+   Mobile (≤ 900px, mismo corte que la nav): list item, ícono a la izquierda
+   y texto al costado, sin caja.
    En el markdown: :::item nombre-icono (ver markdown.js). */
 .list-item {
   --icon-color: var(--icon-accent);
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-gap-sm);
+  padding: var(--space-20);
+  background: var(--bg-neutral-primary);
+  border: var(--border-width-sm) solid var(--border-neutral-primary);
+  border-radius: var(--radius-loose);
   margin: var(--space-24) 0;
 }
 .columns > .list-item { margin: 0 !important; }
@@ -109,6 +117,16 @@
 .list-item-text small {
   display: block;
   color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .list-item {
+    flex-direction: row;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+  }
 }
 
 /* ── Icon: contenedor de tamaño fijo para íconos Lucide ──
