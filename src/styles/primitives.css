@@ -156,6 +156,7 @@
 
   /* ── Layout ── */
   --nav-height:    52px;
+  --nav-height-mobile: 60px;   /* barra inferior en mobile */
   --site-max:      1280px;
   --content-max:   600px;
   --sidebar-width: 220px;

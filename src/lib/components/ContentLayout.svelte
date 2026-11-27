@@ -4,7 +4,8 @@
   /**
    * Layout de 3 columnas: sidebar izq | contenido | TOC der.
    * Las líneas divisorias llegan siempre hasta abajo (tocan el footer).
-   * La columna izquierda puede ir vacía (mantiene su divisor).
+   * La columna izquierda puede ir vacía (mantiene su divisor). En mobile se oculta:
+   * si su contenido debe verse ahí, la página lo pasa también a PageHeader (prop meta).
    * @prop {Array<{text,id,depth}>} tocItems
    * @prop {import('svelte').Snippet} [left] - contenido del sidebar izquierdo (opcional)
    * @prop {import('svelte').Snippet} children
@@ -18,7 +19,6 @@
   </aside>
 
   <main class="col-center">
-    {#if left}<div class="left-mobile">{@render left()}</div>{/if}
     {@render children()}
   </main>
 
@@ -53,7 +53,7 @@
   .col-right .sticky {
     position: sticky;
     top: var(--nav-height);
-    padding: var(--space-32);
+    padding: var(--spacing-sidebar-pad);
   }
   .col-left .sticky {
     max-height: calc(100vh - var(--nav-height));
@@ -61,7 +61,7 @@
   }
 
   .col-center {
-    padding: var(--space-32) var(--space-56) var(--space-48);
+    padding: var(--spacing-content-pad-y) var(--spacing-content-pad-x) var(--spacing-inset-2xl);
     max-width: 760px;
     width: 100%;
     justify-self: center;
@@ -69,21 +69,13 @@
 
   .toc-title {
     color: var(--text-secondary);
-    margin-bottom: var(--space-16);
+    margin-bottom: var(--spacing-stack-md);
   }
 
-  .left-mobile { display: none; }
 
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; min-height: 0; }
     .col-left, .col-right { display: none; }
-    .col-center { padding: var(--space-32) var(--space-24); max-width: 100%; }
-    .left-mobile {
-      display: block;
-      padding: var(--space-20);
-      border: var(--border-width-sm) solid var(--border-neutral-primary);
-      border-radius: var(--radius-loose);
-      margin-bottom: var(--space-32);
-    }
+    .col-center { max-width: 100%; }
   }
 </style>

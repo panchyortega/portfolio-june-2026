@@ -105,26 +105,53 @@
   --radius-loose:   var(--radius-12);
   --radius-pill:    var(--radius-full);
 
-  /* ── Spacing — padding interno de componentes ── */
-  --spacing-component-xs: var(--space-4)  var(--space-8);
-  --spacing-component-sm: var(--space-8)  var(--space-12);
-  --spacing-component-md: var(--space-12) var(--space-20);
-  --spacing-component-lg: var(--space-16) var(--space-24);
+  /* ── Espaciado ──
+     Una escala de 7 pasos: 2xs 4 · xs 8 · sm 12 · md 16 · lg 24 · xl 32 · 2xl 48.
+     Tres familias con los mismos pasos, separadas por uso para poder
+     ajustarlas sin mover las otras:
+     - inset: relleno interno de un elemento y desplazamientos dentro de él
+     - gap:   separación entre hermanos (flex / grid)
+     - stack: separación vertical entre bloques (margin) */
+  --spacing-inset-2xs: var(--space-4);
+  --spacing-inset-xs:  var(--space-8);
+  --spacing-inset-sm:  var(--space-12);
+  --spacing-inset-md:  var(--space-16);
+  --spacing-inset-lg:  var(--space-24);
+  --spacing-inset-xl:  var(--space-32);
+  --spacing-inset-2xl: var(--space-48);
 
-  /* ── Spacing — gaps entre elementos ── */
-  --spacing-gap-xs: var(--space-8);
-  --spacing-gap-sm: var(--space-12);
-  --spacing-gap-md: var(--space-24);
-  --spacing-gap-lg: var(--space-40);
+  --spacing-gap-2xs: var(--space-4);
+  --spacing-gap-xs:  var(--space-8);
+  --spacing-gap-sm:  var(--space-12);
+  --spacing-gap-md:  var(--space-16);
+  --spacing-gap-lg:  var(--space-24);
+  --spacing-gap-xl:  var(--space-32);
+  --spacing-gap-2xl: var(--space-48);
 
-  /* ── Spacing — padding de secciones ── */
+  --spacing-stack-2xs: var(--space-4);
+  --spacing-stack-xs:  var(--space-8);
+  --spacing-stack-sm:  var(--space-12);
+  --spacing-stack-md:  var(--space-16);
+  --spacing-stack-lg:  var(--space-24);
+  --spacing-stack-xl:  var(--space-32);
+  --spacing-stack-2xl: var(--space-48);
+
+  /* ── Espaciado — secciones ── */
   --spacing-section-sm: var(--space-48);
   --spacing-section-md: var(--space-80);
   --spacing-section-lg: var(--space-128);
 
-  /* ── Spacing — layout ── */
-  --spacing-sidebar-pad: var(--space-32);
-  --spacing-content-pad: var(--space-32);
+  /* ── Espaciado — layout de página (responsive, ver media query abajo) ── */
+  --spacing-gutter:        var(--space-32);  /* margen lateral de nav y footer */
+  --spacing-sidebar-pad:   var(--space-32);
+  --spacing-content-pad-y: var(--space-32);
+  --spacing-content-pad-x: var(--space-48);
+
+  /* ── Tamaños de controles (video) ── */
+  --size-control:  var(--space-48);  /* botón circular de pausa */
+  --size-hit-area: var(--space-24);  /* zona de clic de la línea de progreso */
+  --size-track:    var(--space-4);   /* grosor de la línea de progreso */
+  --size-handle:   var(--space-12);  /* punto que se arrastra */
 
   /* Papel — fotos impresas con marco (hero del home). Se mantiene claro en modo oscuro. */
   --bg-paper:     var(--neutral-white);
@@ -180,6 +207,8 @@
 
 @media (max-width: 900px) {
   :root {
+    --spacing-gutter:        var(--space-24);
+    --spacing-content-pad-x: var(--space-24);
     --font-size-display: var(--size-5xl); /* 40px */
     --font-size-h1:      var(--size-4xl); /* 32px */
     --font-size-h2:      var(--size-3xl); /* 28px */

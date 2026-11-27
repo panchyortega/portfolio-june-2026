@@ -44,7 +44,9 @@
     subtitle={project.desc}
     backHref={`${base}/`}
     {readingTime}
-  />
+  >
+    {#snippet meta()}<MetaCard items={project.meta} />{/snippet}
+  </PageHeader>
 
   <article class="prose" bind:this={proseEl}>
     {@html html}
@@ -58,12 +60,12 @@
 
 <style>
   .project-nav {
-    margin-top: var(--space-64);
-    padding-top: var(--space-32);
+    margin-top: var(--spacing-section-sm);
+    padding-top: var(--spacing-inset-xl);
     border-top: var(--border-width-sm) solid var(--border-neutral-primary);
     display: flex;
     justify-content: flex-end;
-    gap: var(--space-12);
+    gap: var(--spacing-gap-sm);
   }
 
   /* ── Prose — estilos del markdown renderizado ── */
@@ -71,42 +73,42 @@
      markdown.js. Acá solo color y ritmo vertical. */
   .prose :global(h2) {
     color: var(--text-primary);
-    margin: var(--space-48) 0 var(--space-16);
-    scroll-margin-top: calc(var(--nav-height) + var(--space-24));
+    margin: var(--spacing-stack-2xl) 0 var(--spacing-stack-md);
+    scroll-margin-top: calc(var(--nav-height) + var(--spacing-stack-lg));
   }
   .prose :global(h2:first-child) { margin-top: 0; }
   .prose :global(h3) {
     color: var(--text-primary);
-    margin: var(--space-32) 0 var(--space-12);
-    scroll-margin-top: calc(var(--nav-height) + var(--space-24));
+    margin: var(--spacing-stack-xl) 0 var(--spacing-stack-sm);
+    scroll-margin-top: calc(var(--nav-height) + var(--spacing-stack-lg));
   }
   .prose :global(p) {
     color: var(--text-primary);
-    margin-bottom: var(--space-20);
+    margin-bottom: var(--spacing-stack-lg);
   }
   .prose :global(blockquote) {
     border-left: var(--border-width-lg) solid var(--border-accent-subtle);
-    padding: var(--space-12) var(--space-16);
+    padding: var(--spacing-inset-sm) var(--spacing-inset-md);
     background: var(--bg-accent-subtle);
     border-radius: 0 var(--radius-default) var(--radius-default) 0;
     font-style: italic;
     color: var(--text-accent);
-    margin: var(--space-24) 0;
+    margin: var(--spacing-stack-lg) 0;
   }
   .prose :global(blockquote p) { color: var(--text-accent); margin: 0; }
   .prose :global(a) { color: var(--text-accent); text-decoration: underline; }
   .prose :global(ul), .prose :global(ol) {
-    margin: 0 0 var(--space-20) var(--space-20);
+    margin: 0 0 var(--spacing-stack-lg) var(--spacing-inset-lg);
     list-style: revert;
   }
-  .prose :global(li) { margin-bottom: var(--space-4); line-height: var(--lh-normal); }
+  .prose :global(li) { margin-bottom: var(--spacing-stack-2xs); line-height: var(--lh-normal); }
 
   /* ── Imágenes del contenido — pan + zoom in-situ ── */
   .prose :global(.content-image) {
-    margin: var(--space-32) 0;
+    margin: var(--spacing-stack-xl) 0;
   }
   .prose :global(.content-caption) {
-    margin-top: var(--space-8);
+    margin-top: var(--spacing-stack-xs);
     font-size: var(--size-xs);
     color: var(--text-secondary);
     text-align: center;
@@ -165,10 +167,10 @@
   /* Controles fijos — aparecen en hover, no oscurecen el fondo */
   .prose :global(.zoom-controls) {
     position: absolute;
-    bottom: var(--space-16);
-    right: var(--space-16);
+    bottom: var(--spacing-inset-md);
+    right: var(--spacing-inset-md);
     display: flex;
-    gap: var(--space-6);
+    gap: var(--spacing-gap-xs);
     opacity: 0;
     transform: translateY(4px);
     transition: opacity var(--duration-fast) var(--ease-default), transform var(--duration-fast) var(--ease-default);
@@ -208,14 +210,14 @@
 
   .prose :global(.zoom-level) {
     position: absolute;
-    bottom: var(--space-16);
-    left: var(--space-16);
+    bottom: var(--spacing-inset-md);
+    left: var(--spacing-inset-md);
     font-size: var(--size-xs);
     color: var(--text-secondary);
     background: var(--bg-neutral-primary);
     border: var(--border-width-sm) solid var(--border-neutral-primary);
     border-radius: var(--radius-default);
-    padding: var(--space-4) var(--space-8);
+    padding: var(--spacing-inset-2xs) var(--spacing-inset-xs);
     opacity: 0;
     transition: opacity var(--duration-fast) var(--ease-default);
     z-index: 2;
@@ -229,7 +231,7 @@
   .prose :global(pre.mermaid) {
     display: flex;
     justify-content: center;
-    margin: var(--space-32) 0;
+    margin: var(--spacing-stack-xl) 0;
     padding: 0;
     background: none;
     border: none;
